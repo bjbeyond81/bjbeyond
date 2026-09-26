@@ -6,7 +6,7 @@ BJ Beyond (Matteo Zanetti) si impegna a proteggere la tua privacy. Questa Inform
 
 ### Titolare del Trattamento
 - **Titolare**: Matteo Zanetti – BJ Beyond  
-- **Sede**: Milano, Italia  
+- **Sede**: Verona, Italia  
 - **Email**: bj_beyond@tutamail.com  
 - **X**: [@BJ_Beyond](https://x.com/BJ_Beyond)
 

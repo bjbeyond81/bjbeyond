@@ -22,9 +22,9 @@ export const SITE = {
   tagline: 'Intelligence is the standard.',
   domain: 'bjbeyond.it',
   url: 'https://bjbeyond.it',
-  locale: 'Milano, Italia',
+  locale: 'Verona, Italia',
   description:
-    'BJ Beyond helps artists, collectors and companies navigate the new creative economy at the intersection of data, AI and human intuition. Independent practice based in Milano.',
+    'BJ Beyond helps artists, collectors and companies navigate the new creative economy at the intersection of data, AI and human intuition. Independent practice based in Verona.',
   /**
    * Alt text for the shared social card.
    *
@@ -63,7 +63,7 @@ export const BEYOND = {
   index: '01',
   label: ['WHO IS', 'BJ BEYOND'],
   name: 'BJ BEYOND',
-  role: 'INDEPENDENT PRACTICE — MILANO',
+  role: 'INDEPENDENT PRACTICE — VERONA',
   lede: 'Independent practice at the intersection of data, AI, and human intuition.',
   body: [
     'BJ Beyond helps artists, collectors, and companies navigate the new creative economy. I combine deep art market expertise with cutting-edge data science and AI tools.',
