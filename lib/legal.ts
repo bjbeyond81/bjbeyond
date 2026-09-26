@@ -74,7 +74,7 @@ export const PRIVACY: LegalDocument = {
           kind: 'pairs',
           items: [
             { term: 'Titolare', detail: 'Matteo Zanetti – BJ Beyond' },
-            { term: 'Sede', detail: 'Milano, Italia' },
+            { term: 'Sede', detail: 'Verona, Italia' },
             { term: 'Email', detail: EMAIL },
             { term: 'X', detail: X_HANDLE },
           ],

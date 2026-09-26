@@ -51,7 +51,7 @@ export function siteSchema() {
     '@graph': [
       {
         /* Dual type: Organisation for the entity graph, ProfessionalService for
-           local/GEO signals (areaServed, Milano) without inventing a shopfront. */
+           local/GEO signals (areaServed, Verona) without inventing a shopfront. */
         '@type': ['Organization', 'ProfessionalService'],
         '@id': ORGANISATION_ID,
         name: SITE.name,
@@ -65,11 +65,11 @@ export function siteSchema() {
         email: CONTACT.emails[0].address.toLowerCase(),
         address: {
           '@type': 'PostalAddress',
-          addressLocality: 'Milano',
+          addressLocality: 'Verona',
           addressCountry: 'IT',
         },
         areaServed: [
-          { '@type': 'City', name: 'Milano' },
+          { '@type': 'City', name: 'Verona' },
           { '@type': 'Country', name: 'Italy' },
           { '@type': 'AdministrativeArea', name: 'European Union' },
         ],

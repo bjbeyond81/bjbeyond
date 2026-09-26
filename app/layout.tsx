@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     'Phoenix Soulfire',
     'art authentication',
     'BJ Beyond',
-    'Milano',
+    'Verona',
     'Italy',
   ],
   authors: [{ name: SITE.name, url: SITE.url }],
@@ -87,8 +87,8 @@ export const metadata: Metadata = {
     },
   },
   other: {
-    'geo.region': 'IT-25',
-    'geo.placename': 'Milano',
+    'geo.region': 'IT-34',
+    'geo.placename': 'Verona',
   },
 };
 
