@@ -50,7 +50,9 @@ export function siteSchema() {
     '@context': 'https://schema.org',
     '@graph': [
       {
-        '@type': 'Organization',
+        /* Dual type: Organisation for the entity graph, ProfessionalService for
+           local/GEO signals (areaServed, Milano) without inventing a shopfront. */
+        '@type': ['Organization', 'ProfessionalService'],
         '@id': ORGANISATION_ID,
         name: SITE.name,
         url: SITE.url,
@@ -66,6 +68,19 @@ export function siteSchema() {
           addressLocality: 'Milano',
           addressCountry: 'IT',
         },
+        areaServed: [
+          { '@type': 'City', name: 'Milano' },
+          { '@type': 'Country', name: 'Italy' },
+          { '@type': 'AdministrativeArea', name: 'European Union' },
+        ],
+        knowAbout: [
+          'art market intelligence',
+          'AI strategy',
+          'Power BI',
+          'Phoenix Soulfire',
+          'art authentication',
+          'data systems',
+        ],
         /*
           The first address only, and that is a statement about whose it is.
           `CONTACT.emails` also carries the address of the digital creator of
@@ -79,6 +94,8 @@ export function siteSchema() {
           '@type': 'ContactPoint',
           contactType: CONTACT.emails[0].role.toLowerCase(),
           email: CONTACT.emails[0].address.toLowerCase(),
+          areaServed: 'IT',
+          availableLanguage: ['English', 'Italian'],
         },
         /* The whole point of the graph: these accounts and this organisation
            are one entity. Derived, so removing a platform removes it here. */

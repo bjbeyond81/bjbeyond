@@ -48,12 +48,15 @@ export const metadata: Metadata = {
     'Phoenix Soulfire',
     'art authentication',
     'BJ Beyond',
+    'Milano',
+    'Italy',
   ],
   authors: [{ name: SITE.name, url: SITE.url }],
   creator: SITE.name,
   openGraph: {
     type: 'website',
-    locale: 'en',
+    locale: 'en_US',
+    alternateLocale: ['it_IT'],
     url: SITE.url,
     siteName: SITE.name,
     title: `${SITE.name} — ${SITE.tagline}`,
@@ -66,8 +69,27 @@ export const metadata: Metadata = {
     title: `${SITE.name} — ${SITE.tagline}`,
     description: SITE.description,
   },
-  alternates: { canonical: '/' },
-  robots: { index: true, follow: true },
+  alternates: {
+    canonical: '/',
+    types: {
+      'text/plain': '/llms.txt',
+    },
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
+  },
+  other: {
+    'geo.region': 'IT-25',
+    'geo.placename': 'Milano',
+  },
 };
 
 export const viewport: Viewport = {
