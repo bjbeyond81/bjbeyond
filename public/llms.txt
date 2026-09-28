@@ -1,4 +1,4 @@
-# BJ Beyond
+# Bj Beyond
 
 > Independent practice in Verona: art market intelligence at the intersection of data, AI, and human intuition.
 
@@ -7,6 +7,7 @@
 
 ## Primary pages
 - https://bjbeyond.it/ — homepage
+- https://bjbeyond.it/about/ — who is Bj Beyond
 - https://bjbeyond.it/art/ — art market intelligence
 - https://bjbeyond.it/method/ — Phoenix Soulfire™ five-pillar method
 - https://bjbeyond.it/labs/ — AI tools and simulators
