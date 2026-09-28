@@ -115,7 +115,7 @@ export function About() {
                     sits in. Since height is width x 16/9, capping the width at
                     38vh caps the height at ~68vh, so the portrait can never
                     outgrow the screen at any width. */}
-                <div className="relative mx-auto aspect-9/16 w-[min(72%,38vh)] lg:mx-0 lg:aspect-auto lg:h-[88vh] lg:w-full">
+                <div className="u-portrait-fade relative mx-auto aspect-9/16 w-[min(72%,38vh)] lg:mx-0 lg:aspect-auto lg:h-[88vh] lg:w-full">
                   <Atmosphere
                     media={MEDIA.portrait}
                     scrim="none"
@@ -127,16 +127,6 @@ export function About() {
                        270px and step up to the 810w variant to cover it. */
                     sizes="(max-width: 1024px) 66vw, 42vw"
                     className="h-full w-full"
-                  />
-
-                  {/* Grounds the figure so it does not appear to float. */}
-                  <div
-                    aria-hidden="true"
-                    className="absolute inset-x-0 bottom-0 h-1/4"
-                    style={{
-                      background:
-                        'linear-gradient(to top, rgb(5 5 5 / 0.85) 0%, transparent 100%)',
-                    }}
                   />
                 </div>
               </Reveal>
