@@ -4,8 +4,11 @@ import { COOKIES } from '@/lib/legal';
 
 export const metadata: Metadata = {
   title: 'Cookie Policy',
-  description: 'Come BJ Beyond utilizza i cookie sul sito bjbeyond.it.',
+  description: 'Come Bj Beyond utilizza i cookie sul sito bjbeyond.it.',
   alternates: { canonical: '/cookie-policy/' },
+  /* Legal pages stay reachable but out of search and AI indexes: the
+     controller has to be named here by law, and that is the only reason. */
+  robots: { index: false, follow: true },
 };
 
 export default function CookiePolicyPage() {

@@ -64,7 +64,7 @@ export const PRIVACY: LegalDocument = {
   updated: '21 Luglio 2026',
   legacyPath: '/pages/privacy-policy.html',
   intro:
-    'BJ Beyond (Matteo Zanetti) si impegna a proteggere la tua privacy. Questa Informativa descrive come raccogliamo, utilizziamo e proteggiamo i tuoi dati personali in conformità con il Regolamento UE 2016/679 (GDPR), il D.Lgs. 196/2003 (Codice Privacy) e le Linee Guida EDPD.',
+    'Bj Beyond si impegna a proteggere la tua privacy. Questa Informativa descrive come raccogliamo, utilizziamo e proteggiamo i tuoi dati personali in conformità con il Regolamento UE 2016/679 (GDPR), il D.Lgs. 196/2003 (Codice Privacy) e le Linee Guida EDPD.',
   sections: [
     {
       id: 'titolare',
@@ -73,7 +73,7 @@ export const PRIVACY: LegalDocument = {
         {
           kind: 'pairs',
           items: [
-            { term: 'Titolare', detail: 'Matteo Zanetti – BJ Beyond' },
+            { term: 'Titolare', detail: 'Matteo Zanetti – Bj Beyond' },
             { term: 'Sede', detail: 'Verona, Italia' },
             { term: 'Email', detail: EMAIL },
             { term: 'X', detail: X_HANDLE },
@@ -189,7 +189,7 @@ export const COOKIES: LegalDocument = {
   updated: '21 Luglio 2026',
   legacyPath: '/pages/cookie-policy.html',
   intro:
-    'Questa Cookie Policy integra la Privacy Policy e ti spiega come BJ Beyond utilizza i cookie sul sito bjbeyond.it.',
+    'Questa Cookie Policy integra la Privacy Policy e ti spiega come Bj Beyond utilizza i cookie sul sito bjbeyond.it.',
   sections: [
     {
       id: 'cosa-sono',

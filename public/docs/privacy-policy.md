@@ -2,7 +2,7 @@
 
 **Ultimo aggiornamento: 21 Luglio 2026**
 
-BJ Beyond (Matteo Zanetti) si impegna a proteggere la tua privacy. Questa Informativa descrive come raccogliamo, utilizziamo e proteggiamo i tuoi dati personali in conformità con il **Regolamento UE 2016/679 (GDPR)**, il D.Lgs. 196/2003 (Codice Privacy) e le Linee Guida EDPD.
+Bj Beyond si impegna a proteggere la tua privacy. Questa Informativa descrive come raccogliamo, utilizziamo e proteggiamo i tuoi dati personali in conformità con il **Regolamento UE 2016/679 (GDPR)**, il D.Lgs. 196/2003 (Codice Privacy) e le Linee Guida EDPD.
 
 ### Titolare del Trattamento
 - **Titolare**: Matteo Zanetti – BJ Beyond  

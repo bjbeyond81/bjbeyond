@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     'Power BI',
     'Phoenix Soulfire',
     'art authentication',
-    'BJ Beyond',
+    'Bj Beyond',
     'Verona',
     'Italy',
   ],

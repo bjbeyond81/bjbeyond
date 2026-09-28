@@ -18,7 +18,7 @@
  * `CONTACT`, so changing a social link in one place changes what Google is
  * told, and there is no second place to forget.
  *
- * WHAT IT BUYS. This is the vocabulary Google reads to decide that `BJ Beyond`
+ * WHAT IT BUYS. This is the vocabulary Google reads to decide that `Bj Beyond`
  * is an entity rather than a phrase: it is what a knowledge panel is assembled
  * from, and `sameAs` is how the accounts on X, TikTok, Threads, Reddit and
  * Beacons get attached to the same entity instead of floating separately.
@@ -55,6 +55,10 @@ export function siteSchema() {
         '@type': ['Organization', 'ProfessionalService'],
         '@id': ORGANISATION_ID,
         name: SITE.name,
+        /* Every spelling the brand circulates under online. Without this, a
+           crawler or an LLM treats "BJ Beyond", "Bj_Beyond" and "bjbeyond" as
+           three unrelated strings instead of one entity. */
+        alternateName: ['BJ Beyond', 'Bj_Beyond', 'BJ BEYOND', 'bjbeyond'],
         url: SITE.url,
         description: SITE.description,
         slogan: SITE.tagline,
@@ -73,7 +77,7 @@ export function siteSchema() {
           { '@type': 'Country', name: 'Italy' },
           { '@type': 'AdministrativeArea', name: 'European Union' },
         ],
-        knowAbout: [
+        knowsAbout: [
           'art market intelligence',
           'AI strategy',
           'Power BI',
