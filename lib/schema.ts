@@ -29,7 +29,7 @@
  * of the site. Add it if the owner wants the person and the practice linked in
  * search results — it is one property — but that is their call to make.
  */
-import { CONTACT, SITE, SOCIAL } from './content';
+import { BEYOND, CONTACT, SITE, SOCIAL } from './content';
 import { absoluteUrl } from './routes';
 
 /**
@@ -37,8 +37,8 @@ import { absoluteUrl } from './routes';
  * themselves. A fragment on the site's own URL is the convention: it names the
  * thing without claiming the URL resolves to it.
  */
-const ORGANISATION_ID = `${SITE.url}/#organization`;
-const WEBSITE_ID = `${SITE.url}/#website`;
+export const ORGANISATION_ID = `${SITE.url}/#organization`;
+export const WEBSITE_ID = `${SITE.url}/#website`;
 
 /**
  * One `@graph` rather than two script tags, which is how you say that these
@@ -113,6 +113,49 @@ export function siteSchema() {
         description: SITE.description,
         publisher: { '@id': ORGANISATION_ID },
         inLanguage: 'en',
+      },
+    ],
+  };
+}
+
+/**
+ * `/about/` — an `AboutPage` whose subject is the Organization node above.
+ *
+ * Referenced by `@id`, never restated: the page says "this document is about
+ * that entity", and the entity itself is defined once, in `siteSchema()`, which
+ * the layout already embeds on this page. Same rule as the rest of this file —
+ * no owner's legal name, no `founder`.
+ */
+export function aboutPageSchema() {
+  const url = absoluteUrl('/about/');
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'AboutPage',
+        '@id': `${url}#webpage`,
+        url,
+        name: `Who is ${SITE.name}`,
+        description: `${BEYOND.lede} ${BEYOND.body[0]}`,
+        inLanguage: 'en',
+        isPartOf: { '@id': WEBSITE_ID },
+        about: { '@id': ORGANISATION_ID },
+        mainEntity: { '@id': ORGANISATION_ID },
+        primaryImageOfPage: {
+          '@type': 'ImageObject',
+          url: absoluteUrl('/opengraph-image.jpg'),
+          width: 1200,
+          height: 630,
+        },
+        breadcrumb: { '@id': `${url}#breadcrumb` },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        '@id': `${url}#breadcrumb`,
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: SITE.name, item: SITE.url },
+          { '@type': 'ListItem', position: 2, name: 'About', item: url },
+        ],
       },
     ],
   };
