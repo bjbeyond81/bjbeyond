@@ -21,7 +21,7 @@
  * WHAT IT BUYS. This is the vocabulary Google reads to decide that `Bj Beyond`
  * is an entity rather than a phrase: it is what a knowledge panel is assembled
  * from, and `sameAs` is how the accounts on X, TikTok, Threads, Reddit and
- * Beacons get attached to the same entity instead of floating separately.
+ * Substack get attached to the same entity instead of floating separately.
  *
  * NOT INCLUDED, deliberately: the owner's legal name. It appears in the privacy
  * policy because a data controller has to be named there, which is a different
