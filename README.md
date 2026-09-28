@@ -131,7 +131,7 @@ Every page carries one `<script type="application/ld+json">` describing an
 `Organization` and a `WebSite`, built by [`lib/schema.ts`](lib/schema.ts) from
 `SITE`, `SOCIAL` and `CONTACT`. This is the vocabulary Google reads to treat
 **BJ Beyond** as an entity rather than a phrase, and `sameAs` is what attaches
-the X, TikTok, Threads, Reddit and Beacons accounts to that same entity.
+the X, TikTok, Threads, Reddit and Substack accounts to that same entity.
 
 There used to be a `public/schema.json` doing none of this. Nothing referenced
 it — no script tag, no link — so no crawler could find it, and it had drifted
