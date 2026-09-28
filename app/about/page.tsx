@@ -36,20 +36,13 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 gap-x-8 lg:grid-cols-12 lg:gap-x-6">
           <div className="lg:col-span-5">
             <Reveal distance={34}>
-              <div className="relative mx-auto aspect-9/16 w-[min(72%,38vh)] lg:mx-0 lg:h-[80vh] lg:w-auto">
+              <div className="u-portrait-fade relative mx-auto aspect-9/16 w-[min(72%,38vh)] lg:mx-0 lg:h-[80vh] lg:w-auto">
                 <Atmosphere
                   media={MEDIA.portrait}
                   scrim="none"
                   informative
                   sizes="(max-width: 1024px) 66vw, 42vw"
                   className="h-full w-full"
-                />
-                <div
-                  aria-hidden="true"
-                  className="absolute inset-x-0 bottom-0 h-1/4"
-                  style={{
-                    background: 'linear-gradient(to top, rgb(5 5 5 / 0.85) 0%, transparent 100%)',
-                  }}
                 />
               </div>
             </Reveal>
