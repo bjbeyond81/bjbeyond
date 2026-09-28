@@ -23,7 +23,7 @@
  * destinations rather than prose.
  */
 import type { MetadataRoute } from 'next';
-import { BOOKS, CONTACT, DISPATCH, METHOD, SITE } from './content';
+import { BEYOND, BOOKS, CONTACT, DISPATCH, METHOD, SITE } from './content';
 
 export interface SiteRoute {
   /** Path as served, leading and trailing slash included. */
@@ -82,6 +82,14 @@ export const ROUTES: readonly SiteRoute[] = [
     label: 'HOME',
     priority: 1.0,
     changeFrequency: 'weekly',
+  },
+  {
+    path: '/about/',
+    label: 'ABOUT',
+    title: 'About',
+    description: `${BEYOND.lede} ${BEYOND.body[0]}`,
+    priority: 0.8,
+    changeFrequency: 'monthly',
   },
   {
     path: '/art/',

@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import { Atmosphere } from '@/components/atmosphere/Atmosphere';
 import { Reveal, RevealGroup, RevealItem, MaskLines } from '@/components/primitives/Reveal';
 import { SectionHead } from '@/components/primitives/SectionHead';
+import { ArrowLink } from '@/components/primitives/ArrowLink';
 import { BEYOND } from '@/lib/content';
 import { MEDIA } from '@/lib/media';
 import { useDesktopGsap } from '@/lib/gsap';
@@ -163,6 +164,9 @@ export function About() {
                   {paragraph}
                 </p>
               ))}
+              <ArrowLink href="/about/" className="mt-8">
+                {BEYOND.label.join(' ')}
+              </ArrowLink>
             </Reveal>
           </div>
 
