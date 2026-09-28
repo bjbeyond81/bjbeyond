@@ -17,14 +17,14 @@
  */
 
 export const SITE = {
-  name: 'BJ Beyond',
+  name: 'Bj Beyond',
   wordmark: 'BJ BEYOND',
   tagline: 'Intelligence is the standard.',
   domain: 'bjbeyond.it',
   url: 'https://bjbeyond.it',
   locale: 'Verona, Italia',
   description:
-    'BJ Beyond helps artists, collectors and companies navigate the new creative economy at the intersection of data, AI and human intuition. Independent practice based in Verona.',
+    'Bj Beyond helps artists, collectors and companies navigate the new creative economy at the intersection of data, AI and human intuition. Independent practice based in Verona.',
   /**
    * Alt text for the shared social card.
    *
@@ -35,7 +35,7 @@ export const SITE = {
    * identical: they describe the same picture.
    */
   ogAlt:
-    'BJ Beyond — Intelligence is the standard. Art market intelligence at the intersection of data, AI, and human intuition.',
+    'Bj Beyond — Intelligence is the standard. Art market intelligence at the intersection of data, AI, and human intuition.',
 } as const;
 
 /**
@@ -66,7 +66,7 @@ export const BEYOND = {
   role: 'INDEPENDENT PRACTICE — VERONA',
   lede: 'Independent practice at the intersection of data, AI, and human intuition.',
   body: [
-    'BJ Beyond helps artists, collectors, and companies navigate the new creative economy. I combine deep art market expertise with cutting-edge data science and AI tools.',
+    'Bj Beyond helps artists, collectors, and companies navigate the new creative economy. I combine deep art market expertise with cutting-edge data science and AI tools.',
     'From artist evaluations to custom Power BI dashboards, I deliver intelligence that actually gets used.',
   ],
   capabilities: [
@@ -173,7 +173,7 @@ export function postUrl(entry: DispatchPost): string {
  * exists to argue against.
  */
 export const DISPATCH_AUTHOR = {
-  /* The display name as it stands on X — not 'BJ Beyond', which is the site's
+  /* The display name as it stands on X — not 'Bj Beyond', which is the site's
      wordmark. The card is a reproduction of a post, so it carries the account's
      own name, trademark glyph included. */
   name: 'Bj™',
@@ -283,7 +283,7 @@ export const DISPATCH = {
  *
  * NO HANDLE, also deliberately. DISPATCH prints name-over-handle because X's
  * card does; the display name and the handle here are the same word
- * ("BJ Beyond" / `@bj_beyond`), so drawing both would repeat one fact twice.
+ * ("Bj Beyond" / `@bj_beyond`), so drawing both would repeat one fact twice.
  * `profile` links to the author page it addresses, which is the part that is
  * actually useful.
  */
@@ -373,7 +373,7 @@ export const METHOD = {
 
 /**
  * Featured project. Deliberately outside the 01–06 numbering: it is a
- * recommendation, not one of BJ Beyond's own chapters. Every factual claim
+ * recommendation, not one of Bj Beyond's own chapters. Every factual claim
  * below comes from verify.authentia.it — do not embellish.
  */
 export const AUTHENTIA = {
@@ -394,7 +394,7 @@ export const AUTHENTIA = {
 /**
  * IN MOTION — companion to the section above, and outside the 01–07 numbering
  * for exactly the reason Authentia is: this is Authentia Arte's channel, not
- * BJ Beyond's. The numbers belong to the owner's own chapters, and lending one
+ * Bj Beyond's. The numbers belong to the owner's own chapters, and lending one
  * to someone else's Instagram would quietly break the rule that makes the
  * sequence mean anything.
  *
@@ -510,7 +510,7 @@ export const WORK = {
 export const LABS = {
   index: '04',
   label: ['THE', 'LABS'],
-  description: 'Interactive tools and algorithms developed by BJ Beyond.',
+  description: 'Interactive tools and algorithms developed by Bj Beyond.',
   intro: ['EXPERIMENTAL', 'TECHNOLOGY.', 'REAL WORLD', 'APPLICATIONS.'],
   cta: 'VIEW ALL PROJECTS',
   projects: [
@@ -541,7 +541,7 @@ export const INTELLIGENCE = {
      illustrative, and the section says so in `disclaimer`. */
   label: 'INTELLIGENCE',
   title: ['ART MARKET', 'PULSE'],
-  description: 'A glimpse into the data intelligence BJ Beyond delivers.',
+  description: 'A glimpse into the data intelligence Bj Beyond delivers.',
   subtitle: 'Contemporary Art Market Index',
   period: 'Q3 2026',
   legend: 'Market Volume',
@@ -731,12 +731,13 @@ export const SOCIAL = [
   { label: 'THREADS', href: 'https://www.threads.net/@bj_beyond' },
   { label: 'REDDIT', href: 'https://www.reddit.com/user/Bj_Beyond' },
   { label: 'HACKERNOON', href: 'https://hackernoon.com/u/bj_beyond' },
+  { label: 'SUBSTACK', href: 'https://bjbejond.substack.com' },
   { label: 'BEACONS', href: 'https://beacons.ai/bj_beyond' },
 ] as const;
 
 export const FOOTER = {
   statement: 'INTELLIGENCE IS THE STANDARD.',
-  copyright: `© ${new Date().getFullYear()} BJ Beyond. Intelligence is the standard. We go further. ${SITE.locale}`,
+  copyright: `© ${new Date().getFullYear()} Bj Beyond. Intelligence is the standard. We go further. ${SITE.locale}`,
   /** The originals stay served verbatim at /pages/*.html for old links. */
   legal: [
     { label: 'Privacy Policy', href: '/privacy-policy/' },

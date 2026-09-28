@@ -11,7 +11,7 @@ import {
 
 /**
  * Featured project — Authentia Arte. Deliberately outside the 01–06 sequence:
- * those numbers belong to BJ Beyond's own work, and this recommends someone
+ * those numbers belong to Bj Beyond's own work, and this recommends someone
  * else's platform.
  *
  * Both links leave the site, so both carry `rel="noopener noreferrer"` and an

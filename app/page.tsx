@@ -22,7 +22,7 @@ import { Footer } from '@/components/sections/Footer';
  * Three blocks sit inside the flow but outside the 01–07 numbering, for two
  * different reasons. Authentia recommends someone else's platform and In Motion
  * carries someone else's channel, so neither can hold a number that means 'a
- * chapter of BJ Beyond's own story'. The Long Read is the owner's own writing
+ * chapter of Bj Beyond's own story'. The Long Read is the owner's own writing
  * and could have held one — but the numbers are already assigned and already
  * read, and renumbering five headings to insert an eighth buys an index and
  * costs every visitor their bearings. All three keep their place in the reading

@@ -30,7 +30,7 @@ export interface SiteRoute {
   path: string;
   /** Menu label. A route without one is reachable but unlisted. */
   label?: string;
-  /** Feeds `<title>`, through the `%s — BJ Beyond` template in app/layout.tsx. */
+  /** Feeds `<title>`, through the `%s — Bj Beyond` template in app/layout.tsx. */
   title?: string;
   /** Feeds the meta description and the Open Graph / Twitter card. */
   description?: string;
@@ -119,7 +119,7 @@ export const ROUTES: readonly SiteRoute[] = [
     label: 'LABS',
     title: 'The Labs — AI Tools & Simulators',
     description:
-      'Interactive tools by BJ Beyond: real-time X For You algorithm simulator, binaural sound studio and audience persona modeling.',
+      'Interactive tools by Bj Beyond: real-time X For You algorithm simulator, binaural sound studio and audience persona modeling.',
     priority: 0.8,
     changeFrequency: 'monthly',
   },
