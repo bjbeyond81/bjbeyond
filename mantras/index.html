@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Mantras</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Trebuchet MS, sans-serif;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 480px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 24px;
+            padding: 40px 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .header h1 {
+            font-size: 32px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            font-size: 14px;
+            color: #999;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .selector-wrapper {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 32px;
+            background: #f5f5f5;
+            padding: 6px;
+            border-radius: 16px;
+        }
+
+        .time-btn {
+            flex: 1;
+            padding: 12px 16px;
+            border: none;
+            border-radius: 12px;
+            background: transparent;
+            color: #666;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .time-btn.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .time-btn:hover:not(.active) {
+            color: #333;
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        .mantra-card {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
+            border: 2px solid rgba(102, 126, 234, 0.2);
+            border-radius: 20px;
+            padding: 40px 30px;
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mantra-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .mantra-card:hover::before {
+            left: 100%;
+        }
+
+        .mantra-card:hover {
+            border-color: rgba(102, 126, 234, 0.4);
+            box-shadow: 0 8px 24px rgba(102, 126, 234, 0.2);
+        }
+
+        .icon {
+            font-size: 48px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .mantra-text {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1a1a1a;
+            line-height: 1.6;
+            text-align: center;
+            letter-spacing: 0.3px;
+        }
+
+        .counter {
+            font-size: 12px;
+            color: #999;
+            margin-top: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .hint {
+            text-align: center;
+            margin-top: 24px;
+            font-size: 12px;
+            color: #bbb;
+            letter-spacing: 0.3px;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            .header h1 {
+                font-size: 28px;
+            }
+
+            .mantra-text {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Daily Mantras</h1>
+            <p>Law of Attraction</p>
+        </div>
+
+        <div class="selector-wrapper">
+            <button class="time-btn active" data-time="morning">Morning</button>
+            <button class="time-btn" data-time="afternoon">Afternoon</button>
+            <button class="time-btn" data-time="evening">Evening</button>
+        </div>
+
+        <div class="mantra-card" id="mantra-card">
+            <div class="icon" id="icon">🌅</div>
+            <div class="mantra-text" id="mantra-text">I am abundant and deserving of all good things that come my way</div>
+            <div class="counter" id="counter">1 of 3</div>
+        </div>
+
+        <div class="hint">Click the card to see more mantras</div>
+    </div>
+
+    <script>
+        const mantras = {
+            morning: {
+                icon: '🌅',
+                texts: [
+                    'I am abundant and deserving of all good things that come my way',
+                    'Today I attract success, joy, and infinite possibilities',
+                    'My energy is magnetic and draws in all I desire'
+                ]
+            },
+            afternoon: {
+                icon: '☀️',
+                texts: [
+                    'I am grateful for the blessings in my life right now',
+                    'I attract opportunities that align with my highest purpose',
+                    'My mind is clear, my spirit is strong, my potential is limitless'
+                ]
+            },
+            evening: {
+                icon: '🌙',
+                texts: [
+                    'I release all that no longer serves me with gratitude',
+                    'I am worthy of peace, love, and fulfillment',
+                    'Tomorrow brings new abundance and aligned blessings'
+                ]
+            }
+        };
+
+        let currentTime = 'morning';
+        let currentIndex = 0;
+
+        const buttons = document.querySelectorAll('.time-btn');
+        const mantraCard = document.getElementById('mantra-card');
+        const iconEl = document.getElementById('icon');
+        const textEl = document.getElementById('mantra-text');
+        const counterEl = document.getElementById('counter');
+
+        function updateMantra() {
+            const data = mantras[currentTime];
+            iconEl.textContent = data.icon;
+            textEl.textContent = data.texts[currentIndex];
+            counterEl.textContent = `${currentIndex + 1} of ${data.texts.length}`;
+        }
+
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                buttons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentTime = btn.dataset.time;
+                currentIndex = 0;
+                updateMantra();
+            });
+        });
+
+        mantraCard.addEventListener('click', () => {
+            const data = mantras[currentTime];
+            currentIndex = (currentIndex + 1) % data.texts.length;
+            updateMantra();
+        });
+
+        updateMantra();
+    </script>
+</body>
+</html>
