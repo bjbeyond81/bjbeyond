@@ -721,6 +721,46 @@ export const CONTACT = {
   ],
 } as const;
 
+/**
+ * FAQ — rendered on /about/ and published as schema.org FAQPage.
+ *
+ * Answers restate facts already on the site (SITE, BEYOND, METHOD, CONTACT) so
+ * that search engines and AI assistants can quote them verbatim. No new claims.
+ */
+export const FAQ = {
+  label: ['FREQUENTLY', 'ASKED'],
+  items: [
+    {
+      q: 'What is Bj Beyond?',
+      a: 'Bj Beyond is an independent practice based in Verona, Italy, working at the intersection of data, AI and human intuition. It helps artists, collectors and companies navigate the new creative economy.',
+    },
+    {
+      q: 'What does the name Bj Beyond mean?',
+      a: 'The name is a cipher. In Kubrick’s 2001: A Space Odyssey, shifting each letter of HAL by one gives IBM. The same move applied to AI gives BJ. Beyond is what comes after artificial intelligence: judgment, lived experience, the part a model cannot fake.',
+    },
+    {
+      q: 'What services does Bj Beyond offer?',
+      a: 'Art market intelligence, AI + human edge strategy, data systems and visualization (including custom Power BI dashboards), and culture and impact strategy — from artist evaluations to dashboards that actually get used.',
+    },
+    {
+      q: 'What is the Phoenix Soulfire method?',
+      a: 'Phoenix Soulfire™ is Bj Beyond’s five-pillar methodology for evaluating creative potential in the AI era. The pillars are Soul, Edge, Clarity, Impact and Legacy.',
+    },
+    {
+      q: 'Where is Bj Beyond based?',
+      a: 'Verona, Italy. Bj Beyond works with clients across Italy and the European Union.',
+    },
+    {
+      q: 'Where can I read Bj Beyond’s writing?',
+      a: 'Articles are collected in the Bj Beyond Journal and published on HackerNoon (@bj_beyond) and Substack (bjbeyond.substack.com). Ebooks are on the Bj Beyond author page on Amazon.',
+    },
+    {
+      q: 'How do I contact Bj Beyond?',
+      a: 'Write to Bj_beyond@tutamail.com or use the contact page at bjbeyond.it/contact/.',
+    },
+  ],
+} as const;
+
 export const SOCIAL = [
   { label: 'X', href: 'https://x.com/Bj_Beyond' },
   /* The owner's own art feed, and NOT the Instagram account IN_MOTION links to
