@@ -731,7 +731,7 @@ export const SOCIAL = [
   { label: 'THREADS', href: 'https://www.threads.net/@bj_beyond' },
   { label: 'REDDIT', href: 'https://www.reddit.com/user/Bj_Beyond' },
   { label: 'HACKERNOON', href: 'https://hackernoon.com/u/bj_beyond' },
-  { label: 'SUBSTACK', href: 'https://bjbejond.substack.com' },
+  { label: 'SUBSTACK', href: 'https://bjbeyond.substack.com' },
 ] as const;
 
 export const FOOTER = {
