@@ -3,7 +3,7 @@ import { PageShell } from '@/components/chrome/PageShell';
 import { Atmosphere } from '@/components/atmosphere/Atmosphere';
 import { Reveal, RevealGroup, RevealItem } from '@/components/primitives/Reveal';
 import { ArrowLink } from '@/components/primitives/ArrowLink';
-import { BEYOND, CONTACT, METHOD } from '@/lib/content';
+import { BEYOND, CONTACT, FAQ, METHOD } from '@/lib/content';
 import { MEDIA } from '@/lib/media';
 import { metadataFor } from '@/lib/routes';
 import { aboutPageSchema } from '@/lib/schema';
@@ -96,6 +96,24 @@ export default function AboutPage() {
             ))}
           </dl>
         </RevealGroup>
+
+        <section aria-labelledby="faq-heading" className="mt-20 border-t border-rule pt-14 lg:mt-24">
+          <Reveal>
+            <h2 id="faq-heading" className="u-label text-mist-300">
+              {FAQ.label.join(' ')}
+            </h2>
+          </Reveal>
+          <RevealGroup delay={0.1} className="mt-8">
+            <dl className="grid grid-cols-1 gap-x-12 lg:grid-cols-2">
+              {FAQ.items.map((item) => (
+                <RevealItem as="div" key={item.q} className="border-b border-rule py-7">
+                  <dt className="text-body font-light text-paper">{item.q}</dt>
+                  <dd className="mt-3 text-body font-light text-mist-300">{item.a}</dd>
+                </RevealItem>
+              ))}
+            </dl>
+          </RevealGroup>
+        </section>
 
         <Reveal delay={0.1} className="mt-14">
           <div className="flex flex-wrap items-center gap-x-10 gap-y-6">
