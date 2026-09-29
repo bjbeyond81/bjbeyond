@@ -103,7 +103,13 @@ export function siteSchema() {
         },
         /* The whole point of the graph: these accounts and this organisation
            are one entity. Derived, so removing a platform removes it here. */
-        sameAs: SOCIAL.map((social) => social.href),
+        sameAs: [
+          ...SOCIAL.map((social) => social.href),
+          /* Profiles that are not in the SOCIAL nav but belong to the same entity. */
+          'https://www.amazon.com/author/bjbeyond',
+          'https://bjbeyond81.github.io/studio/',
+          'https://bjbeyond.studio',
+        ],
       },
       {
         '@type': 'WebSite',
