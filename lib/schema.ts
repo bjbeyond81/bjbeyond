@@ -29,7 +29,7 @@
  * of the site. Add it if the owner wants the person and the practice linked in
  * search results — it is one property — but that is their call to make.
  */
-import { BEYOND, CONTACT, SITE, SOCIAL } from './content';
+import { BEYOND, CONTACT, FAQ, SITE, SOCIAL } from './content';
 import { absoluteUrl } from './routes';
 
 /**
@@ -162,6 +162,19 @@ export function aboutPageSchema() {
           { '@type': 'ListItem', position: 1, name: SITE.name, item: SITE.url },
           { '@type': 'ListItem', position: 2, name: 'About', item: url },
         ],
+      },
+      {
+        '@type': 'FAQPage',
+        '@id': `${url}#faq`,
+        url,
+        inLanguage: 'en',
+        isPartOf: { '@id': WEBSITE_ID },
+        about: { '@id': ORGANISATION_ID },
+        mainEntity: FAQ.items.map((item) => ({
+          '@type': 'Question',
+          name: item.q,
+          acceptedAnswer: { '@type': 'Answer', text: item.a },
+        })),
       },
     ],
   };
