@@ -109,7 +109,6 @@ export function siteSchema() {
           'https://www.wikidata.org/wiki/Q141600525',
           'https://www.amazon.com/author/bjbeyond',
           'https://bjbeyond81.github.io/studio/',
-          'https://bjbeyond.studio',
         ],
       },
       {
