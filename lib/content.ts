@@ -59,6 +59,11 @@ export const HERO = {
   ticker: ['DATA', 'AI', 'HUMAN EDGE', 'CULTURE', 'IMPACT'],
 } as const;
 
+export const MANIFESTO = {
+  lead: 'The biggest lie of the AI era?',
+  body: 'Believing that anyone who knows how to hit \u201center\u201d will become an author, a designer, or a thinker.',
+} as const;
+
 export const BEYOND = {
   index: '01',
   label: ['WHO IS', 'BJ BEYOND'],
