@@ -21,10 +21,10 @@ export function Manifesto() {
 
           <Reveal delay={0.1} distance={18}>
             <blockquote
-              className="font-serif italic font-light text-paper"
+              className="font-serif italic font-normal text-paper"
               style={{
-                fontSize: 'clamp(1.9rem, 4.4vw, 4rem)',
-                lineHeight: 1.12,
+                fontSize: 'clamp(1.7rem, 3.8vw, 3.4rem)',
+                lineHeight: 1.2,
                 letterSpacing: '-0.01em',
               }}
             >
