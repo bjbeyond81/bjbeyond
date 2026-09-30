@@ -44,6 +44,7 @@
   /* Two families only: Inter for voice, mono for data — indices, labels,
      metadata. */
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-serif: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
   --font-mono: var(--font-mono-jetbrains), ui-monospace, 'SF Mono', monospace;
 
   /* Every step is clamp()ed, so no type step needs a breakpoint. */

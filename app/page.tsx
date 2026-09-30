@@ -3,6 +3,7 @@ import { Navigation } from '@/components/chrome/Navigation';
 import { Cursor } from '@/components/chrome/Cursor';
 import { ScrollSync } from '@/components/chrome/ScrollSync';
 import { Hero } from '@/components/sections/Hero';
+import { Manifesto } from '@/components/sections/Manifesto';
 import { About } from '@/components/sections/About';
 import { Dispatch } from '@/components/sections/Dispatch';
 import { Writing } from '@/components/sections/Writing';
@@ -42,6 +43,7 @@ export default function Home() {
 
       <main id="main">
         <Hero />
+        <Manifesto />
         <About />
         <Dispatch />
         <Writing />

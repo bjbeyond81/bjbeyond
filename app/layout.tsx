@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Inter, JetBrains_Mono } from 'next/font/google';
+import { Cormorant_Garamond, Inter, JetBrains_Mono } from 'next/font/google';
 import { SITE } from '@/lib/content';
 import { CONSENT_SIGNALS } from '@/lib/analytics';
 import { siteSchema } from '@/lib/schema';
@@ -30,6 +30,15 @@ const jetbrainsMono = JetBrains_Mono({
   variable: '--font-mono-jetbrains',
   display: 'swap',
   weight: ['500'],
+});
+
+/* The serif, used once: the manifesto line under the hero. Italic 300 only. */
+const cormorant = Cormorant_Garamond({
+  subsets: ['latin'],
+  variable: '--font-cormorant',
+  display: 'swap',
+  weight: ['300'],
+  style: ['italic'],
 });
 
 export const metadata: Metadata = {
@@ -104,7 +113,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${jetbrainsMono.variable}`}
+      className={`${inter.variable} ${jetbrainsMono.variable} ${cormorant.variable}`}
       /* The script below adds `js` to this element before React hydrates, so
          the client's class list is deliberately one entry longer than the
          server's. Without this, React reports it as a mismatch it "won't patch
