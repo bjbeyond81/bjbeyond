@@ -95,7 +95,7 @@
                     <div class="flex items-center justify-between mb-5 sm:mb-6">
                         <div>
                             <h3 class="text-xl sm:text-2xl font-semibold tracking-tight">Judgment Analyzer</h3>
-                            <p class="text-sm text-zinc-400 mt-1">Rule filter • No API key needed</p>
+                            <p class="text-sm text-zinc-400 mt-1">42 detection rules • No API key needed</p>
                         </div>
                     </div>
 
@@ -182,6 +182,57 @@
             document.getElementById('results-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
+        const RULES = [
+            { id: 1, label: "Launch-post opener", weight: 16, test: (s) => s.lower.includes("excited to announce") },
+            { id: 2, label: "Journey framing", weight: 10, test: (s) => s.lower.includes("my journey") },
+            { id: 3, label: "Fast-paced cliché", weight: 14, test: (s) => s.lower.includes("fast-paced") },
+            { id: 4, label: "No-bounds cliché", weight: 14, test: (s) => s.lower.includes("no bounds") },
+            { id: 5, label: "Potential CTA", weight: 16, test: (s) => s.lower.includes("unlock your potential") },
+            { id: 6, label: "Engagement bait", weight: 14, test: (s) => s.lower.includes("drop a fire") || s.lower.includes("drop a 🔥") },
+            { id: 7, label: "Agreement bait", weight: 8, test: (s) => s.lower.includes("if you agree") },
+            { id: 8, label: "Today's opener", weight: 10, test: (s) => s.lower.includes("in today's") },
+            { id: 9, label: "Profound metaphor", weight: 12, test: (s) => s.lower.includes("profound") },
+            { id: 10, label: "Reimagine verb", weight: 10, test: (s) => s.lower.includes("reimagine") },
+            { id: 11, label: "Authentic-self close", weight: 12, test: (s) => /authentic self/.test(s.lower) },
+            { id: 12, label: "Inviting-us cadence", weight: 10, test: (s) => s.lower.includes("inviting us") },
+            { id: 13, label: "Staying-true close", weight: 8, test: (s) => s.lower.includes("staying true") },
+            { id: 14, label: "Stock conclusion", weight: 10, test: (s) => s.lower.includes("in conclusion") },
+            { id: 15, label: "Stock summary", weight: 10, test: (s) => s.lower.includes("to summarize") || s.lower.includes("in summary") },
+            { id: 16, label: "Worth-noting filler", weight: 10, test: (s) => s.lower.includes("worth noting") },
+            { id: 17, label: "Crucial filler", weight: 8, test: (s) => /\bcrucial\b/.test(s.lower) },
+            { id: 18, label: "Important-to-note filler", weight: 10, test: (s) => s.lower.includes("important to note") },
+            { id: 19, label: "Stock contrast", weight: 8, test: (s) => s.lower.includes("on the other hand") },
+            { id: 20, label: "Takeaways framing", weight: 10, test: (s) => s.lower.includes("key takeaway") },
+            { id: 21, label: "Delve", weight: 9, test: (s) => /\bdelve\b/.test(s.lower) },
+            { id: 22, label: "Tapestry", weight: 9, test: (s) => /\btapestry\b/.test(s.lower) },
+            { id: 23, label: "Realm", weight: 8, test: (s) => /\brealm\b/.test(s.lower) },
+            { id: 24, label: "Testament", weight: 8, test: (s) => /\btestament\b/.test(s.lower) },
+            { id: 25, label: "Leverage", weight: 7, test: (s) => /\bleverage\b/.test(s.lower) },
+            { id: 26, label: "Landscape", weight: 7, test: (s) => /\blandscape\b/.test(s.lower) },
+            { id: 27, label: "Pivotal", weight: 7, test: (s) => /\bpivotal\b/.test(s.lower) },
+            { id: 28, label: "Underscore", weight: 7, test: (s) => /\bunderscore\b/.test(s.lower) },
+            { id: 29, label: "Moreover", weight: 6, test: (s) => /\bmoreover\b/.test(s.lower) },
+            { id: 30, label: "Furthermore", weight: 6, test: (s) => /\bfurthermore\b/.test(s.lower) },
+            { id: 31, label: "Additionally", weight: 6, test: (s) => /\badditionally\b/.test(s.lower) },
+            { id: 32, label: "Consequently", weight: 6, test: (s) => /\bconsequently\b/.test(s.lower) },
+            { id: 33, label: "Nevertheless", weight: 6, test: (s) => /\bnevertheless\b/.test(s.lower) },
+            { id: 34, label: "Dive-in opener", weight: 10, test: (s) => s.lower.includes("dive into") || s.lower.includes("let's dive") },
+            { id: 35, label: "End-of-the-day close", weight: 8, test: (s) => s.lower.includes("at the end of the day") },
+            { id: 36, label: "Game-changer", weight: 9, test: (s) => s.lower.includes("game-changer") || s.lower.includes("game changer") },
+            { id: 37, label: "Not-only pivot", weight: 7, test: (s) => s.lower.includes("not only") },
+            { id: 38, label: "Polish verb", weight: 7, test: (s) => /\b(seamless|robust|elevate)\b/.test(s.lower) },
+            { id: 39, label: "Age-of framing", weight: 8, test: (s) => s.lower.includes("in the age of") || s.lower.includes("in the era of") },
+            { id: 40, label: "Human-machine pairing", weight: 10, test: (s) => s.lower.includes("human intuition") && s.lower.includes("machine") },
+            { id: 41, label: "Uniform sentence length", weight: 8, test: (s) => {
+                if (s.sentences.length < 4) return false;
+                const lengths = s.sentences.map(x => x.length);
+                const avg = lengths.reduce((a, b) => a + b, 0) / lengths.length;
+                const variance = lengths.reduce((sum, len) => sum + (len - avg) ** 2, 0) / lengths.length;
+                return variance < 280 && avg > 40;
+            } },
+            { id: 42, label: "No first person in a long paste", weight: 8, test: (s) => s.firstPerson === 0 && s.words.length > 45 }
+        ];
+
         function analyzeTextRuleBased() {
             const text = document.getElementById('input-text').value.trim();
             if (!text) {
@@ -196,71 +247,27 @@
             const lower = text.toLowerCase();
             const words = lower.match(/\b[a-z0-9']+\b/g) || [];
             const sentences = text.split(/[.!?]+/).map(s => s.trim()).filter(s => s.length > 2);
-            const signals = [];
-            let score = 6;
+            const sample = {
+                text,
+                lower,
+                words,
+                sentences,
+                firstPerson: (lower.match(/\bi\b/g) || []).length
+            };
 
-            function hit(label, weight, when) {
-                if (!when) return;
-                score += weight;
-                signals.push(label);
-            }
-
-            const phrases = [
-                ["excited to announce", 16, "Launch-post opener"],
-                ["my journey", 10, "Journey framing"],
-                ["fast-paced world", 14, "Fast-paced-world cliché"],
-                ["knows no bounds", 14, "No-bounds cliché"],
-                ["unlock your potential", 16, "Unlock-your-potential CTA"],
-                ["drop a fire", 14, "Engagement bait"],
-                ["if you agree", 8, "Agreement bait"],
-                ["in today's", 10, "In-today's opener"],
-                ["profound dance", 14, "Profound-dance metaphor"],
-                ["reimagine", 10, "Reimagine verb"],
-                ["authentic selves", 12, "Authentic-selves close"],
-                ["inviting us to", 10, "Inviting-us cadence"],
-                ["staying true to", 8, "Staying-true close"],
-                ["in conclusion", 10, "Stock conclusion"],
-                ["to summarize", 10, "Stock summary"],
-                ["it is worth noting", 10, "Worth-noting filler"],
-                ["it is crucial", 10, "Crucial filler"],
-                ["it is important to note", 10, "Important-to-note filler"],
-                ["on the other hand", 8, "Stock contrast"],
-                ["key takeaways", 10, "Takeaways framing"]
-            ];
-            phrases.forEach(([phrase, weight, label]) => hit(label, weight, lower.includes(phrase)));
-
-            const aiWords = ["delve", "tapestry", "realm", "testament", "leverage", "landscape", "crucial", "pivotal", "underscore"];
-            const aiHits = aiWords.filter(w => new RegExp("\\b" + w + "\\b").test(lower));
-            hit("AI-favored words: " + aiHits.join(", "), 8 + aiHits.length * 3, aiHits.length >= 2);
-
-            const connectors = ["moreover", "furthermore", "additionally", "consequently", "nevertheless"];
-            const connectorHits = connectors.filter(w => lower.includes(w));
-            hit("Formal connector stack", 12, connectorHits.length >= 2);
-
-            const firstPerson = (lower.match(/\bi\b/g) || []).length;
-            hit("No first person in a long paste", 8, firstPerson === 0 && words.length > 45);
-
-            if (sentences.length >= 4) {
-                const lengths = sentences.map(s => s.length);
-                const avg = lengths.reduce((a, b) => a + b, 0) / lengths.length;
-                const variance = lengths.reduce((sum, len) => sum + (len - avg) ** 2, 0) / lengths.length;
-                hit("Uniform sentence length", 8, variance < 280 && avg > 40);
-            }
-
-            hit("Long paste, no question, no break", 6, words.length > 70 && !text.includes("?") && !text.includes("!"));
-
-            if (firstPerson >= 1) score -= 14;
-            if (firstPerson >= 2) score -= 8;
+            const hits = RULES.filter(rule => rule.test(sample));
+            let score = 4 + hits.reduce((sum, rule) => sum + rule.weight, 0);
+            if (hits.length >= 4) score += 12;
+            if (sample.firstPerson >= 1) score -= 14;
+            if (sample.firstPerson >= 2) score -= 8;
             const fragments = sentences.filter(s => s.split(/\s+/).length <= 5).length;
             if (fragments >= 2) score -= 12;
-            if ((text.match(/\d+/) || []).length >= 1 && firstPerson >= 1) score -= 6;
+            if ((text.match(/\d+/) || []).length >= 1 && sample.firstPerson >= 1) score -= 6;
             if (text.includes("?")) score -= 4;
-            if (signals.length >= 4) score += 14;
-
             score = Math.max(2, Math.min(98, Math.round(score)));
+
             const human = 100 - score;
-            const evidence = signals.length + (words.length >= 12 ? 1 : 0);
-            const confidence = Math.max(42, Math.min(90, 48 + evidence * 6 + Math.min(words.length, 80) / 8));
+            const confidence = Math.max(42, Math.min(90, 46 + hits.length * 5 + Math.min(words.length, 80) / 8));
 
             document.getElementById('ai-score').innerText = score + "%";
             document.getElementById('human-score').innerText = human + "%";
@@ -279,7 +286,8 @@
             }
 
             const signalsContainer = document.getElementById('signals-list');
-            signalsContainer.innerHTML = (signals.length ? signals : ["No machine-like phrase hit"]).map(s =>
+            const labels = hits.length ? hits.map(rule => rule.id + ". " + rule.label) : ["No rule hit"];
+            signalsContainer.innerHTML = labels.map(s =>
                 `<div class="px-3 sm:px-4 py-1.5 bg-white/5 text-xs rounded-3xl">${s}</div>`
             ).join('');
         }
