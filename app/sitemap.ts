@@ -27,11 +27,23 @@ const LASTMOD: Record<string, string> = {
   '/method/': '2026-10-04',
 };
 
+const STATIC_URLS: MetadataRoute.Sitemap = [
+  {
+    url: absoluteUrl('/judgment/'),
+    changeFrequency: 'monthly',
+    priority: 0.7,
+    lastModified: '2026-10-04',
+  },
+];
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  return INDEXABLE_ROUTES.map((route) => ({
-    url: absoluteUrl(route.path),
-    changeFrequency: route.changeFrequency,
-    priority: route.priority,
-    ...(LASTMOD[route.path] ? { lastModified: LASTMOD[route.path] } : {}),
-  }));
+  return [
+    ...INDEXABLE_ROUTES.map((route) => ({
+      url: absoluteUrl(route.path),
+      changeFrequency: route.changeFrequency,
+      priority: route.priority,
+      ...(LASTMOD[route.path] ? { lastModified: LASTMOD[route.path] } : {}),
+    })),
+    ...STATIC_URLS,
+  ];
 }
