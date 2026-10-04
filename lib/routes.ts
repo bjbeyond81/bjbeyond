@@ -116,7 +116,7 @@ export const ROUTES: readonly SiteRoute[] = [
   {
     path: '/method/',
     label: 'METHOD',
-    title: `${METHOD.title} — Judgment Layer`,
+    title: 'Phoenix Soulfire™',
     description: METHOD.description,
     priority: 0.9,
     changeFrequency: 'monthly',

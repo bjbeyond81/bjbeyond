@@ -334,12 +334,12 @@ export const METHOD = {
   index: '03',
   label: ['MY', 'METHOD'],
   title: 'PHOENIX SOULFIRE',
-  trademark: '',
+  trademark: '™',
   description:
-    'Judgment layer. Not an art scorecard. Five tests before I trust a text, a work, or a plan.',
+    'The Phoenix Soulfire™ method: five tests before a text, a work, or a plan is trusted. The analyzer at /judgment/ is a separate tool.',
   cta: 'READ THE FIVE TESTS',
   /* The public tool lives on the subdomain. Same shape as AUTHENTIA.primary. */
-  primary: { label: 'TRY THE LAYER', href: 'https://bjbeyond.it/judgment/' },
+  primary: { label: 'TRY THE ANALYZER', href: 'https://bjbeyond.it/judgment/' },
   closer:
     'The public tool tests the surface. These five tests are the human pass after that. Never outsource your judgment.',
   scrollCue: ['SCROLL TO', 'EXPLORE'],
