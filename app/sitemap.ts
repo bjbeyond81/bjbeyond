@@ -27,6 +27,12 @@ const LASTMOD: Record<string, string> = {
   '/method/': '2026-10-04',
 };
 
+/**
+ * Live but `noindex` (set in each page's own metadata). Announcing a URL the
+ * page then asks Google not to index is a contradictory signal.
+ */
+const NOINDEX_PATHS = new Set(['/privacy-policy/', '/cookie-policy/']);
+
 const STATIC_URLS: MetadataRoute.Sitemap = [
   {
     url: absoluteUrl('/judgment/'),
@@ -38,7 +44,7 @@ const STATIC_URLS: MetadataRoute.Sitemap = [
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
-    ...INDEXABLE_ROUTES.map((route) => ({
+    ...INDEXABLE_ROUTES.filter((route) => !NOINDEX_PATHS.has(route.path)).map((route) => ({
       url: absoluteUrl(route.path),
       changeFrequency: route.changeFrequency,
       priority: route.priority,
