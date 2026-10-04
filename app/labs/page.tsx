@@ -5,7 +5,7 @@ import { Reveal, RevealGroup, RevealItem } from '@/components/primitives/Reveal'
 import { ArrowLink } from '@/components/primitives/ArrowLink';
 import { CONTACT, LABS } from '@/lib/content';
 import { MEDIA } from '@/lib/media';
-import { metadataFor } from '@/lib/routes';
+import { metadataFor, withSlash } from '@/lib/routes';
 
 export const metadata: Metadata = metadataFor('/labs/');
 
@@ -36,7 +36,7 @@ export default function LabsPage() {
               return (
                 <RevealItem as="li" key={project.number}>
                   <a
-                    href={project.href}
+                    href={withSlash(project.href)}
                     className="group block outline-offset-4"
                     aria-label={`${project.title.join(' ')} — ${project.action}`}
                   >
