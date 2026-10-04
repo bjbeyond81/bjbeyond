@@ -330,8 +330,18 @@ export const WRITING = {
       pull: 'The classifier gave us a number. The disclosure told us what the number meant.',
       topics: ['AI DETECTION', 'PROVENANCE', 'AI EXPERIMENTS'],
     },
+    {
+      slug: 'when-the-system-flags-the-human-who-was-helping-it',
+      title: 'When the System Flags the Human Who Was Helping It',
+      standfirst:
+        'A public record of months of stress-testing Grok, documenting model edge cases and the human judgment that remained outside the system.',
+      published: '2026-08-27',
+      href: 'https://hackernoon.com/when-the-system-flags-the-human-who-was-helping-it',
+      pull: 'Human Edge is not a slogan. It is the residual capacity to stay curious, document edge cases and refuse to outsource judgment.',
+      topics: ['GROK STRESS-TESTING', 'AI IMAGE GENERATION', 'HUMAN EDGE'],
+    },
   ],
-} as const;;
+} as const;
 
 export const METHOD = {
   index: '03',
