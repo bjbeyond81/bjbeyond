@@ -81,8 +81,7 @@ export const BEYOND = {
     ['CULTURE &', 'IMPACT STRATEGY'],
   ],
   stats: [
-    { value: '5', label: 'Phoenix Soulfire Pillars' },
-    { value: '∞', label: 'Data Points Analyzed' },
+    { value: '5', label: 'Phoenix Soulfire™ Tests' },
     { value: 'AI+', label: 'Human-Edge Strategy' },
     { value: '1:1', label: 'Bespoke Approach' },
   ],
@@ -487,11 +486,11 @@ export const WORK = {
     {
       number: '01',
       title: ['ART MARKET', 'INTELLIGENCE'],
-      description: 'Deep-dive artist evaluations. Scorecards stay private.',
+      description: 'Deep-dive artist evaluations. Reports stay private.',
       points: [
         'Artist valuation models',
         'Market positioning analysis',
-        'Private artist scorecards',
+        'Private artist evaluation reports',
         'Competitive landscape mapping',
       ],
     },
@@ -516,6 +515,10 @@ export const WORK = {
         'Human-AI collaboration design',
         'Future-proofing strategies',
       ],
+      link: {
+        label: 'Method: Phoenix Soulfire™, the five-test judgment layer →',
+        href: 'https://bjbeyond.it/method/',
+      },
     },
   ],
 } as const;
@@ -743,7 +746,7 @@ export const FAQ = {
     },
     {
       q: 'What is the Phoenix Soulfire method?',
-      a: 'Phoenix Soulfire™ is the judgment layer: five tests before a text, a work, or a plan is trusted. Soul, Edge, Clarity, Impact, Legacy. The method page is /method/. Phoenix Simulator at /phoenix/ is a separate tool and is not the method. Artist scorecards stay private.',
+      a: 'Phoenix Soulfire™ is the five-test human judgment layer created by Bj Beyond to check whether a text, a work or a plan holds up beyond what AI can generate: Soul, Edge, Clarity, Impact, Legacy. The free Judgment Layer tool at phoenixsoulfire.bjbeyond.it is the machine pass; the five tests are the human pass after it. The method page is bjbeyond.it/method/. The Phoenix Simulator at /phoenix/ is a separate tool and is not the method.',
     },
     {
       q: 'Where is Bj Beyond based?',

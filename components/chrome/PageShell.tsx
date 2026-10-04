@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import { IntroProvider } from './Intro';
 import { Navigation } from './Navigation';
 import { Cursor } from './Cursor';
+import { SiteSchema } from './SiteSchema';
 import { Footer } from '@/components/sections/Footer';
 import { Atmosphere } from '@/components/atmosphere/Atmosphere';
 import { Reveal } from '@/components/primitives/Reveal';
@@ -42,6 +43,13 @@ interface PageShellProps {
   standfirst?: string;
   /** The plate behind the masthead. */
   media: MediaSlot;
+  /**
+   * Replaces the eyebrow line with a breadcrumb trail. Plain markup, rendered
+   * by the server, so a crawler reads it without running anything.
+   */
+  breadcrumb?: ReactNode;
+  /** The page's JSON-LD graph. Omitted, the generic site graph is used. */
+  schema?: object;
   children: ReactNode;
 }
 
@@ -52,12 +60,15 @@ export function PageShell({
   trademark,
   standfirst,
   media,
+  breadcrumb,
+  schema,
   children,
 }: PageShellProps) {
   return (
     /* No curtain: see the note on IntroProvider. The provider is still here,
        because it is what tells the navigation it may appear. */
     <IntroProvider curtain={false}>
+      <SiteSchema data={schema} />
       <Cursor />
       <Navigation />
 
@@ -77,9 +88,11 @@ export function PageShell({
 
           <div className="u-gutter relative z-10">
             <Reveal>
-              <p className="u-label tabular text-amber-400">
-                {index ? `${index} — ${eyebrow}` : eyebrow}
-              </p>
+              {breadcrumb ?? (
+                <p className="u-label tabular text-amber-400">
+                  {index ? `${index} — ${eyebrow}` : eyebrow}
+                </p>
+              )}
               <h1 className="mt-5 text-display font-extralight text-paper">
                 {title.map((line, i) => (
                   <span key={line} className="block">

@@ -96,7 +96,7 @@ export const ROUTES: readonly SiteRoute[] = [
     label: 'ART',
     title: 'Art Market Intelligence',
     description:
-      'Deep art market evaluations and artist positioning analysis. Scorecards stay private. Selected reels from Authentia Arte.',
+      'Deep art market evaluations and artist positioning analysis. Evaluation reports stay private. Selected reels from Authentia Arte.',
     priority: 0.9,
     changeFrequency: 'monthly',
   },

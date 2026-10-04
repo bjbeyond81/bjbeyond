@@ -90,6 +90,14 @@ export function Work() {
                         </RevealItem>
                       ))}
                     </ul>
+                    {'link' in service ? (
+                      <a
+                        href={service.link.href}
+                        className="mt-6 inline-block text-meta text-amber-400 underline-offset-4 hover:underline"
+                      >
+                        {service.link.label}
+                      </a>
+                    ) : null}
                   </RevealGroup>
                 </div>
               </div>

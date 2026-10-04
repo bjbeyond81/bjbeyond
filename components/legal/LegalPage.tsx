@@ -1,3 +1,4 @@
+import { SiteSchema } from '@/components/chrome/SiteSchema';
 import { Logo } from '@/components/chrome/Logo';
 import { Footer } from '@/components/sections/Footer';
 import { Atmosphere } from '@/components/atmosphere/Atmosphere';
@@ -111,6 +112,7 @@ function Block({ block }: { block: LegalBlock }) {
 export function LegalPage({ doc }: { doc: LegalDocument }) {
   return (
     <>
+      <SiteSchema />
       {/* Slim bar, not the site navigation: the only thing worth offering on a
           detour is the way back. */}
       <header className="fixed inset-x-0 top-0 z-[var(--z-nav)] border-b border-rule bg-ink-950/80 backdrop-blur-md">

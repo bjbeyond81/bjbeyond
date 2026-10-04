@@ -184,7 +184,7 @@ export function About() {
         </div>
 
         <RevealGroup className="mt-20 border-t border-rule pb-[var(--spacing-section)] lg:mt-24">
-          <dl className="grid grid-cols-2 lg:grid-cols-4">
+          <dl className="grid grid-cols-2 lg:grid-cols-3">
             {BEYOND.stats.map((stat) => (
               <RevealItem
                 as="div"

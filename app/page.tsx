@@ -15,6 +15,7 @@ import { Work } from '@/components/sections/Work';
 import { Intelligence } from '@/components/sections/Intelligence';
 import { Contact } from '@/components/sections/Contact';
 import { Footer } from '@/components/sections/Footer';
+import { SiteSchema } from '@/components/chrome/SiteSchema';
 
 /**
  * Section order is the narrative, and alternates image-led sections with
@@ -37,6 +38,7 @@ import { Footer } from '@/components/sections/Footer';
 export default function Home() {
   return (
     <IntroProvider>
+      <SiteSchema />
       <ScrollSync />
       <Cursor />
       <Navigation />
