@@ -339,7 +339,7 @@ export const METHOD = {
     'Judgment layer. Not an art scorecard. Five tests before I trust a text, a work, or a plan.',
   cta: 'READ THE FIVE TESTS',
   /* The public tool lives on the subdomain. Same shape as AUTHENTIA.primary. */
-  primary: { label: 'TRY THE LAYER', href: 'https://phoenixsoulfire.bjbeyond.it' },
+  primary: { label: 'TRY THE LAYER', href: 'https://bjbeyond.it/judgment/' },
   closer:
     'The public tool tests the surface. These five tests are the human pass after that. Never outsource your judgment.',
   scrollCue: ['SCROLL TO', 'EXPLORE'],
