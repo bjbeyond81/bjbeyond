@@ -73,7 +73,7 @@ export const METHOD_SCHEMA = {
         "https://www.reddit.com/user/Bj_Beyond",
         "https://hackernoon.com/u/bj_beyond",
         "https://bjbeyond.substack.com",
-        "https://muckrack.com/bj-bj-beyond",
+        "https://muckrack.com/bj_beyond",
         "https://www.wikidata.org/wiki/Q141600525",
         "https://www.amazon.com/author/bjbeyond",
         "https://bjbeyond81.github.io/studio/"
