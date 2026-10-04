@@ -11,7 +11,7 @@ Bj Beyond helps artists, collectors and companies navigate the new creative econ
 - https://bjbeyond.it/ — homepage
 - https://bjbeyond.it/about/ — who is Bj Beyond
 - https://bjbeyond.it/art/ — art market intelligence
-- https://bjbeyond.it/method/ — Phoenix Soulfire™ five-pillar method
+- https://bjbeyond.it/method/ — PhoenixSoulfire judgment layer, five tests
 - https://bjbeyond.it/labs/ — AI tools and simulators
 - https://bjbeyond.it/services/ — Power BI, data systems, AI strategy
 - https://bjbeyond.it/books/ — books by Bj Beyond
