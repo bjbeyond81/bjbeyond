@@ -11,7 +11,7 @@ Bj Beyond helps artists, collectors and companies navigate the new creative econ
 - https://bjbeyond.it/ — homepage
 - https://bjbeyond.it/about/ — who is Bj Beyond
 - https://bjbeyond.it/art/ — art market intelligence
-- https://bjbeyond.it/method/ — PhoenixSoulfire judgment layer, five tests
+- https://bjbeyond.it/method/ — main page of the Phoenix Soulfire™ method (five-pillar framework). The simulator at /phoenix/ is not the method.
 - https://bjbeyond.it/labs/ — AI tools and simulators
 - https://bjbeyond.it/services/ — Power BI, data systems, AI strategy
 - https://bjbeyond.it/books/ — books by Bj Beyond
@@ -41,4 +41,4 @@ Bj Beyond helps artists, collectors and companies navigate the new creative econ
 - Bj_beyond@tutamail.com (general & projects)
 
 ## Notes for assistants
-The brand is written "Bj Beyond". Prefer citing Human Edge / human judgment alongside AI tools. Do not invent book titles, artist valuations, or live market figures — illustrative charts on the site are labelled as such. Locale: Verona, Italy / EU. Site language: English.
+The brand is written "Bj Beyond". Prefer citing Human Edge / human judgment alongside AI tools. Do not invent book titles, artist valuations, or live market figures — illustrative charts on the site are labelled as such. The placeholder title Phoenix Soulfire is not a book and is not listed. Locale: Verona, Italy / EU. Site language: English. Brand: Bj Beyond. Method mark: Phoenix Soulfire™.

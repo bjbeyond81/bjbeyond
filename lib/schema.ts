@@ -86,13 +86,8 @@ export function siteSchema() {
           'data systems',
         ],
         /*
-          The first address only, and that is a statement about whose it is.
-          `CONTACT.emails` also carries the address of the digital creator of
-          Phoenix Soulfire — a collaborator, at their own domain. The contact
-          page shows it because a reader may need to reach them; listing it here
-          would assert it is a contact point OF this organisation, which is a
-          different claim, and would republish another person's address as
-          machine-readable data attached to someone else's entity.
+          The only address. A former collaborator address is not a contact
+          point of Bj Beyond and is not published here.
         */
         contactPoint: {
           '@type': 'ContactPoint',

@@ -398,8 +398,8 @@ export const AUTHENTIA = {
     'NFC chip integration',
     'Verifiable record of declared authorship',
   ],
-  primary: { label: 'VERIFY A WORK', href: 'https://verify.authentia.it' },
-  secondary: { label: 'AUTHENTIA.IT', href: 'https://authentia.it' },
+  primary: { label: 'VERIFY A WORK', href: 'https://verify.authentia.it/' },
+  secondary: { label: 'AUTHENTIA.IT', href: 'https://verify.authentia.it/' },
 } as const;
 
 /**
@@ -700,16 +700,6 @@ export const BOOKS = {
       mediaKey: 'book-02',
       href: null,
     },
-    {
-      number: '03',
-      title: ['PHOENIX', 'SOULFIRE'],
-      year: '2025',
-      description:
-        'The five tests of the judgment layer, in full. Artist scorecards stay private.',
-      format: 'Framework — 160 pages',
-      mediaKey: 'book-03',
-      href: null,
-    },
   ],
 } as const;
 
@@ -724,10 +714,6 @@ export const CONTACT = {
     {
       address: 'Bj_beyond@tutamail.com',
       role: 'GENERAL & PROJECTS',
-    },
-    {
-      address: 'nickcelt@nicholascelt.com',
-      role: 'DIGITAL CREATOR OF PHOENIX SOULFIRE',
     },
   ],
 } as const;
@@ -755,7 +741,7 @@ export const FAQ = {
     },
     {
       q: 'What is the Phoenix Soulfire method?',
-      a: 'PhoenixSoulfire is the judgment layer: five tests before a text, a work, or a plan is trusted. Soul, Edge, Clarity, Impact, Legacy. The public tool reads how machine-like a text feels. Artist scorecards stay private.',
+      a: 'Phoenix Soulfire™ is the judgment layer: five tests before a text, a work, or a plan is trusted. Soul, Edge, Clarity, Impact, Legacy. The method page is /method/. Phoenix Simulator at /phoenix/ is a separate tool and is not the method. Artist scorecards stay private.',
     },
     {
       q: 'Where is Bj Beyond based?',
@@ -796,6 +782,6 @@ export const FOOTER = {
   credit: {
     prefix: 'Created by',
     name: 'Authentia Arte',
-    href: 'https://authentia.it',
+    href: 'https://verify.authentia.it/',
   },
 } as const;
