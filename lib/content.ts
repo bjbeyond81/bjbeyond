@@ -334,44 +334,50 @@ export const METHOD = {
   index: '03',
   label: ['MY', 'METHOD'],
   title: 'PHOENIX SOULFIRE',
-  trademark: '™',
+  trademark: '',
   description:
-    'The five-pillar methodology for evaluating creative potential in the AI era.',
-  cta: 'DISCOVER THE FRAMEWORK',
-  /* The method has a working implementation of its own, on a subdomain. Same
-     shape as AUTHENTIA.primary because it is the same treatment. */
-  primary: { label: 'TRY NOW', href: 'https://phoenixsoulfire.bjbeyond.it' },
+    'Judgment layer. Not an art scorecard. Five tests before I trust a text, a work, or a plan.',
+  cta: 'READ THE FIVE TESTS',
+  /* The public tool lives on the subdomain. Same shape as AUTHENTIA.primary. */
+  primary: { label: 'TRY THE LAYER', href: 'https://phoenixsoulfire.bjbeyond.it' },
+  closer:
+    'The public tool tests the surface. These five tests are the human pass after that. Never outsource your judgment.',
   scrollCue: ['SCROLL TO', 'EXPLORE'],
   pillars: [
     {
       number: '01',
       title: 'SOUL',
       terms: ['Purpose', 'Alignment', 'Vision'],
-      description: 'The irreplaceable human core.',
+      description: 'The residual human core.',
+      fail: 'Fail: the text could be anyone\'s.',
     },
     {
       number: '02',
       title: 'EDGE',
       terms: ['Market', 'Advantage', 'Disruption'],
-      description: 'Human intuition + AI power.',
+      description: 'What a model cannot copy.',
+      fail: 'Fail: fluent, interchangeable.',
     },
     {
       number: '03',
       title: 'CLARITY',
       terms: ['Data', 'Insight', 'Truth'],
-      description: 'Complexity into insight.',
+      description: 'Complexity cut to a claim.',
+      fail: 'Fail: atmosphere instead of a sentence.',
     },
     {
       number: '04',
       title: 'IMPACT',
       terms: ['Strategy', 'Execution', 'Results'],
-      description: 'Results that matter.',
+      description: 'A result you can check.',
+      fail: 'Fail: intention with no trace.',
     },
     {
       number: '05',
       title: 'LEGACY',
       terms: ['Sustainability', 'Influence', 'Enduring Value'],
-      description: 'Work built to last.',
+      description: 'What remains after the feed moves.',
+      fail: 'Fail: built to be posted, not to last.',
     },
   ],
 } as const;
@@ -479,11 +485,11 @@ export const WORK = {
     {
       number: '01',
       title: ['ART MARKET', 'INTELLIGENCE'],
-      description: 'Deep-dive artist evaluations and Phoenix Soulfire scorecards.',
+      description: 'Deep-dive artist evaluations. Scorecards stay private.',
       points: [
         'Artist valuation models',
         'Market positioning analysis',
-        'Phoenix Soulfire scorecards',
+        'Private artist scorecards',
         'Competitive landscape mapping',
       ],
     },
@@ -699,7 +705,7 @@ export const BOOKS = {
       title: ['PHOENIX', 'SOULFIRE'],
       year: '2025',
       description:
-        'The five pillars in full: the framework for evaluating creative potential, with the scorecards and the workings.',
+        'The five tests of the judgment layer, in full. Artist scorecards stay private.',
       format: 'Framework — 160 pages',
       mediaKey: 'book-03',
       href: null,
@@ -749,7 +755,7 @@ export const FAQ = {
     },
     {
       q: 'What is the Phoenix Soulfire method?',
-      a: 'Phoenix Soulfire™ is Bj Beyond’s five-pillar methodology for evaluating creative potential in the AI era. The pillars are Soul, Edge, Clarity, Impact and Legacy.',
+      a: 'PhoenixSoulfire is the judgment layer: five tests before a text, a work, or a plan is trusted. Soul, Edge, Clarity, Impact, Legacy. The public tool reads how machine-like a text feels. Artist scorecards stay private.',
     },
     {
       q: 'Where is Bj Beyond based?',
