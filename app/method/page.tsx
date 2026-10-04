@@ -58,6 +58,7 @@ export default function MethodPage() {
                     <p className="mt-5 max-w-sm text-lede font-light text-mist-300">
                       {pillar.description}
                     </p>
+                    <p className="mt-3 max-w-sm text-meta text-amber-400">{pillar.fail}</p>
                   </div>
 
                   <div className="lg:col-span-4 lg:col-start-9">
@@ -74,6 +75,10 @@ export default function MethodPage() {
             ))}
           </ol>
         </RevealGroup>
+
+        <Reveal delay={0.05} className="mt-12 max-w-xl">
+          <p className="text-body text-mist-300">{METHOD.closer}</p>
+        </Reveal>
 
         <Reveal delay={0.1} className="mt-14">
           <div className="flex flex-wrap items-center gap-x-10 gap-y-6">
