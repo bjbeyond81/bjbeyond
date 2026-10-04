@@ -96,7 +96,7 @@ export const ROUTES: readonly SiteRoute[] = [
     label: 'ART',
     title: 'Art Market Intelligence',
     description:
-      'Deep art market evaluations, Phoenix Soulfire scorecards and artist positioning analysis. Selected reels from Authentia Arte.',
+      'Deep art market evaluations and artist positioning analysis. Scorecards stay private. Selected reels from Authentia Arte.',
     priority: 0.9,
     changeFrequency: 'monthly',
   },
@@ -116,9 +116,8 @@ export const ROUTES: readonly SiteRoute[] = [
   {
     path: '/method/',
     label: 'METHOD',
-    title: `${METHOD.title}${METHOD.trademark} Method — 5 Pillar Framework`,
-    description:
-      'The 5-pillar methodology for evaluating creative potential in the AI era. From Authentia Arte to data-driven strategy.',
+    title: `${METHOD.title} — Judgment Layer`,
+    description: METHOD.description,
     priority: 0.9,
     changeFrequency: 'monthly',
   },
