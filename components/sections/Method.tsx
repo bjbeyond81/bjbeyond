@@ -182,7 +182,7 @@ export function Method() {
                           change. Animating height would reflow the column on
                           every step. */}
                       <p
-                        className={`mt-4 h-10 max-w-[22ch] text-meta text-mist-200 transition-all duration-[900ms] ease-[var(--ease-expo)] ${
+                        className={`mt-4 h-16 max-w-[24ch] text-meta text-mist-200 transition-all duration-[900ms] ease-[var(--ease-expo)] ${
                           isActive
                             ? 'translate-y-0 opacity-100'
                             : 'pointer-events-none translate-y-2 opacity-0'
@@ -190,6 +190,7 @@ export function Method() {
                         aria-hidden={!isActive}
                       >
                         {pillar.description}
+                        <span className="mt-1 block text-mist-400">{pillar.fail}</span>
                       </p>
                     </div>
                   </li>
@@ -216,6 +217,7 @@ export function Method() {
                       <p className="mt-2 text-meta text-mist-200">
                         {pillar.description}
                       </p>
+                      <p className="mt-1 text-meta text-amber-400/80">{pillar.fail}</p>
                       <p className="mt-1 text-meta text-mist-400">
                         {pillar.terms.join(' · ')}
                       </p>
