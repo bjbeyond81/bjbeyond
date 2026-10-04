@@ -295,39 +295,43 @@ export const WRITING = {
   eyebrow: 'PUBLISHED WRITING',
   title: ['THE LONG', 'READ'],
   standfirst:
-    'Long-form pieces, published where the readers already are — and linked here rather than reprinted.',
-  /** The author page, not the publication's front door. */
+    'Selected long-form work on AI, technology and the human edge — published on HackerNoon.',
   profile: 'https://hackernoon.com/u/bj_beyond',
-  cta: 'ALL STORIES ON HACKERNOON',
-  /** Per-card action. The whole card is the link; this names the destination. */
+  cta: 'VIEW BJ BEYOND ON HACKERNOON',
   action: 'READ ON HACKERNOON',
-  /*
-    Newest first. To add one: paste the headline into `title`, the story's own
-    TLDR into `standfirst`, its date into `published` as ISO, and the canonical
-    URL into `href`. All four sit on the story's own page, so no entry here has
-    to be written from memory.
-  */
   articles: [
     {
-      /* Not a route on this site — the piece lives on HackerNoon and is linked
-         there. Kept because it is the story's stable identity, and it makes a
-         React key that cannot collide. */
-      slug: 'when-the-system-flags-the-human-who-was-helping-it',
-      title: 'When the System Flags the Human Who Was Helping It',
+      slug: 'system-zero-what-happens-when-ai-does-the-thinking-for-us',
+      title: 'System Zero: What Happens When AI Does the Thinking for Us?',
       standfirst:
-        'A public record of months of stress-testing Grok, a spontaneous image generation previously seen only with Elon Musk, and a permanent suspension from Creator Revenue Sharing.',
-      /* ISO, formatted by `postDate` — the same deterministic table DISPATCH
-         uses, so a European CI runner and a US one ship the same string. */
-      published: '2026-08-27',
-      href: 'https://hackernoon.com/when-the-system-flags-the-human-who-was-helping-it',
-      /* The story's closing line, quoted entire. */
-      pull: 'The signal stays.',
-      /* Three of the story's own eight tags, hyphens opened out and set in the
-         site's label case. A card is not a tag cloud. */
-      topics: ['GROK STRESS-TESTING', 'GROK IMAGE GENERATION', 'X MONETIZATION'],
+        'An examination of what happens when AI moves from assisting thought to quietly taking over research, synthesis and judgment.',
+      published: '2026-09-11',
+      href: 'https://hackernoon.com/system-zero-what-happens-when-ai-does-the-thinking-for-us',
+      pull: 'The question is not whether AI can think. It is whether we keep doing the thinking.',
+      topics: ['AI & SOCIETY', 'HUMAN JUDGMENT', 'COGNITIVE DELEGATION'],
+    },
+    {
+      slug: 'the-2003-virtual-world-that-let-people-build-their-own-reality-before-the-metaverse-had-a-name',
+      title: 'The 2003 Virtual World That Let People Build Their Own Reality Before the Metaverse Had a Name',
+      standfirst:
+        'A look back at Second Life and the early creator economy, user-generated worlds and virtual ownership ideas that still matter in 2026.',
+      published: '2026-09-17',
+      href: 'https://hackernoon.com/the-2003-virtual-world-that-let-people-build-their-own-reality-before-the-metaverse-had-a-name',
+      pull: 'The future of the creator economy has been rehearsed before.',
+      topics: ['CREATOR ECONOMY', 'VIRTUAL WORLDS', 'DIGITAL CULTURE'],
+    },
+    {
+      slug: 'i-asked-claude-opus-5-to-beat-pangrams-ai-detector-it-failed-with-a-perfect-score',
+      title: 'I Asked Claude Opus 5 to Beat Pangram’s AI Detector. It Failed With a Perfect Score',
+      standfirst:
+        'A transparent experiment testing whether a frontier model could evade an AI detector — and what the result says about provenance.',
+      published: '2026-09-24',
+      href: 'https://hackernoon.com/i-asked-claude-opus-5-to-beat-pangrams-ai-detector-it-failed-with-a-perfect-score',
+      pull: 'The classifier gave us a number. The disclosure told us what the number meant.',
+      topics: ['AI DETECTION', 'PROVENANCE', 'AI EXPERIMENTS'],
     },
   ],
-} as const;
+} as const;;
 
 export const METHOD = {
   index: '03',
