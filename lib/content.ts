@@ -766,6 +766,8 @@ export const SOCIAL = [
   { label: 'REDDIT', href: 'https://www.reddit.com/user/Bj_Beyond' },
   { label: 'HACKERNOON', href: 'https://hackernoon.com/u/bj_beyond' },
   { label: 'SUBSTACK', href: 'https://bjbeyond.substack.com' },
+  /* Claimed profile. Footer and sameAs pick it up from this list. */
+  { label: 'MUCK RACK', href: 'https://muckrack.com/bj-bj-beyond' },
 ] as const;
 
 export const FOOTER = {
