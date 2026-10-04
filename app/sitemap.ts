@@ -19,16 +19,19 @@ export const dynamic = 'force-static';
  * reachable only by following links, and the standalone apps are linked from a
  * section most crawls never scroll to.
  *
- * NO `lastModified`. It would have to be `new Date()` — the build clock — which
- * would restamp every URL as freshly changed on every deploy, including the
- * ones the deploy did not touch. A date that is wrong every time is a worse
- * signal than no date, and Google discounts `lastmod` it learns not to trust.
- * Add a real one per route the day the routes carry real dates.
+ * NO blanket `lastModified`. A build-clock date would restamp every URL on
+ * every deploy, including routes the deploy did not touch. Google discounts
+ * `lastmod` it learns not to trust. Only routes with a real edit date carry one.
  */
+const LASTMOD: Record<string, string> = {
+  '/method/': '2026-10-04',
+};
+
 export default function sitemap(): MetadataRoute.Sitemap {
   return INDEXABLE_ROUTES.map((route) => ({
     url: absoluteUrl(route.path),
     changeFrequency: route.changeFrequency,
     priority: route.priority,
+    ...(LASTMOD[route.path] ? { lastModified: LASTMOD[route.path] } : {}),
   }));
 }
