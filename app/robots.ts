@@ -30,7 +30,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: ['/pages/', '/docs/'],
+      disallow: ['/pages/', '/docs/', '/books/'],
     },
     sitemap: absoluteUrl('/sitemap.xml'),
   };

@@ -32,6 +32,9 @@ export default function MethodPage() {
       media={MEDIA.method[0]}
     >
       <section className="u-gutter pb-[var(--spacing-section)]">
+        <Reveal>
+          <p className="mb-12 max-w-xl text-body text-mist-200">{METHOD.statement}</p>
+        </Reveal>
         <RevealGroup>
           <ol className="border-t border-rule">
             {METHOD.pillars.map((pillar) => (

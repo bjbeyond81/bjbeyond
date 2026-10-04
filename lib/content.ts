@@ -340,8 +340,10 @@ export const METHOD = {
   cta: 'READ THE FIVE TESTS',
   /* The public tool lives on the subdomain. Same shape as AUTHENTIA.primary. */
   primary: { label: 'TRY THE ANALYZER', href: 'https://bjbeyond.it/judgment/' },
+  statement:
+    'This page is the Phoenix Soulfire™ method. Phoenix Simulator, Judgment Analyzer, and Frequency Studio are tools. They are not the method.',
   closer:
-    'The public tool tests the surface. These five tests are the human pass after that. Never outsource your judgment.',
+    'The five tests are the method. A tool can flag a surface. It cannot make the pass. Never outsource your judgment.',
   scrollCue: ['SCROLL TO', 'EXPLORE'],
   pillars: [
     {
