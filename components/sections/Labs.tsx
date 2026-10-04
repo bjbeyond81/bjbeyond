@@ -4,6 +4,7 @@ import { SectionHead } from '@/components/primitives/SectionHead';
 import { ArrowLink } from '@/components/primitives/ArrowLink';
 import { LABS } from '@/lib/content';
 import { MEDIA } from '@/lib/media';
+import { withSlash } from '@/lib/routes';
 
 /**
  * 03 — THE LABS
@@ -52,7 +53,7 @@ export function Labs() {
                 return (
                   <Reveal as="li" key={project.number} delay={index * 0.06}>
                     <a
-                      href={project.href}
+                      href={withSlash(project.href)}
                       className="group relative block border-b border-rule py-7 outline-offset-4 sm:py-8"
                       aria-label={`${project.title.join(' ')} — ${project.action}`}
                     >

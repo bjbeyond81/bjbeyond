@@ -25,9 +25,8 @@
  *
  * NOT INCLUDED, deliberately: the owner's legal name. It appears in the privacy
  * policy because a data controller has to be named there, which is a different
- * act from publishing it as machine-readable `founder` metadata on every page
- * of the site. Add it if the owner wants the person and the practice linked in
- * search results — it is one property — but that is their call to make.
+ * act from publishing it as machine-readable metadata on every page of the
+ * site. The `founder` Person node uses the brand pseudonym only.
  */
 import { BEYOND, CONTACT, FAQ, SITE, SOCIAL } from './content';
 import { absoluteUrl } from './routes';
@@ -39,6 +38,20 @@ import { absoluteUrl } from './routes';
  */
 export const ORGANISATION_ID = `${SITE.url}/#organization`;
 export const WEBSITE_ID = `${SITE.url}/#website`;
+export const PERSON_ID = `${SITE.url}/#person`;
+
+/**
+ * The canonical brand paragraph (presence audit, 2026-10-04, section 9). Used
+ * only in structured data; the visible meta description stays `SITE.description`.
+ */
+const ENTITY_DESCRIPTION =
+  'Bj Beyond is an independent practice based in Verona, Italy, working at the intersection of data, AI and human intuition. It helps artists, collectors and companies with art market intelligence, Power BI dashboards and AI strategy, and created Phoenix Soulfire™, a five-test method for human judgment in the AI era. Official site: bjbeyond.it.';
+
+/** The Journal, served from GitHub Pages and canonical to itself. */
+const JOURNAL_URL = 'https://bjbeyond81.github.io/studio/';
+const AMAZON_AUTHOR_URL = 'https://www.amazon.com/author/bjbeyond';
+/* The owner's channel (@Bj_Beyond). NOT youtube.com/@bjbeyond, which is someone else's. */
+const YOUTUBE_URL = 'https://www.youtube.com/@Bj_Beyond';
 
 /**
  * One `@graph` rather than two script tags, which is how you say that these
@@ -59,13 +72,15 @@ export function siteSchema() {
            crawler or an LLM treats "BJ Beyond", "Bj_Beyond" and "bjbeyond" as
            three unrelated strings instead of one entity. */
         alternateName: ['BJ Beyond', 'Bj_Beyond', 'BJ BEYOND', 'bjbeyond'],
-        url: SITE.url,
-        description: SITE.description,
+        url: absoluteUrl('/'),
+        description: ENTITY_DESCRIPTION,
         slogan: SITE.tagline,
         /* Google reads `logo` for the mark and `image` for a representative
            picture; they are different jobs and it wants both. */
         logo: absoluteUrl('/media/logo-512.webp'),
         image: absoluteUrl('/opengraph-image.jpg'),
+        /* Pseudonymous founder node: brand name only, never the legal name. */
+        founder: { '@id': PERSON_ID },
         email: CONTACT.emails[0].address.toLowerCase(),
         address: {
           '@type': 'PostalAddress',
@@ -102,14 +117,38 @@ export function siteSchema() {
           ...SOCIAL.map((social) => social.href),
           /* Profiles that are not in the SOCIAL nav but belong to the same entity. */
           'https://www.wikidata.org/wiki/Q141600525',
-          'https://www.amazon.com/author/bjbeyond',
-          'https://bjbeyond81.github.io/studio/',
+          YOUTUBE_URL,
+          AMAZON_AUTHOR_URL,
+          JOURNAL_URL,
+        ],
+      },
+      {
+        /* The person behind the practice, under the brand pseudonym. No legal
+           name, no photo: both are the owner's call to add. */
+        '@type': 'Person',
+        '@id': PERSON_ID,
+        name: SITE.name,
+        alternateName: ['BJ Beyond', 'Bj_Beyond', 'BJ'],
+        url: absoluteUrl('/about/'),
+        jobTitle: 'Founder',
+        description: 'Founder of Bj Beyond and creator of the Phoenix Soulfire™ method.',
+        worksFor: { '@id': ORGANISATION_ID },
+        homeLocation: {
+          '@type': 'Place',
+          address: { '@type': 'PostalAddress', addressLocality: 'Verona', addressCountry: 'IT' },
+        },
+        sameAs: [
+          'https://x.com/Bj_Beyond',
+          'https://hackernoon.com/u/bj_beyond',
+          'https://bjbeyond.substack.com',
+          AMAZON_AUTHOR_URL,
+          JOURNAL_URL,
         ],
       },
       {
         '@type': 'WebSite',
         '@id': WEBSITE_ID,
-        url: SITE.url,
+        url: absoluteUrl('/'),
         name: SITE.name,
         description: SITE.description,
         publisher: { '@id': ORGANISATION_ID },
@@ -125,7 +164,7 @@ export function siteSchema() {
  * Referenced by `@id`, never restated: the page says "this document is about
  * that entity", and the entity itself is defined once, in `siteSchema()`, which
  * the layout already embeds on this page. Same rule as the rest of this file —
- * no owner's legal name, no `founder`.
+ * no owner's legal name.
  */
 export function aboutPageSchema() {
   const url = absoluteUrl('/about/');
