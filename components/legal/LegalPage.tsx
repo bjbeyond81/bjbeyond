@@ -10,7 +10,7 @@ import { EXTERNAL } from '@/components/primitives/External';
  * JavaScript: no pinning, no parallax, no cursor.
  *
  * The content is Italian inside an English document, so the prose column
- * carries `lang="it"` — without it a screen reader applies English
+ * carries `lang="en"` — without it a screen reader applies English
  * pronunciation rules.
  */
 
@@ -170,15 +170,15 @@ export function LegalPage({ doc }: { doc: LegalDocument }) {
               ))}
             </h1>
             <p className="u-label mt-8 text-mist-300">
-              ULTIMO AGGIORNAMENTO — {doc.updated.toUpperCase()}
+              LAST UPDATED — {doc.updated.toUpperCase()}
             </p>
           </div>
         </section>
 
-        <div className="u-gutter pb-[var(--spacing-section)]" lang="it">
+        <div className="u-gutter pb-[var(--spacing-section)]" lang="en">
           <div className="grid gap-12 border-t border-rule pt-12 lg:grid-cols-12 lg:gap-8">
             {/* Sticky on desktop, so a long document stays navigable. */}
-            <nav aria-label="Indice" className="lg:col-span-3">
+            <nav aria-label="Contents" className="lg:col-span-3">
               <div className="lg:sticky lg:top-28">
                 <p className="u-label text-mist-400" lang="en">
                   CONTENTS

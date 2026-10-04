@@ -3,8 +3,8 @@
  * `public/docs/`. These are legal statements: nothing is reworded or softened
  * for tone, and the rebuild changed their presentation only.
  *
- * They stay in Italian because they describe an Italian data controller's
- * obligations; the rendered page marks the switch with `lang="it"`.
+ * The site is English only. These statements keep the same facts and name
+ * the Italian controller, the GDPR, and the Italian Privacy Code in English.
  *
  * WHERE THE COOKIE POLICY NOW DIVERGES FROM THE 2026 TRANSCRIPTION, and why a
  * document that is not to be reworded was nonetheless edited: it had stopped
@@ -61,20 +61,20 @@ export const PRIVACY: LegalDocument = {
   index: '01',
   eyebrow: 'LEGAL',
   title: ['PRIVACY', 'POLICY'],
-  updated: '21 Luglio 2026',
+  updated: '4 October 2026',
   legacyPath: '/pages/privacy-policy.html',
   intro:
-    'Bj Beyond si impegna a proteggere la tua privacy. Questa Informativa descrive come raccogliamo, utilizziamo e proteggiamo i tuoi dati personali in conformità con il Regolamento UE 2016/679 (GDPR), il D.Lgs. 196/2003 (Codice Privacy) e le Linee Guida EDPD.',
+    'Bj Beyond protects your privacy. This notice describes how personal data is collected, used, and protected under Regulation (EU) 2016/679 (GDPR), Legislative Decree 196/2003 (Italian Privacy Code), and the EDPB Guidelines.',
   sections: [
     {
       id: 'titolare',
-      heading: 'Titolare del Trattamento',
+      heading: 'Controller',
       blocks: [
         {
           kind: 'pairs',
           items: [
-            { term: 'Titolare', detail: 'Matteo Zanetti – Bj Beyond' },
-            { term: 'Sede', detail: 'Verona, Italia' },
+            { term: 'Controller', detail: 'Matteo Zanetti – Bj Beyond' },
+            { term: 'Seat', detail: 'Verona, Italy' },
             { term: 'Email', detail: EMAIL },
             { term: 'X', detail: X_HANDLE },
           ],
@@ -83,103 +83,103 @@ export const PRIVACY: LegalDocument = {
     },
     {
       id: 'dati-raccolti',
-      heading: 'Dati raccolti',
+      heading: 'Data collected',
       blocks: [
         {
           kind: 'pairs',
           items: [
             {
-              term: 'Dati di navigazione',
+              term: 'Browsing data',
               detail:
-                'Indirizzo IP, tipo di browser, dispositivo, pagine visitate, tempo di permanenza (tramite log di hosting o analytics anonimi).',
+                'IP address, browser type, device, pages visited, and time on page, through hosting logs or anonymous analytics.',
             },
             {
-              term: 'Dati dal Phoenix Simulator',
+              term: 'Phoenix Simulator data',
               detail:
-                'I testi dei post che inserisci vengono elaborati in locale o tramite API (Claude/Groq) senza memorizzazione permanente sul nostro server.',
+                'Post text you paste is processed locally or through an API (Claude/Groq) and is not stored permanently on our server.',
             },
             {
-              term: 'Dati di contatto',
-              detail: 'Nome, email e messaggio se ci scrivi via form o email.',
+              term: 'Contact data',
+              detail: 'Name, email, and message if you write via the form or email.',
             },
           ],
         },
         {
           kind: 'callout',
-          value: 'Non raccogliamo dati sensibili né vendiamo dati a terzi.',
+          value: 'We do not collect special-category data and we do not sell data to third parties.',
         },
       ],
     },
     {
       id: 'finalita',
-      heading: 'Finalità e base giuridica',
+      heading: 'Purposes and legal basis',
       blocks: [
         {
           kind: 'ordered',
           items: [
-            'Fornire i servizi richiesti (es. simulazione Phoenix) – art. 6.1.b GDPR.',
-            'Migliorare il sito e analizzare l’uso in modo anonimo – Legittimo Interesse.',
-            'Rispondere a richieste di contatto – Consenso o legittimo interesse.',
-            'Adempiere obblighi legali.',
+            'Providing the service you ask for, including the Phoenix Simulator — GDPR art. 6.1.b.',
+            'Improving the site and measuring use in anonymous form — legitimate interest.',
+            'Replying to contact requests — consent or legitimate interest.',
+            'Complying with legal obligations.',
           ],
         },
       ],
     },
     {
       id: 'trasferimenti',
-      heading: 'Trasferimenti extra-UE',
+      heading: 'Transfers outside the EU',
       blocks: [
         {
           kind: 'text',
           value: META_PIXEL_ID
-            ? 'Utilizziamo fornitori sicuri (Vercel, Anthropic, Groq, Google Ireland Ltd., Meta Platforms Ireland Ltd.) con Clausole Contrattuali Standard o adeguatezza. Google e Meta possono trasferire dati negli Stati Uniti sulla base del EU-US Data Privacy Framework.'
-            : 'Utilizziamo fornitori sicuri (Vercel, Anthropic, Groq, Google Ireland Ltd.) con Clausole Contrattuali Standard o adeguatezza. Google può trasferire dati negli Stati Uniti sulla base del EU-US Data Privacy Framework.',
+            ? 'We use processors (hosting, Anthropic, Groq, Google Ireland Ltd., Meta Platforms Ireland Ltd.) under Standard Contractual Clauses or an adequacy decision. Google and Meta may transfer data to the United States under the EU-US Data Privacy Framework.'
+            : 'We use processors (hosting, Anthropic, Groq, Google Ireland Ltd.) under Standard Contractual Clauses or an adequacy decision. Google may transfer data to the United States under the EU-US Data Privacy Framework.',
         },
       ],
     },
     {
       id: 'diritti',
-      heading: 'I tuoi diritti (GDPR)',
+      heading: 'Your rights (GDPR)',
       blocks: [
-        { kind: 'text', value: 'In qualsiasi momento puoi:' },
+        { kind: 'text', value: 'You can, at any time:' },
         {
           kind: 'list',
           items: [
-            'Accedere, rettificare, cancellare, limitare o opporti al trattamento',
-            'Chiedere la portabilità dei dati',
-            'Revocare il consenso',
+            'Access, rectify, erase, restrict, or object to processing',
+            'Ask for portability',
+            'Withdraw consent',
           ],
         },
         {
           kind: 'text',
-          value: `Scrivi a ${EMAIL}. Rispondo entro 30 giorni.`,
+          value: `Write to ${EMAIL}. I reply within 30 days.`,
         },
       ],
     },
     {
       id: 'conservazione',
-      heading: 'Conservazione',
+      heading: 'Retention',
       blocks: [
         {
           kind: 'text',
           value:
-            'I dati vengono conservati solo per il tempo necessario (log di navigazione max 12-24 mesi, dati di contatto fino a chiusura richiesta).',
+            'Data is kept only as long as needed: browsing logs for 12–24 months at most, contact data until the request is closed.',
         },
       ],
     },
     {
       id: 'modifiche',
-      heading: 'Modifiche alla Policy',
+      heading: 'Changes',
       blocks: [
         {
           kind: 'text',
-          value: 'Eventuali aggiornamenti saranno pubblicati qui con nuova data.',
+          value: 'Updates are published on this page with a new date.',
         },
       ],
     },
   ],
   closing:
-    'Per qualsiasi dubbio contattami su X o via email. One step beyond AI — con rispetto della tua privacy.',
+    'Questions: write on X or by email. One step beyond AI — with respect for your privacy.',
 };
 
 export const COOKIES: LegalDocument = {
@@ -189,92 +189,92 @@ export const COOKIES: LegalDocument = {
   updated: '21 Luglio 2026',
   legacyPath: '/pages/cookie-policy.html',
   intro:
-    'Questa Cookie Policy integra la Privacy Policy e ti spiega come Bj Beyond utilizza i cookie sul sito bjbeyond.it.',
+    'This Cookie Policy supplements the Privacy Policy and explains how Bj Beyond uses cookies on bjbeyond.it.',
   sections: [
     {
       id: 'cosa-sono',
-      heading: 'Cosa sono i cookie?',
+      heading: 'What cookies are',
       blocks: [
         {
           kind: 'text',
           value:
-            'I cookie sono piccoli file di testo che il sito memorizza sul tuo dispositivo per ricordare preferenze e migliorare l’esperienza.',
+            'Cookies are small text files the site stores on your device to remember preferences and keep the site working.',
         },
       ],
     },
     {
       id: 'tipi',
-      heading: 'Tipi di cookie utilizzati',
+      heading: 'Cookies used',
       blocks: [
         {
           kind: 'table',
-          head: ['Tipo', 'Descrizione', 'Durata', 'Gestione'],
+          head: ['Type', 'Description', 'Duration', 'Control'],
           rows: [
             [
-              'Tecnici',
-              'Necessari per navigazione e funzionalità (es. lingua, simulator)',
-              'Sessione / 1 anno',
-              'Obbligatori – non disattivabili',
+              'Strictly necessary',
+              'Required for navigation and site functions, including the simulator',
+              'Session / 1 year',
+              'Required — cannot be switched off',
             ],
-            ['Preferenze', 'Ricordano scelte (es. tema dark)', '6 mesi', 'Puoi gestirli'],
+            ['Preferences', 'Remember choices such as consent', '6 months', 'You can manage them'],
             [
-              'Analitici',
-              'Google Analytics 4 (Google Ireland Ltd.): statistiche di visita, pagine viste, provenienza del traffico. Attivati solo dopo il tuo consenso.',
-              '13 mesi',
-              'Puoi rifiutare',
+              'Analytics',
+              'Google Analytics 4 (Google Ireland Ltd.): visit statistics, pages viewed, traffic source. Set only after your consent.',
+              '13 months',
+              'You can refuse',
             ],
             ...(META_PIXEL_ID
               ? [
                   [
                     'Marketing',
-                    'Meta Pixel (Meta Platforms Ireland Ltd.): misurazione delle campagne pubblicitarie su Facebook e Instagram e creazione di pubblici personalizzati. Attivato solo dopo il tuo consenso.',
-                    '3 mesi',
+                    'Meta Pixel (Meta Platforms Ireland Ltd.): measurement of Facebook and Instagram campaigns and custom audiences. Set only after your consent.',
+                    '3 months',
                     'Puoi rifiutare',
                   ],
                 ]
               : []),
-            ['Funzionali', 'Per tool come Phoenix Simulator', 'Sessione', 'Necessari'],
+            ['Functional', 'For tools such as Phoenix Simulator', 'Session', 'Required'],
           ],
         },
         {
           kind: 'callout',
           value: META_PIXEL_ID
-            ? 'Nessun cookie di analisi o di marketing viene installato prima del tuo consenso. Se rifiuti, o se ignori il banner, gli script di Google e Meta non vengono nemmeno caricati.'
-            : 'Nessun cookie di analisi viene installato prima del tuo consenso. Se rifiuti, o se ignori il banner, gli script di Google non vengono nemmeno caricati. Questo sito non usa attualmente cookie di profilazione pubblicitaria.',
+            ? 'No analytics or marketing cookie is set before your consent. If you refuse, or if you ignore the banner, Google and Meta scripts are not loaded.'
+            : 'No analytics cookie is set before your consent. If you refuse, or if you ignore the banner, Google scripts are not loaded. This site does not currently use advertising profiling cookies.',
         },
       ],
     },
     {
       id: 'gestione',
-      heading: 'Come gestire i cookie',
+      heading: 'How to manage cookies',
       blocks: [
         {
           kind: 'list',
           items: [
-            'Alla prima visita un banner ti chiede se accettare i cookie non tecnici. Finché non scegli, nessuno di essi viene installato.',
-            'Puoi cambiare la tua scelta in qualsiasi momento dal link “COOKIE PREFERENCES” in fondo a ogni pagina.',
-            'Puoi cancellarli o bloccarli dalle impostazioni del tuo browser (Chrome, Firefox, Safari, ecc.).',
+            'On the first visit a banner asks you to accept non-essential cookies. Until you choose, none of them are set.',
+            'You can change that choice at any time from the COOKIE PREFERENCES link at the bottom of every page.',
+            'You can delete or block them in your browser settings (Chrome, Firefox, Safari, and others).',
             'Per istruzioni dettagliate: aboutcookies.org',
           ],
         },
         {
           kind: 'text',
           value:
-            'Disabilitando alcuni cookie il sito potrebbe non funzionare perfettamente (es. simulator).',
+            'If you disable some cookies, parts of the site, including the simulator, may not work fully.',
         },
       ],
     },
     {
       id: 'aggiornamenti',
-      heading: 'Aggiornamenti',
+      heading: 'Updates',
       blocks: [
         {
           kind: 'text',
           value:
-            'Questa policy può essere modificata. Controlla periodicamente la data di aggiornamento.',
+            'This policy can change. Check the update date.',
         },
       ],
     },
   ],
-  closing: 'Per domande scrivimi via email o su X.',
+  closing: 'Questions: write by email or on X.',
 };
