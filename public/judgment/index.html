@@ -95,7 +95,7 @@
                     <div class="flex items-center justify-between mb-5 sm:mb-6">
                         <div>
                             <h3 class="text-xl sm:text-2xl font-semibold tracking-tight">Judgment Analyzer</h3>
-                            <p class="text-sm text-zinc-400 mt-1">42 detection rules • No API key needed</p>
+                            <p class="text-sm text-zinc-400 mt-1">Rule filter • No API key needed</p>
                         </div>
                     </div>
 
@@ -193,114 +193,97 @@
             resultsSection.classList.remove('hidden');
             resultsSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-            const lowerText = text.toLowerCase();
-            const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 5);
-            const words = lowerText.match(/\b\w+\b/g) || [];
-            const uniqueWords = new Set(words);
+            const lower = text.toLowerCase();
+            const words = lower.match(/\b[a-z0-9']+\b/g) || [];
+            const sentences = text.split(/[.!?]+/).map(s => s.trim()).filter(s => s.length > 2);
+            const signals = [];
+            let score = 6;
 
-            let score = 0;
-            let signals = [];
+            function hit(label, weight, when) {
+                if (!when) return;
+                score += weight;
+                signals.push(label);
+            }
 
-            // === RULE 1-10: Structure & Syntax ===
-            if (sentences.length > 3) {
-                const lengths = sentences.map(s => s.trim().length);
+            const phrases = [
+                ["excited to announce", 16, "Launch-post opener"],
+                ["my journey", 10, "Journey framing"],
+                ["fast-paced world", 14, "Fast-paced-world cliché"],
+                ["knows no bounds", 14, "No-bounds cliché"],
+                ["unlock your potential", 16, "Unlock-your-potential CTA"],
+                ["drop a fire", 14, "Engagement bait"],
+                ["if you agree", 8, "Agreement bait"],
+                ["in today's", 10, "In-today's opener"],
+                ["profound dance", 14, "Profound-dance metaphor"],
+                ["reimagine", 10, "Reimagine verb"],
+                ["authentic selves", 12, "Authentic-selves close"],
+                ["inviting us to", 10, "Inviting-us cadence"],
+                ["staying true to", 8, "Staying-true close"],
+                ["in conclusion", 10, "Stock conclusion"],
+                ["to summarize", 10, "Stock summary"],
+                ["it is worth noting", 10, "Worth-noting filler"],
+                ["it is crucial", 10, "Crucial filler"],
+                ["it is important to note", 10, "Important-to-note filler"],
+                ["on the other hand", 8, "Stock contrast"],
+                ["key takeaways", 10, "Takeaways framing"]
+            ];
+            phrases.forEach(([phrase, weight, label]) => hit(label, weight, lower.includes(phrase)));
+
+            const aiWords = ["delve", "tapestry", "realm", "testament", "leverage", "landscape", "crucial", "pivotal", "underscore"];
+            const aiHits = aiWords.filter(w => new RegExp("\\b" + w + "\\b").test(lower));
+            hit("AI-favored words: " + aiHits.join(", "), 8 + aiHits.length * 3, aiHits.length >= 2);
+
+            const connectors = ["moreover", "furthermore", "additionally", "consequently", "nevertheless"];
+            const connectorHits = connectors.filter(w => lower.includes(w));
+            hit("Formal connector stack", 12, connectorHits.length >= 2);
+
+            const firstPerson = (lower.match(/\bi\b/g) || []).length;
+            hit("No first person in a long paste", 8, firstPerson === 0 && words.length > 45);
+
+            if (sentences.length >= 4) {
+                const lengths = sentences.map(s => s.length);
                 const avg = lengths.reduce((a, b) => a + b, 0) / lengths.length;
-                const variance = lengths.reduce((sum, len) => sum + Math.pow(len - avg, 2), 0) / lengths.length;
-                if (variance < 450) { score += 12; signals.push("Uniform sentence length"); }
+                const variance = lengths.reduce((sum, len) => sum + (len - avg) ** 2, 0) / lengths.length;
+                hit("Uniform sentence length", 8, variance < 280 && avg > 40);
             }
 
-            const formalConnectors = ["moreover", "furthermore", "additionally", "consequently", "nevertheless", "in addition"];
-            let connectorCount = 0;
-            formalConnectors.forEach(w => { if (lowerText.includes(w)) connectorCount++; });
-            if (connectorCount >= 2) { score += 14; signals.push("Excessive formal connectors"); }
+            hit("Long paste, no question, no break", 6, words.length > 70 && !text.includes("?") && !text.includes("!"));
 
-            if (!lowerText.includes(" i ") && !lowerText.includes("i think") && !lowerText.includes("i believe")) {
-                score += 10; signals.push("Lack of personal voice");
-            }
+            if (firstPerson >= 1) score -= 14;
+            if (firstPerson >= 2) score -= 8;
+            const fragments = sentences.filter(s => s.split(/\s+/).length <= 5).length;
+            if (fragments >= 2) score -= 12;
+            if ((text.match(/\d+/) || []).length >= 1 && firstPerson >= 1) score -= 6;
+            if (text.includes("?")) score -= 4;
+            if (signals.length >= 4) score += 14;
 
-            const aiClichés = ["in today's world", "in the modern era", "it is crucial", "successful implementation", "key takeaways", "it is important to note"];
-            let clichéCount = 0;
-            aiClichés.forEach(c => { if (lowerText.includes(c)) clichéCount++; });
-            if (clichéCount >= 1) { score += 13; signals.push("Common AI phrases"); }
+            score = Math.max(2, Math.min(98, Math.round(score)));
+            const human = 100 - score;
+            const evidence = signals.length + (words.length >= 12 ? 1 : 0);
+            const confidence = Math.max(42, Math.min(90, 48 + evidence * 6 + Math.min(words.length, 80) / 8));
 
-            const diversity = uniqueWords.size / words.length;
-            if (diversity < 0.52) { score += 11; signals.push("Repetitive vocabulary"); }
-
-            if (text.split(".").length > 6 && !text.includes("!") && !text.includes("?")) {
-                score += 9; signals.push("Overly polished tone");
-            }
-
-            // === RULE 11-25: Vocabulary & Style ===
-            const aiWords = ["delve", "tapestry", "realm", "landscape", "testament", "leverage", "crucial", "essential", "significant", "vital"];
-            let aiWordCount = 0;
-            aiWords.forEach(w => { if (lowerText.includes(w)) aiWordCount++; });
-            if (aiWordCount >= 3) { score += 12; signals.push("Overuse of AI-favored words"); }
-
-            if ((lowerText.match(/the /g) || []).length > 12) { score += 8; signals.push("High use of 'the'"); }
-            if ((lowerText.match(/ of /g) || []).length > 10) { score += 7; signals.push("High use of 'of'"); }
-
-            const hedging = ["probably", "maybe", "perhaps", "i feel", "in my experience"];
-            if (!hedging.some(h => lowerText.includes(h))) { score += 10; signals.push("Lack of hedging"); }
-
-            // === RULE 26-35: Patterns ===
-            if (lowerText.includes("however,") && (lowerText.match(/however/g) || []).length > 1) {
-                score += 9; signals.push("Repetitive 'however'");
-            }
-
-            if (lowerText.includes("on the other hand")) { score += 8; signals.push("Overused contrast phrase"); }
-
-            if (sentences.length > 4) {
-                const starters = sentences.map(s => s.trim().split(" ")[0].toLowerCase());
-                const uniqueStarters = new Set(starters);
-                if (uniqueStarters.size / starters.length < 0.6) {
-                    score += 10; signals.push("Repetitive sentence starters");
-                }
-            }
-
-            // === RULE 36-42: Advanced ===
-            if (lowerText.includes("in conclusion") || lowerText.includes("to summarize") || lowerText.includes("ultimately")) {
-                score += 11; signals.push("Generic concluding phrase");
-            }
-
-            if (lowerText.includes("it is worth noting")) { score += 9; signals.push("'It is worth noting' detected"); }
-
-            const personalPronouns = (lowerText.match(/\bi\b/g) || []).length;
-            if (personalPronouns < 1 && words.length > 40) {
-                score += 8; signals.push("Very low first-person usage");
-            }
-
-            if (text.split("\n").length > 3 && text.includes("- ")) {
-                score += 7; signals.push("Excessive use of bullet points");
-            }
-
-            // Final score
-            score = Math.min(Math.max(score, 30), 94);
-            const aiLikelihood = score;
-            const humanLikelihood = 100 - aiLikelihood;
-            const confidence = Math.floor(Math.random() * 10) + 85;
-
-            // Update UI
-            document.getElementById('ai-score').innerText = aiLikelihood;
-            document.getElementById('human-score').innerText = humanLikelihood;
-            document.getElementById('confidence-score').innerText = confidence;
+            document.getElementById('ai-score').innerText = score + "%";
+            document.getElementById('human-score').innerText = human + "%";
+            document.getElementById('confidence-score').innerText = Math.round(confidence) + "%";
 
             const badge = document.getElementById('verdict-badge');
-            if (aiLikelihood > 78) {
-                badge.className = `px-4 sm:px-5 h-8 sm:h-9 rounded-3xl flex items-center gap-x-2 text-xs font-semibold bg-red-600/10 text-red-500`;
-                badge.innerHTML = `<span>Strongly AI-generated</span>`;
-            } else if (aiLikelihood > 58) {
-                badge.className = `px-4 sm:px-5 h-8 sm:h-9 rounded-3xl flex items-center gap-x-2 text-xs font-semibold bg-amber-600/10 text-amber-500`;
-                badge.innerHTML = `<span>Likely AI-generated</span>`;
+            if (score >= 68) {
+                badge.className = "px-4 sm:px-5 h-8 sm:h-9 rounded-3xl flex items-center gap-x-2 text-xs font-semibold bg-red-600/10 text-red-500";
+                badge.innerHTML = "<span>Reads machine-like</span>";
+            } else if (score >= 40) {
+                badge.className = "px-4 sm:px-5 h-8 sm:h-9 rounded-3xl flex items-center gap-x-2 text-xs font-semibold bg-amber-600/10 text-amber-500";
+                badge.innerHTML = "<span>Mixed signal</span>";
             } else {
-                badge.className = `px-4 sm:px-5 h-8 sm:h-9 rounded-3xl flex items-center gap-x-2 text-xs font-semibold bg-emerald-600/10 text-emerald-500`;
-                badge.innerHTML = `<span>Possibly human-written</span>`;
+                badge.className = "px-4 sm:px-5 h-8 sm:h-9 rounded-3xl flex items-center gap-x-2 text-xs font-semibold bg-emerald-600/10 text-emerald-500";
+                badge.innerHTML = "<span>Reads human</span>";
             }
 
             const signalsContainer = document.getElementById('signals-list');
-            signalsContainer.innerHTML = signals.map(s => 
+            signalsContainer.innerHTML = (signals.length ? signals : ["No machine-like phrase hit"]).map(s =>
                 `<div class="px-3 sm:px-4 py-1.5 bg-white/5 text-xs rounded-3xl">${s}</div>`
             ).join('');
         }
+
     </script>
 </body>
 </html>
