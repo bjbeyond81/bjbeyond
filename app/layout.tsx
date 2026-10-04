@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from 'next';
 import { Inter, Playfair_Display, JetBrains_Mono } from 'next/font/google';
 import { SITE } from '@/lib/content';
 import { CONSENT_SIGNALS } from '@/lib/analytics';
-import { siteSchema } from '@/lib/schema';
 import { ConsentProvider } from '@/components/chrome/Consent';
 import { Analytics } from '@/components/chrome/Analytics';
 import './globals.css';
@@ -174,26 +173,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body>
-        {/*
-          Structured data, on every page.
-
-          `type="application/ld+json"` is data, not code: the browser never
-          executes it, so this is not the script-in-a-component pattern the two
-          tags in <head> are — it is markup that happens to be JSON.
-
-          `JSON.stringify` rather than a template literal, because it escapes
-          the content. A `<` inside any string here — a description, a contact
-          role — would otherwise be read as the start of a tag and truncate the
-          block, and the failure is silent: Google simply finds nothing.
-
-          It sits in <body> deliberately. Google accepts JSON-LD anywhere in the
-          document, and keeping it out of <head> keeps the head to things that
-          have to block.
-        */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteSchema()) }}
-        />
+        {/* Structured data is rendered per page: see components/chrome/SiteSchema. */}
 
         {/* First stop for keyboard users, before the navigation. */}
         <a
