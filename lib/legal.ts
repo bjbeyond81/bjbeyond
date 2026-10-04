@@ -186,7 +186,7 @@ export const COOKIES: LegalDocument = {
   index: '02',
   eyebrow: 'LEGAL',
   title: ['COOKIE', 'POLICY'],
-  updated: '21 Luglio 2026',
+  updated: '4 October 2026',
   legacyPath: '/pages/cookie-policy.html',
   intro:
     'This Cookie Policy supplements the Privacy Policy and explains how Bj Beyond uses cookies on bjbeyond.it.',
