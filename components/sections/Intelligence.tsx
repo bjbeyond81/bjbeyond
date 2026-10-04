@@ -28,8 +28,8 @@ import { useRevealRef } from '@/lib/reveal';
 const VIEW = { w: 1000, h: 300, padX: 24, padY: 34 } as const;
 
 /** Shared across every series, so switching filters compares like for like. A
- *  per-series max would make each filter look identically strong. */
-const CEILING = 132;
+ *  the ceiling is set to the top of the reported series with a small headroom. */
+const CEILING = 70;
 
 function toPoints(values: number[]): [number, number][] {
   const innerW = VIEW.w - VIEW.padX * 2;
@@ -249,7 +249,7 @@ export function Intelligence() {
                   className="u-draw w-full overflow-visible text-amber-400"
                   style={{ '--reveal-duration': '2000ms' } as React.CSSProperties}
                   role="img"
-                  aria-label={`${INTELLIGENCE.subtitle}, ${INTELLIGENCE.period}. Illustrative index values from ${series[0].value} in ${series[0].label} to ${series[series.length - 1].value} in ${series[series.length - 1].label}. Full values are available in the table below.`}
+                  aria-label={`${INTELLIGENCE.subtitle}, ${INTELLIGENCE.period}. Actual global sales from ${series[0].value} in ${series[0].label} to ${series[series.length - 1].value} in ${series[series.length - 1].label}. Full values are available in the table below.`}
                 >
                   <defs>
                     <linearGradient id="pulse-wash" x1="0" y1="0" x2="0" y2="1">
@@ -406,8 +406,8 @@ export function Intelligence() {
                 </caption>
                 <thead>
                   <tr>
-                    <th scope="col">Month</th>
-                    <th scope="col">Index value</th>
+                    <th scope="col">Year</th>
+                    <th scope="col">Sales (USD bn)</th>
                   </tr>
                 </thead>
                 <tbody>
