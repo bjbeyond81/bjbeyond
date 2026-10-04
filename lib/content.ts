@@ -767,7 +767,7 @@ export const SOCIAL = [
   { label: 'HACKERNOON', href: 'https://hackernoon.com/u/bj_beyond' },
   { label: 'SUBSTACK', href: 'https://bjbeyond.substack.com' },
   /* Claimed profile. Footer and sameAs pick it up from this list. */
-  { label: 'MUCK RACK', href: 'https://muckrack.com/bj-bj-beyond' },
+  { label: 'MUCK RACK', href: 'https://muckrack.com/bj_beyond' },
 ] as const;
 
 export const FOOTER = {
