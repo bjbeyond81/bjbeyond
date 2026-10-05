@@ -3,176 +3,45 @@ import { IntroProvider } from '@/components/chrome/Intro';
 import { Navigation } from '@/components/chrome/Navigation';
 import { Footer } from '@/components/sections/Footer';
 import { SiteSchema } from '@/components/chrome/SiteSchema';
-import { CONTACT } from '@/lib/content';
-
-const proof = [
-  ['3,119', 'ARCHIVED TWEETS'],
-  ['7,656', 'GROK CHAT RECORDS'],
-  ['3,276', 'DELETED TWEETS PRESERVED'],
-  ['5', 'PHOENIX SOULFIRE™ TESTS'],
+import { CONTACT, WRITING } from '@/lib/content';
+const quote = 'The biggest lie of the AI era? Believing that anyone who knows how to hit ‘enter’ will become an author, a designer, or a thinker.';
+const tests = ['Soul', 'Edge', 'Clarity', 'Impact', 'Legacy'];
+const articles = [WRITING.articles[3], WRITING.articles[0], WRITING.articles[2]];
+const capabilities = [
+  { n: '01', title: 'Intelligence', text: 'Art market research. Evidence that brings the bigger picture into focus.', words: 'RESEARCH / ART / VALUE' },
+  { n: '02', title: 'Systems', text: 'Power BI, dashboards and data architecture. Complexity, made useful.', words: 'DATA / POWER BI / DECISIONS' },
+  { n: '03', title: 'Human Edge', text: 'AI strategy and creative workflows. A human decision at the centre.', words: 'AI / STRATEGY / JUDGMENT' },
 ];
-
-const experiments = [
-  {
-    n: '01',
-    kicker: 'FLAGSHIP EXPERIMENT',
-    title: 'The Phoenix Experiment',
-    body: 'A documented human–AI experiment built from primary X archive records, recovered media, public tests and Human-in-the-Loop analysis.',
-    href: '#evidence',
-    cta: 'EXPLORE THE RECORD',
-  },
-  {
-    n: '02',
-    kicker: 'JUDGMENT LAYER',
-    title: 'Phoenix Soulfire™',
-    body: 'Five tests before a text, a work or a plan is trusted: Soul, Edge, Clarity, Impact and Legacy.',
-    href: '/method/',
-    cta: 'READ THE METHOD',
-  },
-  {
-    n: '03',
-    kicker: 'EXPERIMENTAL SYSTEM',
-    title: 'Phoenix Simulator',
-    body: 'A practical simulator exploring ranking logic, audience fit and the signals that shape distribution.',
-    href: '/phoenix/',
-    cta: 'OPEN THE LAB',
-  },
-];
-
-const work = [
-  ['INTELLIGENCE', 'Art market analysis, decision support and evidence-led research.'],
-  ['SYSTEMS', 'Power BI, dashboards, reporting architecture and data workflows.'],
-  ['HUMAN EDGE', 'AI strategy, judgment frameworks and human–AI collaboration design.'],
-];
-
+function Arrow({ diagonal = false }: { diagonal?: boolean }) { return <span aria-hidden="true" className="edge-arrow">{diagonal ? '↗' : '→'}</span>; }
 export default function HomePage() {
-  return (
-    <IntroProvider curtain={false}>
-      <SiteSchema />
-      <Navigation />
-    <main id="main" className="bjv2">
-      <div className="ambient ambientA" />
-      <div className="ambient ambientB" />
-
-
-      <section className="hero shell">
-        <div className="eyebrow"><span /> ONE STEP BEYOND AI</div>
-        <h1>WHERE AI<br/>CAPABILITY ENDS,<br/><em>HUMAN JUDGMENT</em><br/>BEGINS.</h1>
-        <p className="heroCopy">Experiments, systems and intelligence at the intersection of AI, data, art and human judgment.</p>
-        <div className="heroActions">
-          <a href="#phoenix" className="primary">EXPLORE THE EVIDENCE <b>↗</b></a>
-          <a href="#work" className="secondary">WORK WITH BJ BEYOND</a>
-        </div>
-        <div className="heroRail">
-          <span>DATA</span><i /> <span>AI</span><i /> <span>HUMAN EDGE</span><i /> <span>CULTURE</span>
-        </div>
-      </section>
-
-      <section id="thesis" className="manifesto shell sectionRule">
-        <div className="sectionIndex">01 / THESIS</div>
-        <div className="manifestoGrid">
-          <h2>THE HUMAN<br/><em>EDGE.</em></h2>
-          <div className="manifestoText">
-            <p className="big">AI can generate.<br/>Data can measure.<br/><strong>Judgment decides what matters.</strong></p>
-            <p>Human Edge is the principle behind BJ Beyond: use machines for scale, speed and pattern recognition — without surrendering taste, accountability, context or the final decision.</p>
-          </div>
-        </div>
-      </section>
-
-      <section className="lie shell">
-        <div className="quoteMark">“</div>
-        <blockquote>
-          The biggest lie of the AI era? Believing that anyone who knows how to hit ‘enter’ will become an author, a designer, or a thinker.
-        </blockquote>
-        <p>— BJ BEYOND</p>
-      </section>
-
-      <section id="phoenix" className="phoenix shell sectionRule">
-        <div className="sectionIndex">02 / FLAGSHIP CASE</div>
-        <div className="phoenixStage">
-          <div className="phoenixVisual" aria-hidden="true">
-            <img src="/media/labs/phoenix-1280.webp" alt="" width="1280" height="720" className="phoenixImage" loading="lazy" />
-          </div>
-          <div className="phoenixCopy">
-            <span className="status">HUMAN–AI / PHOENIX</span>
-            <h2>THE PHOENIX<br/><em>EXPERIMENT</em></h2>
-            <p>A documented human–AI experiment with Grok. From Human Edge and Phoenix Soulfire™ to recovered visual responses, stress tests and an archive that preserves what happened.</p>
-            <div className="badges"><span>PRIMARY SOURCE</span><span>HUMAN-IN-THE-LOOP</span><span>MEDIA RECOVERED</span></div>
-            <a href="#evidence" className="primary">EXPLORE THE RECORD <b>↗</b></a>
-          </div>
-        </div>
-      </section>
-
-      <section id="evidence" className="proof shell">
-        <div className="proofIntro">
-          <span className="sectionIndex">03 / RECORD</span>
-          <h2>DOCUMENTED.<br/><em>NOT DECLARED.</em></h2>
-          <p>Archive totals supplied for the Phoenix experiment. These counts describe the archive; they do not by themselves establish the interpretation of the experiment.</p>
-        </div>
-        <div className="proofGrid">
-          {proof.map(([value, label]) => <div className="proofCard" key={label}><strong>{value}</strong><span>{label}</span></div>)}
-        </div>
-      </section>
-
-      <section className="experiments shell sectionRule">
-        <div className="sectionIndex">04 / SELECTED EXPERIMENTS</div>
-        <div className="experimentList">
-          {experiments.map((x) => (
-            <article className="experiment" key={x.n}>
-              <div className="num">{x.n}</div>
-              <div><small>{x.kicker}</small><h3>{x.title}</h3></div>
-              <p>{x.body}</p>
-              <a href={x.href}>{x.cta} <b>↗</b></a>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section id="writing" className="writing shell sectionRule">
-        <div className="sectionIndex">05 / FIELD NOTES & INVESTIGATIONS</div>
-        <div className="writingHero">
-          <div>
-            <span className="status">LONG-FORM / HACKERNOON</span>
-            <h2>THE PHOENIX EXPERIMENT:<br/><em>THE FULL STORY</em></h2>
-          </div>
-          <p>A recovered primary-source record of Human Edge, Grok and the visual response that became the centerpiece of the experiment.</p>
-        </div>
-        <div className="articleRow">
-          <a href="https://hackernoon.com/u/bj_beyond" target="_blank" rel="noopener noreferrer">READ BJ BEYOND ON HACKERNOON <b>↗</b></a>
-          <a href="https://hackernoon.com/when-the-system-flags-the-human-who-was-helping-it" target="_blank" rel="noopener noreferrer">WHEN THE SYSTEM FLAGS THE HUMAN WHO WAS HELPING IT <b>↗</b></a>
-          <a href="https://hackernoon.com/system-zero-what-happens-when-ai-does-the-thinking-for-us" target="_blank" rel="noopener noreferrer">SYSTEM ZERO: WHAT HAPPENS WHEN AI DOES THE THINKING FOR US? <b>↗</b></a>
-        </div>
-      </section>
-
-      <section className="art shell sectionRule">
-        <div className="sectionIndex">06 / ART, VALUE & PROVENANCE</div>
-        <div className="split">
-          <h2>WHAT REMAINS<br/>VALUABLE WHEN<br/><em>IMAGES BECOME INFINITE?</em></h2>
-          <div>
-            <p>Art intelligence through the same lens: provenance, scarcity, authorship, evidence and the human story behind value.</p>
-            <a href="/art/" className="secondary">EXPLORE ART & PROVENANCE</a>
-          </div>
-        </div>
-      </section>
-
-      <section id="work" className="work shell sectionRule">
-        <div className="sectionIndex">07 / WORK</div>
-        <a href="/services/" className="secondary">VIEW CAPABILITIES</a>
-        <h2>THREE WAYS<br/><em>TO GO BEYOND.</em></h2>
-        <div className="workGrid">
-          {work.map(([title, body], i) => <div className="workCard" key={title}><small>0{i+1}</small><h3>{title}</h3><p>{body}</p></div>)}
-        </div>
-      </section>
-
-      <section id="contact" className="closing shell">
-        <span className="eyebrow"><span /> HUMAN JUDGMENT LAYER</span>
-        <h2>DON’T OUTSOURCE<br/><em>THE JUDGMENT.</em></h2>
-        <p>Build systems that use AI without surrendering the human decision layer.</p>
-        <a className="primary" href={`mailto:${CONTACT.emails[0].address}`}>START A CONVERSATION <b>↗</b></a>
-      </section>
-
-    </main>
-    <Footer />
-    </IntroProvider>
-  );
+  return <IntroProvider curtain={false}><SiteSchema /><Navigation /><main id="main" className="edge-home">
+    <section className="edge-hero" aria-labelledby="hero-title">
+      <img className="edge-hero-image" src="/media/hero-1920.webp" srcSet="/media/hero-768.webp 768w, /media/hero-1280.webp 1280w, /media/hero-1920.webp 1920w, /media/hero-2560.webp 2560w" sizes="100vw" width="3808" height="2144" alt="" fetchPriority="high" />
+      <div className="edge-hero-shade" />
+      <div className="edge-wrap edge-hero-content">
+        <p className="edge-label edge-hero-label"><span className="edge-dot" /> INDEPENDENT THINKING. REAL IMPACT.</p>
+        <h1 id="hero-title">One step beyond.<br /><em>Always human.</em></h1>
+        <div className="edge-hero-bottom"><div><p className="edge-hero-description">Art, data and AI.<br />Connected by the one thing you can’t automate:<br /><strong>human judgment.</strong></p><a href="#selected" className="edge-button">Explore the work <Arrow diagonal /></a></div><a href="#thesis" className="edge-scroll"><span>THE HUMAN EDGE</span><span aria-hidden="true">↓</span></a></div>
+      </div>
+      <div className="edge-hero-caption edge-label"><span>BJ BEYOND — VERONA, ITALY</span><span>ART × DATA × HUMAN EDGE</span></div>
+    </section>
+    <section id="thesis" className="edge-thesis edge-wrap">
+      <p className="edge-label">01 / A POINT OF VIEW</p>
+      <div className="edge-thesis-grid"><h2>Machines generate.<br />People <em>give meaning.</em></h2><div className="edge-thesis-copy"><p>AI can generate. Data can measure. Judgment decides what matters.</p><p>I work at the intersection of art, data and human intuition — building tools, questioning systems and keeping the human decision in the picture.</p><a href="/about/" className="edge-text-link">Meet BJ Beyond <Arrow /></a></div></div>
+      <div className="edge-disciplines"><span>Art market intelligence</span><span>Data & decision systems</span><span>AI + human judgment</span></div>
+    </section>
+    <section className="edge-manifesto" aria-labelledby="manifesto-label"><div className="edge-wrap edge-manifesto-inner"><p id="manifesto-label" className="edge-label">THE MANIFESTO</p><span className="edge-quote-symbol" aria-hidden="true">“</span><blockquote>{quote}</blockquote><div className="edge-manifesto-sign"><span className="edge-label">BJ BEYOND</span><span className="edge-label">THE HUMAN EDGE, IN ONE SENTENCE.</span></div></div></section>
+    <section id="selected" className="edge-selected edge-wrap">
+      <div className="edge-section-heading"><div><p className="edge-label">02 / SELECTED WORK</p><h2>Ideas, <em>put to the test.</em></h2></div><a href="/labs/" className="edge-text-link">All experiments <Arrow diagonal /></a></div>
+      <article id="phoenix" className="edge-phoenix"><div className="edge-phoenix-art"><img src="/media/labs/phoenix-1280.webp" srcSet="/media/labs/phoenix-768.webp 768w, /media/labs/phoenix-1280.webp 1280w, /media/labs/phoenix-1920.webp 1920w" sizes="(max-width: 760px) 100vw, 60vw" width="1280" height="720" alt="Phoenix with metallic wings and orange embers" loading="lazy" /><span className="edge-label edge-image-label">PHOENIX / HUMAN–AI EXPERIMENT</span></div><div className="edge-phoenix-copy"><p className="edge-label">FEATURED INVESTIGATION</p><h3>The Phoenix<br /><em>Experiment.</em></h3><p>What happens when the human keeps asking questions the system wasn’t built to answer?</p><p>Grok, stress tests and the judgment that remains outside the machine. The published account is the starting point.</p><a href={WRITING.articles[3].href} target="_blank" rel="noopener noreferrer" className="edge-text-link">Read the investigation <Arrow diagonal /></a><div className="edge-tags"><span>HUMAN-IN-THE-LOOP</span><span>GROK</span></div></div></article>
+      <div className="edge-projects"><a href="/method/" className="edge-project"><div className="edge-project-image"><img src="/media/terrace-1024.webp" alt="Mist over still water from a terrace" width="1024" height="520" loading="lazy" /><span className="edge-project-index">01 / THE METHOD</span><span className="edge-project-arrow"><Arrow diagonal /></span></div><div className="edge-project-body"><h3>Phoenix Soulfire™</h3><p>Five tests before an idea is trusted.</p><div className="edge-tests">{tests.map(test => <span key={test}>{test}</span>)}</div></div></a>
+      <a href="/phoenix/" className="edge-project"><div className="edge-project-image edge-signal" aria-hidden="true"><div className="edge-signal-grid" /><div className="edge-signal-ring ring-one" /><div className="edge-signal-ring ring-two" /><div className="edge-signal-ring ring-three" /><span className="edge-signal-core">PHX<span>RANKING SIMULATOR</span></span><span className="edge-project-index">02 / THE SYSTEM</span><span className="edge-project-arrow"><Arrow diagonal /></span></div><div className="edge-project-body"><h3>Phoenix Simulator</h3><p>Explore the signals that shape distribution.</p><span className="edge-label">OPEN THE INTERACTIVE LAB <Arrow /></span></div></a></div>
+    </section>
+    <section id="art" className="edge-art"><div className="edge-art-image"><img src="/media/nocturne-1600.webp" alt="" width="1600" height="812" loading="lazy" /></div><div className="edge-wrap edge-art-content"><p className="edge-label">03 / ART, VALUE & PROVENANCE</p><h2>Images are infinite.<br /><em>Meaning is not.</em></h2><p>Authorship. Provenance. The human story behind value.<br />Art intelligence for a world that can generate anything.</p><a href="/art/" className="edge-button">Explore art & provenance <Arrow diagonal /></a><a href="https://verify.authentia.it/" target="_blank" rel="noopener noreferrer" className="edge-art-note edge-label">WITH AUTHENTIA ARTE — VERIFIABLE AUTHORSHIP <Arrow diagonal /></a></div></section>
+    <section id="writing" className="edge-writing edge-wrap"><div className="edge-section-heading"><div><p className="edge-label">04 / FIELD NOTES</p><h2>Curiosity. <em>On the record.</em></h2></div><a href={WRITING.profile} target="_blank" rel="noopener noreferrer" className="edge-text-link">On HackerNoon <Arrow diagonal /></a></div>
+      <div className="edge-articles">{articles.map((article, index) => <a key={article.slug} href={article.href} target="_blank" rel="noopener noreferrer" className="edge-article"><div className={`edge-editorial-art editorial-${index}`} aria-hidden="true">{index === 0 ? <><span className="editorial-orbit" /><span className="editorial-word">human<br /><em>in the loop.</em></span></> : index === 1 ? <><span className="editorial-zero">0</span><span className="editorial-code">SYSTEM / ZERO</span></> : <><div className="editorial-bars">{[18,36,24,48,30,62,42,70,55,83,63,100].map((height,i)=><i key={i} style={{height:`${height}%`}} />)}</div><span className="editorial-code">SIGNAL / PROVENANCE</span></>}</div><div className="edge-article-body"><p className="edge-label">{article.topics[0]} <span>0{index+1}</span></p><h3>{article.title}</h3><p>{article.standfirst}</p><span className="edge-article-link">Read the story <Arrow diagonal /></span></div></a>)}</div>
+    </section>
+    <section id="work" className="edge-capabilities edge-wrap"><div className="edge-section-heading"><div><p className="edge-label">05 / WORK WITH ME</p><h2>A sharper way <em>forward.</em></h2></div><a href="/services/" className="edge-text-link">Explore capabilities <Arrow diagonal /></a></div><div className="edge-capability-list">{capabilities.map(item=><a href="/services/" className="edge-capability" key={item.n}><span className="edge-label">{item.n}</span><h3>{item.title}</h3><div><p>{item.text}</p><span className="edge-label">{item.words}</span></div><Arrow diagonal /></a>)}</div></section>
+    <section id="contact" className="edge-contact"><div className="edge-wrap"><p className="edge-label"><span className="edge-dot" /> LET’S BUILD SOMETHING THAT MATTERS.</p><div className="edge-contact-row"><h2>Your next idea.<br /><em>One step beyond.</em></h2><a href={`mailto:${CONTACT.emails[0].address}`} className="edge-contact-button" aria-label="Start a conversation by email"><Arrow diagonal /></a></div><div className="edge-contact-bottom"><a href={`mailto:${CONTACT.emails[0].address}`}>{CONTACT.emails[0].address}</a><span className="edge-label">VERONA, ITALY / OPEN TO THE WORLD</span></div></div></section>
+  </main><Footer /></IntroProvider>;
 }
