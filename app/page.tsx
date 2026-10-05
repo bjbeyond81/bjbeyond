@@ -1,4 +1,5 @@
 import './home-v2.css';
+import { HomeMotion } from './HomeMotion';
 import { IntroProvider } from '@/components/chrome/Intro';
 import { Navigation } from '@/components/chrome/Navigation';
 import { Footer } from '@/components/sections/Footer';
@@ -6,7 +7,7 @@ import { SiteSchema } from '@/components/chrome/SiteSchema';
 import { CONTACT, WRITING } from '@/lib/content';
 const quote = 'The biggest lie of the AI era? Believing that anyone who knows how to hit ‘enter’ will become an author, a designer, or a thinker.';
 const tests = ['Soul', 'Edge', 'Clarity', 'Impact', 'Legacy'];
-const articles = [WRITING.articles[3], WRITING.articles[0], WRITING.articles[2]];
+const articles = [...WRITING.articles].sort((a, b) => b.published.localeCompare(a.published));
 const capabilities = [
   { n: '01', title: 'Intelligence', text: 'Art market research. Evidence that brings the bigger picture into focus.', words: 'RESEARCH / ART / VALUE' },
   { n: '02', title: 'Systems', text: 'Power BI, dashboards and data architecture. Complexity, made useful.', words: 'DATA / POWER BI / DECISIONS' },
@@ -14,7 +15,7 @@ const capabilities = [
 ];
 function Arrow({ diagonal = false }: { diagonal?: boolean }) { return <span aria-hidden="true" className="edge-arrow">{diagonal ? '↗' : '→'}</span>; }
 export default function HomePage() {
-  return <IntroProvider curtain={false}><SiteSchema /><Navigation /><main id="main" className="edge-home">
+  return <IntroProvider curtain={false}><SiteSchema /><HomeMotion /><Navigation /><main id="main" className="edge-home">
     <section className="edge-hero" aria-labelledby="hero-title">
       <img className="edge-hero-image" src="/media/hero-1920.webp" srcSet="/media/hero-768.webp 768w, /media/hero-1280.webp 1280w, /media/hero-1920.webp 1920w, /media/hero-2560.webp 2560w" sizes="100vw" width="3808" height="2144" alt="" fetchPriority="high" />
       <div className="edge-hero-shade" />
@@ -39,7 +40,7 @@ export default function HomePage() {
     </section>
     <section id="art" className="edge-art"><div className="edge-art-image"><img src="/media/nocturne-1600.webp" alt="" width="1600" height="812" loading="lazy" /></div><div className="edge-wrap edge-art-content"><p className="edge-label">03 / ART, VALUE & PROVENANCE</p><h2>Images are infinite.<br /><em>Meaning is not.</em></h2><p>Authorship. Provenance. The human story behind value.<br />Art intelligence for a world that can generate anything.</p><a href="/art/" className="edge-button">Explore art & provenance <Arrow diagonal /></a><a href="https://verify.authentia.it/" target="_blank" rel="noopener noreferrer" className="edge-art-note edge-label">WITH AUTHENTIA ARTE — VERIFIABLE AUTHORSHIP <Arrow diagonal /></a></div></section>
     <section id="writing" className="edge-writing edge-wrap"><div className="edge-section-heading"><div><p className="edge-label">04 / FIELD NOTES</p><h2>Curiosity. <em>On the record.</em></h2></div><a href={WRITING.articles[3].href} target="_blank" rel="noopener noreferrer" className="edge-text-link">Read on HackerNoon <Arrow diagonal /></a></div>
-      <div className="edge-articles">{articles.map((article, index) => <a key={article.slug} href={article.href} target="_blank" rel="noopener noreferrer" className="edge-article"><div className={`edge-editorial-art editorial-${index}`} aria-hidden="true">{index === 0 ? <><span className="editorial-orbit" /><span className="editorial-word">human<br /><em>in the loop.</em></span></> : index === 1 ? <><span className="editorial-zero">0</span><span className="editorial-code">SYSTEM / ZERO</span></> : <><div className="editorial-bars">{[18,36,24,48,30,62,42,70,55,83,63,100].map((height,i)=><i key={i} style={{height:`${height}%`}} />)}</div><span className="editorial-code">SIGNAL / PROVENANCE</span></>}</div><div className="edge-article-body"><p className="edge-label">{article.topics[0]} <span>0{index+1}</span></p><h3>{article.title}</h3><p>{article.standfirst}</p><span className="edge-article-link">Read the story <Arrow diagonal /></span></div></a>)}</div>
+      <div className="edge-articles">{articles.map((article, index) => <a key={article.slug} href={article.href} target="_blank" rel="noopener noreferrer" className="edge-article"><div className={`edge-editorial-art editorial-${index % 3}`} aria-hidden="true">{index % 3 === 0 ? <><span className="editorial-orbit" /><span className="editorial-word">human<br /><em>in the loop.</em></span></> : index % 3 === 1 ? <><span className="editorial-zero">0</span><span className="editorial-code">SYSTEM / ZERO</span></> : <><div className="editorial-bars">{[18,36,24,48,30,62,42,70,55,83,63,100].map((height,i)=><i key={i} style={{height:`${height}%`}} />)}</div><span className="editorial-code">SIGNAL / PROVENANCE</span></>}</div><div className="edge-article-body"><p className="edge-label">{article.topics[0]} <span>0{index+1}</span></p><h3>{article.title}</h3><p>{article.standfirst}</p><span className="edge-article-link">Read the story <Arrow diagonal /></span></div></a>)}</div>
     </section>
     <section id="work" className="edge-capabilities edge-wrap"><div className="edge-section-heading"><div><p className="edge-label">05 / WORK WITH ME</p><h2>A sharper way <em>forward.</em></h2></div><a href="/services/" className="edge-text-link">Explore capabilities <Arrow diagonal /></a></div><div className="edge-capability-list">{capabilities.map(item=><a href="/services/" className="edge-capability" key={item.n}><span className="edge-label">{item.n}</span><h3>{item.title}</h3><div><p>{item.text}</p><span className="edge-label">{item.words}</span></div><Arrow diagonal /></a>)}</div></section>
     <section id="contact" className="edge-contact"><div className="edge-wrap"><p className="edge-label"><span className="edge-dot" /> LET’S BUILD SOMETHING THAT MATTERS.</p><div className="edge-contact-row"><h2>Your next idea.<br /><em>One step beyond.</em></h2><a href={`mailto:${CONTACT.emails[0].address}`} className="edge-contact-button" aria-label="Start a conversation by email"><Arrow diagonal /></a></div><div className="edge-contact-bottom"><a href={`mailto:${CONTACT.emails[0].address}`}>{CONTACT.emails[0].address}</a><span className="edge-label">VERONA, ITALY / OPEN TO THE WORLD</span></div></div></section>
