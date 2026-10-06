@@ -78,6 +78,13 @@ export interface SiteRoute {
  */
 export const ROUTES: readonly SiteRoute[] = [
   {
+    path: '/phoenix-experiment/',
+    title: 'Phoenix Experiment — Evidence Room',
+    description: '21 preserved images, dated records and limits of the evidence.',
+    priority: 0.7,
+    changeFrequency: 'monthly',
+  },
+  {
     path: '/',
     label: 'HOME',
     priority: 1.0,
