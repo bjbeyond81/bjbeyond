@@ -34,6 +34,7 @@ export default function ServicesPage() {
               <RevealItem
                 as="li"
                 key={service.number}
+                id={`service-${service.number}`}
                 /* The grid gap IS the rule: a 1px gap over a rule-coloured
                    background draws the dividers without a border on each cell
                    doubling up where two cells meet. */
