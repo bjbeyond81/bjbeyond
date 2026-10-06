@@ -34,7 +34,6 @@ export default function ServicesPage() {
               <RevealItem
                 as="li"
                 key={service.number}
-                id={`service-${service.number}`}
                 /* The grid gap IS the rule: a 1px gap over a rule-coloured
                    background draws the dividers without a border on each cell
                    doubling up where two cells meet. */
@@ -47,7 +46,7 @@ export default function ServicesPage() {
                   {service.number}
                 </span>
 
-                <h2 className="mt-8 text-title font-extralight leading-[1.05] text-paper">
+                <h2 id={`service-${service.number}`} className="mt-8 scroll-mt-28 text-title font-extralight leading-[1.05] text-paper">
                   {service.title.map((line) => (
                     <span key={line} className="block">
                       {line}
