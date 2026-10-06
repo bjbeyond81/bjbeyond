@@ -17,14 +17,14 @@
  */
 
 export const SITE = {
-  name: 'Bj Beyond',
+  name: 'BJ Beyond',
   wordmark: 'BJ BEYOND',
-  tagline: 'Intelligence is the standard.',
+  tagline: 'Human judgment for the AI era.',
   domain: 'bjbeyond.it',
   url: 'https://bjbeyond.it',
   locale: 'Verona, Italia',
   description:
-    'Bj Beyond helps artists, collectors and companies navigate the new creative economy at the intersection of data, AI and human intuition. Independent practice based in Verona.',
+    'BJ Beyond studies the boundary between AI capability and human judgment — and turns that research into systems for art, data and decision-making. Independent practice based in Verona, Italy.',
   /**
    * Alt text for the shared social card.
    *
@@ -35,7 +35,7 @@ export const SITE = {
    * identical: they describe the same picture.
    */
   ogAlt:
-    'Bj Beyond — Intelligence is the standard. Art market intelligence at the intersection of data, AI, and human intuition.',
+    'BJ Beyond — Human judgment for the AI era. Art, data and AI connected by human judgment.',
 } as const;
 
 /**
@@ -69,10 +69,10 @@ export const BEYOND = {
   label: ['WHO IS', 'BJ BEYOND'],
   name: 'BJ BEYOND',
   role: 'INDEPENDENT PRACTICE — VERONA',
-  lede: 'Independent practice at the intersection of data, AI, and human intuition.',
+  lede: 'Independent practice at the intersection of AI capability and human judgment.',
   body: [
-    'Bj Beyond helps artists, collectors, and companies navigate the new creative economy. I combine deep art market expertise with cutting-edge data science and AI tools.',
-    'From artist evaluations to custom Power BI dashboards, I deliver intelligence that actually gets used.',
+    'I work at the intersection of art, data and AI — helping artists, collectors and companies make decisions where data alone is no longer enough.',
+    'BJ Beyond is the independent practice through which I build research, experiments and decision systems around that boundary — from art market intelligence to Power BI and Human Edge strategy.',
   ],
   capabilities: [
     ['ART MARKET', 'INTELLIGENCE'],
@@ -495,39 +495,39 @@ export const WORK = {
   index: '05',
   label: ['WHAT', 'I DO'],
   title: 'SERVICES',
-  description: 'Three core offerings for the art market and creative industries.',
+  description: 'Three ways to turn evidence, data and AI into decisions that remain accountable to human judgment.',
   services: [
     {
       number: '01',
       title: ['ART MARKET', 'INTELLIGENCE'],
-      description: 'Deep-dive artist evaluations. Reports stay private.',
+      description: 'Know what the market evidence supports before you buy, position or present a work.',
       points: [
         'Artist valuation models',
         'Market positioning analysis',
-        'Private artist evaluation reports',
-        'Competitive landscape mapping',
+        'Phoenix Soulfire™ Human Judgment Review',
+        'Private evaluation reports and competitive mapping',
       ],
     },
     {
       number: '02',
       title: ['POWER BI &', 'DATA SYSTEMS'],
-      description: 'Custom dashboards that actually get used.',
+      description: 'Turn fragmented operational data into one decision layer people can actually use.',
       points: [
-        'Interactive Power BI dashboards',
+        'Decision-focused Power BI dashboards',
         'Automated data pipelines',
-        'Real-time KPI monitoring',
-        'Executive-ready reporting',
+        'KPI and performance visibility',
+        'Executive-ready reporting systems',
       ],
     },
     {
       number: '03',
       title: ['AI + HUMAN', 'EDGE'],
-      description: 'Strategic consulting combining AI with human creative judgment.',
+      description: 'Introduce AI without outsourcing the judgment that carries risk, taste or accountability.',
       points: [
-        'AI readiness assessment',
-        'Creative workflow optimization',
-        'Human-AI collaboration design',
-        'Future-proofing strategies',
+        'AI readiness and workflow assessment',
+        'Human-in-the-Loop operating design',
+        'Human-AI collaboration systems',
+        'Judgment, accountability and adoption strategy',
       ],
       link: {
         label: 'Method: Phoenix Soulfire™, the five-test judgment layer →',
@@ -703,10 +703,10 @@ export const BOOKS = {
 export const CONTACT = {
   index: '07',
   label: ['GET IN', 'TOUCH'],
-  title: ['LET’S BUILD', 'INTELLIGENCE', 'TOGETHER'],
-  standfirst: 'Ready to go one step beyond? Start a conversation.',
+  title: ['BRING THE', 'RIGHT PROBLEM', 'TO THE TABLE'],
+  standfirst: 'Art market decision, data system, or AI + Human Edge project — start with the problem that matters.',
   description:
-    'Whether you need art market intelligence, a custom data dashboard, or strategic AI guidance — let’s talk.',
+    'Choose the outcome: understand an art-market decision, build a data system people can use, or introduce AI without outsourcing human judgment.',
   emails: [
     {
       address: 'Bj_beyond@tutamail.com',
@@ -725,15 +725,15 @@ export const FAQ = {
   label: ['FREQUENTLY', 'ASKED'],
   items: [
     {
-      q: 'What is Bj Beyond?',
-      a: 'Bj Beyond is an independent practice based in Verona, Italy, working at the intersection of data, AI and human intuition. It helps artists, collectors and companies navigate the new creative economy.',
+      q: 'What is BJ Beyond?',
+      a: 'BJ Beyond is an independent practice based in Verona, Italy, working at the boundary between AI capability and human judgment. It turns that research into systems for art, data and decision-making.',
     },
     {
-      q: 'What does the name Bj Beyond mean?',
+      q: 'What does the name BJ Beyond mean?',
       a: 'The name is a cipher. In Kubrick’s 2001: A Space Odyssey, shifting each letter of HAL by one gives IBM. The same move applied to AI gives BJ. Beyond is what comes after artificial intelligence: judgment, lived experience, the part a model cannot fake.',
     },
     {
-      q: 'What services does Bj Beyond offer?',
+      q: 'What services does BJ Beyond offer?',
       a: 'Art market intelligence, AI + human edge strategy, data systems and visualization (including custom Power BI dashboards), and culture and impact strategy — from artist evaluations to dashboards that actually get used.',
     },
     {
@@ -741,15 +741,15 @@ export const FAQ = {
       a: 'Phoenix Soulfire™ is the five-test human judgment layer created by Bj Beyond to check whether a text, a work or a plan holds up beyond what AI can generate: Soul, Edge, Clarity, Impact, Legacy. The free Judgment Layer tool at phoenixsoulfire.bjbeyond.it is the machine pass; the five tests are the human pass after it. The method page is bjbeyond.it/method/. The Phoenix Simulator at /phoenix/ is a separate tool and is not the method.',
     },
     {
-      q: 'Where is Bj Beyond based?',
+      q: 'Where is BJ Beyond based?',
       a: 'Verona, Italy. Bj Beyond works with clients across Italy and the European Union.',
     },
     {
-      q: 'Where can I read Bj Beyond’s writing?',
+      q: 'Where can I read BJ Beyond’s writing?',
       a: 'Articles are collected in the Bj Beyond Journal and published on HackerNoon (@bj_beyond) and Substack (bjbeyond.substack.com). Ebooks are on the Bj Beyond author page on Amazon.',
     },
     {
-      q: 'How do I contact Bj Beyond?',
+      q: 'How do I contact BJ Beyond?',
       a: 'Write to Bj_beyond@tutamail.com or use the contact page at bjbeyond.it/contact/.',
     },
   ],
@@ -771,8 +771,8 @@ export const SOCIAL = [
 ] as const;
 
 export const FOOTER = {
-  statement: 'INTELLIGENCE IS THE STANDARD.',
-  copyright: `© ${new Date().getFullYear()} Bj Beyond. Intelligence is the standard. We go further. ${SITE.locale}`,
+  statement: 'HUMAN JUDGMENT FOR THE AI ERA.',
+  copyright: `© ${new Date().getFullYear()} BJ Beyond. Human judgment for the AI era. ${SITE.locale}`,
   /** The originals stay served verbatim at /pages/*.html for old links. */
   legal: [
     { label: 'Privacy Policy', href: '/privacy-policy/' },
