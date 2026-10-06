@@ -97,6 +97,18 @@ export default function AboutPage() {
           </dl>
         </RevealGroup>
 
+        <section aria-labelledby="why-name" className="mt-20 border-t border-rule pt-14 lg:mt-24">
+          <Reveal>
+            <p className="u-label text-amber-400">WHY BJ BEYOND?</p>
+            <h2 id="why-name" className="mt-5 max-w-3xl text-headline font-extralight text-paper">
+              AI → BJ. Beyond begins where artificial intelligence stops being enough.
+            </h2>
+            <p className="mt-6 max-w-2xl text-body font-light text-mist-300">
+              {FAQ.items[1].a}
+            </p>
+          </Reveal>
+        </section>
+
         <section aria-labelledby="faq-heading" className="mt-20 border-t border-rule pt-14 lg:mt-24">
           <Reveal>
             <h2 id="faq-heading" className="u-label text-mist-300">
