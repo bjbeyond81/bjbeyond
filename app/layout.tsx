@@ -43,16 +43,18 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: `${SITE.name} — One Step Beyond AI | Art Market Intelligence & AI Strategy`,
+    default: `${SITE.name} — Human Judgment for the AI Era | Art, Data & AI`,
     template: `%s — ${SITE.name}`,
   },
   description: SITE.description,
   applicationName: SITE.name,
   keywords: [
     'art market intelligence',
+    'human judgment',
     'AI strategy',
     'data systems',
     'Power BI',
+    'Human Edge',
     'Phoenix Soulfire',
     'art authentication',
     'Bj Beyond',
