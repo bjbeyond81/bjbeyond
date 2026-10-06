@@ -127,10 +127,10 @@ footer a{color:var(--text3)}footer a:hover{color:var(--text2)}
   </div>
 
   <div class="api-key-section card">
-    <div class="card-label">ANTHROPIC API KEY (Claude)</div>
+    <div class="card-label">ANTHROPIC API KEY (Claude) — REQUIRED FOR LIVE ANALYSIS</div>
     <input type="password" id="apiKeyInput" class="api-key-input" placeholder="sk-ant-api03-...">
     <button onclick="saveApiKey()" style="margin-top:8px;padding:8px 16px;background:var(--cyan);color:#07080d;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer">Salva Chiave</button>
-    <div style="font-size:10px;color:var(--text3);margin-top:6px">La chiave viene salvata solo nel tuo browser (localStorage)</div>
+    <div style="font-size:10px;color:var(--text3);margin-top:6px">La chiave viene salvata solo nel tuo browser (localStorage). BJ Beyond non la invia a propri server: quando avvii l’analisi viene usata direttamente nella richiesta ad Anthropic.</div>
   </div>
 
   <div class="grid2">

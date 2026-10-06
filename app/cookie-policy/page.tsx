@@ -4,7 +4,7 @@ import { COOKIES } from '@/lib/legal';
 
 export const metadata: Metadata = {
   title: 'Cookie Policy',
-  description: 'How Bj Beyond uses cookies on bjbeyond.it.',
+  description: 'How BJ Beyond uses cookies on bjbeyond.it.',
   alternates: { canonical: '/cookie-policy/' },
   /* Legal pages stay reachable but out of search and AI indexes: the
      controller has to be named here by law, and that is the only reason. */
