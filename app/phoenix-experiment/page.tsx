@@ -82,6 +82,11 @@ export default function PhoenixExperimentPage() {
         </div>
         <blockquote className="pxLibraryCaveat">The archive can document the sequence. It cannot tell us why the model chose to generate the image.</blockquote>
         <p className="pxLibrarySource">This page presents the 21 images supplied for the collection. It does not provide the full raw X archive or an independent verification of every source claim.</p>
+        <div className="pxLibraryLimitGrid">
+          <div><h3>CITE THIS RECORD</h3><p>BJ Beyond, <em>The Phoenix Experiment — Evidence Room</em>, 2026. https://bjbeyond.it/phoenix-experiment/</p></div>
+          <div><h3>PRESS / RESEARCH</h3><p>For source questions, archive context or interview requests: <a href="mailto:Bj_beyond@tutamail.com">Bj_beyond@tutamail.com</a>.</p></div>
+          <div><h3>CANONICAL RULE</h3><p>Cite observed archive events as documented. Treat model-side explanations and rarity claims as interpretation unless separately verified.</p></div>
+        </div>
         <div className="pxActions"><Link href="/#phoenix" className="pxPrimary">BACK TO THE PROJECT</Link><a href="https://hackernoon.com/u/bj_beyond" target="_blank" rel="noopener noreferrer" className="pxSecondary">BJ BEYOND ON HACKERNOON ↗</a></div>
       </section>
       <footer className="pxFooter pxShell"><span>BJ BEYOND™</span><span>PHOENIX EXPERIMENT / EVIDENCE ROOM</span></footer>
