@@ -78,10 +78,19 @@ export interface SiteRoute {
  */
 export const ROUTES: readonly SiteRoute[] = [
   {
+    path: '/human-edge/',
+    label: 'HUMAN EDGE',
+    title: 'Human Edge — Human Judgment for the AI Era',
+    description: 'The BJ Beyond thesis: AI can generate and data can measure, but human judgment decides what matters.',
+    priority: 0.95,
+    changeFrequency: 'monthly',
+  },
+  {
     path: '/phoenix-experiment/',
+    label: 'PHOENIX',
     title: 'Phoenix Experiment — Evidence Room',
-    description: '21 preserved images, dated records and limits of the evidence.',
-    priority: 0.7,
+    description: 'A primary-source reconstruction of Human Edge, Phoenix Soulfire, Grok stress tests and the August 2026 Phoenix sequence.',
+    priority: 0.95,
     changeFrequency: 'monthly',
   },
   {
@@ -89,6 +98,14 @@ export const ROUTES: readonly SiteRoute[] = [
     label: 'HOME',
     priority: 1.0,
     changeFrequency: 'weekly',
+  },
+  {
+    path: '/writing/',
+    label: 'WRITING',
+    title: 'Writing — AI, Technology & Human Judgment',
+    description: 'Selected BJ Beyond long-form writing on AI, technology, provenance and the human edge.',
+    priority: 0.8,
+    changeFrequency: 'monthly',
   },
   {
     path: '/about/',
@@ -139,7 +156,7 @@ export const ROUTES: readonly SiteRoute[] = [
   },
   {
     path: '/services/',
-    label: 'SERVICES',
+    label: 'WORK',
     title: 'Services — Power BI, Data Systems & AI Strategy',
     description:
       'Three core offerings: artist valuation models, custom Power BI dashboards, and human-AI collaboration strategy.',
