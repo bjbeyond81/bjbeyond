@@ -777,6 +777,8 @@ export const FOOTER = {
   legal: [
     { label: 'Privacy Policy', href: '/privacy-policy/' },
     { label: 'Cookie Policy', href: '/cookie-policy/' },
+    { label: 'Terms', href: '/terms/' },
+    { label: 'Disclaimer', href: '/disclaimer/' },
   ],
   credit: {
     prefix: 'Created by',
