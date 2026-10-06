@@ -1,0 +1,38 @@
+name: Refresh Next security lockfile
+
+on:
+  push:
+    branches: [security-next-16-3-8]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: security-next-16-3-8
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Upgrade Next.js to patched stable
+        run: npm install next@16.3.8 --save-exact --package-lock-only --ignore-scripts
+      - name: Audit high and critical vulnerabilities
+        run: npm audit --audit-level=high
+      - name: Build
+        run: npm ci && npm run build
+      - name: Commit refreshed dependency files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add package.json package-lock.json
+          if git diff --cached --quiet; then
+            echo "No dependency changes to commit"
+            exit 0
+          fi
+          git commit -m "Upgrade Next.js to 16.3.8"
+          git push origin HEAD:security-next-16-3-8
