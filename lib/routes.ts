@@ -78,6 +78,12 @@ export interface SiteRoute {
  */
 export const ROUTES: readonly SiteRoute[] = [
   {
+    path: '/',
+    label: 'HOME',
+    priority: 1.0,
+    changeFrequency: 'weekly',
+  },
+  {
     path: '/human-edge/',
     label: 'HUMAN EDGE',
     title: 'Human Edge — Human Judgment for the AI Era',
@@ -92,12 +98,6 @@ export const ROUTES: readonly SiteRoute[] = [
     description: 'A primary-source reconstruction of Human Edge, Phoenix Soulfire, Grok stress tests and the August 2026 Phoenix sequence.',
     priority: 0.95,
     changeFrequency: 'monthly',
-  },
-  {
-    path: '/',
-    label: 'HOME',
-    priority: 1.0,
-    changeFrequency: 'weekly',
   },
   {
     path: '/writing/',
@@ -139,7 +139,6 @@ export const ROUTES: readonly SiteRoute[] = [
   },
   {
     path: '/method/',
-    label: 'METHOD',
     title: 'Phoenix Soulfire™',
     description: METHOD.description,
     priority: 0.9,
@@ -174,7 +173,6 @@ export const ROUTES: readonly SiteRoute[] = [
   },
   {
     path: '/contact/',
-    label: 'CONTACT',
     title: 'Contact — Start a Project',
     description: CONTACT.description,
     priority: 0.8,
@@ -197,6 +195,8 @@ export const ROUTES: readonly SiteRoute[] = [
 
   { path: '/privacy-policy/', priority: 0.3, changeFrequency: 'yearly' },
   { path: '/cookie-policy/', priority: 0.3, changeFrequency: 'yearly' },
+  { path: '/terms/', priority: 0.3, changeFrequency: 'yearly' },
+  { path: '/disclaimer/', priority: 0.3, changeFrequency: 'yearly' },
 ] as const;
 
 /** What the menu lists: everything labelled, minus what is not finished. */
