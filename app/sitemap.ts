@@ -31,7 +31,7 @@ const LASTMOD: Record<string, string> = {
  * Live but `noindex` (set in each page's own metadata). Announcing a URL the
  * page then asks Google not to index is a contradictory signal.
  */
-const NOINDEX_PATHS = new Set(['/privacy-policy/', '/cookie-policy/']);
+const NOINDEX_PATHS = new Set(['/privacy-policy/', '/cookie-policy/', '/terms/', '/disclaimer/']);
 
 const STATIC_URLS: MetadataRoute.Sitemap = [
   {
