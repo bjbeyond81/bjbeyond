@@ -21,6 +21,8 @@ jobs:
           cache: npm
       - name: Upgrade Next.js to patched stable
         run: npm install next@16.3.8 --save-exact --package-lock-only --ignore-scripts
+      - name: Apply compatible security fixes
+        run: npm audit fix --package-lock-only --ignore-scripts
       - name: Audit high and critical vulnerabilities
         run: npm audit --audit-level=high
       - name: Build
