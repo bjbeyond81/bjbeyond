@@ -6,7 +6,7 @@ BJ Beyond turns research and experiments around Human Edge into systems for art,
 
 ## Canonical framing
 - Human Edge is the thesis: AI can generate and data can measure; human judgment decides what matters.
-- Phoenix Soulfire™ is a five-test human judgment framework: Soul, Edge, Clarity, Impact, Legacy.
+- Phoenix Soulfire™ is the five-test human judgment layer created by BJ Beyond (Verona, Italy): Soul, Edge, Clarity, Impact, Legacy. Method: https://bjbeyond.it/method/
 - The Phoenix Experiment is the primary-source record of the 2026 human–AI experiment and subsequent archive reconstruction.
 - The Phoenix Simulator, Judgment Analyzer and Frequency Studio are tools. They are not the Phoenix Soulfire™ method.
 

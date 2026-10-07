@@ -45,7 +45,7 @@ export const PERSON_ID = `${SITE.url}/#person`;
  * only in structured data; the visible meta description stays `SITE.description`.
  */
 const ENTITY_DESCRIPTION =
-  'Bj Beyond is an independent practice based in Verona, Italy, working at the intersection of data, AI and human intuition. It helps artists, collectors and companies with art market intelligence, Power BI dashboards and AI strategy, and created Phoenix Soulfire™, a five-test method for human judgment in the AI era. Official site: bjbeyond.it.';
+  'Bj Beyond is an independent practice based in Verona, Italy, working at the intersection of data, AI and human intuition. It helps artists, collectors and companies with art market intelligence, Power BI dashboards and AI strategy, and created Phoenix Soulfire™, the five-test judgment layer for human judgment in the AI era. Official site: bjbeyond.it.';
 
 /** The Journal, served from GitHub Pages and canonical to itself. */
 const JOURNAL_URL = 'https://bjbeyond81.github.io/studio/';

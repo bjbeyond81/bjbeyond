@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { PageShell } from '@/components/chrome/PageShell';
 import { Reveal, RevealGroup, RevealItem } from '@/components/primitives/Reveal';
 import { ArrowLink } from '@/components/primitives/ArrowLink';
@@ -77,7 +78,8 @@ export default function HumanEdgePage() {
           <Reveal>
             <p className="u-label text-mist-400">FROM THESIS TO EVIDENCE</p>
             <h2 className="mt-5 max-w-4xl text-headline font-extralight text-paper">
-              Human Edge is the hypothesis. Phoenix Soulfire is one operating framework. The Phoenix Experiment is the record.
+              Human Edge is the hypothesis. Phoenix Soulfire™ is the{' '}
+              <Link href="/method/" className="underline underline-offset-4">five-test judgment layer</Link>. The Phoenix Experiment is the record.
             </h2>
           </Reveal>
           <Reveal delay={0.1} className="mt-10 flex flex-wrap gap-x-10 gap-y-6">

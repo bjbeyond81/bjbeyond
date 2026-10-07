@@ -54,7 +54,7 @@ export default function PhoenixExperimentPage() {
         <h1>Evidence <em>Room.</em></h1>
         <p className="pxDeck">21 preserved images. A dated source index.</p>
         <p className="pxLibraryIntro">Open each record to inspect the original image. This collection supports source checking; the narrative and interpretation belong in the forthcoming HackerNoon article.</p>
-        <blockquote className="pxThesis">Human Edge was the hypothesis. Phoenix Soulfire was the experiment. The archive is the record.</blockquote>
+        <blockquote className="pxThesis">Human Edge was the hypothesis. The Phoenix Experiment tested it. Phoenix Soulfire™, the <Link href="/method/">five-test judgment layer</Link>, is the method that came out of it. The archive is the record.</blockquote>
         <nav className="pxRecordNav" aria-label="Record groups">{groups.map(group => <a key={group.id} href={`#${group.id}`}>{group.title} <span>↓</span></a>)}</nav>
       </section>
       <section id="records" className="pxShell" aria-label="Preserved records">
