@@ -17,9 +17,9 @@ const groups = [
     ['04_phoenix_march24_original.jpg', 'Phoenix — March 24 image'],
     ['05_phoenix_march24_text.jpg', 'Phoenix — March 24 text'],
   ] },
-  { id: 'april', title: 'Phoenix Soulfire / public reports', date: '06–08 APR 2026', reference: 'Tweet IDs: 2041129633865773476 · 2041240386832629772 · 2041585506031378691 · 2041972930955894895', files: [
+  { id: 'april', title: 'Phoenix Soulfire™ / public reports', date: '06–08 APR 2026', reference: 'Tweet IDs: 2041129633865773476 · 2041240386832629772 · 2041585506031378691 · 2041972930955894895', files: [
     ['06_phoenix_soulfire_ep3_frame.jpg', 'Episode 3 frame'],
-    ['07_phoenix_soulfire_apr6_text.jpg', 'Phoenix Soulfire — April 6 text'],
+    ['07_phoenix_soulfire_apr6_text.jpg', 'Phoenix Soulfire™ — April 6 text'],
     ['08_human_in_loop_original.jpg', 'Human-in-the-Loop image'],
     ['09_human_in_loop_text.jpg', 'Human-in-the-Loop text'],
     ['10_final_report_apr8.jpg', 'Public report — April 8'],

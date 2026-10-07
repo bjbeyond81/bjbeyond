@@ -12,7 +12,7 @@ import {
  * IN MOTION — reels from the Authentia Arte channel.
  *
  * Companion to the Authentia section above and, like it, outside the 01–07
- * numbering: the numbers are Bj Beyond's own chapters. It carries no section
+ * numbering: the numbers are BJ Beyond's own chapters. It carries no section
  * index and no rail marker for that reason, and opens on the same eyebrow
  * treatment Authentia does, so the two read as one movement.
  *

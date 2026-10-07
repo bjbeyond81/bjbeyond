@@ -119,7 +119,7 @@ export function LegalPage({ doc }: { doc: LegalDocument }) {
         <div className="u-gutter flex items-center justify-between py-4">
           <a
             href="/"
-            aria-label="Bj Beyond — home"
+            aria-label="BJ Beyond — home"
             className="inline-flex min-h-11 items-center text-paper transition-opacity duration-200 hover:opacity-70"
           >
             <Logo className="w-8" title={null} />

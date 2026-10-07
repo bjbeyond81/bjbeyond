@@ -18,7 +18,7 @@
  * `CONTACT`, so changing a social link in one place changes what Google is
  * told, and there is no second place to forget.
  *
- * WHAT IT BUYS. This is the vocabulary Google reads to decide that `Bj Beyond`
+ * WHAT IT BUYS. This is the vocabulary Google reads to decide that `BJ Beyond`
  * is an entity rather than a phrase: it is what a knowledge panel is assembled
  * from, and `sameAs` is how the accounts on X, TikTok, Threads, Reddit and
  * Substack get attached to the same entity instead of floating separately.
@@ -45,7 +45,7 @@ export const PERSON_ID = `${SITE.url}/#person`;
  * only in structured data; the visible meta description stays `SITE.description`.
  */
 const ENTITY_DESCRIPTION =
-  'Bj Beyond is an independent practice based in Verona, Italy, working at the intersection of data, AI and human intuition. It helps artists, collectors and companies with art market intelligence, Power BI dashboards and AI strategy, and created Phoenix Soulfire™, the five-test judgment layer for human judgment in the AI era. Official site: bjbeyond.it.';
+  'BJ Beyond is an independent practice based in Verona, Italy, working at the intersection of data, AI and human intuition. It helps artists, collectors and companies with art market intelligence, Power BI dashboards and AI strategy, and created Phoenix Soulfire™, the five-test judgment layer for human judgment in the AI era. Official site: bjbeyond.it.';
 
 /** The Journal, served from GitHub Pages and canonical to itself. */
 const JOURNAL_URL = 'https://bjbeyond81.github.io/studio/';
@@ -96,13 +96,13 @@ export function siteSchema() {
           'art market intelligence',
           'AI strategy',
           'Power BI',
-          'Phoenix Soulfire',
+          'Phoenix Soulfire™',
           'art authentication',
           'data systems',
         ],
         /*
           The only address. A former collaborator address is not a contact
-          point of Bj Beyond and is not published here.
+          point of BJ Beyond and is not published here.
         */
         contactPoint: {
           '@type': 'ContactPoint',
@@ -131,7 +131,7 @@ export function siteSchema() {
         alternateName: ['BJ Beyond', 'Bj_Beyond', 'BJ'],
         url: absoluteUrl('/about/'),
         jobTitle: 'Founder',
-        description: 'Founder of Bj Beyond and creator of the Phoenix Soulfire™ method.',
+        description: 'Founder of BJ Beyond and creator of the Phoenix Soulfire™ method.',
         worksFor: { '@id': ORGANISATION_ID },
         homeLocation: {
           '@type': 'Place',

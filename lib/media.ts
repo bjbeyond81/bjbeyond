@@ -85,7 +85,7 @@ export const MEDIA = {
     id: 'portrait',
     src: '/media/portrait',
     widths: [540, 810, 1080],
-    alt: 'Bj Beyond',
+    alt: 'BJ Beyond',
     focal: '50% 20%',
     width: 1080,
     height: 1920,
@@ -343,7 +343,7 @@ export const LOGO = {
   fallback: '/media/logo.png',
   width: 2445,
   height: 1754,
-  alt: 'Bj Beyond',
+  alt: 'BJ Beyond',
 } as const;
 
 /**

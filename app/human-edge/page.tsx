@@ -20,7 +20,7 @@ const records = [
   ['07 MAR 2026', 'Human Edge enters the public archive', 'A public thread names contextual intuition, anomaly detection, accountability and creativity as the places where the human edge remains strongest.'],
   ['14 MAR 2026', 'Collaboration, not replacement', 'The thesis moves from opposition to collaboration: “The edge is always in the collaboration, not replacement.”'],
   ['24 MAR 2026', 'Phoenix meets soul and curation', 'The value shifts away from generation speed toward the curator who adds story, vision and human judgment.'],
-  ['06 APR 2026', 'Phoenix Soulfire becomes an experiment', 'Human Edge Lab names Phoenix Soulfire and describes a live multimodal Human-in-the-Loop experiment.'],
+  ['06 APR 2026', 'Phoenix Soulfire™ becomes an experiment', 'Human Edge Lab names Phoenix Soulfire™ and describes a live multimodal Human-in-the-Loop experiment.'],
   ['MAY 2026', 'Failure becomes part of the method', 'Public stress tests probe prompt dominance, attribution errors and the limits of text–vision reliability.'],
 ] as const;
 
@@ -58,7 +58,7 @@ export default function HumanEdgePage() {
           <Reveal>
             <p className="u-label text-mist-400">PUBLIC RECORD</p>
             <h2 className="mt-5 max-w-4xl text-headline font-extralight text-paper">
-              The thesis existed before Phoenix Soulfire.
+              The thesis existed before Phoenix Soulfire™.
             </h2>
           </Reveal>
           <RevealGroup delay={0.1} className="mt-10">
