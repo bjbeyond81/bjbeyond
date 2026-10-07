@@ -64,7 +64,7 @@ export const PRIVACY: LegalDocument = {
   updated: '4 October 2026',
   legacyPath: '/pages/privacy-policy.html',
   intro:
-    'Bj Beyond protects your privacy. This notice describes how personal data is collected, used, and protected under Regulation (EU) 2016/679 (GDPR), Legislative Decree 196/2003 (Italian Privacy Code), and the EDPB Guidelines.',
+    'BJ Beyond protects your privacy. This notice describes how personal data is collected, used, and protected under Regulation (EU) 2016/679 (GDPR), Legislative Decree 196/2003 (Italian Privacy Code), and the EDPB Guidelines.',
   sections: [
     {
       id: 'titolare',
@@ -73,7 +73,7 @@ export const PRIVACY: LegalDocument = {
         {
           kind: 'pairs',
           items: [
-            { term: 'Controller', detail: 'Matteo Zanetti – Bj Beyond' },
+            { term: 'Controller', detail: 'Matteo Zanetti – BJ Beyond' },
             { term: 'Seat', detail: 'Verona, Italy' },
             { term: 'Email', detail: EMAIL },
             { term: 'X', detail: X_HANDLE },
@@ -189,7 +189,7 @@ export const COOKIES: LegalDocument = {
   updated: '4 October 2026',
   legacyPath: '/pages/cookie-policy.html',
   intro:
-    'This Cookie Policy supplements the Privacy Policy and explains how Bj Beyond uses cookies on bjbeyond.it.',
+    'This Cookie Policy supplements the Privacy Policy and explains how BJ Beyond uses cookies on bjbeyond.it.',
   sections: [
     {
       id: 'cosa-sono',

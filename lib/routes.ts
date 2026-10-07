@@ -30,7 +30,7 @@ export interface SiteRoute {
   path: string;
   /** Menu label. A route without one is reachable but unlisted. */
   label?: string;
-  /** Feeds `<title>`, through the `%s — Bj Beyond` template in app/layout.tsx. */
+  /** Feeds `<title>`, through the `%s — BJ Beyond` template in app/layout.tsx. */
   title?: string;
   /** Feeds the meta description and the Open Graph / Twitter card. */
   description?: string;
@@ -93,10 +93,18 @@ export const ROUTES: readonly SiteRoute[] = [
   },
   {
     path: '/phoenix-experiment/',
-    label: 'PHOENIX',
+    label: 'EXPERIMENT',
     title: 'Phoenix Experiment — Evidence Room',
-    description: 'A primary-source reconstruction of Human Edge, Phoenix Soulfire, Grok stress tests and the August 2026 Phoenix sequence.',
+    description: 'A primary-source reconstruction of Human Edge, Phoenix Soulfire™, Grok stress tests and the August 2026 Phoenix sequence.',
     priority: 0.95,
+    changeFrequency: 'monthly',
+  },
+  {
+    path: '/method/',
+    label: 'PHOENIX SOULFIRE™',
+    title: 'Phoenix Soulfire™',
+    description: METHOD.description,
+    priority: 0.9,
     changeFrequency: 'monthly',
   },
   {
@@ -138,18 +146,11 @@ export const ROUTES: readonly SiteRoute[] = [
     draft: true,
   },
   {
-    path: '/method/',
-    title: 'Phoenix Soulfire™',
-    description: METHOD.description,
-    priority: 0.9,
-    changeFrequency: 'monthly',
-  },
-  {
     path: '/labs/',
     label: 'LABS',
     title: 'The Labs — AI Tools & Simulators',
     description:
-      'Interactive tools by Bj Beyond: real-time X For You algorithm simulator, binaural sound studio and audience persona modeling.',
+      'Interactive tools by BJ Beyond: real-time X For You algorithm simulator, binaural sound studio and audience persona modeling.',
     priority: 0.8,
     changeFrequency: 'monthly',
   },

@@ -177,7 +177,7 @@ export function postUrl(entry: DispatchPost): string {
  * exists to argue against.
  */
 export const DISPATCH_AUTHOR = {
-  /* The display name as it stands on X — not 'Bj Beyond', which is the site's
+  /* The display name as it stands on X — not 'BJ Beyond', which is the site's
      wordmark. The card is a reproduction of a post, so it carries the account's
      own name, trademark glyph included. */
   name: 'Bj™',
@@ -287,7 +287,7 @@ export const DISPATCH = {
  *
  * NO HANDLE, also deliberately. DISPATCH prints name-over-handle because X's
  * card does; the display name and the handle here are the same word
- * ("Bj Beyond" / `@bj_beyond`), so drawing both would repeat one fact twice.
+ * ("BJ Beyond" / `@bj_beyond`), so drawing both would repeat one fact twice.
  * `profile` links to the author page it addresses, which is the part that is
  * actually useful.
  */
@@ -349,7 +349,7 @@ export const METHOD = {
   title: 'PHOENIX SOULFIRE',
   trademark: '™',
   description:
-    'The Phoenix Soulfire™ method: five tests before a text, a work, or a plan is trusted. The analyzer at /judgment/ is a separate tool.',
+    'Phoenix Soulfire™ is the five-test judgment layer: five tests before a text, a work, or a plan is trusted. The analyzer at /judgment/ is a separate tool.',
   cta: 'READ THE FIVE TESTS',
   /* The public tool lives on the subdomain. Same shape as AUTHENTIA.primary. */
   primary: { label: 'TRY THE ANALYZER', href: 'https://bjbeyond.it/judgment/' },
@@ -399,7 +399,7 @@ export const METHOD = {
 
 /**
  * Featured project. Deliberately outside the 01–06 numbering: it is a
- * recommendation, not one of Bj Beyond's own chapters. Every factual claim
+ * recommendation, not one of BJ Beyond's own chapters. Every factual claim
  * below comes from verify.authentia.it — do not embellish.
  */
 export const AUTHENTIA = {
@@ -420,7 +420,7 @@ export const AUTHENTIA = {
 /**
  * IN MOTION — companion to the section above, and outside the 01–07 numbering
  * for exactly the reason Authentia is: this is Authentia Arte's channel, not
- * Bj Beyond's. The numbers belong to the owner's own chapters, and lending one
+ * BJ Beyond's. The numbers belong to the owner's own chapters, and lending one
  * to someone else's Instagram would quietly break the rule that makes the
  * sequence mean anything.
  *
@@ -540,7 +540,7 @@ export const WORK = {
 export const LABS = {
   index: '04',
   label: ['THE', 'LABS'],
-  description: 'Interactive tools and algorithms developed by Bj Beyond.',
+  description: 'Interactive tools and algorithms developed by BJ Beyond.',
   intro: ['EXPERIMENTAL', 'TECHNOLOGY.', 'REAL WORLD', 'APPLICATIONS.'],
   cta: 'VIEW ALL PROJECTS',
   projects: [
@@ -737,16 +737,16 @@ export const FAQ = {
       a: 'Art market intelligence, AI + human edge strategy, data systems and visualization (including custom Power BI dashboards), and culture and impact strategy — from artist evaluations to dashboards that actually get used.',
     },
     {
-      q: 'What is the Phoenix Soulfire method?',
-      a: 'Phoenix Soulfire™ is the five-test human judgment layer created by Bj Beyond to check whether a text, a work or a plan holds up beyond what AI can generate: Soul, Edge, Clarity, Impact, Legacy. The free Judgment Layer tool at phoenixsoulfire.bjbeyond.it is the machine pass; the five tests are the human pass after it. The method page is bjbeyond.it/method/. The Phoenix Simulator at /phoenix/ is a separate tool and is not the method.',
+      q: 'What is Phoenix Soulfire™?',
+      a: 'Phoenix Soulfire™ is the five-test human judgment layer created by BJ Beyond to check whether a text, a work or a plan holds up beyond what AI can generate: Soul, Edge, Clarity, Impact, Legacy. The free Judgment Layer tool at phoenixsoulfire.bjbeyond.it is the machine pass; the five tests are the human pass after it. The method page is bjbeyond.it/method/. The Phoenix Simulator at /phoenix/ is a separate tool and is not the method.',
     },
     {
       q: 'Where is BJ Beyond based?',
-      a: 'Verona, Italy. Bj Beyond works with clients across Italy and the European Union.',
+      a: 'Verona, Italy. BJ Beyond works with clients across Italy and the European Union.',
     },
     {
       q: 'Where can I read BJ Beyond’s writing?',
-      a: 'Articles are collected in the Bj Beyond Journal and published on HackerNoon (@bj_beyond) and Substack (bjbeyond.substack.com). Ebooks are on the Bj Beyond author page on Amazon.',
+      a: 'Articles are collected in the BJ Beyond Journal and published on HackerNoon (@bj_beyond) and Substack (bjbeyond.substack.com). Ebooks are on the BJ Beyond author page on Amazon.',
     },
     {
       q: 'How do I contact BJ Beyond?',

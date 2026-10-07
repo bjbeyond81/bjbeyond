@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     'Human Edge',
     'Phoenix Soulfire',
     'art authentication',
-    'Bj Beyond',
+    'BJ Beyond',
     'Verona',
     'Italy',
   ],

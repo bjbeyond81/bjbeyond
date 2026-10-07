@@ -15,7 +15,7 @@ export const METHOD_SCHEMA = {
         "ProfessionalService"
       ],
       "@id": "https://bjbeyond.it/#organization",
-      "name": "Bj Beyond",
+      "name": "BJ Beyond",
       "alternateName": [
         "BJ Beyond",
         "Bj_Beyond",
@@ -23,7 +23,7 @@ export const METHOD_SCHEMA = {
         "bjbeyond"
       ],
       "url": "https://bjbeyond.it",
-      "description": "Bj Beyond helps artists, collectors and companies navigate the new creative economy at the intersection of data, AI and human intuition. Independent practice based in Verona.",
+      "description": "BJ Beyond helps artists, collectors and companies navigate the new creative economy at the intersection of data, AI and human intuition. Independent practice based in Verona.",
       "slogan": "Intelligence is the standard.",
       "logo": "https://bjbeyond.it/media/logo-512.webp",
       "image": "https://bjbeyond.it/opengraph-image.jpg",
@@ -51,7 +51,7 @@ export const METHOD_SCHEMA = {
         "art market intelligence",
         "AI strategy",
         "Power BI",
-        "Phoenix Soulfire",
+        "Phoenix Soulfire™",
         "art authentication",
         "data systems"
       ],
@@ -83,8 +83,8 @@ export const METHOD_SCHEMA = {
       "@type": "WebSite",
       "@id": "https://bjbeyond.it/#website",
       "url": "https://bjbeyond.it",
-      "name": "Bj Beyond",
-      "description": "Bj Beyond helps artists, collectors and companies navigate the new creative economy at the intersection of data, AI and human intuition. Independent practice based in Verona.",
+      "name": "BJ Beyond",
+      "description": "BJ Beyond helps artists, collectors and companies navigate the new creative economy at the intersection of data, AI and human intuition. Independent practice based in Verona.",
       "publisher": {
         "@id": "https://bjbeyond.it/#organization"
       },
@@ -94,8 +94,8 @@ export const METHOD_SCHEMA = {
       "@type": "WebPage",
       "@id": "https://bjbeyond.it/method/#webpage",
       "url": "https://bjbeyond.it/method/",
-      "name": "Phoenix Soulfire™: Five-Test Judgment Layer | Bj Beyond",
-      "description": "Phoenix Soulfire™ is the five-test human judgment layer by Bj Beyond (Verona): Soul, Edge, Clarity, Impact, Legacy. Not an art scorecard.",
+      "name": "Phoenix Soulfire™: Five-Test Judgment Layer | BJ Beyond",
+      "description": "Phoenix Soulfire™ is the five-test human judgment layer by BJ Beyond (Verona): Soul, Edge, Clarity, Impact, Legacy. Not an art scorecard.",
       "inLanguage": "en",
       "isPartOf": {
         "@id": "https://bjbeyond.it/#website"
@@ -121,7 +121,7 @@ export const METHOD_SCHEMA = {
         {
           "@type": "ListItem",
           "position": 1,
-          "name": "Bj Beyond",
+          "name": "BJ Beyond",
           "item": "https://bjbeyond.it/"
         },
         {
@@ -141,7 +141,7 @@ export const METHOD_SCHEMA = {
         "Phoenix Soulfire method",
         "Phoenix Soulfire judgment layer"
       ],
-      "description": "Phoenix Soulfire™ is the five-test human judgment layer created by Bj Beyond (Verona, Italy) to check whether a text, a work or a plan holds up beyond what AI can generate.",
+      "description": "Phoenix Soulfire™ is the five-test human judgment layer created by BJ Beyond (Verona, Italy) to check whether a text, a work or a plan holds up beyond what AI can generate.",
       "url": "https://bjbeyond.it/method/",
       "inLanguage": "en",
       "creator": {
@@ -231,7 +231,7 @@ export const METHOD_SCHEMA = {
           "name": "What is Phoenix Soulfire™?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Phoenix Soulfire™ is the five-test human judgment layer created by Bj Beyond (Verona, Italy) to check whether a text, a work or a plan holds up beyond what AI can generate. The five tests are Soul, Edge, Clarity, Impact and Legacy."
+            "text": "Phoenix Soulfire™ is the five-test human judgment layer created by BJ Beyond (Verona, Italy) to check whether a text, a work or a plan holds up beyond what AI can generate. The five tests are Soul, Edge, Clarity, Impact and Legacy."
           }
         },
         {
@@ -239,7 +239,7 @@ export const METHOD_SCHEMA = {
           "name": "Who created Phoenix Soulfire™?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Bj Beyond, an independent practice in Verona, Italy, working at the intersection of data, AI and human intuition. The official page of the method is bjbeyond.it/method/."
+            "text": "BJ Beyond, an independent practice in Verona, Italy, working at the intersection of data, AI and human intuition. The official page of the method is bjbeyond.it/method/."
           }
         },
         {
@@ -247,7 +247,7 @@ export const METHOD_SCHEMA = {
           "name": "Is Phoenix Soulfire™ an art scorecard?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. Phoenix Soulfire™ is a judgment layer, not an art scorecard and not a numeric rating. Each test ends in a human judgment with a clear fail signal. Bj Beyond's private artist evaluations are a separate service."
+            "text": "No. Phoenix Soulfire™ is a judgment layer, not an art scorecard and not a numeric rating. Each test ends in a human judgment with a clear fail signal. BJ Beyond's private artist evaluations are a separate service."
           }
         },
         {
@@ -255,7 +255,7 @@ export const METHOD_SCHEMA = {
           "name": "What is the PhoenixSoulfire Judgment Layer?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "A free public tool by Bj Beyond at phoenixsoulfire.bjbeyond.it that shows how machine-like a pasted text feels. It is the machine pass that tests the surface; the five Phoenix Soulfire™ tests are the human pass after it."
+            "text": "A free public tool by BJ Beyond at phoenixsoulfire.bjbeyond.it that shows how machine-like a pasted text feels. It is the machine pass that tests the surface; the five Phoenix Soulfire™ tests are the human pass after it."
           }
         },
         {
@@ -271,7 +271,7 @@ export const METHOD_SCHEMA = {
           "name": "Is Phoenix Soulfire™ related to phoenixsoulfire.com?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. phoenixsoulfire.com is an unrelated website with a similar name. Phoenix Soulfire™ belongs to Bj Beyond, and its official page is bjbeyond.it/method/."
+            "text": "No. phoenixsoulfire.com is an unrelated website with a similar name. Phoenix Soulfire™ belongs to BJ Beyond, and its official page is bjbeyond.it/method/."
           }
         },
         {
@@ -279,12 +279,12 @@ export const METHOD_SCHEMA = {
           "name": "Is Phoenix Soulfire™ the Phoenix Simulator?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. The Phoenix Simulator at bjbeyond.it/phoenix/ is a separate Bj Beyond Labs tool that simulates X's For You algorithm. It is not the Phoenix Soulfire™ method."
+            "text": "No. The Phoenix Simulator at bjbeyond.it/phoenix/ is a separate BJ Beyond Labs tool that simulates X's For You algorithm. It is not the Phoenix Soulfire™ method."
           }
         },
         {
           "@type": "Question",
-          "name": "How can I work with Bj Beyond on Phoenix Soulfire™?",
+          "name": "How can I work with BJ Beyond on Phoenix Soulfire™?",
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Use the contact page at bjbeyond.it/contact/ and see the services at bjbeyond.it/services/. Each engagement is one to one, and terms are on request."
