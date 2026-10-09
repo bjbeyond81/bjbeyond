@@ -21,10 +21,30 @@ export const dynamic = 'force-static';
  *
  * NO blanket `lastModified`. A build-clock date would restamp every URL on
  * every deploy, including routes the deploy did not touch. Google discounts
- * `lastmod` it learns not to trust. Only routes with a real edit date carry one.
+ * `lastmod` it learns not to trust. Every date below is the real date of the
+ * last commit that changed the page's rendered HTML — update the entry by hand
+ * when a page changes. (CI checks out with depth 1, so the date cannot be read
+ * from git at build time.)
+ *
+ * 2026-10-07 is e9ca717: it changed the root layout's metadata and the shared
+ * navigation, so every App Router page's HTML changed that day, as did the
+ * standalone /phoenix/, /frequency/ and /judgment/ pages it edited directly.
  */
+const SITE_WIDE = '2026-10-07';
 const LASTMOD: Record<string, string> = {
-  '/method/': '2026-10-04',
+  '/': SITE_WIDE,
+  '/human-edge/': SITE_WIDE,
+  '/phoenix-experiment/': SITE_WIDE,
+  '/method/': SITE_WIDE,
+  '/writing/': SITE_WIDE,
+  '/about/': SITE_WIDE,
+  '/art/': SITE_WIDE,
+  '/labs/': SITE_WIDE,
+  '/services/': SITE_WIDE,
+  '/contact/': SITE_WIDE,
+  '/phoenix/': SITE_WIDE,
+  '/frequency/': SITE_WIDE,
+  '/judgment/': SITE_WIDE,
 };
 
 /**
@@ -38,7 +58,7 @@ const STATIC_URLS: MetadataRoute.Sitemap = [
     url: absoluteUrl('/judgment/'),
     changeFrequency: 'monthly',
     priority: 0.7,
-    lastModified: '2026-10-04',
+    lastModified: LASTMOD['/judgment/'],
   },
 ];
 
