@@ -8,6 +8,45 @@ import { metadataFor } from '@/lib/routes';
 
 export const metadata: Metadata = metadataFor('/writing/');
 
+const AUTHOR = { '@type': 'Person', name: 'BJ Beyond', url: 'https://bjbeyond.it/' } as const;
+
+/**
+ * Each card is an article published on HackerNoon under BJ Beyond's byline.
+ * The JSON-LD states that authorship machine-readably, so search and AI
+ * engines attribute the pieces (and the experiments they report) to BJ Beyond.
+ * It mirrors the card data only — no copy is added here.
+ */
+function writingSchema(articles: readonly (typeof WRITING.articles)[number][]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    '@id': 'https://bjbeyond.it/writing/#page',
+    url: 'https://bjbeyond.it/writing/',
+    name: 'Writing — AI, Technology & Human Judgment',
+    author: AUTHOR,
+    mainEntity: {
+      '@type': 'ItemList',
+      itemListElement: articles.map((article, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        item: {
+          '@type': 'BlogPosting',
+          '@id': article.href,
+          url: article.href,
+          mainEntityOfPage: article.href,
+          headline: article.title,
+          description: article.standfirst,
+          datePublished: article.published,
+          author: AUTHOR,
+          publisher: { '@type': 'Organization', name: 'HackerNoon', url: 'https://hackernoon.com/' },
+          keywords: article.topics.join(', '),
+          inLanguage: 'en',
+        },
+      })),
+    },
+  };
+}
+
 export default function WritingPage() {
   const articles = [...WRITING.articles].sort((a, b) => b.published.localeCompare(a.published));
 
@@ -18,6 +57,11 @@ export default function WritingPage() {
       standfirst={WRITING.standfirst}
       media={MEDIA.method[4]}
     >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(writingSchema(articles)) }}
+      />
+
       <section className="u-gutter pb-[var(--spacing-section)]">
         <RevealGroup>
           <div className="border-t border-rule">
@@ -28,6 +72,7 @@ export default function WritingPage() {
                   <time className="u-label mt-3 block text-mist-500" dateTime={article.published}>
                     {article.published}
                   </time>
+                  <p className="u-label mt-3 text-mist-500">BY BJ BEYOND</p>
                 </div>
                 <div className="lg:col-span-6">
                   <h2 className="text-title font-extralight leading-[1.08] text-paper">{article.title}</h2>
@@ -36,7 +81,15 @@ export default function WritingPage() {
                     {article.pull}
                   </blockquote>
                 </div>
-                <div className="lg:col-span-3 lg:col-start-10">
+                <div className="lg:col-span-3 lg:col-start-10 flex flex-col items-start">
+                  {'page' in article ? (
+                    <a
+                      href={article.page}
+                      className="u-label inline-flex min-h-11 items-center text-paper hover:text-amber-400"
+                    >
+                      {WRITING.pageAction} →
+                    </a>
+                  ) : null}
                   <a
                     href={article.href}
                     target="_blank"

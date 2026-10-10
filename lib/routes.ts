@@ -23,7 +23,7 @@
  * destinations rather than prose.
  */
 import type { MetadataRoute } from 'next';
-import { BEYOND, BOOKS, CONTACT, DISPATCH, METHOD, SITE } from './content';
+import { BEYOND, BOOKS, CONTACT, DISPATCH, METHOD, PANGRAM_PAGE, SITE } from './content';
 
 export interface SiteRoute {
   /** Path as served, leading and trailing slash included. */
@@ -114,6 +114,14 @@ export const ROUTES: readonly SiteRoute[] = [
     description: 'Selected BJ Beyond long-form writing on AI, technology, provenance and the human edge.',
     priority: 0.8,
     changeFrequency: 'monthly',
+  },
+  {
+    /* Unlabelled: reachable from the /writing/ card, not from the menu. */
+    path: PANGRAM_PAGE.path,
+    title: PANGRAM_PAGE.headline,
+    description: PANGRAM_PAGE.description,
+    priority: 0.7,
+    changeFrequency: 'yearly',
   },
   {
     path: '/about/',

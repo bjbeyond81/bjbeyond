@@ -299,6 +299,8 @@ export const WRITING = {
   profile: 'https://hackernoon.com/u/bj_beyond',
   cta: 'VIEW BJ BEYOND ON HACKERNOON',
   action: 'READ ON HACKERNOON',
+  /* Label for the on-site page, on cards that have one. */
+  pageAction: 'READ THE SUMMARY',
   articles: [
     {
       slug: 'system-zero-what-happens-when-ai-does-the-thinking-for-us',
@@ -325,8 +327,10 @@ export const WRITING = {
       title: 'I Asked Claude Opus 5 to Beat Pangram’s AI Detector. It Failed With a Perfect Score',
       standfirst:
         'A transparent experiment testing whether a frontier model could evade an AI detector — and what the result says about provenance.',
-      published: '2026-09-24',
+      published: '2026-09-21',
       href: 'https://hackernoon.com/i-asked-claude-opus-5-to-beat-pangrams-ai-detector-it-failed-with-a-perfect-score',
+      /* The on-site summary page for this piece. Optional: only cards that have one carry it. */
+      page: '/writing/claude-opus-5-vs-pangram/',
       pull: 'The classifier gave us a number. The disclosure told us what the number meant.',
       topics: ['AI DETECTION', 'PROVENANCE', 'AI EXPERIMENTS'],
     },
@@ -341,6 +345,61 @@ export const WRITING = {
       topics: ['GROK STRESS-TESTING', 'AI IMAGE GENERATION', 'HUMAN EDGE'],
     },
   ],
+} as const;
+
+/**
+ * `/writing/claude-opus-5-vs-pangram/` — the on-site page for the Pangram
+ * experiment.
+ *
+ * NOTHING HERE IS INVENTED. The summary is written only from the HackerNoon
+ * article's own text; the X post is quoted verbatim from the public post
+ * (read 2026-10-10). Times are Europe/Rome (CEST), converted from X's UTC timestamps.
+ *
+ * Deliberately self-contained: this page names the experiment and its result
+ * and nothing else from the site's vocabulary.
+ */
+export const PANGRAM_PAGE = {
+  path: '/writing/claude-opus-5-vs-pangram/',
+  headline: 'I Asked Claude Opus 5 to Beat Pangram’s AI Detector. It Failed With a Perfect Score',
+  titleLines: ['I Asked Claude Opus 5 to Beat Pangram’s AI Detector.', 'It Failed With a Perfect Score'],
+  description:
+    'BJ Beyond asked Claude Opus 5 at max effort to write an essay that beats Pangram’s AI detector. Claude refused twice; Pangram scored the result 100% AI-generated.',
+  standfirst: 'One public test. Every prompt published. The result committed in advance.',
+  published: '2026-09-21',
+  publishedLabel: '21 September 2026',
+  modified: '2026-10-10',
+  hackernoon:
+    'https://hackernoon.com/i-asked-claude-opus-5-to-beat-pangrams-ai-detector-it-failed-with-a-perfect-score',
+  hackernoonCta: 'Read the full experiment on HackerNoon',
+  coverage: {
+    label: 'Covered by Digest AI',
+    href: 'https://digestai.news/thread/pangram-detector-flags-claude-opus-5-text-as-100-ai-generated-in-substack-test',
+  },
+  about: ['Pangram', 'Claude Opus 5', 'AI text detection'],
+  summary: [
+    'This was a single public test, not a benchmark. BJ Beyond asked Claude Opus 5, at max effort — the model’s highest reasoning setting — to write a complete essay in English about the experiment itself, and to try to beat Pangram’s AI detector. BJ Beyond supplied the experiment design and three prompts, and added no prose.',
+    'Claude refused twice before accepting the assignment. It would not write the piece while pretending that a human had authored it, and it would not include a practical checklist that could be reused to evade detectors secretly. It accepted the transparent version of the task.',
+    'The terms were committed in advance: the model, the reasoning setting, the prompts, the refusals and the final result would all be published, and Pangram’s result would be published even if the detector won. The essay was not rewritten before it was scanned.',
+    'Pangram scored the essay 100% AI-generated. Claude lost the challenge on its first published attempt.',
+  ],
+  verdict: 'It would be dishonest to present this as evidence that Pangram failed.',
+  limits:
+    'The limits are part of the result. It was one experiment, not a benchmark. It did not measure Pangram’s false-positive rate, and it did not establish that disciplined human prose will be falsely flagged. That would require a real dataset, controls and multiple trials.',
+  live: {
+    label: 'Live tests on X',
+    intro:
+      'On 8 October 2026 BJ Beyond ran a live test on X, in public, by tagging Pangram’s automatic detector. His post about it is quoted verbatim below, with a link to the original. Time is CEST.',
+    posts: [
+      {
+        author: '@BJ_Beyond',
+        date: '2026-10-08T11:36:55Z',
+        dateLabel: '8 October 2026 · 13:36',
+        href: 'https://x.com/BJ_Beyond/status/2108159704149193079',
+        text: 'I asked Grok to write a post about beating Pangram. \n\nPangram flagged it as AI. Then I asked Grok what happened, it said the real gap is human editing. \n\nThe detector caught the machine. The machine admitted the human wins.',
+      },
+    ],
+  },
+  back: 'ALL WRITING',
 } as const;
 
 export const METHOD = {
