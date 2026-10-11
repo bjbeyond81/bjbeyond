@@ -130,6 +130,7 @@ export default function AboutPage() {
         <Reveal delay={0.1} className="mt-14">
           <div className="flex flex-wrap items-center gap-x-10 gap-y-6">
             <ArrowLink href="/method/">{`${METHOD.title}${METHOD.trademark} Method`}</ArrowLink>
+            <ArrowLink href="/writing/claude-opus-5-vs-pangram/">Claude Opus 5 vs Pangram: my public test</ArrowLink>
             <ArrowLink href="/services/">Services</ArrowLink>
             <ArrowLink href="/contact/">{CONTACT.label.join(' ')}</ArrowLink>
           </div>
