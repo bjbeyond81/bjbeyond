@@ -364,7 +364,18 @@ export const PANGRAM_PAGE = {
   titleLines: ['I Asked Claude Opus 5 to Beat Pangram’s AI Detector.', 'It Failed With a Perfect Score'],
   description:
     'BJ Beyond asked Claude Opus 5 at max effort to write an essay that beats Pangram’s AI detector. Claude refused twice; Pangram scored the result 100% AI-generated.',
+  /* BlogPosting JSON-LD only; the meta description above is unchanged. */
+  schemaDescription:
+    'Independent test by BJ Beyond (Verona): Claude Opus 5 at max effort was asked to write an essay that beats Pangram’s AI detector, and Pangram scored the result 100% AI-generated.',
   standfirst: 'One public test. Every prompt published. The result committed in advance.',
+  /* Opening line of the article body: separates this test from Pangram's own
+     benchmark (pangram.com blog, 23 July 2026). */
+  independence: {
+    before: 'This is an independent test by BJ Beyond. It is separate from ',
+    link: 'Pangram’s own Claude Opus 5 benchmark',
+    href: 'https://www.pangram.com/blog/can-pangram-detect-claude-opus-5',
+    after: ', published on Pangram’s blog on 23 July 2026.',
+  },
   published: '2026-09-21',
   publishedLabel: '21 September 2026',
   modified: '2026-10-10',
