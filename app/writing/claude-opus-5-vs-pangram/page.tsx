@@ -40,7 +40,7 @@ const SCHEMA = {
       url: CANONICAL,
       mainEntityOfPage: CANONICAL,
       headline: P.headline,
-      description: P.description,
+      description: P.schemaDescription,
       datePublished: P.published,
       dateModified: P.modified,
       author: AUTHOR,
@@ -98,6 +98,18 @@ export default function PangramPage() {
 
         <div className="mt-10 max-w-3xl border-t border-rule pt-10">
           <Reveal>
+            <p className="text-body font-light text-mist-200">
+              {P.independence.before}
+              <a
+                href={P.independence.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-amber-400 underline decoration-amber-400/40 underline-offset-4 hover:decoration-amber-400"
+              >
+                {P.independence.link}
+              </a>
+              {P.independence.after}
+            </p>
             {P.summary.map((para) => (
               <p key={para.slice(0, 32)} className="mt-6 first:mt-0 text-body font-light text-mist-200">
                 {para}
