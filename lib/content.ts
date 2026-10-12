@@ -24,7 +24,7 @@ export const SITE = {
   url: 'https://bjbeyond.it',
   locale: 'Verona, Italia',
   description:
-    'BJ Beyond studies the boundary between AI capability and human judgment — and turns that research into systems for art, data and decision-making. Independent practice based in Verona, Italy.',
+    'BJ Beyond is an independent writer based in Verona, Italy, exploring art, AI, authorship and human judgment through essays, public experiments and recovered records.',
   /**
    * Alt text for the shared social card.
    *
@@ -68,11 +68,11 @@ export const BEYOND = {
   index: '01',
   label: ['WHO IS', 'BJ BEYOND'],
   name: 'BJ BEYOND',
-  role: 'INDEPENDENT PRACTICE — VERONA',
-  lede: 'Independent practice at the intersection of AI capability and human judgment.',
+  role: 'INDEPENDENT WRITER — VERONA',
+  lede: 'Independent writer. Art, AI and human judgment.',
   body: [
-    'I work at the intersection of art, data and AI — helping artists, collectors and companies make decisions where data alone is no longer enough.',
-    'BJ Beyond is the independent practice through which I build research, experiments and decision systems around that boundary — from art market intelligence to Power BI and Human Edge strategy.',
+    'I’m BJ Beyond, an independent writer based in Verona, Italy. I explore how AI changes the way we think, create and assign value.',
+    'My work connects contemporary art, authorship and technology through essays, public experiments and questions that require human judgment.',
   ],
   capabilities: [
     ['ART MARKET', 'INTELLIGENCE'],
@@ -773,14 +773,14 @@ export const BOOKS = {
 export const CONTACT = {
   index: '07',
   label: ['GET IN', 'TOUCH'],
-  title: ['BRING THE', 'RIGHT PROBLEM', 'TO THE TABLE'],
-  standfirst: 'Art market decision, data system, or AI + Human Edge project — start with the problem that matters.',
+  title: ['START A', 'CONVERSATION'],
+  standfirst: 'Writing, interviews, source questions and conversations about art, AI and human judgment.',
   description:
-    'Choose the outcome: understand an art-market decision, build a data system people can use, or introduce AI without outsourcing human judgment.',
+    'For editorial enquiries, interviews, questions about the Phoenix record or discussion of Human Edge, contact BJ Beyond directly.',
   emails: [
     {
       address: 'Bj_beyond@tutamail.com',
-      role: 'GENERAL & PROJECTS',
+      role: 'EDITORIAL / INTERVIEWS / SOURCES',
     },
   ],
 } as const;
@@ -796,7 +796,7 @@ export const FAQ = {
   items: [
     {
       q: 'What is BJ Beyond?',
-      a: 'BJ Beyond is an independent practice based in Verona, Italy, working at the boundary between AI capability and human judgment. It turns that research into systems for art, data and decision-making.',
+      a: 'BJ Beyond is an independent writer based in Verona, Italy, exploring contemporary art, AI, authorship and human judgment.',
     },
     {
       q: 'What does the name BJ Beyond mean?',
@@ -812,7 +812,7 @@ export const FAQ = {
     },
     {
       q: 'Where is BJ Beyond based?',
-      a: 'Verona, Italy. BJ Beyond works with clients across Italy and the European Union.',
+      a: 'Verona, Italy. BJ Beyond writes for an international audience.',
     },
     {
       q: 'Where can I read BJ Beyond’s writing?',

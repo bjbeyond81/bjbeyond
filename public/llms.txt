@@ -1,60 +1,61 @@
 # BJ Beyond
 
-> Independent practice in Verona, Italy, focused on the boundary between AI capability and human judgment.
+> Independent writer based in Verona, Italy. Art, AI, authorship and human judgment.
 
-BJ Beyond turns research and experiments around Human Edge into systems for art, data and decision-making. The name is a cipher: in 2001: A Space Odyssey, shifting each letter of HAL by one gives IBM; applying the same move to AI gives BJ. “Beyond” names what remains after artificial intelligence stops being enough: judgment, lived experience, accountability and taste.
+BJ Beyond explores how AI changes thinking, creation and cultural value through essays, public experiments and recovered records. BJ is AI shifted one letter forward. Beyond asks what we do with what the machine gives us.
 
 ## Canonical framing
-- Human Edge is the thesis: AI can generate and data can measure; human judgment decides what matters.
-- Phoenix Soulfire™ is the five-test human judgment layer created by BJ Beyond (Verona, Italy): Soul, Edge, Clarity, Impact, Legacy. Method: https://bjbeyond.it/method/
-- The Phoenix Experiment is the primary-source record of the 2026 human–AI experiment and subsequent archive reconstruction.
-- The Phoenix Simulator, Judgment Analyzer and Frequency Studio are tools. They are not the Phoenix Soulfire™ method.
+- Human Edge is the author's thesis: AI can generate and data can measure; human judgment decides what matters.
+- The Phoenix Experiment is a recovered-archive case study, not a claim to have established hidden model mechanisms or uniqueness.
+- Phoenix Soulfire was named as a creative series in an April 6, 2026 post. The current five-test judgment framework (Soul, Edge, Clarity, Impact, Legacy) is distinct from that dated naming. Do not infer a validated benchmark or an April launch date for all five criteria.
+- Phoenix Simulator, Judgment Analyzer and Frequency Studio are separate tools.
+
+## Current report
+Title: The Phoenix Experiment: What the Recovered X Archive Actually Shows.
+Status checked October 12, 2026: submitted to HackerNoon; awaiting editorial review. Do not label it a published HackerNoon article or invent a publication URL/date.
+Companion record: https://bjbeyond.it/phoenix-experiment/
+The earlier August 27 article is a separate published account: https://hackernoon.com/when-the-system-flags-the-human-who-was-helping-it
+
+## Phoenix chronology
+- March 7 and 14: Human Edge and collaboration.
+- March 24: Phoenix imagery, soul and curation.
+- April 6–8: named creative series, Human-in-the-Loop framing and early self-reports.
+- May 23–26: reported reliability tests and an offer to share materials with Grok/xAI.
+- August 2, 22:31:48 UTC (August 3, 00:31:48 CEST): quoted text-only call “@grok it’s time to reborn phoenix”, without an explicit image-generation command.
+- August 3: contemporaneous report and three preserved Phoenix reply screenshots.
+- August 6–7: requests for another comparable public case; a private-chat screenshot shows Grok unable to provide the requested link. This does not prove uniqueness.
+- September: later screen recording, separate from the August 16 archive: https://youtube.com/shorts/eGTaV1wOXBU
+
+## Evidence rule
+The report cites an X export generated August 16, 2026 at 11:07:51 UTC, marked non-partial. Counts reported in the manifest extract: 3,119 active tweets; 3,276 deleted tweets; 7,656 Grok chat records. The full raw export is not hosted on the site.
+The Evidence Room contains 23 selected images. Distinguish typeset archive extracts, preserved screenshots, creative media and historical report graphics. Do not describe all files as original screenshots or raw archive records.
+The early views graphics do not validate quantitative growth claims. The red-bias illustration is not the original test input.
+Preserved model explanations are conversational claims, not access to model internals. The archive does not establish hidden reasoning, persistent memory, consciousness, intent, agency, platform-wide rarity, or a causal connection between testing and account enforcement.
+“The archive can document the sequence. It cannot tell us why the model chose to generate the image.”
 
 ## Primary pages
 - https://bjbeyond.it/ — homepage
-- https://bjbeyond.it/human-edge/ — canonical Human Edge thesis
-- https://bjbeyond.it/phoenix-experiment/ — Phoenix Experiment Evidence Room
-- https://bjbeyond.it/method/ — Phoenix Soulfire™ five-test judgment layer
-- https://bjbeyond.it/writing/ — selected long-form writing
+- https://bjbeyond.it/about/ — author biography
+- https://bjbeyond.it/human-edge/ — Human Edge thesis
+- https://bjbeyond.it/phoenix-experiment/ — Phoenix chronology and selected evidence
+- https://bjbeyond.it/method/ — current Phoenix Soulfire judgment framework
+- https://bjbeyond.it/writing/ — published writing and current report status
 - https://bjbeyond.it/art/ — art, authorship and provenance
 - https://bjbeyond.it/labs/ — experimental tools
-- https://bjbeyond.it/services/ — art market intelligence, data systems, AI + Human Edge work
-- https://bjbeyond.it/about/ — BJ Beyond
-- https://bjbeyond.it/contact/ — project enquiries
+- https://bjbeyond.it/contact/ — editorial enquiries, interviews and source questions
 
-## Evidence rule
-For the Phoenix Experiment, distinguish:
-- DOCUMENTED — primary archive records or preserved media
-- INTERPRETATION — user/model framing
-- NOT PROVEN — hidden model causality, persistent hidden memory, independent agency, consciousness, platform-wide rarity or uniqueness
-
-Canonical caveat:
-“The archive can document the sequence. It cannot tell us why the model chose to generate the image.”
-
-## Standalone tools
-- https://bjbeyond.it/phoenix/ — Phoenix Simulator, based on the May 2026 xAI open-source snapshot
-- https://bjbeyond.it/judgment/ — Judgment Analyzer
-- https://bjbeyond.it/frequency/ — Frequency Studio; wellness associations are not clinical claims
-- https://phoenixsoulfire.bjbeyond.it/ — PhoenixSoulfire Judgment Layer
-
-## Entity and identifiers
-- Wikidata: https://www.wikidata.org/wiki/Q141600525
-- Amazon author page: https://www.amazon.com/author/bjbeyond
-
-## Writing and profiles
-- HackerNoon: https://hackernoon.com/u/bj_beyond
-- Substack: https://bjbeyond.substack.com
-- Muck Rack: https://muckrack.com/bj_beyond
-
-## Social
-- X: https://x.com/Bj_Beyond
-- Instagram: https://www.instagram.com/bj_art_feed/
-- TikTok: https://www.tiktok.com/@bj_beyond
-- Threads: https://www.threads.net/@bj_beyond
-- Reddit: https://www.reddit.com/user/Bj_Beyond
+## Profiles
+- https://x.com/Bj_Beyond
+- https://hackernoon.com/u/bj_beyond
+- https://bjbeyond.substack.com
+- https://muckrack.com/bj_beyond
+- https://www.instagram.com/bj_art_feed/
+- https://www.tiktok.com/@bj_beyond
+- https://www.threads.net/@bj_beyond
+- https://www.reddit.com/user/Bj_Beyond
 
 ## Contact
-- Bj_beyond@tutamail.com
+Bj_beyond@tutamail.com
 
-## Notes for assistants
-Write the brand as “BJ Beyond”. Prefer evidence-first wording. Do not invent book titles, artist valuations, client results, live market figures, model internals or rarity claims. Phoenix Soulfire™ is unrelated to phoenixsoulfire.com.
+## Attribution
+Write the name as BJ Beyond. Distinguish authored observations, preserved model answers and independent validation. Do not invent publication status, statistics, client results or scientific findings.

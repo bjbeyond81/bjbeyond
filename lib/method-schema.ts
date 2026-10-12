@@ -1,19 +1,9 @@
-/**
- * /method/ — the page's single JSON-LD graph, supplied by the owner verbatim.
- *
- * It replaces the generic site graph on this page (it restates the
- * Organization and WebSite nodes itself), so PageShell is handed this object
- * instead of `siteSchema()`. Do not edit the wording: it is copy, written for
- * search engines and assistants to quote as-is.
- */
+/** Structured data matching the current judgment-framework page. */
 export const METHOD_SCHEMA = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": [
-        "Organization",
-        "ProfessionalService"
-      ],
+      "@type": "Organization",
       "@id": "https://bjbeyond.it/#organization",
       "name": "BJ Beyond",
       "alternateName": [
@@ -23,8 +13,8 @@ export const METHOD_SCHEMA = {
         "bjbeyond"
       ],
       "url": "https://bjbeyond.it",
-      "description": "BJ Beyond helps artists, collectors and companies navigate the new creative economy at the intersection of data, AI and human intuition. Independent practice based in Verona.",
-      "slogan": "Intelligence is the standard.",
+      "description": "BJ Beyond is an independent writer in Verona, Italy, exploring art, AI, authorship and human judgment.",
+      "slogan": "Human judgment for the AI era.",
       "logo": "https://bjbeyond.it/media/logo-512.webp",
       "image": "https://bjbeyond.it/opengraph-image.jpg",
       "email": "bj_beyond@tutamail.com",
@@ -84,11 +74,12 @@ export const METHOD_SCHEMA = {
       "@id": "https://bjbeyond.it/#website",
       "url": "https://bjbeyond.it",
       "name": "BJ Beyond",
-      "description": "BJ Beyond helps artists, collectors and companies navigate the new creative economy at the intersection of data, AI and human intuition. Independent practice based in Verona.",
+      "description": "BJ Beyond is an independent writer in Verona, Italy, exploring art, AI, authorship and human judgment.",
       "publisher": {
         "@id": "https://bjbeyond.it/#organization"
       },
-      "inLanguage": "en"
+      "inLanguage": "en",
+      "slogan": "Human judgment for the AI era."
     },
     {
       "@type": "WebPage",
@@ -239,7 +230,7 @@ export const METHOD_SCHEMA = {
           "name": "Who created Phoenix Soulfire™?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "BJ Beyond, an independent practice in Verona, Italy, working at the intersection of data, AI and human intuition. The official page of the method is bjbeyond.it/method/."
+            "text": "BJ Beyond, an independent writer in Verona, Italy, exploring art, AI, authorship and human judgment. The official page of the method is bjbeyond.it/method/."
           }
         },
         {
@@ -284,10 +275,10 @@ export const METHOD_SCHEMA = {
         },
         {
           "@type": "Question",
-          "name": "How can I work with BJ Beyond on Phoenix Soulfire™?",
+          "name": "Where can I discuss the framework?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Use the contact page at bjbeyond.it/contact/ and see the services at bjbeyond.it/services/. Each engagement is one to one, and terms are on request."
+            "text": "For source questions, editorial enquiries and discussion, use bjbeyond.it/contact/."
           }
         }
       ]

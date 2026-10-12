@@ -45,7 +45,7 @@ export const PERSON_ID = `${SITE.url}/#person`;
  * only in structured data; the visible meta description stays `SITE.description`.
  */
 const ENTITY_DESCRIPTION =
-  'BJ Beyond is an independent practice based in Verona, Italy, working at the intersection of data, AI and human intuition. It helps artists, collectors and companies with art market intelligence, Power BI dashboards and AI strategy, and created Phoenix Soulfire™, the five-test judgment layer for human judgment in the AI era. Official site: bjbeyond.it.';
+  'BJ Beyond is an independent writer based in Verona, Italy, exploring contemporary art, AI, authorship and human judgment. Human Edge is the author’s thesis; the Phoenix Experiment is a recovered-archive case study. Phoenix Soulfire is the current five-test judgment framework.';
 
 /** The Journal, served from GitHub Pages and canonical to itself. */
 const JOURNAL_URL = 'https://bjbeyond81.github.io/studio/';
@@ -65,7 +65,7 @@ export function siteSchema() {
       {
         /* Dual type: Organisation for the entity graph, ProfessionalService for
            local/GEO signals (areaServed, Verona) without inventing a shopfront. */
-        '@type': ['Organization', 'ProfessionalService'],
+        '@type': 'Organization',
         '@id': ORGANISATION_ID,
         name: SITE.name,
         /* Every spelling the brand circulates under online. Without this, a
@@ -93,9 +93,10 @@ export function siteSchema() {
           { '@type': 'AdministrativeArea', name: 'European Union' },
         ],
         knowsAbout: [
-          'art market intelligence',
-          'AI strategy',
-          'Power BI',
+          'contemporary art',
+          'human judgment',
+          'authorship',
+          'Phoenix Experiment',
           'Phoenix Soulfire™',
           'art authentication',
           'data systems',
@@ -130,8 +131,8 @@ export function siteSchema() {
         name: SITE.name,
         alternateName: ['BJ Beyond', 'Bj_Beyond', 'BJ'],
         url: absoluteUrl('/about/'),
-        jobTitle: 'Founder',
-        description: 'Founder of BJ Beyond and creator of the Phoenix Soulfire™ method.',
+        jobTitle: 'Independent writer',
+        description: ENTITY_DESCRIPTION,
         worksFor: { '@id': ORGANISATION_ID },
         homeLocation: {
           '@type': 'Place',
