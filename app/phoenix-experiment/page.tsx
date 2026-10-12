@@ -66,7 +66,7 @@ export default function PhoenixExperimentPage() {
         <p className="pxEyebrow"><span /> THE PHOENIX EXPERIMENT</p>
         <h1>Evidence <em>Room.</em></h1>
         <p className="pxDeck">A text-only call. Phoenix images. A recovered record.</p>
-        <p className="pxLibraryIntro">In August 2026, a short conversational call to Grok was followed by Phoenix image replies. This room follows the earlier creative work, the reliability tests and the later questions about what those replies meant. Read the chronology, inspect the selected records and distinguish the observation from its interpretation.</p>
+        <p className="pxLibraryIntro">In August 2026, a text-only reply inside an existing thread was followed by Phoenix image replies across later exchanges. This room follows the earlier creative work, the reliability tests and the later questions about what those replies meant. Read the chronology, inspect the selected records and distinguish the observation from its interpretation.</p>
         <p className="pxStatus">{PHOENIX.status}</p>
         <p className="pxLibraryIntro">Companion to <em>{PHOENIX.title}</em>. A reconstruction by BJ Beyond, with selected supporting records below.</p>
         <blockquote className="pxThesis">{PHOENIX.question}</blockquote>
@@ -79,10 +79,10 @@ export default function PhoenixExperimentPage() {
           <p className="pxStatus">{item.date}</p><h3>{item.title}</h3><p>{item.body}</p>
           <p className="pxReference">{item.ids}</p><a href={`#${item.anchor}`} className="pxRecordLink">Inspect the related record →</a>
         </article>)}</div>
-        <p className="pxLibrarySource">The report cites an X export generated on August 16, 2026 at 11:07:51 UTC, identified by its manifest as non-partial: 3,119 active tweets, 3,276 deleted tweets and 7,656 Grok chat records. These are reported export counts, not the contents of this page. A complete account export does not guarantee a complete copy of every third-party reply.</p>
+        <p className="pxLibrarySource">The report cites an X export generated on August 16, 2026 at 11:07:51 UTC, identified by its manifest as non-partial: 3,119 active tweets, 3,276 deleted tweets and 7,656 Grok chat records. The record counts agree with the corresponding data files. The 7,656 Grok records include 3,828 user and 3,828 agent entries across 1,106 distinct chat IDs; they are not 7,656 separate conversations. A complete account export does not guarantee a complete copy of every third-party reply.</p>
       </section>
       <section className="pxShell pxSummary" aria-labelledby="source-heading"><h2 id="source-heading">How to read the sources</h2>
-        <p className="pxLibrarySource">23 selected images are presented below. Typeset extracts transcribe cited archive records; they are not original X screenshots. Preserved screenshots show the visible exchange. Creative images and early report graphics illustrate the project; they do not independently establish a test result or a causal effect.</p>
+        <p className="pxLibrarySource">23 selected images are presented below. Typeset extracts transcribe cited archive records; they are not original X screenshots. The three Phoenix screenshots and the August 7 screenshot match their preserved archive attachments byte for byte. Screenshot numbers are catalogue labels, not a verified generation sequence. Creative images and early report graphics illustrate the project; they do not independently establish a test result or a causal effect.</p>
       </section>
       <section id="records" className="pxShell" aria-label="Preserved records">
         {groups.map((group, index) => (
@@ -110,11 +110,11 @@ export default function PhoenixExperimentPage() {
         <h2>Scope and limits</h2>
         <div className="pxLibraryLimitGrid">
           <div><h3>DOCUMENTED</h3><p>The collection presents cited post identifiers, typeset extracts and preserved media. The reply screenshots show Phoenix images attributed to Grok. The August 7 screenshot preserves a request for another public case and Grok’s inability to provide the link.</p></div>
-          <div><h3>INTERPRETATION</h3><p>Explanations offered by the user or the model are interpretations. Public experiment reports are contemporaneous self-documentation, not independent validation.</p></div>
+          <div><h3>INTERPRETATION</h3><p>Explanations offered by the user or the model are interpretations. Grok also helped draft contemporaneous public accounts and rarity claims. Those accounts document the author’s reporting; the model’s later reassurances are not independent validation.</p></div>
           <div><h3>NOT PROVEN</h3><p>These records do not establish hidden model reasoning, persistent memory mechanisms, consciousness, intent, independent agency or platform-wide rarity. They do not establish that reliability testing caused any account or monetization decision.</p></div>
         </div>
         <blockquote className="pxLibraryCaveat">The archive can document the sequence. It cannot tell us why the model chose to generate the image.</blockquote>
-        <p className="pxLibrarySource">This page presents selected material supporting the submitted reconstruction. The full raw export and complete input–reply chains are not published here. The early views graphics remain as historical media; their metrics and any claimed growth effect are not independently validated. The red-bias illustration is not evidence of the original test input.</p>
+        <p className="pxLibrarySource">This page presents selected material supporting the submitted reconstruction. The author retains the full export privately because it contains unrelated personal material. Only selected project records are public; access to the full archive is not offered by this page. The early views graphics remain as historical media; their metrics and any claimed growth effect are not independently validated. The red-bias illustration is not the original test input. The preserved May 25 private round identifies off-white correctly, so it cannot support a claim that Grok uniformly failed to recognise the image.</p>
         <div className="pxLibraryLimitGrid">
           <div><h3>CITE THIS RECORD</h3><p>BJ Beyond, <em>The Phoenix Experiment — Evidence Room</em>, 2026. https://bjbeyond.it/phoenix-experiment/</p></div>
           <div><h3>PRESS / RESEARCH</h3><p>For source questions, archive context or interview requests: <a href="mailto:Bj_beyond@tutamail.com">Bj_beyond@tutamail.com</a>.</p></div>

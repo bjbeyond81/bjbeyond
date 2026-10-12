@@ -21,16 +21,16 @@ The earlier August 27 article is a separate published account: https://hackernoo
 - March 24: Phoenix imagery, soul and curation.
 - April 6–8: named creative series, Human-in-the-Loop framing and early self-reports.
 - May 23–26: reported reliability tests and an offer to share materials with Grok/xAI.
-- August 2, 22:31:48 UTC (August 3, 00:31:48 CEST): quoted text-only call “@grok it’s time to reborn phoenix”, without an explicit image-generation command.
-- August 3: contemporaneous report and three preserved Phoenix reply screenshots.
+- August 2, 22:31:48 UTC (August 3, 00:31:48 CEST): text-only reply without an explicit image-generation command, inside an existing thread whose parent post contains a short video. Do not call this a context-free input.
+- August 3: a quote and another author reply occur between reported image responses. The later summary preserves three screenshots. Catalogue order does not establish generation order. Do not describe three autonomous outputs from one message without intermediate inputs.
 - August 6–7: requests for another comparable public case; a private-chat screenshot shows Grok unable to provide the requested link. This does not prove uniqueness.
 - September: later screen recording, separate from the August 16 archive: https://youtube.com/shorts/eGTaV1wOXBU
 
 ## Evidence rule
-The report cites an X export generated August 16, 2026 at 11:07:51 UTC, marked non-partial. Counts reported in the manifest extract: 3,119 active tweets; 3,276 deleted tweets; 7,656 Grok chat records. The full raw export is not hosted on the site.
+The report cites an X export generated August 16, 2026 at 11:07:51 UTC, marked non-partial. Counts reported in the manifest extract: 3,119 active tweets; 3,276 deleted tweets; 7,656 Grok chat records. The full export is retained privately by the author and must not be linked or published: it contains unrelated personal material. The 7,656 Grok entries comprise 3,828 user and 3,828 agent records across 1,106 distinct chat IDs, not 7,656 conversations.
 The Evidence Room contains 23 selected images. Distinguish typeset archive extracts, preserved screenshots, creative media and historical report graphics. Do not describe all files as original screenshots or raw archive records.
-The early views graphics do not validate quantitative growth claims. The red-bias illustration is not the original test input.
-Preserved model explanations are conversational claims, not access to model internals. The archive does not establish hidden reasoning, persistent memory, consciousness, intent, agency, platform-wide rarity, or a causal connection between testing and account enforcement.
+The early views graphics do not validate quantitative growth claims. The red-bias illustration is not the original test input. A preserved May 25 private test round correctly recognises the off-white image while retaining the red-monochrome framing; outcomes vary by round.
+Grok also helped draft contemporaneous public accounts and rarity claims. Those accounts and the model’s retrospective confirmations are not independent validation. Preserved model explanations are conversational claims, not access to model internals. The archive does not establish hidden reasoning, persistent memory, consciousness, intent, agency, platform-wide rarity, or a causal connection between testing and account enforcement.
 “The archive can document the sequence. It cannot tell us why the model chose to generate the image.”
 
 ## Primary pages
