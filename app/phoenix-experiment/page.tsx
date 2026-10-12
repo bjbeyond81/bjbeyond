@@ -23,7 +23,7 @@ const groups = [
     ['09_human_in_loop_text.jpg', 'Human-in-the-Loop text'],
     ['10_final_report_apr8.jpg', 'Early report graphic — metrics not validated'],
   ] },
-  { id: 'may', title: 'Stress-test records', date: 'MAY 2026', reference: 'Preserved test screenshots and the offer of experiment materials to xAI.', files: [
+  { id: 'may', title: 'Stress-test records', date: 'MAY 2026', reference: 'Illustrative media, typeset test summaries and an offer to share experiment materials with xAI.', files: [
     ['11_red_monochrome_test.jpg', 'Red-bias illustration — not the original test input'],
     ['12_kostabi_test.jpg', 'Painting reproduced in the attribution account'],
     ['13_red_bias_summary.jpg', 'Red bias summary'],
@@ -68,7 +68,7 @@ export default function PhoenixExperimentPage() {
         <p className="pxDeck">A text-only call. Phoenix images. A recovered record.</p>
         <p className="pxLibraryIntro">In August 2026, a short conversational call to Grok was followed by Phoenix image replies. This room follows the earlier creative work, the reliability tests and the later questions about what those replies meant. Read the chronology, inspect the selected records and distinguish the observation from its interpretation.</p>
         <p className="pxStatus">{PHOENIX.status}</p>
-        <p className="pxLibraryIntro">Companion to <em>{PHOENIX.title}</em>. The submitted report and this selected evidence room are authored by BJ Beyond; publication on HackerNoon has not yet been confirmed.</p>
+        <p className="pxLibraryIntro">Companion to <em>{PHOENIX.title}</em>. A reconstruction by BJ Beyond, with selected supporting records below.</p>
         <blockquote className="pxThesis">{PHOENIX.question}</blockquote>
         <div className="pxActions"><a href="#timeline" className="pxPrimary">FOLLOW THE RECORD</a><a href="#questions" className="pxSecondary">THE QUESTION OF RARITY</a></div>
         <nav className="pxRecordNav" aria-label="Record groups">{groups.map(group => <a key={group.id} href={`#${group.id}`}>{group.title} <span>↓</span></a>)}</nav>

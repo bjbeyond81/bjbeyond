@@ -238,7 +238,7 @@ export const METHOD_SCHEMA = {
           "name": "Is Phoenix Soulfire™ an art scorecard?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. Phoenix Soulfire™ is a judgment layer, not an art scorecard and not a numeric rating. Each test ends in a human judgment with a clear fail signal. BJ Beyond's private artist evaluations are a separate service."
+            "text": "No. Phoenix Soulfire™ is a judgment layer, not an art scorecard and not a numeric rating. Each test ends in a human judgment with a clear fail signal. It does not authenticate an artwork or establish a market valuation."
           }
         },
         {
