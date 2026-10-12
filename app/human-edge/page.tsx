@@ -21,8 +21,8 @@ const records = [
   ['14 MAR 2026', 'Collaboration, not replacement', 'The thesis moves from opposition to collaboration: “The edge is always in the collaboration, not replacement.”'],
   ['24 MAR 2026', 'Phoenix meets soul and curation', 'The value shifts away from generation speed toward the curator who adds story, vision and human judgment.'],
   ['06 APR 2026', 'Phoenix Soulfire™ becomes an experiment', 'Human Edge Lab names Phoenix Soulfire™ and describes a live multimodal Human-in-the-Loop experiment.'],
-  ['MAY 2026', 'Testing reliability', 'The recovered-archive report describes tests of prompt dominance and attribution. The selected media do not independently reproduce every test result.'],
-  ['02–03 AUG 2026', 'A text-only call and Phoenix image replies', 'A recovered post contains no explicit image-generation command. A later post reports three images and preserves reply screenshots.'],
+  ['MAY 2026', 'Testing reliability', 'The recovered record describes prompt-dominance and attribution tests, with differing outcomes. A preserved May 25 private round correctly identifies off-white; the selected media do not reproduce every public test.'],
+  ['02–03 AUG 2026', 'A text-only call and Phoenix image replies', 'A text-only reply in a thread with an earlier video contains no explicit image-generation command. Later exchanges and a summary post preserve the image-response record.'],
   ['06–07 AUG 2026', 'Asking for a verifiable comparison', 'BJ Beyond requests another matching public case. A preserved private-chat screenshot shows Grok unable to provide the requested link; this does not prove uniqueness.'],
   ['SEPTEMBER 2026', 'Returning to the question', 'A later screen recording revisits the model’s explanations. It is a separate source, outside the August 16 archive.'],
 ] as const;
