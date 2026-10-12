@@ -292,10 +292,10 @@ export const DISPATCH = {
  * actually useful.
  */
 export const WRITING = {
-  eyebrow: 'PUBLISHED WRITING',
+  eyebrow: 'WRITING & REPORTS',
   title: ['THE LONG', 'READ'],
   standfirst:
-    'Selected long-form work on AI, technology and the human edge — published on HackerNoon.',
+    'Essays and public investigations on AI, technology and human judgment. Published work and the current report in editorial review.',
   profile: 'https://hackernoon.com/u/bj_beyond',
   cta: 'VIEW BJ BEYOND ON HACKERNOON',
   action: 'READ ON HACKERNOON',
