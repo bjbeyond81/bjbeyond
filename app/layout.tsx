@@ -43,17 +43,16 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: `${SITE.name} — Human Judgment for the AI Era | Art, Data & AI`,
+    default: `${SITE.name} — Independent Writer | Art, AI & Human Judgment`,
     template: `%s — ${SITE.name}`,
   },
   description: SITE.description,
   applicationName: SITE.name,
   keywords: [
-    'art market intelligence',
+    'contemporary art',
     'human judgment',
-    'AI strategy',
-    'data systems',
-    'Power BI',
+    'authorship',
+    'Phoenix Experiment',
     'Human Edge',
     'Phoenix Soulfire',
     'art authentication',

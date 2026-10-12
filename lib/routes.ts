@@ -95,7 +95,7 @@ export const ROUTES: readonly SiteRoute[] = [
     path: '/phoenix-experiment/',
     label: 'EXPERIMENT',
     title: 'Phoenix Experiment — Evidence Room',
-    description: 'A primary-source reconstruction of Human Edge, Phoenix Soulfire™, Grok stress tests and the August 2026 Phoenix sequence.',
+    description: 'The recovered Phoenix record: a text-only call, Grok image replies, later questions and explicit limits. Companion to a report submitted to HackerNoon.',
     priority: 0.95,
     changeFrequency: 'monthly',
   },
@@ -164,7 +164,6 @@ export const ROUTES: readonly SiteRoute[] = [
   },
   {
     path: '/services/',
-    label: 'WORK',
     title: 'Services — Power BI, Data Systems & AI Strategy',
     description:
       'Three core offerings: artist valuation models, custom Power BI dashboards, and human-AI collaboration strategy.',
@@ -182,7 +181,7 @@ export const ROUTES: readonly SiteRoute[] = [
   },
   {
     path: '/contact/',
-    title: 'Contact — Start a Project',
+    title: 'Contact — Editorial Enquiries & Interviews',
     description: CONTACT.description,
     priority: 0.8,
     changeFrequency: 'yearly',

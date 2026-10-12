@@ -6,6 +6,7 @@ import { ArrowLink } from '@/components/primitives/ArrowLink';
 import { MEDIA } from '@/lib/media';
 import { metadataFor, absoluteUrl } from '@/lib/routes';
 import { PERSON_ID, WEBSITE_ID } from '@/lib/schema';
+import { PHOENIX } from '@/lib/phoenix';
 
 const description = 'BJ Beyond is an independent writer based in Verona, Italy, exploring art, artificial intelligence, authorship and human judgment.';
 const baseMetadata = metadataFor('/about/');
@@ -109,6 +110,12 @@ export default function AboutPage() {
               </Reveal>
             </section>
           ))}
+          <Reveal className="border-t border-rule py-12">
+            <p className="u-label text-amber-400">CURRENT REPORT / EDITORIAL REVIEW</p>
+            <h2 className="mt-5 text-title font-extralight text-paper">{PHOENIX.title}</h2>
+            <p className="mt-6 text-body font-light text-mist-300">{PHOENIX.description} {PHOENIX.status}.</p>
+            <div className="mt-8"><ArrowLink href="/phoenix-experiment/">Inspect the companion evidence room</ArrowLink></div>
+          </Reveal>
           <Reveal className="border-t border-rule pt-12 lg:pt-16">
             <p className="text-body text-paper"><strong>BJ is “AI” shifted one letter forward. Beyond is the question that follows: what do we do with what the machine gives us?</strong></p>
             <p className="mt-8 text-body font-light text-amber-400"><em>One step beyond. Always human.</em></p>

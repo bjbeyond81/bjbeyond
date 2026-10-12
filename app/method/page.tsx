@@ -178,7 +178,7 @@ export default function MethodPage() {
               <tbody>
                 {(
                   [
-                    ['Created by', 'BJ Beyond, independent practice, Verona, Italy'],
+                    ['Created by', 'BJ Beyond, independent writer, Verona, Italy'],
                     ['The five tests', 'Soul · Edge · Clarity · Impact · Legacy'],
                     ['Applies to', 'A text, a work, or a plan'],
                     [
@@ -264,8 +264,8 @@ export default function MethodPage() {
               Who it is for
             </h2>
             <p className={P}>
-              BJ Beyond works with artists, collectors and companies in the new creative economy.
-              The tests apply to what each of them handles.
+              These questions guide my own editorial and creative work. Readers, artists and
+              anyone using AI can apply them to a text, image or decision.
             </p>
             <ul className="mt-6 space-y-4 text-body font-light text-mist-300">
               <li>
@@ -283,16 +283,11 @@ export default function MethodPage() {
             </ul>
           </section>
 
-          <section aria-labelledby="work-with">
-            <h2 id="work-with" className={H2}>
-              Work with BJ Beyond
-            </h2>
-            <p className={P}>
-              To run the five tests on your text, work or plan, write via{' '}
-              <A href="https://bjbeyond.it/contact/">bjbeyond.it/contact/</A>. Services are listed
-              at <A href="https://bjbeyond.it/services/">bjbeyond.it/services/</A>. Engagements are
-              one to one; terms on request.
-            </p>
+          <section aria-labelledby="history">
+            <h2 id="history" className={H2}>The name and the record</h2>
+            <p className={P}>The recovered-archive report identifies Phoenix Soulfire as the name of a creative Human Edge Lab series on April 6, 2026. That dated naming is distinct from the five-test framework described on this page. The selected archive material does not establish when all five criteria were first formalised or validate them as a scientific benchmark.</p>
+            <p className={P}>Human Edge is the thesis. The Phoenix Experiment is the case study and recovered record. This page presents my current framework for exercising judgment.</p>
+            <p className={P}><A href="/phoenix-experiment/">Inspect the Phoenix chronology and sources</A>.</p>
           </section>
 
           <section aria-labelledby="faq">
@@ -313,8 +308,8 @@ export default function MethodPage() {
                 Who created Phoenix Soulfire™?
               </h3>
               <p className={P}>
-                BJ Beyond, an independent practice in Verona, Italy, working at the intersection of
-                data, AI and human intuition. The official page of the method is{' '}
+                BJ Beyond, an independent writer in Verona, Italy, exploring contemporary art,
+                AI, authorship and human judgment. The official page of the method is{' '}
                 <A href="https://bjbeyond.it/method/">bjbeyond.it/method/</A>.
               </p>
 
@@ -323,8 +318,7 @@ export default function MethodPage() {
               </h3>
               <p className={P}>
                 No. Phoenix Soulfire™ is a judgment layer, not an art scorecard and not a numeric
-                rating. Each test ends in a human judgment with a clear fail signal. BJ Beyond&rsquo;s
-                private artist evaluations are a separate service.
+                rating. Each test ends in a human judgment with a clear fail signal. It does not authenticate an artwork or establish a market valuation.
               </p>
 
               <h3 className="mt-10 text-title font-extralight text-paper">
@@ -365,22 +359,15 @@ export default function MethodPage() {
                 Soulfire™ method.
               </p>
 
-              <h3 className="mt-10 text-title font-extralight text-paper">
-                How can I work with BJ Beyond on Phoenix Soulfire™?
-              </h3>
-              <p className={P}>
-                Use the contact page at{' '}
-                <A href="https://bjbeyond.it/contact/">bjbeyond.it/contact/</A> and see the services
-                at <A href="https://bjbeyond.it/services/">bjbeyond.it/services/</A>. Each
-                engagement is one to one, and terms are on request.
-              </p>
+              <h3 className="mt-10 text-title font-extralight text-paper">Where can I discuss the framework?</h3>
+              <p className={P}>For source questions, editorial enquiries and discussion, use <A href="/contact/">the contact page</A>.</p>
             </div>
           </section>
 
           <p className="mt-16 text-body font-light text-mist-300">
             <strong className={STRONG}>Related pages:</strong>{' '}
             <A href="https://bjbeyond.it/about/">About</A> ·{' '}
-            <A href="https://bjbeyond.it/services/">Services</A> ·{' '}
+            <A href="https://bjbeyond.it/phoenix-experiment/">Phoenix record</A> ·{' '}
             <A href="https://bjbeyond.it/labs/">Labs</A> ·{' '}
             <A href="https://bjbeyond.it/contact/">Contact</A>
           </p>
