@@ -7,6 +7,7 @@ import { ArrowLink } from '@/components/primitives/ArrowLink';
 import { ART, CONTACT } from '@/lib/content';
 import { MEDIA } from '@/lib/media';
 import { metadataFor } from '@/lib/routes';
+import { KounellisArticle } from './KounellisArticle';
 
 export const metadata: Metadata = metadataFor('/art/');
 
@@ -31,6 +32,8 @@ export default function ArtPage() {
       standfirst={ART.standfirst}
       media={MEDIA.method[2]}
     >
+      <KounellisArticle />
+
       {ART.articles.length > 0 ? (
         <section className="u-gutter pb-[var(--spacing-section)]">
           <RevealGroup>
