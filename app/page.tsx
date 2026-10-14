@@ -9,6 +9,7 @@ import { CONTACT, WRITING } from '@/lib/content';
 import { metadataFor } from '@/lib/routes';
 import { siteSchema } from '@/lib/schema';
 import { PHOENIX } from '@/lib/phoenix';
+import { KOUNELLIS } from '@/lib/kounellis';
 
 const description = 'BJ Beyond is an independent writer exploring art, AI and human judgment through Human Edge, the Phoenix Experiment and public inquiry.';
 const title = 'BJ Beyond — Independent Writer | Art, AI & Human Judgment';
@@ -60,7 +61,20 @@ export default function HomePage() {
     </section>
     <section id="art" className="edge-art"><div className="edge-art-image"><img src="/media/nocturne-1600.webp" alt="" width="1600" height="812" loading="lazy" /></div><div className="edge-wrap edge-art-content"><p className="edge-label">03 / ART, VALUE & PROVENANCE</p><h2>Images are infinite.<br /><em>Meaning is not.</em></h2><p>Authorship. Provenance. The human story behind value.<br />What makes a work worth remembering when images are everywhere?</p><a href="/art/" className="edge-button">Explore art & provenance <Arrow diagonal /></a><a href="https://verify.authentia.it/" target="_blank" rel="noopener noreferrer" className="edge-art-note edge-label">WITH AUTHENTIA ARTE — VERIFIABLE AUTHORSHIP <Arrow diagonal /></a></div></section>
     <section id="writing" className="edge-writing edge-wrap"><div className="edge-section-heading"><div><p className="edge-label">04 / SELECTED WRITING</p><h2>Curiosity. <em>On the record.</em></h2></div><div className="edge-heading-links"><a href="/writing/" className="edge-text-link">All writing <Arrow /></a><a href="/writing/claude-opus-5-vs-pangram/" className="edge-text-link">Claude Opus 5 vs Pangram: my public test <Arrow /></a><a href={WRITING.profile} target="_blank" rel="noopener noreferrer" className="edge-text-link">HackerNoon <Arrow diagonal /></a></div></div>
-      <div className="edge-articles">{articles.map(article => <a key={article.slug} href={article.href} target="_blank" rel="noopener noreferrer" className="edge-article"><div className="edge-article-body"><p className="edge-label">{article.topics[0]} <time dateTime={article.published}>{article.published.split("-").reverse().join(".")}</time></p><h3>{article.title}</h3><p>{article.standfirst}</p><span className="edge-article-link">Read the story <Arrow diagonal /></span></div></a>)}</div>
+      <div className="edge-articles">
+        <article className="edge-article" aria-labelledby="kounellis-preview-title">
+          <div className="edge-article-body">
+            <p className="edge-label">ART &amp; HISTORY · TAMAGOZINE <time dateTime={KOUNELLIS.published}>14.10.2026</time></p>
+            <h3 id="kounellis-preview-title">{KOUNELLIS.title}</h3>
+            <p>{KOUNELLIS.standfirst}</p>
+            <div className="edge-article-link flex-wrap gap-x-6 gap-y-3">
+              <a href={KOUNELLIS.original} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center gap-3">Read the Italian original <Arrow diagonal /></a>
+              <a href={KOUNELLIS.href} className="inline-flex min-h-11 items-center gap-3">English translation <Arrow /></a>
+            </div>
+          </div>
+        </article>
+        {articles.map(article => <a key={article.slug} href={article.href} target="_blank" rel="noopener noreferrer" className="edge-article"><div className="edge-article-body"><p className="edge-label">{article.topics[0]} <time dateTime={article.published}>{article.published.split("-").reverse().join(".")}</time></p><h3>{article.title}</h3><p>{article.standfirst}</p><span className="edge-article-link">Read the story <Arrow diagonal /></span></div></a>)}
+      </div>
     </section>
     <section id="work" className="edge-capabilities edge-wrap"><div className="edge-section-heading"><div><p className="edge-label">05 / LINES OF INQUIRY</p><h2>Questions worth <em>pursuing.</em></h2></div><a href="/about/" className="edge-text-link">About BJ Beyond <Arrow diagonal /></a></div><div className="edge-capability-list">{inquiries.map(item=><a href={item.href} className="edge-capability" key={item.n}><span className="edge-label">{item.n}</span><h3>{item.title}</h3><div><p>{item.text}</p><span className="edge-label">{item.words}</span></div><Arrow diagonal /></a>)}</div></section>
     <section id="contact" className="edge-contact"><div className="edge-wrap"><p className="edge-label"><span className="edge-dot" /> READ. QUESTION. DISCUSS.</p><div className="edge-contact-row"><h2>Read the work.<br /><em>Join the conversation.</em></h2><a href={`mailto:${CONTACT.emails[0].address}`} className="edge-contact-button" aria-label="Contact BJ Beyond by email"><Arrow diagonal /></a></div><div className="edge-contact-services"><a href="/writing/">READ THE WORK <Arrow /></a><a href="/phoenix-experiment/">EXAMINE THE EVIDENCE <Arrow /></a><a href="https://x.com/Bj_Beyond">JOIN THE CONVERSATION <Arrow /></a></div><div className="edge-contact-bottom"><a href={`mailto:${CONTACT.emails[0].address}`}>{CONTACT.emails[0].address}</a><span className="edge-label">VERONA, ITALY / OPEN TO THE WORLD</span></div></div></section>
