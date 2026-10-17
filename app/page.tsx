@@ -83,7 +83,7 @@ export default function HomePage() {
         <p className="edge-label" style={{ color: 'var(--edge-accent)', marginBottom: '20px' }}>SELECTED BY BJ BEYOND</p>
         <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '24px 40px' }}>
           <div>
-            <h2 id="myfo-title" style={{ fontSize: 'clamp(30px, 4vw, 42px)', marginBottom: '12px' }}>myfo design</h2>
+            <h2 id="myfo-title" style={{ marginBottom: '20px' }}><img src="/media/myfo-logo.png" alt="myfo design" width="400" height="200" loading="lazy" style={{ width: '180px', maxWidth: '100%', height: 'auto', objectFit: 'contain' }} /></h2>
             <p style={{ color: 'var(--edge-muted)', fontSize: '15px' }}>Product design &amp; hardware engineering. From idea to production.</p>
             <p style={{ color: 'var(--edge-muted)', fontSize: '15px', maxWidth: '640px', marginTop: '16px' }}>MYFO brings industrial design, engineering and prototyping together to develop new physical products and improve existing ones. The same team follows each project through testing and into production.</p>
             <p style={{ fontSize: '15px', maxWidth: '640px', marginTop: '12px' }}>An approach that connects with the questions explored here: how ideas take shape through human judgment, practical decisions and real-world testing.</p>
