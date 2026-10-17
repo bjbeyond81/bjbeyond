@@ -78,5 +78,17 @@ export default function HomePage() {
     </section>
     <section id="work" className="edge-capabilities edge-wrap"><div className="edge-section-heading"><div><p className="edge-label">05 / LINES OF INQUIRY</p><h2>Questions worth <em>pursuing.</em></h2></div><a href="/about/" className="edge-text-link">About BJ Beyond <Arrow diagonal /></a></div><div className="edge-capability-list">{inquiries.map(item=><a href={item.href} className="edge-capability" key={item.n}><span className="edge-label">{item.n}</span><h3>{item.title}</h3><div><p>{item.text}</p><span className="edge-label">{item.words}</span></div><Arrow diagonal /></a>)}</div></section>
     <section id="contact" className="edge-contact"><div className="edge-wrap"><p className="edge-label"><span className="edge-dot" /> READ. QUESTION. DISCUSS.</p><div className="edge-contact-row"><h2>Read the work.<br /><em>Join the conversation.</em></h2><a href={`mailto:${CONTACT.emails[0].address}`} className="edge-contact-button" aria-label="Contact BJ Beyond by email"><Arrow diagonal /></a></div><div className="edge-contact-services"><a href="/writing/">READ THE WORK <Arrow /></a><a href="/phoenix-experiment/">EXAMINE THE EVIDENCE <Arrow /></a><a href="https://x.com/Bj_Beyond">JOIN THE CONVERSATION <Arrow /></a></div><div className="edge-contact-bottom"><a href={`mailto:${CONTACT.emails[0].address}`}>{CONTACT.emails[0].address}</a><span className="edge-label">VERONA, ITALY / OPEN TO THE WORLD</span></div></div></section>
+    <section id="selected-by-bj-beyond" className="edge-wrap" aria-labelledby="myfo-title" style={{ paddingBlock: '48px' }}>
+      <div style={{ border: '1px solid var(--edge-line)', borderRadius: '5px', padding: 'clamp(24px, 4vw, 40px)', background: '#181c18' }}>
+        <p className="edge-label" style={{ color: 'var(--edge-accent)', marginBottom: '20px' }}>SELECTED BY BJ BEYOND</p>
+        <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '24px 40px' }}>
+          <div>
+            <h2 id="myfo-title" style={{ fontSize: 'clamp(30px, 4vw, 42px)', marginBottom: '12px' }}>myfo design</h2>
+            <p style={{ color: 'var(--edge-muted)', fontSize: '15px' }}>Product design &amp; hardware engineering.<br />From idea to production.</p>
+          </div>
+          <a href="https://myfodesign.com/" target="_blank" rel="noopener noreferrer" className="edge-text-link">Explore MYFO <Arrow diagonal /></a>
+        </div>
+      </div>
+    </section>
   </main><Footer /></IntroProvider>;
 }
