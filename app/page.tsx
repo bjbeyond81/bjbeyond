@@ -84,7 +84,9 @@ export default function HomePage() {
         <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '24px 40px' }}>
           <div>
             <h2 id="myfo-title" style={{ fontSize: 'clamp(30px, 4vw, 42px)', marginBottom: '12px' }}>myfo design</h2>
-            <p style={{ color: 'var(--edge-muted)', fontSize: '15px' }}>Product design &amp; hardware engineering.<br />From idea to production.</p>
+            <p style={{ color: 'var(--edge-muted)', fontSize: '15px' }}>Product design &amp; hardware engineering. From idea to production.</p>
+            <p style={{ color: 'var(--edge-muted)', fontSize: '15px', maxWidth: '640px', marginTop: '16px' }}>MYFO brings industrial design, engineering and prototyping together to develop new physical products and improve existing ones. The same team follows each project through testing and into production.</p>
+            <p style={{ fontSize: '15px', maxWidth: '640px', marginTop: '12px' }}>An approach that connects with the questions explored here: how ideas take shape through human judgment, practical decisions and real-world testing.</p>
           </div>
           <a href="https://myfodesign.com/" target="_blank" rel="noopener noreferrer" className="edge-text-link">Explore MYFO <Arrow diagonal /></a>
         </div>
