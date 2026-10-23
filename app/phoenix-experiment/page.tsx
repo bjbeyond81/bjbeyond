@@ -67,7 +67,7 @@ export default function PhoenixExperimentPage() {
         <h1>Evidence <em>Room.</em></h1>
         <p className="pxDeck">A text-only call. Phoenix images. A recovered record.</p>
         <p className="pxLibraryIntro">In August 2026, a text-only reply inside an existing thread was followed by Phoenix image replies across later exchanges. This room follows the earlier creative work, the reliability tests and the later questions about what those replies meant. Read the chronology, inspect the selected records and distinguish the observation from its interpretation.</p>
-        <p className="pxStatus">{PHOENIX.status}</p>
+        <p className="pxStatus">{PHOENIX.status} · <a href={PHOENIX.article} target="_blank" rel="noopener noreferrer">Read the article ↗</a></p>
         <p className="pxLibraryIntro">Companion to <em>{PHOENIX.title}</em>. A reconstruction by BJ Beyond, with selected supporting records below.</p>
         <blockquote className="pxThesis">{PHOENIX.question}</blockquote>
         <div className="pxActions"><a href="#timeline" className="pxPrimary">FOLLOW THE RECORD</a><a href="#questions" className="pxSecondary">THE QUESTION OF RARITY</a></div>
@@ -102,7 +102,7 @@ export default function PhoenixExperimentPage() {
       <section id="later-record" className="pxShell pxSummary" aria-labelledby="later-heading">
         <p className="pxIndex">LATER SOURCES AND COMPARISONS</p><h2 id="later-heading">The explanations are part of the record</h2>
         <p className="pxLibrarySource">The August 7 screenshot shows Grok claiming that it cannot provide another matching public link. That is an observable answer, not a verified census of other users. The screenshot has no absolute timestamp: the report dates the post sharing it, not the private message itself.</p>
-        <p className="pxLibrarySource">The submitted report also discusses a Musk example with text inside an image. Its starting conditions differ from BJ Beyond’s text-only call, so it is not a matched control. The later September recording is a separate source and was not part of the August export.</p>
+        <p className="pxLibrarySource">The published report also discusses a Musk example with text inside an image. Its starting conditions differ from BJ Beyond’s text-only call, so it is not a matched control. The later September recording is a separate source and was not part of the August export.</p>
         <div className="pxActions"><a href={PHOENIX.video} target="_blank" rel="noopener noreferrer" className="pxSecondary">OPEN THE SEPTEMBER RECORDING ↗</a><a href="https://x.com/elonmusk/status/1976146944398590385" target="_blank" rel="noopener noreferrer" className="pxSecondary">COMPARISON CITED IN THE REPORT ↗</a></div>
       </section>
       <section id="limits" className="pxLibraryLimits pxShell">
@@ -114,7 +114,7 @@ export default function PhoenixExperimentPage() {
           <div><h3>NOT PROVEN</h3><p>These records do not establish hidden model reasoning, persistent memory mechanisms, consciousness, intent, independent agency or platform-wide rarity. They do not establish that reliability testing caused any account or monetization decision.</p></div>
         </div>
         <blockquote className="pxLibraryCaveat">The archive can document the sequence. It cannot tell us why the model chose to generate the image.</blockquote>
-        <p className="pxLibrarySource">This page presents selected material supporting the submitted reconstruction. The author retains the full export privately because it contains unrelated personal material. Only selected project records are public; access to the full archive is not offered by this page. The early views graphics remain as historical media; their metrics and any claimed growth effect are not independently validated. The red-bias illustration is not the original test input. The preserved May 25 private round identifies off-white correctly, so it cannot support a claim that Grok uniformly failed to recognise the image.</p>
+        <p className="pxLibrarySource">This page presents selected material supporting the published reconstruction. The author retains the full export privately because it contains unrelated personal material. Only selected project records are public; access to the full archive is not offered by this page. The early views graphics remain as historical media; their metrics and any claimed growth effect are not independently validated. The red-bias illustration is not the original test input. The preserved May 25 private round identifies off-white correctly, so it cannot support a claim that Grok uniformly failed to recognise the image.</p>
         <p className="pxLibrarySource">The correct response in the preserved May 25 test does not invalidate the errors reported in earlier tests. It documents a different outcome in a later round. The archive cannot establish whether the model was updated, whether the improvement was stable, or whether the author’s feedback contributed to the change. The cause of the observed difference remains unknown.</p>
         <div className="pxLibraryLimitGrid">
           <div><h3>CITE THIS RECORD</h3><p>BJ Beyond, <em>The Phoenix Experiment — Evidence Room</em>, 2026. https://bjbeyond.it/phoenix-experiment/</p></div>

@@ -295,7 +295,7 @@ export const WRITING = {
   eyebrow: 'WRITING & REPORTS',
   title: ['THE LONG', 'READ'],
   standfirst:
-    'Essays and public investigations on AI, technology and human judgment. Published work and the current report in editorial review.',
+    'Essays and public investigations on AI, technology and human judgment. Published essays and reports.',
   profile: 'https://hackernoon.com/u/bj_beyond',
   cta: 'VIEW BJ BEYOND ON HACKERNOON',
   action: 'READ ON HACKERNOON',
