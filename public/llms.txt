@@ -12,7 +12,8 @@ BJ Beyond explores how AI changes thinking, creation and cultural value through 
 
 ## Current report
 Title: The Phoenix Experiment: What the Recovered X Archive Actually Shows.
-Status checked October 12, 2026: submitted to HackerNoon; awaiting editorial review. Do not label it a published HackerNoon article or invent a publication URL/date.
+Status: published on HackerNoon.
+Article: https://hackernoon.com/the-phoenix-experiment-what-the-recovered-x-archive-actually-shows
 Companion record: https://bjbeyond.it/phoenix-experiment/
 The earlier August 27 article is a separate published account: https://hackernoon.com/when-the-system-flags-the-human-who-was-helping-it
 

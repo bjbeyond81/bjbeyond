@@ -111,10 +111,10 @@ export default function AboutPage() {
             </section>
           ))}
           <Reveal className="border-t border-rule py-12">
-            <p className="u-label text-amber-400">CURRENT REPORT / EDITORIAL REVIEW</p>
+            <p className="u-label text-amber-400">REPORT / PUBLISHED ON HACKERNOON</p>
             <h2 className="mt-5 text-title font-extralight text-paper">{PHOENIX.title}</h2>
             <p className="mt-6 text-body font-light text-mist-300">{PHOENIX.description} {PHOENIX.status}.</p>
-            <div className="mt-8"><ArrowLink href="/phoenix-experiment/">Inspect the companion evidence room</ArrowLink></div>
+            <div className="mt-8 flex flex-wrap gap-6"><ArrowLink href={PHOENIX.article} external>Read the article on HackerNoon</ArrowLink><ArrowLink href="/phoenix-experiment/">Inspect the companion evidence room</ArrowLink></div>
           </Reveal>
           <Reveal className="border-t border-rule pt-12 lg:pt-16">
             <p className="text-body text-paper"><strong>BJ is “AI” shifted one letter forward. Beyond is the question that follows: what do we do with what the machine gives us?</strong></p>

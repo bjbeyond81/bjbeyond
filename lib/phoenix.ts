@@ -1,10 +1,11 @@
-/** Shared framing for the author's recovered-archive report. Publication is pending. */
+/** Shared framing for the author's published recovered-archive report. */
 export const PHOENIX = {
   title: 'The Phoenix Experiment: What the Recovered X Archive Actually Shows',
-  status: 'Submitted to HackerNoon — awaiting editorial review',
+  status: 'Published on HackerNoon',
   description: 'A recovered-archive case study of Human Edge, Phoenix Soulfire, Grok reliability tests and Phoenix image replies across contextual exchanges, beginning with a text-only reply.',
   caveat: 'The archive can document the sequence. It cannot tell us why the model chose to generate the image.',
   question: 'What can we verify when an AI explains its own surprising response?',
+  article: 'https://hackernoon.com/the-phoenix-experiment-what-the-recovered-x-archive-actually-shows',
   profile: 'https://hackernoon.com/u/bj_beyond',
   video: 'https://youtube.com/shorts/eGTaV1wOXBU',
   earlierArticle: 'https://hackernoon.com/when-the-system-flags-the-human-who-was-helping-it',

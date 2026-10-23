@@ -95,7 +95,7 @@ export const ROUTES: readonly SiteRoute[] = [
     path: '/phoenix-experiment/',
     label: 'EXPERIMENT',
     title: 'Phoenix Experiment — Evidence Room',
-    description: 'The recovered Phoenix record: a text-only call, Grok image replies, later questions and explicit limits. Companion to a report submitted to HackerNoon.',
+    description: 'The recovered Phoenix record: a text-only call, Grok image replies, later questions and explicit limits. Companion to a report published on HackerNoon.',
     priority: 0.95,
     changeFrequency: 'monthly',
   },
