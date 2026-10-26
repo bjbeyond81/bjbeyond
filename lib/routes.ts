@@ -93,7 +93,7 @@ export const ROUTES: readonly SiteRoute[] = [
   },
   {
     path: '/phoenix-experiment/',
-    label: 'EXPERIMENT',
+    label: 'PHOENIX CASE',
     title: 'Phoenix Experiment — Evidence Room',
     description: 'The recovered Phoenix record: a text-only call, Grok image replies, later questions and explicit limits. Companion to a report published on HackerNoon.',
     priority: 0.95,
@@ -101,7 +101,7 @@ export const ROUTES: readonly SiteRoute[] = [
   },
   {
     path: '/method/',
-    label: 'PHOENIX SOULFIRE™',
+    label: 'METHOD',
     title: 'Phoenix Soulfire™',
     description: METHOD.description,
     priority: 0.9,
@@ -158,7 +158,7 @@ export const ROUTES: readonly SiteRoute[] = [
     label: 'LABS',
     title: 'The Labs — AI Tools & Simulators',
     description:
-      'Interactive tools by BJ Beyond: real-time X For You algorithm simulator, binaural sound studio and audience persona modeling.',
+      'Interactive tools by BJ Beyond: an illustrative distribution simulator and a binaural sound studio.',
     priority: 0.8,
     changeFrequency: 'monthly',
   },
