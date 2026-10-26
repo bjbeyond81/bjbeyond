@@ -617,8 +617,8 @@ export const LABS = {
     {
       number: '01',
       title: ['PHOENIX', 'SIMULATOR'],
-      description: 'Real-time AI simulation of X’s For You algorithm.',
-      points: ['Audience persona modeling', 'Engagement prediction'],
+      description: 'An illustrative simulation of possible distribution signals, not a reproduction of X’s algorithm.',
+      points: ['Explore audience scenarios', 'Illustrative estimates, not reliable predictions'],
       href: '/phoenix',
       action: 'LAUNCH SIMULATOR',
       mediaKey: 'phoenix',
