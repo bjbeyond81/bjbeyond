@@ -6,6 +6,7 @@ import { WRITING } from '@/lib/content';
 import { MEDIA } from '@/lib/media';
 import { metadataFor } from '@/lib/routes';
 import { PHOENIX } from '@/lib/phoenix';
+import { KOUNELLIS } from '@/lib/kounellis';
 
 export const metadata: Metadata = metadataFor('/writing/');
 
@@ -70,6 +71,13 @@ export default function WritingPage() {
           <p className="mt-6 max-w-3xl text-body font-light text-mist-300">{PHOENIX.description} Published on HackerNoon.</p>
           <blockquote className="mt-6 max-w-3xl border-l border-amber-400 pl-5 text-body text-paper">{PHOENIX.caveat}</blockquote>
           <div className="mt-8 flex flex-wrap gap-6"><ArrowLink href={PHOENIX.article} external>Read the article on HackerNoon</ArrowLink><ArrowLink href="/phoenix-experiment/">Explore the companion record</ArrowLink></div>
+        </Reveal>
+        <Reveal className="mb-14 border-b border-rule pb-10">
+          <p className="u-label text-amber-400">ART & HISTORY / TAMAGOZINE · {KOUNELLIS.publishedLabel}</p>
+          <h2 className="mt-5 max-w-4xl text-title font-extralight text-paper">{KOUNELLIS.title}</h2>
+          <p className="mt-5 max-w-3xl text-body font-light text-mist-300">{KOUNELLIS.standfirst}</p>
+          <p className="mt-4 text-meta text-mist-300">Originally published in Italian by Matteo Zanetti in Tamagozine.</p>
+          <div className="mt-6 flex flex-wrap gap-6"><ArrowLink href={KOUNELLIS.original} external>Read the Italian original</ArrowLink><ArrowLink href={KOUNELLIS.href}>Read the English translation</ArrowLink></div>
         </Reveal>
         <RevealGroup>
           <div className="border-t border-rule">
