@@ -132,6 +132,12 @@ export default function PangramPage() {
               <span className="u-label">{P.hackernoonCta} ↗</span>
             </a>
             <a
+              href="/writing/what-an-ai-detector-can-prove-and-what-it-cant/"
+              className="inline-flex min-h-12 items-center border border-rule bg-ink-850/60 px-6 text-paper transition-colors hover:border-amber-400 hover:text-amber-400"
+            >
+              <span className="u-label">Read the follow-up essay: What an AI Detector Can Prove, and What It Can’t →</span>
+            </a>
+            <a
               href={P.coverage.href}
               target="_blank"
               rel="noopener noreferrer"

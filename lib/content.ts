@@ -303,6 +303,17 @@ export const WRITING = {
   pageAction: 'READ THE SUMMARY',
   articles: [
     {
+      slug: 'what-an-ai-detector-can-prove-and-what-it-cant',
+      title: 'What an AI Detector Can Prove, and What It Can’t',
+      standfirst:
+        'A 100% AI score on an unedited Claude Opus 5 essay answered one narrow question about the text. With EU AI Act watermarks arriving, here is what detectors and watermarks can and cannot prove — and what to ask for instead of a percentage.',
+      published: '2026-10-27',
+      href: 'https://bjbeyond.it/writing/what-an-ai-detector-can-prove-and-what-it-cant/',
+      page: '/writing/what-an-ai-detector-can-prove-and-what-it-cant/',
+      pull: 'Detectors and watermarks can tell you something about a text. Process records tell you how it came to exist.',
+      topics: ['AI DETECTION', 'EU AI ACT & WATERMARKS', 'HUMAN JUDGMENT'],
+    },
+    {
       slug: 'system-zero-what-happens-when-ai-does-the-thinking-for-us',
       title: 'System Zero: What Happens When AI Does the Thinking for Us?',
       standfirst:
@@ -378,7 +389,7 @@ export const PANGRAM_PAGE = {
   },
   published: '2026-09-21',
   publishedLabel: '21 September 2026',
-  modified: '2026-10-11',
+  modified: '2026-10-27',
   hackernoon:
     'https://hackernoon.com/i-asked-claude-opus-5-to-beat-pangrams-ai-detector-it-failed-with-a-perfect-score',
   hackernoonCta: 'Read the full experiment on HackerNoon',
@@ -410,6 +421,32 @@ export const PANGRAM_PAGE = {
       },
     ],
   },
+  back: 'ALL WRITING',
+} as const;
+
+export const DETECTOR_FOLLOWUP_PAGE = {
+  path: '/writing/what-an-ai-detector-can-prove-and-what-it-cant/',
+  headline: 'What an AI Detector Can Prove, and What It Can’t',
+  titleLines: ['What an AI Detector Can Prove,', 'and What It Can’t'],
+  description:
+    'After Pangram scored an unedited Claude Opus 5 essay 100% AI-generated in BJ Beyond’s self-run, fully disclosed single test, what can a detector or EU AI Act watermark actually prove — and what should editors, teachers and clients ask for instead?',
+  schemaDescription:
+    'Follow-up essay by BJ Beyond (Verona, Italy) to his self-run, fully disclosed single test of Claude Opus 5 vs Pangram’s AI detector: how classifier detectors and EU AI Act watermarks (OpenAI textGrain, Anthropic SynthID-Text) differ from declarations of process, and the six things to ask for instead of a single percentage.',
+  standfirst:
+    'Detectors read the artifact. Disclosure explains the process. Neither can do the other’s job.',
+  published: '2026-10-27',
+  publishedLabel: '27 October 2026',
+  modified: '2026-10-27',
+  hackernoonTest:
+    'https://hackernoon.com/i-asked-claude-opus-5-to-beat-pangrams-ai-detector-it-failed-with-a-perfect-score',
+  about: [
+    'AI text detection',
+    'Pangram',
+    'Claude Opus 5',
+    'EU AI Act watermarks',
+    'text provenance',
+    'human judgment',
+  ],
   back: 'ALL WRITING',
 } as const;
 
