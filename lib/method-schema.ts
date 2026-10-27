@@ -39,8 +39,8 @@ export const METHOD_SCHEMA = {
       ],
       "knowsAbout": [
         "art market intelligence",
-        "AI strategy",
-        "Power BI",
+        "artist valuation & positioning",
+        "AI + Human Edge strategy",
         "Phoenix Soulfire™",
         "art authentication",
         "data systems"

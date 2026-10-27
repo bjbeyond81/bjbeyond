@@ -580,10 +580,10 @@ export const WORK = {
     },
     {
       number: '02',
-      title: ['POWER BI &', 'DATA SYSTEMS'],
+      title: ['DATA SYSTEMS', '& VISUALIZATION'],
       description: 'Turn fragmented operational data into one decision layer people can actually use.',
       points: [
-        'Decision-focused Power BI dashboards',
+        'Decision-focused analytics dashboards',
         'Automated data pipelines',
         'KPI and performance visibility',
         'Executive-ready reporting systems',
@@ -804,7 +804,7 @@ export const FAQ = {
     },
     {
       q: 'What services does BJ Beyond offer?',
-      a: 'Art market intelligence, AI + human edge strategy, data systems and visualization (including custom Power BI dashboards), and culture and impact strategy — from artist evaluations to dashboards that actually get used.',
+      a: 'Art market intelligence, AI + human edge strategy, data systems and visualization, and culture and impact strategy — from artist evaluations to dashboards that actually get used.',
     },
     {
       q: 'What is Phoenix Soulfire™?',
@@ -845,6 +845,8 @@ export const FOOTER = {
   copyright: `© ${new Date().getFullYear()} BJ Beyond. Human judgment for the AI era. ${SITE.locale}`,
   /** The originals stay served verbatim at /pages/*.html for old links. */
   legal: [
+    { label: 'Services', href: '/services/' },
+    { label: 'Contact', href: '/contact/' },
     { label: 'Privacy Policy', href: '/privacy-policy/' },
     { label: 'Cookie Policy', href: '/cookie-policy/' },
     { label: 'Terms', href: '/terms/' },
