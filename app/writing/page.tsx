@@ -40,7 +40,9 @@ function writingSchema(articles: readonly (typeof WRITING.articles)[number][]) {
           description: article.standfirst,
           datePublished: article.published,
           author: AUTHOR,
-          publisher: { '@type': 'Organization', name: 'HackerNoon', url: 'https://hackernoon.com/' },
+          publisher: article.href.startsWith('https://bjbeyond.it')
+            ? { '@type': 'Organization', name: 'BJ Beyond', url: 'https://bjbeyond.it/' }
+            : { '@type': 'Organization', name: 'HackerNoon', url: 'https://hackernoon.com/' },
           keywords: article.topics.join(', '),
           inLanguage: 'en',
         },
@@ -98,22 +100,33 @@ export default function WritingPage() {
                   </blockquote>
                 </div>
                 <div className="lg:col-span-3 lg:col-start-10 flex flex-col items-start">
-                  {'page' in article ? (
+                  {'page' in article && article.href.startsWith('https://bjbeyond.it') ? (
                     <a
                       href={article.page}
-                      className="u-label inline-flex min-h-11 items-center text-paper hover:text-amber-400"
+                      className="u-label inline-flex min-h-11 items-center text-amber-400 hover:text-paper"
                     >
-                      {WRITING.pageAction} →
+                      READ THE ESSAY →
                     </a>
-                  ) : null}
-                  <a
-                    href={article.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="u-label inline-flex min-h-11 items-center text-amber-400 hover:text-paper"
-                  >
-                    {WRITING.action} ↗
-                  </a>
+                  ) : (
+                    <>
+                      {'page' in article ? (
+                        <a
+                          href={article.page}
+                          className="u-label inline-flex min-h-11 items-center text-paper hover:text-amber-400"
+                        >
+                          {WRITING.pageAction} →
+                        </a>
+                      ) : null}
+                      <a
+                        href={article.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="u-label inline-flex min-h-11 items-center text-amber-400 hover:text-paper"
+                      >
+                        {WRITING.action} ↗
+                      </a>
+                    </>
+                  )}
                 </div>
               </RevealItem>
             ))}

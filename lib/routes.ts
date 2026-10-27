@@ -23,7 +23,7 @@
  * destinations rather than prose.
  */
 import type { MetadataRoute } from 'next';
-import { BEYOND, BOOKS, CONTACT, DISPATCH, METHOD, PANGRAM_PAGE, SITE } from './content';
+import { BEYOND, BOOKS, CONTACT, DETECTOR_FOLLOWUP_PAGE, DISPATCH, METHOD, PANGRAM_PAGE, SITE } from './content';
 
 export interface SiteRoute {
   /** Path as served, leading and trailing slash included. */
@@ -122,6 +122,14 @@ export const ROUTES: readonly SiteRoute[] = [
     description: PANGRAM_PAGE.description,
     priority: 0.7,
     changeFrequency: 'yearly',
+  },
+  {
+    /* Unlabelled: reachable from /writing/ and homepage, not from the top menu. */
+    path: DETECTOR_FOLLOWUP_PAGE.path,
+    title: DETECTOR_FOLLOWUP_PAGE.headline,
+    description: DETECTOR_FOLLOWUP_PAGE.description,
+    priority: 0.8,
+    changeFrequency: 'monthly',
   },
   {
     path: '/about/',
