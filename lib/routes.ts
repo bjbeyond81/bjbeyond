@@ -164,9 +164,9 @@ export const ROUTES: readonly SiteRoute[] = [
   },
   {
     path: '/services/',
-    title: 'Services — Power BI, Data Systems & AI Strategy',
+    title: 'Services — Art Market Intelligence, Data Systems & AI Strategy',
     description:
-      'Three core offerings: artist valuation models, custom Power BI dashboards, and human-AI collaboration strategy.',
+      'Three core offerings: art market intelligence and artist valuation models, decision-focused data systems, and AI + Human Edge strategy.',
     priority: 0.9,
     changeFrequency: 'monthly',
   },

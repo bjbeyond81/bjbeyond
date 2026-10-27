@@ -8,7 +8,7 @@ import { metadataFor, absoluteUrl } from '@/lib/routes';
 import { PERSON_ID, WEBSITE_ID } from '@/lib/schema';
 import { PHOENIX } from '@/lib/phoenix';
 
-const description = 'BJ Beyond is an independent writer based in Verona, Italy, exploring art, artificial intelligence, authorship and human judgment.';
+const description = 'BJ Beyond is an independent writer based in Verona, Italy, exploring art, artificial intelligence, authorship and human judgment—alongside art market intelligence, artist valuation & positioning, data systems and AI + Human Edge strategy.';
 const baseMetadata = metadataFor('/about/');
 export const metadata: Metadata = {
   ...baseMetadata,
@@ -62,6 +62,7 @@ export default function AboutPage() {
             '@type': 'Person', '@id': PERSON_ID, name: 'BJ Beyond',
             url, description, jobTitle: 'Independent writer',
             homeLocation: { '@type': 'Place', name: 'Verona, Italy' },
+            knowsAbout: ['art market intelligence', 'artist valuation & positioning', 'data systems', 'AI + Human Edge strategy', 'contemporary art', 'human judgment'],
             sameAs: ['https://x.com/Bj_Beyond', 'https://hackernoon.com/u/bj_beyond', 'https://bjbeyond.substack.com'],
           },
           {
@@ -94,6 +95,9 @@ export default function AboutPage() {
               <p className="mt-6 text-body font-light text-mist-300">
                 My work connects contemporary art, authorship and technology. Who gives an image meaning? What makes a work worth remembering? And when a machine supplies an answer, how do we decide whether to trust it?
               </p>
+              <p className="mt-6 text-body font-light text-mist-300">
+                Alongside my independent writing in Verona, Italy, BJ Beyond builds <a href="/art/" className="text-amber-400 underline decoration-amber-400/40 underline-offset-4 hover:decoration-amber-400">art market intelligence</a>, artist valuation &amp; positioning research, data systems, and <a href="/services/" className="text-amber-400 underline decoration-amber-400/40 underline-offset-4 hover:decoration-amber-400">AI + Human Edge strategy</a> for artists, collectors, and cultural organizations.
+              </p>
             </Reveal>
           </div>
         </div>
@@ -122,6 +126,8 @@ export default function AboutPage() {
             <p className="mt-6 text-body font-light text-mist-300">Explore the writing. Examine the experiments. Join the conversation.</p>
             <div className="mt-10 flex flex-wrap items-center gap-x-10 gap-y-6">
               <ArrowLink href="/writing/">Explore the writing</ArrowLink>
+              <ArrowLink href="/writing/claude-opus-5-vs-pangram/">Claude Opus 5 vs Pangram: my public test</ArrowLink>
+              <ArrowLink href="/services/">Services</ArrowLink>
               <ArrowLink href="/phoenix-experiment/">Examine the experiments</ArrowLink>
               <ArrowLink href="https://x.com/Bj_Beyond">Join the conversation</ArrowLink>
             </div>

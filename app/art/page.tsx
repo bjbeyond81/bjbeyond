@@ -32,6 +32,22 @@ export default function ArtPage() {
       standfirst={ART.standfirst}
       media={MEDIA.method[2]}
     >
+      <section aria-labelledby="art-market-intelligence-heading" className="u-gutter pt-10 sm:pt-12">
+        <Reveal className="mx-auto max-w-3xl border border-rule bg-ink-850/60 p-6 sm:p-8">
+          <p className="u-label text-amber-400">ART MARKET INTELLIGENCE · VERONA, ITALY</p>
+          <h2 id="art-market-intelligence-heading" className="mt-4 text-title font-extralight text-paper">
+            Art Market Intelligence &amp; Artist Positioning
+          </h2>
+          <p className="mt-4 text-body font-light text-mist-200">
+            Alongside the essays and archival notes in <em>Art Notes</em>, BJ Beyond leads an art market intelligence practice in Verona, Italy—combining artist valuation &amp; positioning, market and auction analysis, decision-focused data systems, and AI + Human Edge strategy with the Phoenix Soulfire™ human judgment review.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-6">
+            <ArrowLink href="/services/">Explore Art Market Intelligence &amp; Data Systems services</ArrowLink>
+            <ArrowLink href="/contact/">Enquire about an evaluation</ArrowLink>
+          </div>
+        </Reveal>
+      </section>
+
       <KounellisArticle />
 
       {ART.articles.length > 0 ? (
@@ -63,7 +79,10 @@ export default function ArtPage() {
 
       <section className="u-gutter pb-[var(--spacing-section)]">
         <Reveal>
-          <ArrowLink href="/contact/">{CONTACT.label.join(' ')}</ArrowLink>
+          <div className="flex flex-wrap items-center gap-x-10 gap-y-6">
+            <ArrowLink href="/services/">SERVICES</ArrowLink>
+            <ArrowLink href="/contact/">{CONTACT.label.join(' ')}</ArrowLink>
+          </div>
         </Reveal>
       </section>
     </PageShell>
