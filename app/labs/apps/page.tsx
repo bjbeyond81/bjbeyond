@@ -264,65 +264,56 @@ export default function AppsExperimentPage() {
           <Reveal>
             <p className="text-lede font-light text-mist-200">
               <strong className={STRONG}>
-                BJ Beyond Studio is a working test of the Human Edge thesis: AI can generate, but a
-                human decides what is worth building.
+                This is the story of an experiment I am running on myself: can one person, building
+                with AI, make small tools that are actually useful, keep your data private, and ask
+                to be paid only once?
               </strong>{' '}
-              The output is a small catalogue of offline web apps and visual packs, sold at{' '}
+              The tools live at{' '}
               <A href={STORE} external>
                 bjbeyond.studio
               </A>
-              . This page documents it the way I would document any experiment: hypothesis, method,
-              artifacts, results, next steps.
+              . What follows is how it started, how it is built, what came out of it, and what I
+              still do not know. A lab log, told as it happened.
             </p>
           </Reveal>
 
           <section aria-labelledby="hypothesis">
             <h2 id="hypothesis" className={H2}>
-              01 — Hypothesis
+              01 — Where it started
             </h2>
             <p className={P}>
-              A single person, using AI as a building partner, can ship everyday tools that solve one
-              concrete problem each, keep the user&rsquo;s data on the user&rsquo;s device, and are
-              paid for once instead of rented every month.
+              It started with an irritation. Every useful little app I tried wanted an account, a monthly fee, and my data on someone else&rsquo;s server. To track subscriptions, I was asked to take out another subscription.
             </p>
             <p className={P}>
-              Three constraints make the test honest: <strong className={STRONG}>useful</strong>{' '}
-              (one problem, solved end to end), <strong className={STRONG}>private</strong> (no
-              account, no server, data never leaves the device) and{' '}
-              <strong className={STRONG}>fair</strong> (one-time payment, no subscription).
+              I write about the Human Edge: the idea that AI can generate almost anything, but a human still has to decide what is worth making. At some point writing about it was not enough. I wanted to test it with my own hands.
+            </p>
+            <p className={P}>
+              So I wrote down a hypothesis: <strong className={STRONG}>one person, with AI as a building partner, can ship everyday tools that solve one real problem each, run offline, keep data on the device, and are paid for once.</strong> Three rules, no exceptions: useful, private, fair.
             </p>
           </section>
 
           <section aria-labelledby="method">
             <h2 id="method" className={H2}>
-              02 — Method: machine pass, human pass
+              02 — How I build: the machine drafts, I decide
             </h2>
             <p className={P}>
-              The split follows the same rule as{' '}
-              <A href="/method/">Phoenix Soulfire™</A>: the machine produces, the human judges.
+              I use the same split as <A href="/method/">Phoenix Soulfire™</A>. The machine pass comes first, the human pass second.
             </p>
             <p className={P}>
-              <strong className={STRONG}>What AI did:</strong> drafted code, interface variants,
-              translations (English, Italian, German) and first versions of product copy. Fast,
-              fluent, interchangeable.
+              AI drafts: code, interface variants, translations into English, Italian and German, first versions of product copy. It is fast, fluent and, left alone, interchangeable.
             </p>
             <p className={P}>
-              <strong className={STRONG}>What human judgment decided:</strong> which problems were
-              worth an app, what to cut, that everything runs offline, that nothing needs an
-              account, that the price is paid once, and whether each result was good enough to
-              ship. A model can propose a feature; it cannot decide that a tool should respect the
-              person using it.
+              I decide: which problems deserve an app, what to cut, that everything works offline, that nobody needs an account, that the price is paid once, and whether a result is good enough to carry my name. A model can propose a feature. It cannot decide that a tool should respect the person using it.
             </p>
             <p className={P}>
-              Format: progressive web apps (PWA) plus a standalone .ZIP/.HTML package, so each tool
-              works in the browser and offline on iPhone, Android, Mac and Windows.
+              Each app ships as a progressive web app plus a standalone .ZIP/.HTML package, so it opens in a browser and keeps working offline on iPhone, Android, Mac and Windows.
             </p>
-
             <h3 className={H3}>The sales-bot network</h3>
             <p className={P}>
-              Building is half the experiment. The other half is distribution: the store is run day
-              to day by a small network of AI agents, each with one role, coordinated by a primary
-              bot. This structure is itself under test.
+              Then I hit the second half of the problem: building is not selling. Nobody finds a
+              store by accident. So I extended the experiment to distribution and gave the store to
+              a small network of AI agents, each with one job, coordinated by a primary bot. The
+              network is part of what I am testing.
             </p>
             <ol className="mt-6 space-y-4 border-l border-rule pl-6 text-body font-light text-mist-300">
               {BOTS.map(([name, role]) => (
@@ -337,8 +328,9 @@ export default function AppsExperimentPage() {
               Legal and fiscal pages are never touched by a bot.
             </p>
             <p className={P}>
-              The bots propose and execute; I decide. Whether this network brings people to the
-              store is an open question. No results are claimed here yet.
+              The bots propose and execute; I keep the final word. Whether this network can bring
+              real people to a small store without spam is exactly the question I do not know the
+              answer to yet.
             </p>
           </section>
 
@@ -347,8 +339,8 @@ export default function AppsExperimentPage() {
               03 — The artifacts
             </h2>
             <p className={P}>
-              Every active product in the store, grouped by what it is. Prices are as listed on
-              bjbeyond.studio.
+              Here is everything the experiment has produced so far: every active product in the
+              store, grouped by what it is. Prices are as listed on bjbeyond.studio.
             </p>
 
             <h3 className="mt-14 u-label text-amber-400">A · Money and daily life — the core four</h3>
@@ -395,9 +387,7 @@ export default function AppsExperimentPage() {
               Why offline, why once
             </h2>
             <p className={P}>
-              Money, deadlines and shared bills are private. A tool that handles them should not
-              need a login or send them anywhere. And a tool that helps you cancel forgotten
-              subscriptions should not become one. That is the whole design rule.
+              Money, deadlines and shared bills are private. A tool that handles them should not need a login or send them anywhere. And a tool that helps you cancel forgotten subscriptions should not become one. That became the design rule for everything above.
             </p>
           </section>
 
@@ -406,20 +396,22 @@ export default function AppsExperimentPage() {
               04 — Results so far
             </h2>
             <p className={P}>
-              Early. The artifacts exist, they are live, and they work offline as designed. That
-              part of the hypothesis is confirmed. Whether people find them useful enough to pay for
-              is not yet answered, and I will not publish numbers I do not have.
+              Honestly: early. The artifacts exist, they are live, and they work offline as designed. That part of the hypothesis holds.
+            </p>
+            <p className={P}>
+              The harder part, whether people find them useful enough to pay for, is still open. I will not publish numbers I do not have, and I will not dress up a beginning as a result.
             </p>
           </section>
 
           <section aria-labelledby="next">
             <h2 id="next" className={H2}>
-              05 — What&rsquo;s next
+              05 — What happens next
             </h2>
             <p className={P}>
-              Listen to the people who use the apps, fix what they find, and keep the same rules for
-              anything new: one problem, private by default, paid once. This log will be updated as
-              the experiment produces evidence.
+              I will listen to the people who use the apps, fix what they find, and keep the same three rules for anything new. The bot network keeps working under the same human limits.
+            </p>
+            <p className={P}>
+              This log will be updated as the experiment produces evidence, good or bad. If you try one of the tools, <A href="/contact/">tell me what broke</A>.
             </p>
           </section>
 
