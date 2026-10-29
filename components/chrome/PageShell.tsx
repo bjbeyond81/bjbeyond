@@ -102,6 +102,9 @@ export function PageShell({
                         {trademark}
                       </span>
                     ) : null}
+                    {/* A real space between lines, so the heading's text reads
+                        as words ("Small tools for"), not "Small toolsfor". */}
+                    {i < title.length - 1 ? ' ' : null}
                   </span>
                 ))}
               </h1>

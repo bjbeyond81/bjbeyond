@@ -184,7 +184,7 @@ export const ROUTES: readonly SiteRoute[] = [
     label: 'HUMAN EDGE APPS',
     title: 'Human Edge Apps — Quiete & Twin',
     description:
-      'Human Edge Apps by BJ Beyond: Quiete, a free-to-try breathing and emotional-support companion, and Twin, an encrypted diary with on-device AI.',
+      'Human Edge Apps by BJ Beyond: Quiete, a breathing and emotional-support companion, and Twin, an encrypted diary with on-device AI.',
     priority: 0.85,
     changeFrequency: 'monthly',
   },
