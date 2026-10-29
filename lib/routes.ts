@@ -180,11 +180,11 @@ export const ROUTES: readonly SiteRoute[] = [
     changeFrequency: 'monthly',
   },
   {
-    path: '/apps/',
-    label: 'APPS',
-    title: 'Apps — Quiete & Twin',
+    path: '/human-edge-apps/',
+    label: 'HUMAN EDGE APPS',
+    title: 'Human Edge Apps — Quiete & Twin',
     description:
-      'Two private web apps by BJ Beyond: Quiete, a free-to-try breathing and emotional-support companion, and Twin, an encrypted diary with on-device AI.',
+      'Human Edge Apps by BJ Beyond: Quiete, a free-to-try breathing and emotional-support companion, and Twin, an encrypted diary with on-device AI.',
     priority: 0.85,
     changeFrequency: 'monthly',
   },
