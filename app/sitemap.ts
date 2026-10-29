@@ -32,7 +32,7 @@ export const dynamic = 'force-static';
  */
 const SITE_WIDE = '2026-10-07';
 const LASTMOD: Record<string, string> = {
-  '/': '2026-10-27',
+  '/': '2026-10-29',
   '/human-edge/': SITE_WIDE,
   '/phoenix-experiment/': SITE_WIDE,
   '/method/': '2026-10-27',
@@ -44,6 +44,7 @@ const LASTMOD: Record<string, string> = {
   '/labs/': SITE_WIDE,
   '/labs/apps/': '2026-10-29',
   '/human-edge-apps/': '2026-10-29',
+  '/it/human-edge-apps/': '2026-10-29',
   '/services/': '2026-10-27',
   '/contact/': SITE_WIDE,
   '/phoenix/': SITE_WIDE,
@@ -56,6 +57,13 @@ const LASTMOD: Record<string, string> = {
  * page then asks Google not to index is a contradictory signal.
  */
 const NOINDEX_PATHS = new Set(['/privacy-policy/', '/cookie-policy/', '/terms/', '/disclaimer/']);
+
+/** hreflang pairs: each path lists every language version, itself included. */
+const APPS_LANGS = { en: absoluteUrl('/human-edge-apps/'), it: absoluteUrl('/it/human-edge-apps/'), 'x-default': absoluteUrl('/human-edge-apps/') };
+const ALTERNATES: Record<string, { languages: Record<string, string> }> = {
+  '/human-edge-apps/': { languages: APPS_LANGS },
+  '/it/human-edge-apps/': { languages: APPS_LANGS },
+};
 
 const STATIC_URLS: MetadataRoute.Sitemap = [
   {
@@ -73,6 +81,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: route.changeFrequency,
       priority: route.priority,
       ...(LASTMOD[route.path] ? { lastModified: LASTMOD[route.path] } : {}),
+      ...(ALTERNATES[route.path] ? { alternates: ALTERNATES[route.path] } : {}),
     })),
     ...STATIC_URLS,
   ];

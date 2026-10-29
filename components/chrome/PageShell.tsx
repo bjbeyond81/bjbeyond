@@ -50,10 +50,13 @@ interface PageShellProps {
   breadcrumb?: ReactNode;
   /** The page's JSON-LD graph. Omitted, the generic site graph is used. */
   schema?: object;
+  /** Language of this page's content when it differs from the site's (`en`). */
+  lang?: string;
   children: ReactNode;
 }
 
 export function PageShell({
+  lang,
   index,
   eyebrow,
   title,
@@ -72,7 +75,7 @@ export function PageShell({
       <Cursor />
       <Navigation />
 
-      <main id="main" className="relative">
+      <main id="main" lang={lang} className="relative">
         <header className="relative overflow-hidden pb-16 pt-36 sm:pb-20 sm:pt-44">
           <div className="absolute inset-0 z-0">
             <Atmosphere

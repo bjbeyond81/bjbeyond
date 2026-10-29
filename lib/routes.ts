@@ -189,6 +189,15 @@ export const ROUTES: readonly SiteRoute[] = [
     changeFrequency: 'monthly',
   },
   {
+    /* Italian twin of /human-edge-apps/. Unlabelled: linked from the EN page, not the menu. */
+    path: '/it/human-edge-apps/',
+    title: 'Human Edge Apps — Quiete e Twin, app private con IA sul dispositivo',
+    description:
+      'Le Human Edge Apps di BJ Beyond: Quiete, per respirare e ritrovare la calma, e Twin, un diario privato cifrato con IA che resta sul tuo dispositivo.',
+    priority: 0.8,
+    changeFrequency: 'monthly',
+  },
+  {
     path: '/services/',
     title: 'Services — Art Market Intelligence, Data Systems & AI Strategy',
     description:
