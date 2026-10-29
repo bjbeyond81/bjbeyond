@@ -12,7 +12,7 @@ import { absoluteUrl, metadataFor } from '@/lib/routes';
  * Prices and facts from the store listings and the Twin user guide (2026-10-29).
  * Never put an activation code on this page.
  */
-const base = metadataFor('/apps/');
+const base = metadataFor('/human-edge-apps/');
 const OG = { url: '/media/apps/og-apps.jpg', width: 1200, height: 630, alt: 'Quiete and Twin, two apps by BJ Beyond' };
 export const metadata: Metadata = {
   ...base,
@@ -28,6 +28,7 @@ interface App {
   price: string;
   priceValue: string;
   buy: string;
+  checkout: string;
   buyIt: string;
   open: string;
   intro: string;
@@ -45,6 +46,7 @@ const APPS: readonly App[] = [
     price: '€15',
     priceValue: '15.00',
     buy: 'https://bjbeyond.studio/products/quiete-app-supporto-emotivo',
+    checkout: 'https://bjbeyond.studio/cart/61443804856654:1',
     buyIt: 'https://bjbeyond.studio/it/products/quiete-app-supporto-emotivo',
     open: 'https://bjbeyond81.github.io/apps/quiete/',
     intro:
@@ -75,6 +77,7 @@ const APPS: readonly App[] = [
     price: '€29',
     priceValue: '29.00',
     buy: 'https://bjbeyond.studio/products/twin-private-diary-app',
+    checkout: 'https://bjbeyond.studio/cart/61444088627534:1',
     buyIt: 'https://bjbeyond.studio/it/products/twin-private-diary-app',
     open: 'https://bjbeyond81.github.io/apps/twin/',
     intro:
@@ -105,9 +108,9 @@ const schema = {
   '@graph': [
     {
       '@type': 'WebPage',
-      '@id': absoluteUrl('/apps/'),
-      url: absoluteUrl('/apps/'),
-      name: 'Apps — Quiete & Twin',
+      '@id': absoluteUrl('/human-edge-apps/'),
+      url: absoluteUrl('/human-edge-apps/'),
+      name: 'Human Edge Apps — Quiete & Twin',
       inLanguage: 'en',
       isPartOf: { '@type': 'WebSite', url: SITE.url, name: SITE.name },
     },
@@ -131,11 +134,11 @@ const schema = {
   ],
 };
 
-export default function AppsPage() {
+export default function HumanEdgeAppsPage() {
   return (
     <PageShell
-      eyebrow="APPS BY BJ BEYOND"
-      title={['Small tools', 'for the inner life.']}
+      eyebrow="QUIETE & TWIN — SMALL TOOLS FOR THE INNER LIFE"
+      title={['Human Edge', 'Apps']}
       standfirst="I write about the human edge: what stays ours when machines do more. These two apps are the same idea, built to be used. Private by design, with AI that runs on your own device."
       media={MEDIA.backdrop}
       schema={schema}
@@ -156,7 +159,8 @@ export default function AppsPage() {
               <p className="u-label tabular mt-6 text-amber-400">{app.price} · one-time</p>
               <div className="mt-6 flex flex-wrap items-center gap-6">
                 <ButtonLink href={`#${app.id}`}>Discover {app.name}</ButtonLink>
-                <a href={app.buy} target="_blank" rel="noopener noreferrer" className="u-label text-mist-200 hover:text-paper">Buy ↗</a>
+                <a href={app.checkout} target="_blank" rel="noopener noreferrer" className="u-label text-mist-200 hover:text-paper">Buy ↗</a>
+                <a href={app.buy} target="_blank" rel="noopener noreferrer" className="u-label text-mist-300 hover:text-paper">Details ↗</a>
               </div>
             </li>
           ))}
@@ -199,7 +203,8 @@ export default function AppsPage() {
             </div>
           </div>
           <div className="mt-12 flex flex-wrap items-center gap-8">
-            <ButtonLink href={app.buy} external>Buy {app.name} — {app.price}</ButtonLink>
+            <ButtonLink href={app.checkout} external>Buy {app.name} — {app.price}</ButtonLink>
+            <ArrowLink href={app.buy} external>Details</ArrowLink>
             <ArrowLink href={app.open} external>{app.id === 'quiete' ? 'Try it free' : 'Open the app'}</ArrowLink>
             {app.id === 'quiete' && <ArrowLink href="/frequency/">Frequency Studio</ArrowLink>}
           </div>

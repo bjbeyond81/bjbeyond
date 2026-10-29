@@ -43,7 +43,7 @@ const LASTMOD: Record<string, string> = {
   '/art/': '2026-10-27',
   '/labs/': SITE_WIDE,
   '/labs/apps/': '2026-10-29',
-  '/apps/': '2026-10-29',
+  '/human-edge-apps/': '2026-10-29',
   '/services/': '2026-10-27',
   '/contact/': SITE_WIDE,
   '/phoenix/': SITE_WIDE,
