@@ -126,6 +126,18 @@ const VISUALS = [
   ['Halloween Liquid Glass Bundle — Generator + 10 designs', 'halloween-liquid-glass-iphone-wallpapers-bundle', '€15.75'],
 ] as const;
 
+/* The agent network that operates the store. Roles only: no account details. */
+const BOTS = [
+  ['Grok Bot (primary)', 'routes tasks, coordinates the other bots and runs a "Regia" check three times a day.'],
+  ['Traffic Doctor', 'diagnoses why the store gets no traffic and fixes what it finds.'],
+  ['SEO & Organic Funnel', 'blog SEO, Google indexing and lead magnets.'],
+  ['AI Search Visibility', 'checks whether AI assistants and Google recommend the store.'],
+  ['CRO & Bundle Closer', 'conversion, bundles, discounts and product pages.'],
+  ['TikTok & Viral Traffic', 'short-form content for TikTok, Threads and X.'],
+  ['Pino · Social & Pinterest Growth', 'Pinterest and social presence.'],
+  ['Shopify bot', 'day-to-day store operations.'],
+] as const;
+
 const BUNDLE = {
   name: '4 Pro Web Apps Bundle',
   handle: 'all-in-one-life-finance-web-app-bundle-4-pro-apps',
@@ -304,6 +316,29 @@ export default function AppsExperimentPage() {
             <p className={P}>
               Format: progressive web apps (PWA) plus a standalone .ZIP/.HTML package, so each tool
               works in the browser and offline on iPhone, Android, Mac and Windows.
+            </p>
+
+            <h3 className={H3}>The sales-bot network</h3>
+            <p className={P}>
+              Building is half the experiment. The other half is distribution: the store is run day
+              to day by a small network of AI agents, each with one role, coordinated by a primary
+              bot. This structure is itself under test.
+            </p>
+            <ol className="mt-6 space-y-4 border-l border-rule pl-6 text-body font-light text-mist-300">
+              {BOTS.map(([name, role]) => (
+                <li key={name}>
+                  <strong className={STRONG}>{name}</strong> — {role}
+                </li>
+              ))}
+            </ol>
+            <p className={P}>
+              <strong className={STRONG}>Human rules in the loop.</strong> Free methods only. No
+              spam. Reversible changes only. Nothing is published automatically without my approval.
+              Legal and fiscal pages are never touched by a bot.
+            </p>
+            <p className={P}>
+              The bots propose and execute; I decide. Whether this network brings people to the
+              store is an open question. No results are claimed here yet.
             </p>
           </section>
 
