@@ -36,6 +36,14 @@ export function Footer() {
               ))}
               <li>
                 <a
+                  href="/labs/apps/"
+                  className="u-label inline-flex min-h-11 items-center text-mist-300 transition-colors duration-200 hover:text-amber-400"
+                >
+                  APPS EXPERIMENT
+                </a>
+              </li>
+              <li>
+                <a
                   href="https://bjbeyond.studio"
                   {...EXTERNAL}
                   className="u-label inline-flex min-h-11 items-center text-mist-300 transition-colors duration-200 hover:text-amber-400"
