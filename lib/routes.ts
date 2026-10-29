@@ -171,6 +171,15 @@ export const ROUTES: readonly SiteRoute[] = [
     changeFrequency: 'monthly',
   },
   {
+    /* Unlabelled: reachable from the footer and /labs/, not from the top menu. */
+    path: '/labs/apps/',
+    title: 'The Offline Apps Experiment — Lab Log',
+    description:
+      'Lab log: can one human building with AI ship useful, private, offline tools paid for once? Every app and pack from BJ Beyond Studio.',
+    priority: 0.7,
+    changeFrequency: 'monthly',
+  },
+  {
     path: '/services/',
     title: 'Services — Art Market Intelligence, Data Systems & AI Strategy',
     description:
