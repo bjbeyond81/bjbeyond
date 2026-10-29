@@ -180,6 +180,15 @@ export const ROUTES: readonly SiteRoute[] = [
     changeFrequency: 'monthly',
   },
   {
+    path: '/apps/',
+    label: 'APPS',
+    title: 'Apps — Quiete & Twin',
+    description:
+      'Two private web apps by BJ Beyond: Quiete, a free-to-try breathing and emotional-support companion, and Twin, an encrypted diary with on-device AI.',
+    priority: 0.85,
+    changeFrequency: 'monthly',
+  },
+  {
     path: '/services/',
     title: 'Services — Art Market Intelligence, Data Systems & AI Strategy',
     description:
