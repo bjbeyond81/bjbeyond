@@ -98,6 +98,9 @@ export default function AboutPage() {
               <p className="mt-6 text-body font-light text-mist-300">
                 Alongside my independent writing in Verona, Italy, BJ Beyond builds <a href="/art/" className="text-amber-400 underline decoration-amber-400/40 underline-offset-4 hover:decoration-amber-400">art market intelligence</a>, artist valuation &amp; positioning research, data systems, and <a href="/services/" className="text-amber-400 underline decoration-amber-400/40 underline-offset-4 hover:decoration-amber-400">AI + Human Edge strategy</a> for artists, collectors, and cultural organizations.
               </p>
+              <p className="mt-6 text-body font-light text-mist-300">
+                I also build simple offline apps for everyday money and life: <a href="https://bjbeyond.studio" target="_blank" rel="noopener noreferrer" className="text-amber-400 underline decoration-amber-400/40 underline-offset-4 hover:decoration-amber-400">bjbeyond.studio</a>.
+              </p>
             </Reveal>
           </div>
         </div>
