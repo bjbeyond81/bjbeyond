@@ -16,6 +16,10 @@ const base = metadataFor('/human-edge-apps/');
 const OG = { url: '/media/apps/og-apps.jpg', width: 1200, height: 630, alt: 'Quiete and Twin, two apps by BJ Beyond' };
 export const metadata: Metadata = {
   ...base,
+  alternates: {
+    canonical: '/human-edge-apps/',
+    languages: { en: '/human-edge-apps/', it: '/it/human-edge-apps/', 'x-default': '/human-edge-apps/' },
+  },
   openGraph: { ...base.openGraph, images: [OG] },
   twitter: { ...base.twitter, images: [OG] },
 };
@@ -146,8 +150,7 @@ export default function HumanEdgeAppsPage() {
       <section className="u-gutter pb-[var(--spacing-section)]">
         <Reveal>
           <p className="u-label text-mist-300">
-            Also in Italian: <a className="underline hover:text-amber-400" href={APPS[0].buyIt} target="_blank" rel="noopener noreferrer">Quiete</a> ·{' '}
-            <a className="underline hover:text-amber-400" href={APPS[1].buyIt} target="_blank" rel="noopener noreferrer">Twin</a>
+            <a className="underline hover:text-amber-400" href="/it/human-edge-apps/" hrefLang="it" lang="it">Leggi questa pagina in italiano</a>
           </p>
         </Reveal>
         <ul className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
