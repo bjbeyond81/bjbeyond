@@ -50,7 +50,7 @@ const APPS: readonly App[] = [
     buyIt: 'https://bjbeyond.studio/it/products/quiete-app-supporto-emotivo',
     open: 'https://bjbeyond81.github.io/apps/quiete/',
     intro:
-      'Quiete is an emotional-support and breathing web app you can install on your phone. It is free to try. The full version comes with an activation code and a PDF guide.',
+      'Quiete is an emotional-support and breathing web app you can install on your phone. The full version comes with an activation code and a PDF guide.',
     features: [
       'Guided breathing and relaxation techniques',
       'Grounding exercises for anxious moments',
@@ -137,8 +137,8 @@ const schema = {
 export default function HumanEdgeAppsPage() {
   return (
     <PageShell
-      eyebrow="QUIETE & TWIN — SMALL TOOLS FOR THE INNER LIFE"
-      title={['Human Edge', 'Apps']}
+      eyebrow="SMALL TOOLS FOR THE INNER LIFE"
+      title={['Human Edge Apps:', 'Quiete & Twin']}
       standfirst="I write about the human edge: what stays ours when machines do more. These two apps are the same idea, built to be used. Private by design, with AI that runs on your own device."
       media={MEDIA.backdrop}
       schema={schema}
@@ -153,7 +153,7 @@ export default function HumanEdgeAppsPage() {
         <ul className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
           {APPS.map((app) => (
             <li key={app.id} className="flex flex-col border border-rule p-8">
-              <img src={app.icon} alt="" width={72} height={72} className="h-[72px] w-[72px] rounded-2xl" />
+              <img src={app.icon} alt={`${app.name} app icon`} width={72} height={72} className="h-[72px] w-[72px] rounded-2xl" />
               <h2 className="mt-6 text-title font-extralight leading-[1.05] text-paper">{app.name}</h2>
               <p className="mt-4 max-w-sm flex-1 text-body font-light text-mist-300">{app.line}</p>
               <p className="u-label tabular mt-6 text-amber-400">{app.price} · one-time</p>
@@ -205,7 +205,7 @@ export default function HumanEdgeAppsPage() {
           <div className="mt-12 flex flex-wrap items-center gap-8">
             <ButtonLink href={app.checkout} external>Buy {app.name} — {app.price}</ButtonLink>
             <ArrowLink href={app.buy} external>Details</ArrowLink>
-            <ArrowLink href={app.open} external>{app.id === 'quiete' ? 'Try it free' : 'Open the app'}</ArrowLink>
+            <ArrowLink href={app.open} external>{app.id === 'quiete' ? 'Open the app' : 'Open the app'}</ArrowLink>
             {app.id === 'quiete' && <ArrowLink href="/frequency/">Frequency Studio</ArrowLink>}
           </div>
         </section>
