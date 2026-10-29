@@ -34,6 +34,15 @@ export function Footer() {
                   </a>
                 </li>
               ))}
+              <li>
+                <a
+                  href="https://bjbeyond.studio"
+                  {...EXTERNAL}
+                  className="u-label inline-flex min-h-11 items-center text-mist-300 transition-colors duration-200 hover:text-amber-400"
+                >
+                  APPS &amp; STUDIO
+                </a>
+              </li>
               {/* Sits with the policies because that is where someone looks for
                   it. The banner promises this link by name. */}
               <li>
