@@ -11,14 +11,14 @@ import { siteSchema } from '@/lib/schema';
  * default and accepts a replacement, and the two pages that do not use
  * PageShell (the homepage and the legal pages) render it directly.
  *
- * `JSON.stringify`, never a template literal: it escapes the content, so a `<`
- * inside any string cannot end the block early.
+ * Escape HTML-sensitive characters after JSON.stringify. JSON.stringify alone does
+ * not escape `<`, which could otherwise terminate this script element.
  */
 export function SiteSchema({ data = siteSchema() }: { data?: object }) {
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data).replace(/</g, '\\u003c') }}
     />
   );
 }
