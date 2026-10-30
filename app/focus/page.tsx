@@ -13,7 +13,7 @@ export default function FocusPage() {
     <PageShell
       index={WORK.index}
       eyebrow={WORK.label.join(' ')}
-      title={[WORK.title]}
+      title={['FOCUS:', 'ART, DATA & AI RESEARCH']}
       standfirst={WORK.description}
       media={MEDIA.method[3]}
     >

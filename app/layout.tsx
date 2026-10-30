@@ -81,6 +81,7 @@ export const metadata: Metadata = {
     canonical: '/',
     types: {
       'text/plain': '/llms.txt',
+      'application/rss+xml': '/feed.xml',
     },
   },
   robots: {

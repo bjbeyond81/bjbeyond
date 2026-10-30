@@ -134,6 +134,7 @@ export function InMotion() {
                           <div className="absolute inset-0 transition-transform duration-700 ease-[var(--ease-expo)] motion-safe:group-hover:scale-[1.06] motion-safe:group-focus-visible:scale-[1.06]">
                             <Atmosphere
                               media={cover}
+                              informative
                               scrim="soft"
                               sizes="(max-width: 640px) 46vw, 184px"
                               className="h-full w-full"

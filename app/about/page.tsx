@@ -8,7 +8,8 @@ import { metadataFor, absoluteUrl } from '@/lib/routes';
 import { PERSON_ID, WEBSITE_ID } from '@/lib/schema';
 import { PHOENIX } from '@/lib/phoenix';
 
-const description = 'BJ Beyond is an independent writer based in Verona, Italy, exploring art, artificial intelligence, authorship and human judgment—alongside art market intelligence, artist valuation & positioning, data systems and AI + Human Edge strategy.';
+/* Editorial only: no service vocabulary (valuation, strategy) — BJ Beyond offers no services. */
+const description = 'BJ Beyond is an independent writer in Verona, Italy, exploring art, AI, authorship and human judgment through essays and public experiments.';
 const baseMetadata = metadataFor('/about/');
 export const metadata: Metadata = {
   ...baseMetadata,

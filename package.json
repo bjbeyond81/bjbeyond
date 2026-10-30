@@ -5,7 +5,7 @@
   "description": "BJ Beyond — Art Market Intelligence. AI + Human Judgment. Real Impact.",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && node scripts/postbuild-lang.mjs",
     "start": "next start",
     "typecheck": "tsc --noEmit",
     "media": "node scripts/build-media.mjs",

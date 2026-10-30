@@ -7,7 +7,7 @@ import { ArrowLink } from '@/components/primitives/ArrowLink';
 import { ART, CONTACT } from '@/lib/content';
 import { MEDIA } from '@/lib/media';
 import { metadataFor } from '@/lib/routes';
-import { KounellisArticle } from './KounellisArticle';
+import { KOUNELLIS } from '@/lib/kounellis';
 
 export const metadata: Metadata = metadataFor('/art/');
 
@@ -48,7 +48,19 @@ export default function ArtPage() {
         </Reveal>
       </section>
 
-      <KounellisArticle />
+      {/* Teaser only: the translation has its own URL. The id keeps old
+          /art/#kounellis-italics links landing here. */}
+      <section id={KOUNELLIS.id} aria-labelledby="kounellis-teaser" className="u-gutter scroll-mt-28 pt-12 pb-[var(--spacing-section)] sm:pt-16">
+        <Reveal className="mx-auto max-w-3xl border-t border-rule pt-10">
+          <p className="u-label text-amber-400">Art &amp; history · English translation · {KOUNELLIS.publishedLabel}</p>
+          <h2 id="kounellis-teaser" className="mt-6 text-headline font-extralight text-paper">{KOUNELLIS.title}</h2>
+          <p className="mt-6 text-body font-light text-mist-200">{KOUNELLIS.standfirst}</p>
+          <div className="mt-6 flex flex-wrap gap-6">
+            <ArrowLink href={KOUNELLIS.href}>Read the English translation</ArrowLink>
+            <ArrowLink href={KOUNELLIS.original} external>Read the Italian original</ArrowLink>
+          </div>
+        </Reveal>
+      </section>
 
       {ART.articles.length > 0 ? (
         <section className="u-gutter pb-[var(--spacing-section)]">
