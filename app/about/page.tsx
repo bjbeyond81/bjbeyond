@@ -96,7 +96,7 @@ export default function AboutPage() {
                 My work connects contemporary art, authorship and technology. Who gives an image meaning? What makes a work worth remembering? And when a machine supplies an answer, how do we decide whether to trust it?
               </p>
               <p className="mt-6 text-body font-light text-mist-300">
-                Alongside my independent writing in Verona, Italy, BJ Beyond builds <a href="/art/" className="text-amber-400 underline decoration-amber-400/40 underline-offset-4 hover:decoration-amber-400">art market intelligence</a>, artist valuation &amp; positioning research, data systems, and <a href="/services/" className="text-amber-400 underline decoration-amber-400/40 underline-offset-4 hover:decoration-amber-400">AI + Human Edge strategy</a> for artists, collectors, and cultural organizations.
+                Alongside my independent writing in Verona, Italy, I research <a href="/art/" className="text-amber-400 underline decoration-amber-400/40 underline-offset-4 hover:decoration-amber-400">art market intelligence</a>, artist positioning, data systems and <a href="/focus/" className="text-amber-400 underline decoration-amber-400/40 underline-offset-4 hover:decoration-amber-400">AI + Human Edge</a> — as subjects to write about, not as services.
               </p>
               <p className="mt-6 text-body font-light text-mist-300">
                 I also build simple offline apps for everyday money and life: <a href="https://bjbeyond.studio" target="_blank" rel="noopener noreferrer" className="text-amber-400 underline decoration-amber-400/40 underline-offset-4 hover:decoration-amber-400">bjbeyond.studio</a>.
@@ -130,7 +130,7 @@ export default function AboutPage() {
             <div className="mt-10 flex flex-wrap items-center gap-x-10 gap-y-6">
               <ArrowLink href="/writing/">Explore the writing</ArrowLink>
               <ArrowLink href="/writing/claude-opus-5-vs-pangram/">Claude Opus 5 vs Pangram: my public test</ArrowLink>
-              <ArrowLink href="/services/">Services</ArrowLink>
+              <ArrowLink href="/focus/">Research focus</ArrowLink>
               <ArrowLink href="/phoenix-experiment/">Examine the experiments</ArrowLink>
               <ArrowLink href="https://x.com/Bj_Beyond">Join the conversation</ArrowLink>
             </div>

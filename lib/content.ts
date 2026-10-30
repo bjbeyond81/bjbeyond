@@ -598,50 +598,59 @@ export const IN_MOTION = {
   ],
 } as const;
 
+/**
+ * WORK — the research focus behind /focus/.
+ *
+ * These were once listed as services. BJ Beyond does not offer consulting,
+ * evaluations or professional work of any kind, so the same three areas are
+ * now described as what they are: lines of research and writing. Keep the copy
+ * on that side of the line — no "engagements", no "reports", no invitations to
+ * request a quote.
+ */
 export const WORK = {
   index: '05',
-  label: ['WHAT', 'I DO'],
-  title: 'SERVICES',
-  description: 'Three ways to turn evidence, data and AI into decisions that remain accountable to human judgment.',
+  label: ['WHAT', 'I EXPLORE'],
+  title: 'FOCUS',
+  description:
+    'Three lines of research and writing on evidence, data and AI — and on keeping decisions accountable to human judgment.',
+  notice:
+    'BJ Beyond is an independent writing and research project. It does not offer consulting, evaluations or other professional services.',
   services: [
     {
       number: '01',
       title: ['ART MARKET', 'INTELLIGENCE'],
-      description: 'Evidence-based positioning and valuation support for artists, collectors and cultural organizations. The work stays with what the record can support.',
+      description: 'How artists, works and markets can be read through evidence, and where the record stops supporting the claim.',
       points: [
-        'Artist valuation and positioning models',
-        'Comparable analysis and market context',
-        'Phoenix Soulfire™ Human Judgment Review on works, statements or projects',
-        'Private evaluation reports and competitive mapping',
+        'Positioning and valuation as research questions',
+        'Comparables and market context',
+        'Phoenix Soulfire™ as a lens on works, statements and projects',
         'Clear limits: no authentication, no market certification, no numeric scoring',
       ],
     },
     {
       number: '02',
       title: ['DATA SYSTEMS', '& VISUALIZATION'],
-      description: 'Decision-focused systems built from a finance and Power BI background. Dashboards that help people choose, not just observe.',
+      description: 'Notes from a finance and Power BI background on dashboards that help people choose, not just observe.',
       points: [
-        'Decision-oriented analytics dashboards',
-        'Automated data pipelines and data quality checks',
-        'KPI and performance visibility for operators',
-        'Executive-ready reporting that stays usable',
+        'Decision-oriented analytics',
+        'Data pipelines and data quality',
+        'KPI visibility that stays usable',
         'Systems remain tools; judgment stays human',
       ],
     },
     {
       number: '03',
       title: ['AI + HUMAN', 'EDGE'],
-      description: 'AI adoption that keeps accountability inside the loop. Generation is easy; responsibility is not.',
+      description: 'Why generation is easy and responsibility is not.',
       points: [
-        'AI readiness and workflow assessment',
-        'Human-in-the-Loop process design',
-        'Collaboration systems with explicit ownership',
-        'Judgment, accountability and adoption strategy',
+        'Human-in-the-loop as a design principle',
+        'Ownership and accountability in human–AI collaboration',
+        'Adopting AI without giving up judgment',
         'Method: Phoenix Soulfire™ five-test judgment layer',
       ],
       link: {
         label: 'Method: Phoenix Soulfire™, the five-test judgment layer →',
-        href: 'https://bjbeyond.it/method/',
+        href: '/method/',
       },
     },
   ],
@@ -843,8 +852,8 @@ export const FAQ = {
       a: 'The name is a cipher. In Kubrick’s 2001: A Space Odyssey, shifting each letter of HAL by one gives IBM. The same move applied to AI gives BJ. Beyond is what comes after artificial intelligence: judgment, lived experience, the part a model cannot fake.',
     },
     {
-      q: 'What services does BJ Beyond offer?',
-      a: 'Art market intelligence, AI + human edge strategy, data systems and visualization, and culture and impact strategy — from artist evaluations to dashboards that actually get used.',
+      q: 'Does BJ Beyond offer consulting or services?',
+      a: 'No. BJ Beyond is an independent writing and research project and does not offer consulting, evaluations or other professional services. Its research areas — art market intelligence, data systems and AI + Human Edge — are described at bjbeyond.it/focus/.',
     },
     {
       q: 'What is Phoenix Soulfire™?',
@@ -885,7 +894,6 @@ export const FOOTER = {
   copyright: `© ${new Date().getFullYear()} BJ Beyond. Human judgment for the AI era. ${SITE.locale}`,
   /** The originals stay served verbatim at /pages/*.html for old links. */
   legal: [
-    { label: 'Services', href: '/services/' },
     { label: 'Contact', href: '/contact/' },
     { label: 'Privacy Policy', href: '/privacy-policy/' },
     { label: 'Cookie Policy', href: '/cookie-policy/' },

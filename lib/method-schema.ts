@@ -23,20 +23,6 @@ export const METHOD_SCHEMA = {
         "addressLocality": "Verona",
         "addressCountry": "IT"
       },
-      "areaServed": [
-        {
-          "@type": "City",
-          "name": "Verona"
-        },
-        {
-          "@type": "Country",
-          "name": "Italy"
-        },
-        {
-          "@type": "AdministrativeArea",
-          "name": "European Union"
-        }
-      ],
       "knowsAbout": [
         "art market intelligence",
         "artist valuation & positioning",
@@ -47,9 +33,8 @@ export const METHOD_SCHEMA = {
       ],
       "contactPoint": {
         "@type": "ContactPoint",
-        "contactType": "general & projects",
+        "contactType": "editorial / interviews / sources",
         "email": "bj_beyond@tutamail.com",
-        "areaServed": "IT",
         "availableLanguage": [
           "English",
           "Italian"

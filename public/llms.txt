@@ -2,7 +2,7 @@
 
 > Independent writer based in Verona, Italy. Art market intelligence, contemporary art, AI, authorship and human judgment.
 
-BJ Beyond explores how AI changes thinking, creation and cultural value through essays, public experiments and recovered records—alongside art market intelligence, artist valuation & positioning, decision-focused data systems, and AI + Human Edge strategy in Verona, Italy. BJ is AI shifted one letter forward. Beyond asks what we do with what the machine gives us.
+BJ Beyond explores how AI changes thinking, creation and cultural value through essays, public experiments and recovered records, with research on art market intelligence, decision-focused data systems and AI + Human Edge. BJ Beyond does not offer consulting or professional services. BJ is AI shifted one letter forward. Beyond asks what we do with what the machine gives us.
 
 ## Canonical framing
 - Human Edge is the author's thesis: AI can generate and data can measure; human judgment decides what matters.
@@ -46,8 +46,8 @@ Grok also helped draft contemporaneous public accounts and rarity claims. Those 
 - https://bjbeyond.it/writing/ — published writing and current report status
 - https://bjbeyond.it/writing/what-an-ai-detector-can-prove-and-what-it-cant/ — essay on what AI detectors and EU AI Act watermarks can and cannot prove
 - https://bjbeyond.it/writing/claude-opus-5-vs-pangram/ — self-run, fully disclosed single test of Claude Opus 5 vs Pangram’s AI detector
-- https://bjbeyond.it/art/ — art market intelligence, artist positioning, authorship, provenance & Kounellis translation
-- https://bjbeyond.it/services/ — art market intelligence, artist valuation & positioning, data systems and AI + Human Edge strategy
+- https://bjbeyond.it/art/ — writing on art market intelligence, artist positioning, authorship, provenance & Kounellis translation
+- https://bjbeyond.it/focus/ — research focus: art market intelligence, data systems and AI + Human Edge (not services)
 - https://bjbeyond.it/labs/ — experimental tools (/phoenix/, /frequency/, /judgment/)
 - https://bjbeyond.it/contact/ — editorial enquiries, interviews and source questions
 

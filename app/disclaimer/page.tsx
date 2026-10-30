@@ -10,6 +10,7 @@ export const metadata: Metadata = {
 };
 
 const items = [
+  ['No professional services', 'BJ Beyond publishes writing, research and experiments. It does not provide consulting, evaluations, professional advice or commissioned work, and nothing here is an offer to do so.'],
   ['Evidence and interpretation', 'Where BJ Beyond publishes archive-based investigations, primary records, preserved media, contemporaneous reporting and later interpretation should not be treated as equivalent. Claims about hidden model reasoning, memory, consciousness, agency or platform-wide rarity require evidence beyond the archive itself.'],
   ['Art market', 'Art-market research is informational and analytical. It is not a guarantee of authenticity, future value, liquidity or investment performance. Independent legal, tax, provenance and conservation advice may be appropriate for consequential transactions.'],
   ['AI systems', 'AI outputs can hallucinate, overfit prompts, miss context and reproduce errors. No model output should replace human review where legal, financial, reputational, safety or authorship consequences matter.'],
