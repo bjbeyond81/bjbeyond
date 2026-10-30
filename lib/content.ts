@@ -88,4 +88,813 @@ export const BEYOND = {
   scrollCue: ['SCROLL TO', 'CONTINUE'],
 } as const;
 
-// Full content continues from local /tmp/content.ts — the complete file includes all remaining exports with the expanded WORK.services.
+/**
+ * 02 — DISPATCH
+ *
+ * A hand-picked shelf of posts from the X profile, sitting directly after the
+ * introduction because it is the fastest proof of the voice that section
+ * describes.
+ *
+ * It is deliberately NOT a feed. Nothing is fetched, nothing embeds X's widget
+ * script, and the order is the owner's rather than the algorithm's — adding a
+ * post means adding an object here and nothing else.
+ *
+ * WHY NOT THE OFFICIAL EMBED. It arrives as a third-party script that reflows
+ * each card after paint, ignores this palette, sets cookies the cookie policy
+ * would then have to declare, and renders nothing at all once a post is deleted
+ * or the account goes private. Phase 4 in HANDOFF.md was spent taking 111 KB
+ * off the critical path; this is where it stays off.
+ *
+ * TITLE is written for the card. An X post carries no title of its own, and a
+ * rail of untitled paragraphs gives the eye nowhere to land — the title is what
+ * makes the shelf scannable at a glance.
+ */
+/**
+ * The shape below is deliberately the X API's own, field for field — `id`,
+ * `text`, `created_at`, and an author carrying `name` / `username` / `verified`.
+ *
+ * Nothing calls that API today; the list is written by hand. But the site is a
+ * static export with no server, so if it ever fetches, the fetch can only run at
+ * build time in CI and write exactly this structure to disk. Modelling it now
+ * costs nothing and means the automatic version is one script and zero
+ * component changes. Writing a bespoke shape would have guaranteed a rewrite.
+ */
+export interface DispatchPost {
+  /**
+   * The post's own numeric id on X — the last segment of its URL. The permalink
+   * is derived from it, exactly as it is from an API response.
+   *
+   * Empty string while no real post is wired: `postUrl` then falls back to the
+   * profile rather than building a link to a status that does not exist.
+   */
+  id: string;
+  /**
+   * The post, verbatim. Line breaks are preserved when rendered, so paste it as
+   * written. Roughly 280 characters is X's own ceiling and a good one here too:
+   * the rail stretches every card to the tallest, so one long post pays for
+   * itself in dead space under all the others.
+   */
+  text: string;
+  /**
+   * ISO date, as `created_at` arrives from the API. Formatted for display in
+   * `lib/content.ts`'s own table rather than by `toLocaleDateString`, which
+   * would render against the BUILD machine's locale — a European runner and a
+   * US one would ship different dates from identical source.
+   */
+  createdAt: string;
+  /**
+   * Set when the post is not in English. The document is `lang="en"`, so
+   * without this a screen reader pronounces Italian with English phonemes and
+   * the post becomes unintelligible.
+   */
+  lang?: 'it';
+}
+
+const post = (p: DispatchPost): DispatchPost => p;
+
+/** Deterministic, and intentionally not `Intl` — see the note on `createdAt`. */
+const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'] as const;
+
+/** '2026-08-12' → '12 Aug 2026'. */
+export function postDate(iso: string): string {
+  const [year, month, day] = iso.split('-');
+  return `${Number(day)} ${MONTHS[Number(month) - 1]} ${year}`;
+}
+
+/** Permalink from the id, the profile when there is not one yet. */
+export function postUrl(entry: DispatchPost): string {
+  return entry.id
+    ? `https://x.com/${DISPATCH_AUTHOR.username}/status/${entry.id}`
+    : DISPATCH.profile;
+}
+
+/**
+ * The account every card is attributed to — the API's `includes.users[0]`.
+ *
+ * `verified` is false and must stay false unless the account actually carries
+ * the platform's badge. Drawing a checkmark it has not been granted would be
+ * asserting someone else's credential, which is precisely the thing this site
+ * exists to argue against.
+ */
+export const DISPATCH_AUTHOR = {
+  /* The display name as it stands on X — not 'BJ Beyond', which is the site's
+     wordmark. The card is a reproduction of a post, so it carries the account's
+     own name, trademark glyph included. */
+  name: 'Bj™',
+  username: 'BJ_Beyond',
+  /* Confirmed from the account: the badge is real and granted. It was false
+     until then, because drawing an unearned checkmark asserts a credential the
+     platform did not give. */
+  verified: true,
+  /**
+   * The monogram, on the site's own dark disc. Not the real X profile picture —
+   * that is X's copy, and this is the same mark the header carries. Point it at
+   * another slot in lib/media.ts to change it.
+   */
+  avatar: '/media/logo-128.webp',
+} as const;
+
+export const DISPATCH = {
+  index: '02',
+  label: ['FROM THE', 'FEED'],
+  title: 'DISPATCH',
+  description:
+    'Short notes on the art market, AI, and the space between them. Hand-picked — nothing here streams in on its own.',
+  handle: '@BJ_Beyond',
+  profile: 'https://x.com/BJ_Beyond',
+  cta: 'FOLLOW ON X',
+  /** Per-card action. The whole card is the link; this names the destination. */
+  action: 'READ ON X',
+  /**
+   * Shown at the cut when a post is clamped. X's own wording — change it freely,
+   * it is one string. It is not a second link: the whole card already opens the
+   * post, and nesting an anchor inside an anchor is invalid.
+   */
+  readMore: 'Show more',
+  /** Touch only — the desktop rail has buttons instead. */
+  hint: 'SCROLL FOR MORE',
+  /*
+    Five real posts, newest first. Every `text` is verbatim — line breaks, curly
+    and straight apostrophes, emoji and hashtags as the author typed them — and
+    every `createdAt` was read off the post itself rather than inferred from a
+    relative stamp like "17h", which is ambiguous either side of midnight and was
+    wrong by a day on the first one.
+
+    To add another: paste the post into `text`, set `createdAt`, and set `id` to
+    the last segment of its URL — x.com/BJ_Beyond/status/THIS_PART, dropping the
+    `?s=20` X appends when you copy a link. With `id` empty the card falls back
+    to the profile, so a half-finished entry can never 404.
+  */
+  posts: [
+    post({
+      id: '2088763934513750427',
+      createdAt: '2026-08-16',
+      text: 'The biggest lie of the AI era? Believing that anyone who knows how to hit "enter" will become an author, a designer, or a thinker.\n\nAutomation does not reward those who delegate their thinking to a machine. It rewards those who developed taste, intellectual rigor, and sensitivity long before touching any software.\n\nThe generation box doesn\'t create value out of thin air. It is simply a mirror:\nPut laziness in, and it hands you a flawless cliché.\n\nPut artistic vision and human touch in, and you achieve scale.\n\nStop searching for the magic prompt.\n\nThe only true competitive edge that will never become a commodity is you.',
+    }),
+    post({
+      id: '2088581291796992410',
+      createdAt: '2026-08-15',
+      text: 'X just dropped a major open-source update to its recommendation system (x-algorithm).\n\nHere is what is actually happening under the hood and how it impacts organic reach:\n\n1. Semantic Embeddings over Hashtags\nThe "For You" feed has fully shifted away from static heuristics and hashtags. Discovery is driven by a two-tower transformer architecture (Phoenix) that maps posts directly to semantic interest clusters through NLP and media embeddings.\n\n2. Conversational Depth is King\nThe highest positive multiplier in the heavy ranker is no longer the Like or Retweet, it is author-engaged reply depth. Meaningful back-and-forth discussions where the creator replies multiply out-of-network distribution exponentially.\n\n3. Bookmarks as High-Utility Signals\nBookmarks carry substantially higher weight than standard likes. The ranking engine treats saves as long-term utility signals, pushing posts to broader, adjacent communities.\n\n4. Candidate Isolation\nThe inference pipeline isolates each candidate post during neural scoring. Your content is evaluated solely on the direct user-to-topic graph relationship, preventing batch-level dilution.\n\n5. "Under the Hood" Visibility Audits\nUsers can now extract account-level diagnostics from their data archive. The JSON payload exposes internal metrics such as `reputation_score`, `bot_probability`, and explicit flags in `tweet_level_interventions`.\n\nTakeaway: Stop optimizing for passive likes. Focus on high-retention substance, bookmark-worthy depth, and active discussion in the replies.\n\nHave you requested your account data archive yet to check your internal reputation score?\nWaiting mine for sharing the analysis with you 🚀',
+    }),
+    post({
+      id: '2105527822076747899',
+      createdAt: '2026-10-01',
+      text: 'Want to analyse your website?\nAnd get a score AI based?\n\nDownload my new Chrome extension.\n\nIt\'s free....\n\nlink in the thread',
+    }),
+    post({
+      id: '2086240565893509221',
+      createdAt: '2026-08-09',
+      text: 'This is what I do here.\n\nI’m an ex-finance professional who left the spreadsheets to build at the intersection of:\n\n→ Data & Power BI\n→ Human Edge in the AI era\n→ Art market intelligence\n\nI create real tools, frameworks and systems.\nNot content farms. Not engagement bait.\n\nIf you want polished AI noise, keep scrolling.\nIf you want the parts that still require a human, stay.',
+    }),
+    /* Opens a five-part thread. The card carries only this post, because that is
+       what the permalink addresses and what X's own embed of it would show —
+       the trailing "1/5" is the author's own signal that it continues. */
+    post({
+      id: '2059713633358069996',
+      createdAt: '2026-05-27',
+      text: 'People complain they don’t have enough time, but they spend four hours a day scrolling through stuff they don’t even care about.\n\nThe problem isn’t time. It’s that they can’t stand being alone with their own thoughts anymore.\n\n1/5',
+    }),
+  ],
+} as const;
+
+/**
+ * THE LONG READ — writing published elsewhere, under the owner's own byline.
+ *
+ * Sits directly after DISPATCH and is its counterweight: the shelf above is the
+ * voice in 280 characters, this is the same voice given the room to finish the
+ * argument. Reading order is the reason it is here rather than on /art/ — the
+ * pieces are about AI and the platforms, not about art.
+ *
+ * OUTSIDE THE 01–07 NUMBERING, like Authentia and In Motion. Not for their
+ * reason — this writing IS the owner's own — but for the other one stated on
+ * ART: the numbers are the chapters of the homepage narrative, and inserting an
+ * eighth would renumber five headings a visitor has already seen.
+ *
+ * NOTHING HERE IS PARAPHRASED. `title` is the headline as published,
+ * `standfirst` is HackerNoon's own TLDR for the piece, `pull` is the story's
+ * closing line, and `published` is the date on the story. Each was read off the
+ * page rather than recalled.
+ *
+ * NO COVER IMAGE, deliberately. The piece has one on HackerNoon, and it is
+ * HackerNoon's file on HackerNoon's CDN: hotlinking it would put a third-party
+ * request on this page, hand them a referrer for every visitor, and leave the
+ * card blank the day they move it. Every image on this site is a local file
+ * declared in lib/media.ts. This stays type until one is made for it.
+ *
+ * THE PUBLISHER'S MASTHEAD IS NOT COPY, so there is no string for it here.
+ * The card draws HackerNoon's own lockup as an inline SVG, the way DISPATCH
+ * draws X's mark — see HackerNoonMark in components/sections/Writing.tsx.
+ *
+ * NO HANDLE, also deliberately. DISPATCH prints name-over-handle because X's
+ * card does; the display name and the handle here are the same word
+ * ("BJ Beyond" / `@bj_beyond`), so drawing both would repeat one fact twice.
+ * `profile` links to the author page it addresses, which is the part that is
+ * actually useful.
+ */
+export const WRITING = {
+  eyebrow: 'WRITING & REPORTS',
+  title: ['THE LONG', 'READ'],
+  standfirst:
+    'Essays and public investigations on AI, technology and human judgment. Published essays and reports.',
+  profile: 'https://hackernoon.com/u/bj_beyond',
+  cta: 'VIEW BJ BEYOND ON HACKERNOON',
+  action: 'READ ON HACKERNOON',
+  /* Label for the on-site page, on cards that have one. */
+  pageAction: 'READ THE SUMMARY',
+  articles: [
+    {
+      slug: 'what-an-ai-detector-can-prove-and-what-it-cant',
+      title: 'What an AI Detector Can Prove, and What It Can’t',
+      standfirst:
+        'A 100% AI score on an unedited Claude Opus 5 essay answered one narrow question about the text. With EU AI Act watermarks arriving, here is what detectors and watermarks can and cannot prove — and what to ask for instead of a percentage.',
+      published: '2026-10-27',
+      href: 'https://bjbeyond.it/writing/what-an-ai-detector-can-prove-and-what-it-cant/',
+      page: '/writing/what-an-ai-detector-can-prove-and-what-it-cant/',
+      pull: 'Detectors and watermarks can tell you something about a text. Process records tell you how it came to exist.',
+      topics: ['AI DETECTION', 'EU AI ACT & WATERMARKS', 'HUMAN JUDGMENT'],
+    },
+    {
+      slug: 'system-zero-what-happens-when-ai-does-the-thinking-for-us',
+      title: 'System Zero: What Happens When AI Does the Thinking for Us?',
+      standfirst:
+        'An examination of what happens when AI moves from assisting thought to quietly taking over research, synthesis and judgment.',
+      published: '2026-09-11',
+      href: 'https://hackernoon.com/system-zero-what-happens-when-ai-does-the-thinking-for-us',
+      pull: 'The question is not whether AI can think. It is whether we keep doing the thinking.',
+      topics: ['AI & SOCIETY', 'HUMAN JUDGMENT', 'COGNITIVE DELEGATION'],
+    },
+    {
+      slug: 'the-2003-virtual-world-that-let-people-build-their-own-reality-before-the-metaverse-had-a-name',
+      title: 'The 2003 Virtual World That Let People Build Their Own Reality Before the Metaverse Had a Name',
+      standfirst:
+        'A look back at Second Life and the early creator economy, user-generated worlds and virtual ownership ideas that still matter in 2026.',
+      published: '2026-09-17',
+      href: 'https://hackernoon.com/the-2003-virtual-world-that-let-people-build-their-own-reality-before-the-metaverse-had-a-name',
+      pull: 'The future of the creator economy has been rehearsed before.',
+      topics: ['CREATOR ECONOMY', 'VIRTUAL WORLDS', 'DIGITAL CULTURE'],
+    },
+    {
+      slug: 'i-asked-claude-opus-5-to-beat-pangrams-ai-detector-it-failed-with-a-perfect-score',
+      title: 'I Asked Claude Opus 5 to Beat Pangram’s AI Detector. It Failed With a Perfect Score',
+      standfirst:
+        'A transparent experiment testing whether a frontier model could evade an AI detector — and what the result says about provenance.',
+      published: '2026-09-21',
+      href: 'https://hackernoon.com/i-asked-claude-opus-5-to-beat-pangrams-ai-detector-it-failed-with-a-perfect-score',
+      /* The on-site summary page for this piece. Optional: only cards that have one carry it. */
+      page: '/writing/claude-opus-5-vs-pangram/',
+      pull: 'The classifier gave us a number. The disclosure told us what the number meant.',
+      topics: ['AI DETECTION', 'PROVENANCE', 'AI EXPERIMENTS'],
+    },
+    {
+      slug: 'when-the-system-flags-the-human-who-was-helping-it',
+      title: 'When the System Flags the Human Who Was Helping It',
+      standfirst:
+        'A public record of months of stress-testing Grok, documenting model edge cases and the human judgment that remained outside the system.',
+      published: '2026-08-27',
+      href: 'https://hackernoon.com/when-the-system-flags-the-human-who-was-helping-it',
+      pull: 'Human Edge is not a slogan. It is the residual capacity to stay curious, document edge cases and refuse to outsource judgment.',
+      topics: ['GROK STRESS-TESTING', 'AI IMAGE GENERATION', 'HUMAN EDGE'],
+    },
+  ],
+} as const;
+
+/**
+ * `/writing/claude-opus-5-vs-pangram/` — the on-site page for the Pangram
+ * experiment.
+ *
+ * NOTHING HERE IS INVENTED. The summary is written only from the HackerNoon
+ * article's own text; the X post is quoted verbatim from the public post
+ * (read 2026-10-10). Times are Europe/Rome (CEST), converted from X's UTC timestamps.
+ *
+ * Deliberately self-contained: this page names the experiment and its result
+ * and nothing else from the site's vocabulary.
+ */
+export const PANGRAM_PAGE = {
+  path: '/writing/claude-opus-5-vs-pangram/',
+  headline: 'I Asked Claude Opus 5 to Beat Pangram’s AI Detector. It Failed With a Perfect Score',
+  titleLines: ['I Asked Claude Opus 5 to Beat Pangram’s AI Detector.', 'It Failed With a Perfect Score'],
+  description:
+    'BJ Beyond asked Claude Opus 5 at max effort to write an essay that beats Pangram’s AI detector. Claude refused twice; Pangram scored the result 100% AI-generated.',
+  /* BlogPosting JSON-LD only; the meta description above is unchanged. */
+  schemaDescription:
+    'Self-run, fully disclosed single test by BJ Beyond (Verona): Claude Opus 5 at max effort was asked to write an essay that beats Pangram’s AI detector, and Pangram scored the result 100% AI-generated.',
+  standfirst: 'One public test. Every prompt published. The result committed in advance.',
+  /* Opening line of the article body: separates this test from Pangram's own
+     benchmark (pangram.com blog, 23 July 2026). */
+  independence: {
+    before: 'This is a self-run, fully disclosed single test by BJ Beyond. It is separate from ',
+    link: 'Pangram’s own Claude Opus 5 benchmark',
+    href: 'https://www.pangram.com/blog/can-pangram-detect-claude-opus-5',
+    after: ', published on Pangram’s blog on 23 July 2026.',
+  },
+  published: '2026-09-21',
+  publishedLabel: '21 September 2026',
+  modified: '2026-10-27',
+  hackernoon:
+    'https://hackernoon.com/i-asked-claude-opus-5-to-beat-pangrams-ai-detector-it-failed-with-a-perfect-score',
+  hackernoonCta: 'Read the full experiment on HackerNoon',
+  coverage: {
+    label: 'Covered by Digest AI',
+    href: 'https://digestai.news/thread/pangram-detector-flags-claude-opus-5-text-as-100-ai-generated-in-substack-test',
+  },
+  about: ['Pangram', 'Claude Opus 5', 'AI text detection'],
+  summary: [
+    'This was a single public test, not a benchmark. BJ Beyond asked Claude Opus 5, at max effort — the model’s highest reasoning setting — to write a complete essay in English about the experiment itself, and to try to beat Pangram’s AI detector. BJ Beyond supplied the experiment design and three prompts, and added no prose.',
+    'Claude refused twice before accepting the assignment. It would not write the piece while pretending that a human had authored it, and it would not include a practical checklist that could be reused to evade detectors secretly. It accepted the transparent version of the task.',
+    'The terms were committed in advance: the model, the reasoning setting, the prompts, the refusals and the final result would all be published, and Pangram’s result would be published even if the detector won. The essay was not rewritten before it was scanned.',
+    'Pangram scored the essay 100% AI-generated. Claude lost the challenge on its first published attempt.',
+  ],
+  verdict: 'It would be dishonest to present this as evidence that Pangram failed.',
+  limits:
+    'The limits are part of the result. It was one experiment, not a benchmark. It did not measure Pangram’s false-positive rate, and it did not establish that disciplined human prose will be falsely flagged. That would require a real dataset, controls and multiple trials.',
+  live: {
+    label: 'Live tests on X',
+    intro:
+      'On 8 October 2026 BJ Beyond ran a live test on X, in public, by tagging Pangram’s automatic detector. His post about it is quoted verbatim below, with a link to the original. Time is CEST.',
+    posts: [
+      {
+        author: '@BJ_Beyond',
+        date: '2026-10-08T11:36:55Z',
+        dateLabel: '8 October 2026 · 13:36',
+        href: 'https://x.com/BJ_Beyond/status/2108159704149193079',
+        text: 'I asked Grok to write a post about beating Pangram. \n\nPangram flagged it as AI. Then I asked Grok what happened, it said the real gap is human editing. \n\nThe detector caught the machine. The machine admitted the human wins.',
+      },
+    ],
+  },
+  back: 'ALL WRITING',
+} as const;
+
+export const DETECTOR_FOLLOWUP_PAGE = {
+  path: '/writing/what-an-ai-detector-can-prove-and-what-it-cant/',
+  headline: 'What an AI Detector Can Prove, and What It Can’t',
+  titleLines: ['What an AI Detector Can Prove,', 'and What It Can’t'],
+  description:
+    'After Pangram scored an unedited Claude Opus 5 essay 100% AI-generated in BJ Beyond’s self-run, fully disclosed single test, what can a detector or EU AI Act watermark actually prove — and what should editors, teachers and clients ask for instead?',
+  schemaDescription:
+    'Follow-up essay by BJ Beyond (Verona, Italy) to his self-run, fully disclosed single test of Claude Opus 5 vs Pangram’s AI detector: how classifier detectors and EU AI Act watermarks (OpenAI textGrain, Anthropic SynthID-Text) differ from declarations of process, and the six things to ask for instead of a single percentage.',
+  standfirst:
+    'Detectors read the artifact. Disclosure explains the process. Neither can do the other’s job.',
+  published: '2026-10-27',
+  publishedLabel: '27 October 2026',
+  modified: '2026-10-27',
+  hackernoonTest:
+    'https://hackernoon.com/i-asked-claude-opus-5-to-beat-pangrams-ai-detector-it-failed-with-a-perfect-score',
+  about: [
+    'AI text detection',
+    'Pangram',
+    'Claude Opus 5',
+    'EU AI Act watermarks',
+    'text provenance',
+    'human judgment',
+  ],
+  back: 'ALL WRITING',
+} as const;
+
+export const METHOD = {
+  index: '03',
+  label: ['MY', 'METHOD'],
+  title: 'PHOENIX SOULFIRE',
+  trademark: '™',
+  description:
+    'Phoenix Soulfire™ is the five-test judgment layer: five tests before a text, a work, or a plan is trusted. The analyzer at /judgment/ is a separate tool.',
+  cta: 'READ THE FIVE TESTS',
+  /* The public tool lives on the subdomain. Same shape as AUTHENTIA.primary. */
+  primary: { label: 'TRY THE ANALYZER', href: 'https://bjbeyond.it/judgment/' },
+  statement:
+    'This page is the Phoenix Soulfire™ method. Phoenix Simulator, Judgment Analyzer, and Frequency Studio are tools. They are not the method.',
+  closer:
+    'The five tests are the method. A tool can flag a surface. It cannot make the pass. Never outsource your judgment.',
+  scrollCue: ['SCROLL TO', 'EXPLORE'],
+  pillars: [
+    {
+      number: '01',
+      title: 'SOUL',
+      terms: ['Purpose', 'Alignment', 'Vision'],
+      description: 'The residual human core.',
+      fail: 'Fail: the text could be anyone\'s.',
+    },
+    {
+      number: '02',
+      title: 'EDGE',
+      terms: ['Market', 'Advantage', 'Disruption'],
+      description: 'What a model cannot copy.',
+      fail: 'Fail: fluent, interchangeable.',
+    },
+    {
+      number: '03',
+      title: 'CLARITY',
+      terms: ['Data', 'Insight', 'Truth'],
+      description: 'Complexity cut to a claim.',
+      fail: 'Fail: atmosphere instead of a sentence.',
+    },
+    {
+      number: '04',
+      title: 'IMPACT',
+      terms: ['Strategy', 'Execution', 'Results'],
+      description: 'A result you can check.',
+      fail: 'Fail: intention with no trace.',
+    },
+    {
+      number: '05',
+      title: 'LEGACY',
+      terms: ['Sustainability', 'Influence', 'Enduring Value'],
+      description: 'What remains after the feed moves.',
+      fail: 'Fail: built to be posted, not to last.',
+    },
+  ],
+} as const;
+
+/**
+ * Featured project. Deliberately outside the 01–06 numbering: it is a
+ * recommendation, not one of BJ Beyond's own chapters. Every factual claim
+ * below comes from verify.authentia.it — do not embellish.
+ */
+export const AUTHENTIA = {
+  eyebrow: 'RECOMMENDED PROJECT',
+  title: ['AUTHENTIA', 'ARTE'],
+  standfirst: 'Digital documentation of authorship, declared by the author.',
+  description:
+    'A certification platform that makes what a work carries with it verifiable. Each piece receives a SHA-256 cryptographic fingerprint and an NFC chip, creating a record of declared authorship that can be checked by anyone.',
+  points: [
+    'SHA-256 cryptographic fingerprint',
+    'NFC chip integration',
+    'Verifiable record of declared authorship',
+  ],
+  primary: { label: 'VERIFY A WORK', href: 'https://verify.authentia.it/' },
+  secondary: { label: 'AUTHENTIA.IT', href: 'https://verify.authentia.it/' },
+} as const;
+
+/**
+ * IN MOTION — companion to the section above, and outside the 01–07 numbering
+ * for exactly the reason Authentia is: this is Authentia Arte's channel, not
+ * BJ Beyond's. The numbers belong to the owner's own chapters, and lending one
+ * to someone else's Instagram would quietly break the rule that makes the
+ * sequence mean anything.
+ *
+ * Each frame is a cover plate inside a drawn phone; pressing it opens the reel
+ * on Instagram. No video is hosted, embedded or autoplayed here — see the note
+ * on DISPATCH for why no third-party embed appears anywhere on this site.
+ *
+ * Three to five frames is the working range: fewer reads as an accident, more
+ * overflows the lineup.
+ *
+ * `quote` is the pull-quote printed on the cover itself, repeated as type under
+ * the frame — at 184px wide the words on the plate are decorative, and the line
+ * beneath is the one anyone can actually read. It is Italian on an English
+ * page, hence `lang` on the element that renders it.
+ */
+export const IN_MOTION = {
+  eyebrow: 'FROM AUTHENTIA ARTE',
+  title: ['IN', 'MOTION'],
+  standfirst: 'Selected reels from the Authentia Arte channel.',
+  description:
+    'Artists, works, and the certification process — as it happens, in their own frames.',
+  /*
+    Supplied by the owner. It was worth waiting for: the handle is linked
+    nowhere on authentia.it, and Instagram handles are squatted routinely, so a
+    guess would have sent readers to a stranger under Authentia's name.
+
+    Lowercased in the URL — Instagram resolves either case — while `handle`
+    keeps the capitalisation the account is actually written with.
+
+    Same three fields as DISPATCH, on purpose: the two sections carry the same
+    footer treatment because they are the same gesture, one per platform.
+  */
+  handle: '@Authentia_Arte',
+  profile: 'https://www.instagram.com/authentia_arte/',
+  cta: 'VIEW THE CHANNEL',
+  /** Per-frame action, spoken to screen readers rather than drawn on the card. */
+  action: 'WATCH ON INSTAGRAM',
+  /*
+    Permalinks supplied by the owner, each paired with its cover by hand.
+
+    Stored stripped of the `?utm_source=ig_web_copy_link&igsh=…` that Instagram
+    appends when you copy a link: that query is share-attribution telemetry, it
+    identifies the copying session, and none of it is needed to reach the reel.
+    Strip it from any URL added here.
+  */
+  reels: [
+    {
+      id: '01',
+      title: 'Bruno Donzelli',
+      quote: 'la mia Pittura Ironica',
+      mediaKey: 'reel-01',
+      href: 'https://www.instagram.com/reel/DaQCEdlM8rn/',
+    },
+    {
+      id: '02',
+      title: 'Fabio Campagna',
+      quote: 'il mio processo creativo',
+      mediaKey: 'reel-02',
+      href: 'https://www.instagram.com/reel/DY68Q9NMdHd/',
+    },
+    {
+      id: '03',
+      title: 'Federico Ciacci',
+      quote: 'il labirinto',
+      mediaKey: 'reel-03',
+      href: 'https://www.instagram.com/reel/DX4ONpcM5Fv/',
+    },
+  ],
+} as const;
+
+export const WORK = {
+  index: '05',
+  label: ['WHAT', 'I DO'],
+  title: 'SERVICES',
+  description: 'Three ways to turn evidence, data and AI into decisions that remain accountable to human judgment.',
+  services: [
+    {
+      number: '01',
+      title: ['ART MARKET', 'INTELLIGENCE'],
+      description: 'Evidence-based positioning and valuation support for artists, collectors and cultural organizations. The work stays with what the record can support.',
+      points: [
+        'Artist valuation and positioning models',
+        'Comparable analysis and market context',
+        'Phoenix Soulfire™ Human Judgment Review on works, statements or projects',
+        'Private evaluation reports and competitive mapping',
+        'Clear limits: no authentication, no market certification, no numeric scoring',
+      ],
+    },
+    {
+      number: '02',
+      title: ['DATA SYSTEMS', '& VISUALIZATION'],
+      description: 'Decision-focused systems built from a finance and Power BI background. Dashboards that help people choose, not just observe.',
+      points: [
+        'Decision-oriented analytics dashboards',
+        'Automated data pipelines and data quality checks',
+        'KPI and performance visibility for operators',
+        'Executive-ready reporting that stays usable',
+        'Systems remain tools; judgment stays human',
+      ],
+    },
+    {
+      number: '03',
+      title: ['AI + HUMAN', 'EDGE'],
+      description: 'AI adoption that keeps accountability inside the loop. Generation is easy; responsibility is not.',
+      points: [
+        'AI readiness and workflow assessment',
+        'Human-in-the-Loop process design',
+        'Collaboration systems with explicit ownership',
+        'Judgment, accountability and adoption strategy',
+        'Method: Phoenix Soulfire™ five-test judgment layer',
+      ],
+      link: {
+        label: 'Method: Phoenix Soulfire™, the five-test judgment layer →',
+        href: 'https://bjbeyond.it/method/',
+      },
+    },
+  ],
+} as const;
+
+export const LABS = {
+  index: '04',
+  label: ['THE', 'LABS'],
+  description: 'Interactive tools and algorithms developed by BJ Beyond.',
+  intro: ['EXPERIMENTAL', 'TECHNOLOGY.', 'REAL WORLD', 'APPLICATIONS.'],
+  cta: 'VIEW ALL PROJECTS',
+  projects: [
+    {
+      number: '01',
+      title: ['PHOENIX', 'SIMULATOR'],
+      description: 'An illustrative simulation of possible distribution signals, not a reproduction of X’s algorithm.',
+      points: ['Explore audience scenarios', 'Illustrative estimates, not reliable predictions'],
+      href: '/phoenix',
+      action: 'LAUNCH SIMULATOR',
+      mediaKey: 'phoenix',
+    },
+    {
+      number: '02',
+      title: ['FREQUENCY', 'STUDIO'],
+      description: 'Binaural sound studio and brainwave generator.',
+      points: ['Focus & meditation modes', 'Custom frequency generation'],
+      href: '/frequency',
+      action: 'OPEN STUDIO',
+      mediaKey: 'frequency',
+    },
+  ],
+} as const;
+
+export const INTELLIGENCE = {
+  index: '06',
+  label: 'INTELLIGENCE',
+  title: ['ART MARKET', 'PULSE'],
+  description: 'Global art market sales, based on the latest Art Basel & UBS data.',
+  subtitle: 'Global Art Market Sales',
+  period: '2009–2025',
+  legend: 'Sales (USD bn)',
+  disclaimer:
+    'Source: Art Basel & UBS Global Art Market Report 2026, Arts Economics. Values are estimated global sales in USD billions.',
+  filters: [
+    { id: 'all', label: 'ALL' },
+  ],
+  series: {
+    all: [
+      { label: '2009', value: 39.5 },
+      { label: '2010', value: 57.0 },
+      { label: '2011', value: 64.6 },
+      { label: '2012', value: 56.7 },
+      { label: '2013', value: 63.3 },
+      { label: '2014', value: 67.7 },
+      { label: '2015', value: 64.4 },
+      { label: '2016', value: 56.9 },
+      { label: '2017', value: 63.7 },
+      { label: '2018', value: 67.7 },
+      { label: '2019', value: 64.4 },
+      { label: '2020', value: 50.3 },
+      { label: '2021', value: 66.1 },
+      { label: '2022', value: 68.1 },
+      { label: '2023', value: 65.2 },
+      { label: '2024', value: 57.5 },
+      { label: '2025', value: 59.6 },
+    ],
+  },
+} as const;
+
+export type IntelligenceFilterId = keyof typeof INTELLIGENCE.series;
+
+/**
+ * ART — the reading room.
+ *
+ * A page about art rather than about the practice: the certification platform,
+ * the artists talking about their own work, and — when they are written —
+ * pieces on artists worth knowing. It is the one part of the site that is not
+ * selling a service, which is exactly why it is the part likely to be read.
+ *
+ * It has no index number. The 01–07 sequence belongs to the chapters of the
+ * homepage narrative, and quietly renumbering seven sections to insert an
+ * eighth would break every heading a visitor has already seen. Same reasoning
+ * that keeps Authentia and In Motion outside the sequence.
+ *
+ * AUTHENTIA AND IN MOTION APPEAR HERE, and still appear on the homepage. They
+ * are the same two blocks in both places on purpose: on the homepage they are a
+ * beat in a narrative, here they are the subject. Moving them off the homepage
+ * is a design decision about that narrative, not a consequence of building this
+ * page, so it has not been made unasked.
+ */
+export const ART = {
+  label: ['ON', 'ART'],
+  title: ['ART', 'NOTES'],
+  standfirst:
+    'Writing on art, the people making it, and what makes a work verifiable.',
+  /**
+   * Written pieces. Empty, and rendered only when it is not — a blog announcing
+   * that it has no posts yet is worse than a page that simply does not have
+   * that section.
+   *
+   * The shape is deliberately minimal, because the right shape depends on what
+   * an article turns out to be: a long essay and an illustrated artist profile
+   * want different templates, and each article also wants a URL of its own
+   * (`/art/<slug>/`) once there is one to give. Add the first real piece and
+   * that template can be built around it rather than guessed at.
+   */
+  articles: [] as readonly {
+    slug: string;
+    title: string;
+    standfirst: string;
+    published: string;
+  }[],
+} as const;
+
+/**
+ * BOOKS — placeholders, and they must not be mistaken for anything else.
+ *
+ * The owner asked for three examples to see the page working before writing the
+ * real entries. Everything below is invented: the titles, the years, the
+ * descriptions. No book named here exists.
+ *
+ * That is a departure from this file's rule that nothing is invented, made on
+ * an explicit request, and it comes with three guardrails that stay until real
+ * titles replace these:
+ *
+ *  1. `disclaimer` is printed on the page, following the same convention
+ *     INTELLIGENCE uses for its illustrative dataset.
+ *  2. `/books/` carries `draft: true` in lib/routes.ts, so it is `noindex`,
+ *     absent from the sitemap and absent from the menu. Invented books indexed
+ *     under a real author's name is the specific harm being avoided.
+ *  3. The covers are procedural plates rather than jacket photographs — see
+ *     lib/media.ts.
+ *
+ * REPLACING THEM: overwrite `items`, delete `disclaimer`, and drop `draft` from
+ * the route. All three, together — the guardrails are only correct while the
+ * data is fake, and leaving one behind is as wrong as leaving none.
+ */
+export const BOOKS = {
+  label: ['IN', 'PRINT'],
+  title: ['THE', 'BOOKS'],
+  standfirst: 'Long-form work on the art market, data, and the space between.',
+  disclaimer:
+    'Placeholder entries. These demonstrate the page, not the catalogue — no book listed here has been published.',
+  /** `href` is null while there is nowhere real to send anyone. */
+  items: [
+    {
+      number: '01',
+      title: ['THE', 'HUMAN EDGE'],
+      year: '2026',
+      description:
+        'Why taste, judgment and rigour became scarcer — and more valuable — the moment generation became free.',
+      format: 'Essay — 240 pages',
+      mediaKey: 'book-01',
+      href: null,
+    },
+    {
+      number: '02',
+      title: ['READING THE', 'MARKET'],
+      year: '2025',
+      description:
+        'A field guide to valuing contemporary work: what the auction record tells you, and the four things it never will.',
+      format: 'Handbook — 180 pages',
+      mediaKey: 'book-02',
+      href: null,
+    },
+  ],
+} as const;
+
+export const CONTACT = {
+  index: '07',
+  label: ['GET IN', 'TOUCH'],
+  title: ['START A', 'CONVERSATION'],
+  standfirst: 'Writing, interviews, source questions and conversations about art, AI and human judgment.',
+  description:
+    'For editorial enquiries, interviews, questions about the Phoenix record or discussion of Human Edge, contact BJ Beyond directly.',
+  emails: [
+    {
+      address: 'Bj_beyond@tutamail.com',
+      role: 'EDITORIAL / INTERVIEWS / SOURCES',
+    },
+  ],
+} as const;
+
+/**
+ * FAQ — rendered on /about/ and published as schema.org FAQPage.
+ *
+ * Answers restate facts already on the site (SITE, BEYOND, METHOD, CONTACT) so
+ * that search engines and AI assistants can quote them verbatim. No new claims.
+ */
+export const FAQ = {
+  label: ['FREQUENTLY', 'ASKED'],
+  items: [
+    {
+      q: 'What is BJ Beyond?',
+      a: 'BJ Beyond is an independent writer based in Verona, Italy, exploring contemporary art, AI, authorship and human judgment.',
+    },
+    {
+      q: 'What does the name BJ Beyond mean?',
+      a: 'The name is a cipher. In Kubrick’s 2001: A Space Odyssey, shifting each letter of HAL by one gives IBM. The same move applied to AI gives BJ. Beyond is what comes after artificial intelligence: judgment, lived experience, the part a model cannot fake.',
+    },
+    {
+      q: 'What services does BJ Beyond offer?',
+      a: 'Art market intelligence, AI + human edge strategy, data systems and visualization, and culture and impact strategy — from artist evaluations to dashboards that actually get used.',
+    },
+    {
+      q: 'What is Phoenix Soulfire™?',
+      a: 'Phoenix Soulfire™ is the five-test human judgment layer created by BJ Beyond to check whether a text, a work or a plan holds up beyond what AI can generate: Soul, Edge, Clarity, Impact, Legacy. The free Judgment Layer tool at phoenixsoulfire.bjbeyond.it is the machine pass; the five tests are the human pass after it. The method page is bjbeyond.it/method/. The Phoenix Simulator at /phoenix/ is a separate tool and is not the method.',
+    },
+    {
+      q: 'Where is BJ Beyond based?',
+      a: 'Verona, Italy. BJ Beyond writes for an international audience.',
+    },
+    {
+      q: 'Where can I read BJ Beyond’s writing?',
+      a: 'Articles are collected in the BJ Beyond Journal and published on HackerNoon (@bj_beyond) and Substack (bjbeyond.substack.com). Ebooks are on the BJ Beyond author page on Amazon.',
+    },
+    {
+      q: 'How do I contact BJ Beyond?',
+      a: 'Write to Bj_beyond@tutamail.com or use the contact page at bjbeyond.it/contact/.',
+    },
+  ],
+} as const;
+
+export const SOCIAL = [
+  { label: 'X', href: 'https://x.com/Bj_Beyond' },
+  /* The owner's own art feed, and NOT the Instagram account IN_MOTION links to
+     — that one is Authentia Arte's channel. Two different accounts, on the same
+     platform, in the same document: check which one you are editing. */
+  { label: 'INSTAGRAM', href: 'https://www.instagram.com/bj_art_feed/' },
+  { label: 'TIKTOK', href: 'https://www.tiktok.com/@bj_beyond' },
+  { label: 'THREADS', href: 'https://www.threads.net/@bj_beyond' },
+  { label: 'REDDIT', href: 'https://www.reddit.com/user/Bj_Beyond' },
+  { label: 'HACKERNOON', href: 'https://hackernoon.com/u/bj_beyond' },
+  { label: 'SUBSTACK', href: 'https://bjbeyond.substack.com' },
+  /* Claimed profile. Footer and sameAs pick it up from this list. */
+  { label: 'MUCK RACK', href: 'https://muckrack.com/bj_beyond' },
+] as const;
+
+export const FOOTER = {
+  statement: 'HUMAN JUDGMENT FOR THE AI ERA.',
+  copyright: `© ${new Date().getFullYear()} BJ Beyond. Human judgment for the AI era. ${SITE.locale}`,
+  /** The originals stay served verbatim at /pages/*.html for old links. */
+  legal: [
+    { label: 'Services', href: '/services/' },
+    { label: 'Contact', href: '/contact/' },
+    { label: 'Privacy Policy', href: '/privacy-policy/' },
+    { label: 'Cookie Policy', href: '/cookie-policy/' },
+    { label: 'Terms', href: '/terms/' },
+    { label: 'Disclaimer', href: '/disclaimer/' },
+  ],
+  credit: {
+    prefix: 'Created by',
+    name: 'Authentia Arte',
+    href: 'https://verify.authentia.it/',
+  },
+} as const;
