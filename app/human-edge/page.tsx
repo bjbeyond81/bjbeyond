@@ -4,6 +4,7 @@ import { PageShell } from '@/components/chrome/PageShell';
 import { Reveal, RevealGroup, RevealItem } from '@/components/primitives/Reveal';
 import { ArrowLink } from '@/components/primitives/ArrowLink';
 import { MEDIA } from '@/lib/media';
+import { WRITING } from '@/lib/content';
 import { metadataFor } from '@/lib/routes';
 
 export const metadata: Metadata = metadataFor('/human-edge/');
@@ -27,11 +28,23 @@ const records = [
   ['SEPTEMBER 2026', 'Returning to the question', 'A later screen recording revisits the model’s explanations. It is a separate source, outside the August 16 archive.'],
 ] as const;
 
+/* The AI-and-authorship cluster: this page is the pillar, these are the pieces
+   that argue it in detail. On-site pages open here; HackerNoon-only pieces open there. */
+const CLUSTER_SLUGS = [
+  'what-an-ai-detector-can-prove-and-what-it-cant',
+  'i-asked-claude-opus-5-to-beat-pangrams-ai-detector-it-failed-with-a-perfect-score',
+  'system-zero-what-happens-when-ai-does-the-thinking-for-us',
+  'when-the-system-flags-the-human-who-was-helping-it',
+] as const;
+const cluster = WRITING.articles
+  .filter((a) => (CLUSTER_SLUGS as readonly string[]).includes(a.slug))
+  .sort((a, b) => b.published.localeCompare(a.published));
+
 export default function HumanEdgePage() {
   return (
     <PageShell
       eyebrow="THE BJ BEYOND THESIS"
-      title={['HUMAN', 'EDGE']}
+      title={['HUMAN EDGE:', 'JUDGMENT IN THE AI ERA']}
       standfirst="AI can generate. Data can measure. Human judgment decides what matters."
       media={MEDIA.method[1]}
     >
@@ -89,7 +102,36 @@ export default function HumanEdgePage() {
             <ArrowLink href="/phoenix-experiment/">Enter the Phoenix Evidence Room</ArrowLink>
             <ArrowLink href="/method/">Read the Phoenix Soulfire™ method</ArrowLink>
             <ArrowLink href="/writing/">Read the field notes</ArrowLink>
+            <ArrowLink href="/glossary/">Glossary of terms</ArrowLink>
           </Reveal>
+        </section>
+        <section aria-labelledby="ai-authorship" className="mt-20 border-t border-rule pt-14 lg:mt-28">
+          <Reveal>
+            <p className="u-label text-mist-400">AI AND AUTHORSHIP</p>
+            <h2 id="ai-authorship" className="mt-5 max-w-4xl text-headline font-extralight text-paper">
+              The thesis, argued in detail.
+            </h2>
+          </Reveal>
+          <div className="mt-10 border-t border-rule">
+            {cluster.map((a) => {
+              const onSite = 'page' in a;
+              return (
+                <article key={a.slug} className="grid grid-cols-1 gap-4 border-b border-rule py-8 lg:grid-cols-12 lg:gap-6">
+                  <p className="u-label text-amber-400 lg:col-span-2">
+                    <time dateTime={a.published}>{a.published.split('-').reverse().join('.')}</time>
+                  </p>
+                  <div className="lg:col-span-7">
+                    <h3 className="text-title font-extralight text-paper">
+                      <a href={onSite ? a.page : a.href} {...(onSite ? {} : { target: '_blank', rel: 'noopener noreferrer' })} className="hover:text-amber-400">
+                        {a.title}{onSite ? '' : ' ↗'}
+                      </a>
+                    </h3>
+                    <p className="mt-3 text-body font-light text-mist-300">{a.standfirst}</p>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
         </section>
       </section>
     </PageShell>

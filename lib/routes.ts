@@ -23,7 +23,8 @@
  * destinations rather than prose.
  */
 import type { MetadataRoute } from 'next';
-import { BEYOND, BOOKS, CONTACT, DETECTOR_FOLLOWUP_PAGE, DISPATCH, METHOD, PANGRAM_PAGE, SITE } from './content';
+import { BOOKS, CONTACT, DETECTOR_FOLLOWUP_PAGE, DISPATCH, GLOSSARY, METHOD, PANGRAM_PAGE, SITE } from './content';
+import { KOUNELLIS } from './kounellis';
 
 export interface SiteRoute {
   /** Path as served, leading and trailing slash included. */
@@ -87,7 +88,7 @@ export const ROUTES: readonly SiteRoute[] = [
     path: '/human-edge/',
     label: 'HUMAN EDGE',
     title: 'Human Edge — Human Judgment for the AI Era',
-    description: 'The BJ Beyond thesis: AI can generate and data can measure, but human judgment decides what matters.',
+    description: 'The BJ Beyond thesis: AI can generate and data can measure, but human judgment decides what matters. Principles, public record and essays on AI and authorship.',
     priority: 0.95,
     changeFrequency: 'monthly',
   },
@@ -111,14 +112,14 @@ export const ROUTES: readonly SiteRoute[] = [
     path: '/writing/',
     label: 'WRITING',
     title: 'Writing — AI, Technology & Human Judgment',
-    description: 'Selected BJ Beyond long-form writing on AI, technology, provenance and the human edge.',
+    description: 'Essays and public experiments by BJ Beyond on AI detection, authorship, provenance, art and the human edge, on-site and on HackerNoon.',
     priority: 0.8,
     changeFrequency: 'monthly',
   },
   {
     /* Unlabelled: reachable from the /writing/ card, not from the menu. */
     path: PANGRAM_PAGE.path,
-    title: PANGRAM_PAGE.headline,
+    title: PANGRAM_PAGE.seoTitle,
     description: PANGRAM_PAGE.description,
     priority: 0.7,
     changeFrequency: 'yearly',
@@ -132,10 +133,27 @@ export const ROUTES: readonly SiteRoute[] = [
     changeFrequency: 'monthly',
   },
   {
+    /* Unlabelled: the English translation, reachable from /writing/, /art/ and the homepage. */
+    path: KOUNELLIS.path,
+    title: KOUNELLIS.seoTitle,
+    description: KOUNELLIS.description,
+    priority: 0.7,
+    changeFrequency: 'yearly',
+  },
+  {
+    /* Unlabelled: linked from /human-edge/, /method/ and the footer of each essay. */
+    path: GLOSSARY.path,
+    title: GLOSSARY.title,
+    description: GLOSSARY.description,
+    priority: 0.7,
+    changeFrequency: 'monthly',
+  },
+  {
     path: '/about/',
     label: 'ABOUT',
-    title: 'About',
-    description: `${BEYOND.lede} ${BEYOND.body[0]}`,
+    title: 'About — Independent Writer on Art, AI & Judgment',
+    /* Overridden in app/about/page.tsx, which owns the editorial description. */
+    description: 'BJ Beyond is an independent writer in Verona, Italy, exploring art, AI, authorship and human judgment through essays and public experiments.',
     priority: 0.8,
     changeFrequency: 'monthly',
   },
@@ -166,7 +184,7 @@ export const ROUTES: readonly SiteRoute[] = [
     label: 'LABS',
     title: 'The Labs — AI Tools & Simulators',
     description:
-      'Interactive tools by BJ Beyond: an illustrative distribution simulator and a binaural sound studio.',
+      'Interactive experiments by BJ Beyond Labs: an illustrative X ranking simulator, a judgment analyzer and a binaural sound studio. Free, in the browser.',
     priority: 0.8,
     changeFrequency: 'monthly',
   },
@@ -318,7 +336,7 @@ export function metadataFor(path: string) {
   return {
     title: route.title,
     description: route.description,
-    alternates: { canonical: route.path },
+    alternates: { canonical: route.path, types: { 'application/rss+xml': '/feed.xml' } },
     openGraph: {
       type: 'website' as const,
       url: route.path,
