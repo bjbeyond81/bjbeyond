@@ -22,7 +22,7 @@ export const SITE = {
   tagline: 'Human judgment for the AI era.',
   domain: 'bjbeyond.it',
   url: 'https://bjbeyond.it',
-  locale: 'Verona, Italia',
+  locale: 'Verona, Italy',
   description:
     'BJ Beyond is an independent writer based in Verona, Italy, exploring art, AI, authorship and human judgment through essays, public experiments and recovered records.',
   /**
