@@ -5,7 +5,12 @@
  */
 export const KOUNELLIS = {
   id: 'kounellis-italics',
-  href: '/art/#kounellis-italics',
+  /* Dedicated page since 2026-10-30. /art/#kounellis-italics keeps a teaser
+     with the same id, so links to the old anchor still land on it. */
+  href: '/writing/kounellis-italics/',
+  path: '/writing/kounellis-italics/',
+  seoTitle: 'Kounellis’s No to Italics: Arte Povera and Annigoni',
+  description: 'Why Jannis Kounellis refused Italics at Palazzo Grassi: Arte Povera, Annigoni and who tells the story of Italian art. English translation from Tamagozine.',
   original: 'https://tamagozine.org/2026/10/14/il-no-di-kounellis-a-italics-arte-povera-annigoni-e-il-conflitto-sul-racconto-dellarte-italiana/',
   originalTitle: 'IL NO DI KOUNELLIS A ITALICS: ARTE POVERA, ANNIGONI E IL CONFLITTO SUL RACCONTO DELL’ARTE ITALIANA',
   title: 'Kounellis’s No to Italics: Arte Povera, Annigoni and the Conflict over the Narrative of Italian Art',

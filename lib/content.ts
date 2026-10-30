@@ -293,7 +293,7 @@ export const DISPATCH = {
  */
 export const WRITING = {
   eyebrow: 'WRITING & REPORTS',
-  title: ['THE LONG', 'READ'],
+  title: ['WRITING ON AI,', 'AUTHORSHIP & JUDGMENT'],
   standfirst:
     'Essays and public investigations on AI, technology and human judgment. Published essays and reports.',
   profile: 'https://hackernoon.com/u/bj_beyond',
@@ -339,8 +339,8 @@ export const WRITING = {
       standfirst:
         'A transparent experiment testing whether a frontier model could evade an AI detector — and what the result says about provenance.',
       published: '2026-09-21',
-      href: 'https://hackernoon.com/i-asked-claude-opus-5-to-beat-pangrams-ai-detector-it-failed-with-a-perfect-score',
-      /* The on-site summary page for this piece. Optional: only cards that have one carry it. */
+      /* Full text on-site since 2026-10-30, so the card links here first. */
+      href: 'https://bjbeyond.it/writing/claude-opus-5-vs-pangram/',
       page: '/writing/claude-opus-5-vs-pangram/',
       pull: 'The classifier gave us a number. The disclosure told us what the number meant.',
       topics: ['AI DETECTION', 'PROVENANCE', 'AI EXPERIMENTS'],
@@ -372,9 +372,11 @@ export const WRITING = {
 export const PANGRAM_PAGE = {
   path: '/writing/claude-opus-5-vs-pangram/',
   headline: 'I Asked Claude Opus 5 to Beat Pangram’s AI Detector. It Failed With a Perfect Score',
+  /* <title> only: the headline is 95 characters and gets cut in results. */
+  seoTitle: 'Claude Opus 5 vs Pangram: A Public AI Detector Test',
   titleLines: ['I Asked Claude Opus 5 to Beat Pangram’s AI Detector.', 'It Failed With a Perfect Score'],
   description:
-    'BJ Beyond asked Claude Opus 5 at max effort to write an essay that beats Pangram’s AI detector. Claude refused twice; Pangram scored the result 100% AI-generated.',
+    'BJ Beyond asked Claude Opus 5 at max effort to write an essay that beats Pangram’s AI detector. Claude refused twice; Pangram scored it 100% AI-generated.',
   /* BlogPosting JSON-LD only; the meta description above is unchanged. */
   schemaDescription:
     'Self-run, fully disclosed single test by BJ Beyond (Verona): Claude Opus 5 at max effort was asked to write an essay that beats Pangram’s AI detector, and Pangram scored the result 100% AI-generated.',
@@ -392,7 +394,7 @@ export const PANGRAM_PAGE = {
   modified: '2026-10-27',
   hackernoon:
     'https://hackernoon.com/i-asked-claude-opus-5-to-beat-pangrams-ai-detector-it-failed-with-a-perfect-score',
-  hackernoonCta: 'Read the full experiment on HackerNoon',
+  hackernoonCta: 'Also published on HackerNoon',
   coverage: {
     label: 'Covered by Digest AI',
     href: 'https://digestai.news/thread/pangram-detector-flags-claude-opus-5-text-as-100-ai-generated-in-substack-test',
@@ -429,7 +431,7 @@ export const DETECTOR_FOLLOWUP_PAGE = {
   headline: 'What an AI Detector Can Prove, and What It Can’t',
   titleLines: ['What an AI Detector Can Prove,', 'and What It Can’t'],
   description:
-    'After Pangram scored an unedited Claude Opus 5 essay 100% AI-generated in BJ Beyond’s self-run, fully disclosed single test, what can a detector or EU AI Act watermark actually prove — and what should editors, teachers and clients ask for instead?',
+    'What can an AI detector or an EU AI Act watermark actually prove about a text, and what should editors and teachers ask for instead of a percentage?',
   schemaDescription:
     'Follow-up essay by BJ Beyond (Verona, Italy) to his self-run, fully disclosed single test of Claude Opus 5 vs Pangram’s AI detector: how classifier detectors and EU AI Act watermarks (OpenAI textGrain, Anthropic SynthID-Text) differ from declarations of process, and the six things to ask for instead of a single percentage.',
   standfirst:
@@ -660,7 +662,7 @@ export const LABS = {
   index: '04',
   label: ['THE', 'LABS'],
   description: 'Interactive tools and algorithms developed by BJ Beyond.',
-  intro: ['EXPERIMENTAL', 'TECHNOLOGY.', 'REAL WORLD', 'APPLICATIONS.'],
+  intro: ['THE LABS:', 'AI TOOLS', '& SIMULATORS'],
   cta: 'VIEW ALL PROJECTS',
   projects: [
     {
@@ -743,7 +745,7 @@ export type IntelligenceFilterId = keyof typeof INTELLIGENCE.series;
  */
 export const ART = {
   label: ['ON', 'ART'],
-  title: ['ART', 'NOTES'],
+  title: ['ART, VALUE', '& PROVENANCE'],
   standfirst:
     'Writing on art, the people making it, and what makes a work verifiable.',
   /**
@@ -822,7 +824,7 @@ export const BOOKS = {
 export const CONTACT = {
   index: '07',
   label: ['GET IN', 'TOUCH'],
-  title: ['START A', 'CONVERSATION'],
+  title: ['CONTACT', 'BJ BEYOND'],
   standfirst: 'Writing, interviews, source questions and conversations about art, AI and human judgment.',
   description:
     'For editorial enquiries, interviews, questions about the Phoenix record or discussion of Human Edge, contact BJ Beyond directly.',
@@ -905,4 +907,79 @@ export const FOOTER = {
     name: 'Authentia Arte',
     href: 'https://verify.authentia.it/',
   },
+} as const;
+
+/**
+ * /glossary/ — the site's own vocabulary in one place, for readers and for
+ * search and answer engines. NOTHING HERE IS NEW: every definition is taken
+ * from copy already published on the page named in `source`. When a source
+ * page changes its wording, change the entry here too.
+ */
+export const GLOSSARY = {
+  path: '/glossary/',
+  title: 'Glossary — Human Edge & Phoenix Soulfire™',
+  description:
+    'The BJ Beyond glossary: Human Edge, Phoenix Soulfire™ and its five tests, the Phoenix Experiment, Claudefishing, and detection versus disclosure.',
+  standfirst: 'The working vocabulary of the site, defined in the words already used on it.',
+  groups: [
+    {
+      id: 'thesis',
+      label: 'The thesis',
+      terms: [
+        {
+          term: 'Human Edge',
+          definition:
+            'The BJ Beyond thesis: AI can generate and data can measure, but human judgment decides what matters. The point is not to compete with AI at what it does best; the point is to keep the decision human where judgment still carries weight.',
+          source: '/human-edge/',
+        },
+        {
+          term: 'Phoenix Experiment',
+          definition:
+            'A recovered record and a question: what can we verify when AI explains its own response? The archive can document the sequence. It cannot tell us why the model chose to generate the image.',
+          source: '/phoenix-experiment/',
+        },
+      ],
+    },
+    {
+      id: 'method',
+      label: 'The method',
+      terms: [
+        {
+          term: 'Phoenix Soulfire™',
+          definition:
+            'The five-test human judgment layer created by BJ Beyond to check whether a text, a work or a plan holds up beyond what AI can generate. It is a judgment layer, not an art scorecard and not a numeric rating; it does not authenticate an artwork or establish a market valuation.',
+          source: '/method/',
+        },
+        { term: 'Soul', definition: 'The residual human core. Fail signal: the text could be anyone’s.', source: '/method/' },
+        { term: 'Edge', definition: 'What a model cannot copy. Fail signal: fluent, interchangeable.', source: '/method/' },
+        { term: 'Clarity', definition: 'Complexity cut to a claim. Fail signal: atmosphere instead of a sentence.', source: '/method/' },
+        { term: 'Impact', definition: 'A result you can check. Fail signal: intention with no trace.', source: '/method/' },
+        { term: 'Legacy', definition: 'What remains after the feed moves. Fail signal: built to be posted, not to last.', source: '/method/' },
+        {
+          term: 'Phoenix Simulator',
+          definition:
+            'An illustrative BJ Beyond Labs simulator exploring possible distribution signals on X. It is not X’s actual algorithm, and it is not the Phoenix Soulfire™ method.',
+          source: '/phoenix/',
+        },
+      ],
+    },
+    {
+      id: 'authorship',
+      label: 'AI and authorship',
+      terms: [
+        {
+          term: 'Claudefishing',
+          definition:
+            'A term introduced by Substack co-founder Chris Best for a mismatch between what a reader believes they are reading and how the text was actually made. In BJ Beyond’s reading, AI authorship is a production fact; Claudefishing is a disclosure failure.',
+          source: '/writing/claude-opus-5-vs-pangram/',
+        },
+        {
+          term: 'Detection and disclosure',
+          definition:
+            'Detectors read the artifact. Disclosure explains the process. Neither can do the other’s job: a detector can flag a text that deserves closer attention, while a process statement can say who supplied the ideas, who wrote the prose, what the machine changed and who accepts responsibility.',
+          source: '/writing/what-an-ai-detector-can-prove-and-what-it-cant/',
+        },
+      ],
+    },
+  ],
 } as const;
