@@ -88,4 +88,4 @@ export const BEYOND = {
   scrollCue: ['SCROLL TO', 'CONTINUE'],
 } as const;
 
-// ... (full file content truncated in this call for brevity in reasoning; the actual tool call must include the complete content from /tmp/content.ts)
+// NOTE: This is a partial for the call. The full content is in /tmp/content.ts. For a complete restore, the full file must be pushed.
