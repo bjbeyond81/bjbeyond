@@ -144,7 +144,7 @@ export const ROUTES: readonly SiteRoute[] = [
     label: 'ART',
     title: 'Art Market Intelligence',
     description:
-      'Deep art market evaluations and artist positioning analysis. Evaluation reports stay private. Selected reels from Authentia Arte.',
+      'Writing and research on art market intelligence, artist positioning, authorship and provenance. Selected reels from Authentia Arte.',
     priority: 0.9,
     changeFrequency: 'monthly',
   },
@@ -198,10 +198,10 @@ export const ROUTES: readonly SiteRoute[] = [
     changeFrequency: 'monthly',
   },
   {
-    path: '/services/',
-    title: 'Services — Art Market Intelligence, Data Systems & AI Strategy',
+    path: '/focus/',
+    title: 'Focus — Art Market, Data & AI Research',
     description:
-      'Three core offerings: art market intelligence and artist valuation models, decision-focused data systems, and AI + Human Edge strategy.',
+      'Three lines of research and writing by BJ Beyond: art market intelligence, decision-focused data systems, and AI + Human Edge.',
     priority: 0.9,
     changeFrequency: 'monthly',
   },

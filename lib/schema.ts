@@ -45,7 +45,7 @@ export const PERSON_ID = `${SITE.url}/#person`;
  * only in structured data; the visible meta description stays `SITE.description`.
  */
 const ENTITY_DESCRIPTION =
-  'BJ Beyond is an independent writer based in Verona, Italy, exploring contemporary art, AI, authorship and human judgment, alongside art market intelligence, artist valuation & positioning, data systems and AI + Human Edge strategy. Human Edge is the author’s thesis; the Phoenix Experiment is a recovered-archive case study. Phoenix Soulfire™ is the current five-test judgment framework.';
+  'BJ Beyond is an independent writer based in Verona, Italy, exploring contemporary art, AI, authorship and human judgment, with research on art market intelligence, artist positioning, data systems and AI + Human Edge. Human Edge is the author’s thesis; the Phoenix Experiment is a recovered-archive case study. Phoenix Soulfire™ is the current five-test judgment framework.';
 
 /** The Journal, served from GitHub Pages and canonical to itself. */
 const JOURNAL_URL = 'https://bjbeyond81.github.io/studio/';
@@ -63,8 +63,9 @@ export function siteSchema() {
     '@context': 'https://schema.org',
     '@graph': [
       {
-        /* Dual type: Organisation for the entity graph, ProfessionalService for
-           local/GEO signals (areaServed, Verona) without inventing a shopfront. */
+        /* Organisation for the entity graph only. No ProfessionalService and
+           no `areaServed`: BJ Beyond offers no services, so it declares no
+           service area. */
         '@type': 'Organization',
         '@id': ORGANISATION_ID,
         name: SITE.name,
@@ -87,11 +88,6 @@ export function siteSchema() {
           addressLocality: 'Verona',
           addressCountry: 'IT',
         },
-        areaServed: [
-          { '@type': 'City', name: 'Verona' },
-          { '@type': 'Country', name: 'Italy' },
-          { '@type': 'AdministrativeArea', name: 'European Union' },
-        ],
         knowsAbout: [
           'contemporary art',
           'art market intelligence',
@@ -112,7 +108,6 @@ export function siteSchema() {
           '@type': 'ContactPoint',
           contactType: CONTACT.emails[0].role.toLowerCase(),
           email: CONTACT.emails[0].address.toLowerCase(),
-          areaServed: 'IT',
           availableLanguage: ['English', 'Italian'],
         },
         /* The whole point of the graph: these accounts and this organisation

@@ -34,16 +34,16 @@ export default function ArtPage() {
     >
       <section aria-labelledby="art-market-intelligence-heading" className="u-gutter pt-10 sm:pt-12">
         <Reveal className="mx-auto max-w-3xl border border-rule bg-ink-850/60 p-6 sm:p-8">
-          <p className="u-label text-amber-400">ART MARKET INTELLIGENCE · VERONA, ITALY</p>
+          <p className="u-label text-amber-400">ART MARKET INTELLIGENCE · RESEARCH</p>
           <h2 id="art-market-intelligence-heading" className="mt-4 text-title font-extralight text-paper">
             Art Market Intelligence &amp; Artist Positioning
           </h2>
           <p className="mt-4 text-body font-light text-mist-200">
-            Alongside the essays and archival notes in <em>Art Notes</em>, BJ Beyond leads an art market intelligence practice in Verona, Italy—combining artist valuation &amp; positioning, market and auction analysis, decision-focused data systems, and AI + Human Edge strategy with the Phoenix Soulfire™ human judgment review.
+            Alongside the essays and archival notes in <em>Art Notes</em>, BJ Beyond researches and writes about art market intelligence: artist positioning, market and auction context, and the Phoenix Soulfire™ human judgment layer. It is research, not a service — no evaluations, authentication or valuations are offered.
           </p>
           <div className="mt-6 flex flex-wrap gap-6">
-            <ArrowLink href="/services/">Explore Art Market Intelligence &amp; Data Systems services</ArrowLink>
-            <ArrowLink href="/contact/">Enquire about an evaluation</ArrowLink>
+            <ArrowLink href="/focus/">Explore the research focus</ArrowLink>
+            <ArrowLink href="/method/">The Phoenix Soulfire™ method</ArrowLink>
           </div>
         </Reveal>
       </section>
@@ -80,7 +80,7 @@ export default function ArtPage() {
       <section className="u-gutter pb-[var(--spacing-section)]">
         <Reveal>
           <div className="flex flex-wrap items-center gap-x-10 gap-y-6">
-            <ArrowLink href="/services/">SERVICES</ArrowLink>
+            <ArrowLink href="/focus/">FOCUS</ArrowLink>
             <ArrowLink href="/contact/">{CONTACT.label.join(' ')}</ArrowLink>
           </div>
         </Reveal>
