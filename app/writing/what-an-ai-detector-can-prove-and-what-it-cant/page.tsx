@@ -546,12 +546,13 @@ export default function DetectorFollowupPage() {
               </p>
               <div className="mt-8 flex flex-wrap gap-6">
                 <ArrowLink href="/writing/claude-opus-5-vs-pangram/">
-                  Read the Claude Opus 5 vs Pangram test record
+                  Read the full Claude Opus 5 vs Pangram test
                 </ArrowLink>
                 <ArrowLink href={D.hackernoonTest} external>
                   Read the original experiment on HackerNoon
                 </ArrowLink>
                 <ArrowLink href="/human-edge/">Explore the Human Edge thesis</ArrowLink>
+                <ArrowLink href="/glossary/">Glossary of terms</ArrowLink>
               </div>
             </Reveal>
           </footer>

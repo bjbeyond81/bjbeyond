@@ -378,6 +378,7 @@ export default function MethodPage() {
             <ButtonLink href="https://phoenixsoulfire.bjbeyond.it/" external>
               Try the free Judgment Layer
             </ButtonLink>
+            <ArrowLink href="/glossary/">Glossary of terms</ArrowLink>
             <ArrowLink href="/contact/">Get in touch</ArrowLink>
           </div>
         </Reveal>

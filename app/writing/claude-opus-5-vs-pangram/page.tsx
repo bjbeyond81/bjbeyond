@@ -4,6 +4,7 @@ import { Reveal, RevealGroup, RevealItem } from '@/components/primitives/Reveal'
 import { ArrowLink } from '@/components/primitives/ArrowLink';
 import { PANGRAM_PAGE as P, SITE } from '@/lib/content';
 import { MEDIA } from '@/lib/media';
+import { PANGRAM_ARTICLE, type ArticleBlock } from '@/lib/pangram-article';
 import { absoluteUrl, metadataFor } from '@/lib/routes';
 
 const CANONICAL = absoluteUrl(P.path);
@@ -64,6 +65,38 @@ const SCHEMA = {
   ],
 };
 
+/* The full article body. Plain server-rendered markup, no Reveal: long-form
+   text should be readable and indexable without waiting for an animation. */
+function renderBlock(block: ArticleBlock, i: number) {
+  const key = `${block.type}-${i}`;
+  switch (block.type) {
+    case 'h2':
+      return <h2 key={key} className="mt-14 text-headline font-extralight text-paper">{block.text}</h2>;
+    case 'quote':
+      return (
+        <blockquote key={key} className="mt-8 border-l border-amber-400 pl-6">
+          <p className="text-title font-extralight text-paper">{block.text}</p>
+        </blockquote>
+      );
+    case 'list': {
+      const List = block.ordered ? 'ol' : 'ul';
+      return (
+        <List key={key} className={`mt-6 space-y-2 pl-6 text-body font-light text-mist-200 ${block.ordered ? 'list-decimal' : 'list-disc'}`}>
+          {block.items.map((item) => <li key={item.slice(0, 40)}>{item}</li>)}
+        </List>
+      );
+    }
+    case 'link':
+      return (
+        <p key={key} className="mt-6">
+          <a href={block.href} target="_blank" rel="noopener noreferrer" className="u-label text-amber-400 hover:text-paper">{block.text} ↗</a>
+        </p>
+      );
+    default:
+      return <p key={key} className="mt-6 text-body font-light text-mist-200">{block.text}</p>;
+  }
+}
+
 export default function PangramPage() {
   return (
     <PageShell
@@ -110,17 +143,8 @@ export default function PangramPage() {
               </a>
               {P.independence.after}
             </p>
-            {P.summary.map((para) => (
-              <p key={para.slice(0, 32)} className="mt-6 first:mt-0 text-body font-light text-mist-200">
-                {para}
-              </p>
-            ))}
-            <blockquote className="mt-10 border-l border-amber-400 pl-6">
-              <p className="text-title font-extralight text-paper">“{P.verdict}”</p>
-              <footer className="u-label mt-4 text-mist-400">— BJ Beyond</footer>
-            </blockquote>
-            <p className="mt-10 text-body font-light text-mist-300">{P.limits}</p>
           </Reveal>
+          <div className="mt-10">{PANGRAM_ARTICLE.map(renderBlock)}</div>
 
           <Reveal delay={0.1} className="mt-12 flex flex-col items-start gap-4">
             <a
@@ -190,8 +214,10 @@ export default function PangramPage() {
           </RevealGroup>
         </section>
 
-        <Reveal delay={0.1} className="mt-12">
+        <Reveal delay={0.1} className="mt-12 flex flex-wrap gap-x-10 gap-y-6">
           <ArrowLink href="/writing/">{P.back}</ArrowLink>
+          <ArrowLink href="/human-edge/">The Human Edge thesis</ArrowLink>
+          <ArrowLink href="/glossary/">Glossary</ArrowLink>
         </Reveal>
       </article>
     </PageShell>
