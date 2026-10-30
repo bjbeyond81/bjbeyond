@@ -11,7 +11,7 @@ import { siteSchema } from '@/lib/schema';
 import { PHOENIX } from '@/lib/phoenix';
 import { KOUNELLIS } from '@/lib/kounellis';
 
-const description = 'BJ Beyond is an independent writer in Verona, Italy exploring art, AI and human judgment through Human Edge and the Phoenix Experiment, with research on art market intelligence, data systems and AI + Human Edge.';
+const description = 'BJ Beyond is an independent writer in Verona, Italy, exploring art, AI and human judgment through the Human Edge thesis and the Phoenix Experiment.';
 const title = 'BJ Beyond — Independent Writer | Art, AI & Human Judgment';
 const baseMetadata = metadataFor('/');
 export const metadata: Metadata = {
@@ -29,11 +29,15 @@ const homeSchema = { ...schema, '@graph': schema['@graph'].map(node => {
 const quote = 'The biggest lie of the AI era? Believing that anyone who knows how to hit ‘enter’ will become an author, a designer, or a thinker.';
 const tests = ['Soul', 'Edge', 'Clarity', 'Impact', 'Legacy'];
 const articles = [...WRITING.articles].sort((a, b) => b.published.localeCompare(a.published));
+/* The Kounellis card is hand-built (original + translation links), so it is slotted into the date order rather than pinned on top. */
+const newerThanKounellis = articles.filter(a => a.published > KOUNELLIS.published);
+const olderThanKounellis = articles.filter(a => a.published <= KOUNELLIS.published);
 const inquiries = [
   { n: '01', title: 'Human Edge', text: 'Judgment, authorship and responsibility when machines generate the answers.', words: 'THINKING / AI / AUTHORSHIP', href: '/human-edge/' },
   { n: '02', title: 'Phoenix', text: 'A recovered record and a question: what can we verify when AI explains its own response?', words: 'EXPERIMENT / GROK / EVIDENCE', href: '/phoenix-experiment/' },
   { n: '03', title: 'Art & Meaning', text: 'Contemporary art, provenance and the human decisions behind cultural value.', words: 'ART / PROVENANCE / VALUE', href: '/art/' },
 ];
+const renderArticle = (article: (typeof articles)[number]) => { const isInternal = 'page' in article && article.href.startsWith('https://bjbeyond.it'); const href = isInternal ? article.page : article.href; return <a key={article.slug} href={href} target={isInternal ? undefined : "_blank"} rel={isInternal ? undefined : "noopener noreferrer"} className="edge-article"><div className="edge-article-body"><p className="edge-label">{article.topics[0]} <time dateTime={article.published}>{article.published.split("-").reverse().join(".")}</time></p><h3>{article.title}</h3><p>{article.standfirst}</p><span className="edge-article-link">{isInternal ? 'Read the essay' : 'Read the story'} <Arrow diagonal={!isInternal} /></span></div></a>; };
 function Arrow({ diagonal = false }: { diagonal?: boolean }) { return <span aria-hidden="true" className="edge-arrow">{diagonal ? '↗' : '→'}</span>; }
 export default function HomePage() {
   return <IntroProvider curtain={false}><SiteSchema data={homeSchema} /><HomeMotion /><Navigation /><main id="main" className="edge-home">
@@ -59,9 +63,10 @@ export default function HomePage() {
       <div className="edge-projects"><a href="/method/" className="edge-project"><div className="edge-project-image"><img src="/media/terrace-1024.webp" alt="Mist over still water from a terrace" width="1024" height="520" loading="lazy" /><span className="edge-project-index">01 / THE METHOD</span><span className="edge-project-arrow"><Arrow diagonal /></span></div><div className="edge-project-body"><h3>Phoenix Soulfire™</h3><p>A judgment framework: five tests for evaluating ideas.</p><div className="edge-tests">{tests.map(test => <span key={test}>{test}</span>)}</div></div></a>
       <a href="/phoenix/" className="edge-project"><div className="edge-project-image edge-signal" aria-hidden="true"><div className="edge-signal-grid" /><div className="edge-signal-ring ring-one" /><div className="edge-signal-ring ring-two" /><div className="edge-signal-ring ring-three" /><span className="edge-signal-core">PHX<span>RANKING SIMULATOR</span></span><span className="edge-project-index">02 / THE SYSTEM</span><span className="edge-project-arrow"><Arrow diagonal /></span></div><div className="edge-project-body"><h3>Phoenix Simulator</h3><p>An illustrative simulator exploring possible distribution signals, not X’s actual algorithm.</p><span className="edge-label">OPEN THE INTERACTIVE LAB <Arrow /></span></div></a></div>
     </section>
-    <section id="art" className="edge-art"><div className="edge-art-image"><img src="/media/nocturne-1600.webp" alt="" width="1600" height="812" loading="lazy" /></div><div className="edge-wrap edge-art-content"><p className="edge-label">03 / ART, VALUE & PROVENANCE</p><h2>Images are infinite.<br /><em>Meaning is not.</em></h2><p>Authorship. Provenance. The human story behind value.<br />What makes a work worth remembering when images are everywhere?</p><a href="/art/" className="edge-button">Explore art & provenance <Arrow diagonal /></a><a href="https://verify.authentia.it/" target="_blank" rel="noopener noreferrer" className="edge-art-note edge-label">WITH AUTHENTIA ARTE — VERIFIABLE AUTHORSHIP <Arrow diagonal /></a></div></section>
+    <section id="art" className="edge-art"><div className="edge-art-image"><img src="/media/nocturne-1600.webp" alt="Still water at night beneath the building" width="1600" height="812" loading="lazy" /></div><div className="edge-wrap edge-art-content"><p className="edge-label">03 / ART, VALUE & PROVENANCE</p><h2>Images are infinite.<br /><em>Meaning is not.</em></h2><p>Authorship. Provenance. The human story behind value.<br />What makes a work worth remembering when images are everywhere?</p><a href="/art/" className="edge-button">Explore art & provenance <Arrow diagonal /></a><a href="https://verify.authentia.it/" target="_blank" rel="noopener noreferrer" className="edge-art-note edge-label">WITH AUTHENTIA ARTE — VERIFIABLE AUTHORSHIP <Arrow diagonal /></a></div></section>
     <section id="writing" className="edge-writing edge-wrap"><div className="edge-section-heading"><div><p className="edge-label">04 / SELECTED WRITING</p><h2>Curiosity. <em>On the record.</em></h2></div><div className="edge-heading-links"><a href="/writing/" className="edge-text-link">All writing <Arrow /></a><a href="/writing/what-an-ai-detector-can-prove-and-what-it-cant/" className="edge-text-link">What an AI detector can prove <Arrow /></a><a href="/writing/claude-opus-5-vs-pangram/" className="edge-text-link">Claude Opus 5 vs Pangram: my public test <Arrow /></a><a href={WRITING.profile} target="_blank" rel="noopener noreferrer" className="edge-text-link">HackerNoon <Arrow diagonal /></a><a href="https://muckrack.com/bj_beyond" target="_blank" rel="noopener noreferrer" className="edge-text-link">Muck Rack portfolio <Arrow diagonal /></a></div></div>
       <div className="edge-articles">
+        {newerThanKounellis.map(renderArticle)}
         <article className="edge-article" aria-labelledby="kounellis-preview-title">
           <div className="edge-article-body">
             <p className="edge-label">ART &amp; HISTORY · TAMAGOZINE <time dateTime={KOUNELLIS.published}>14.10.2026</time></p>
@@ -73,7 +78,7 @@ export default function HomePage() {
             </div>
           </div>
         </article>
-        {articles.map(article => { const isInternal = 'page' in article && article.href.startsWith('https://bjbeyond.it'); const href = isInternal ? article.page : article.href; return <a key={article.slug} href={href} target={isInternal ? undefined : "_blank"} rel={isInternal ? undefined : "noopener noreferrer"} className="edge-article"><div className="edge-article-body"><p className="edge-label">{article.topics[0]} <time dateTime={article.published}>{article.published.split("-").reverse().join(".")}</time></p><h3>{article.title}</h3><p>{article.standfirst}</p><span className="edge-article-link">{isInternal ? 'Read the essay' : 'Read the story'} <Arrow diagonal={!isInternal} /></span></div></a>; })}
+        {olderThanKounellis.map(renderArticle)}
       </div>
     </section>
     <section id="work" className="edge-capabilities edge-wrap"><div className="edge-section-heading"><div><p className="edge-label">05 / LINES OF INQUIRY</p><h2>Questions worth <em>pursuing.</em></h2></div><div className="edge-heading-links"><a href="/focus/" className="edge-text-link">Research focus <Arrow /></a><a href="/about/" className="edge-text-link">About BJ Beyond <Arrow diagonal /></a></div></div><div className="edge-capability-list">{inquiries.map(item=><a href={item.href} className="edge-capability" key={item.n}><span className="edge-label">{item.n}</span><h3>{item.title}</h3><div><p>{item.text}</p><span className="edge-label">{item.words}</span></div><Arrow diagonal /></a>)}</div></section>
@@ -83,10 +88,11 @@ export default function HomePage() {
         <p className="edge-label" style={{ color: 'var(--edge-accent)', marginBottom: '20px' }}>SELECTED BY BJ BEYOND</p>
         <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '24px 40px' }}>
           <div>
-            <h2 id="myfo-title" style={{ marginBottom: '20px' }}><img src="/media/myfo-logo.png" alt="myfo design" width="400" height="200" loading="lazy" style={{ width: '180px', maxWidth: '100%', height: 'auto', objectFit: 'contain' }} /></h2>
+            <h2 id="myfo-title" style={{ marginBottom: '20px' }}><img src="/media/myfo-logo.png" alt="MYFO" width="400" height="200" loading="lazy" style={{ width: '180px', maxWidth: '100%', height: 'auto', objectFit: 'contain' }} /></h2>
             <p style={{ color: 'var(--edge-muted)', fontSize: '15px' }}>Product design &amp; hardware engineering. From idea to production.</p>
             <p style={{ color: 'var(--edge-muted)', fontSize: '15px', maxWidth: '640px', marginTop: '16px' }}>MYFO brings industrial design, engineering and prototyping together to develop new physical products and improve existing ones. The same team follows each project through testing and into production.</p>
             <p style={{ fontSize: '15px', maxWidth: '640px', marginTop: '12px' }}>An approach that connects with the questions explored here: how ideas take shape through human judgment, practical decisions and real-world testing.</p>
+            <p className="edge-label" style={{ color: 'var(--edge-muted)', marginTop: '16px' }}>A friend’s studio, featured independently. No collaboration, sponsorship or compensation.</p>
           </div>
           <a href="https://myfodesign.com/" target="_blank" rel="noopener noreferrer" className="edge-text-link">Explore MYFO <Arrow diagonal /></a>
         </div>
