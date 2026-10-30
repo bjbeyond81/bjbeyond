@@ -8,12 +8,12 @@ import { SITE } from '@/lib/content';
 import { absoluteUrl, metadataFor } from '@/lib/routes';
 
 /**
- * /it/human-edge-apps/ — Italian version of /human-edge-apps/: the two flagship apps, Quiete and Twin, with links to the store.
- * Prices and facts from the store listings and the Twin user guide (2026-10-29).
+ * /it/human-edge-apps/ — Italian version with Quiete, Twin and Rimbalzo.
+ * Rimbalzo facts checked against the live app and its PDF guides (2026-10-30).
  * Never put an activation code on this page.
  */
 const base = metadataFor('/it/human-edge-apps/');
-const OG = { url: '/media/apps/og-apps.jpg', width: 1200, height: 630, alt: 'Quiete e Twin, due app di BJ Beyond' };
+const OG = { url: '/media/apps/og-apps.jpg', width: 1200, height: 630, alt: 'Quiete e Twin di BJ Beyond' };
 export const metadata: Metadata = {
   ...base,
   alternates: {
@@ -105,6 +105,38 @@ const APPS: readonly App[] = [
       ['/media/apps/twin-en-dark.jpg', 'Twin: tema scuro'],
     ],
   },
+  {
+    id: 'rimbalzo',
+    name: 'Rimbalzo',
+    icon: '/media/apps/icon-rimbalzo.svg',
+    line: 'Le tue parole diventano un regalo digitale. Un piccolo gesto che può continuare.',
+    price: '€9',
+    priceValue: '9.00',
+    buy: 'https://bjbeyond.studio/it/products/digital-product',
+    checkout: 'https://bjbeyond.studio/cart/61461163770190:1',
+    buyIt: 'https://bjbeyond.studio/it/products/digital-product',
+    open: 'https://rimbalzo.kimi.pro/',
+    intro:
+      'Scrivi una dedica personale, scegli uno stile e condividi una busta digitale. Chi riceve apre il sigillo, legge il messaggio e può far proseguire il gesto con una nuova dedica. L’acquisto comprende le guide PDF in italiano e inglese, con il link all’app e le istruzioni. L’app funziona online nel browser, senza installazione né account.',
+    features: [
+      'Una dedica personale fino a 600 caratteri',
+      'Tre spunti: una cosa che ammiri, un ricordo o un augurio',
+      'Stili Sage, Paper e Sun con anteprima dal vivo',
+      'Link pubblico della busta da inviare via chat o e-mail',
+      'Cartolina scaricabile in PNG',
+      'Possibilità di far rimbalzare il gesto; app in italiano e inglese',
+    ],
+    privacy: [
+      'I regali vengono salvati online: chiunque abbia il link pubblico può leggerli. Evita informazioni sensibili.',
+      'Conserva privatamente il link di gestione: serve per eliminare il regalo e non è recuperabile se viene perso.',
+      'La cancellazione non elimina PNG o copie già salvate da altri. Non serve un account.',
+    ],
+    shots: [
+      ['https://cdn.shopify.com/s/files/1/1079/7871/9566/files/rimbalzo-07-home-it.jpg?v=1793399999', 'Rimbalzo: una dedica digitale personale'],
+      ['https://cdn.shopify.com/s/files/1/1079/7871/9566/files/rimbalzo-03-sage-style-en.jpg?v=1793399999', 'Rimbalzo: scelta tra gli stili Sage, Paper e Sun, schermata in inglese'],
+      ['https://cdn.shopify.com/s/files/1/1079/7871/9566/files/rimbalzo-08-come-funziona-it.jpg?v=1793399999', 'Rimbalzo: scrivi, invia e fai continuare il gesto'],
+    ],
+  },
 ];
 
 const schema = {
@@ -114,7 +146,7 @@ const schema = {
       '@type': 'WebPage',
       '@id': absoluteUrl('/it/human-edge-apps/'),
       url: absoluteUrl('/it/human-edge-apps/'),
-      name: 'Human Edge Apps — Quiete e Twin',
+      name: 'Human Edge Apps — Quiete, Twin e Rimbalzo',
       inLanguage: 'it',
       isPartOf: { '@type': 'WebSite', url: SITE.url, name: SITE.name },
     },
@@ -122,8 +154,8 @@ const schema = {
       '@type': 'SoftwareApplication',
       name: app.name,
       description: `${app.line} ${app.intro}`,
-      applicationCategory: app.id === 'twin' ? 'LifestyleApplication' : 'HealthApplication',
-      operatingSystem: 'Web browser (PWA)',
+      applicationCategory: app.id === 'quiete' ? 'HealthApplication' : 'LifestyleApplication',
+      operatingSystem: app.id === 'rimbalzo' ? 'Web browser' : 'Web browser (PWA)',
       url: app.open,
       image: absoluteUrl(app.icon),
       author: { '@type': 'Person', name: 'BJ Beyond', url: SITE.url },
@@ -143,8 +175,8 @@ export default function HumanEdgeAppsPageIt() {
     <PageShell
       lang="it"
       eyebrow="PICCOLI STRUMENTI PER LA VITA INTERIORE"
-      title={['Human Edge Apps:', 'Quiete e Twin']}
-      standfirst="Scrivo del margine umano: ciò che resta nostro quando le macchine fanno di più. Queste due app sono la stessa idea, resa qualcosa da usare. Private per scelta, con un’IA che gira sul tuo dispositivo."
+      title={['Human Edge Apps:', 'Quiete, Twin e Rimbalzo']}
+      standfirst="Scrivo del margine umano: ciò che resta nostro quando le macchine fanno di più. Tre app trasformano questa idea in gesti quotidiani: ritrovare la calma con Quiete, conservare i ricordi con Twin e dedicare un pensiero a qualcuno con Rimbalzo."
       media={MEDIA.backdrop}
       schema={schema}
     >
@@ -154,7 +186,7 @@ export default function HumanEdgeAppsPageIt() {
             <a className="underline hover:text-amber-400" href="/human-edge-apps/" hrefLang="en" lang="en">Read this page in English</a>
           </p>
         </Reveal>
-        <ul className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
+        <ul className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {APPS.map((app) => (
             <li key={app.id} className="flex flex-col border border-rule p-8">
               <img src={app.icon} alt={`Icona dell’app ${app.name}`} width={72} height={72} className="h-[72px] w-[72px] rounded-2xl" />
@@ -180,7 +212,7 @@ export default function HumanEdgeAppsPageIt() {
           </Reveal>
           <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
             {app.shots.map(([src, alt]) => (
-              <img key={src} src={src} alt={alt} loading="lazy" width={1080} height={1350} className="h-auto w-full" />
+              <img key={src} src={src} alt={alt} loading="lazy" width={app.id === 'rimbalzo' ? 1348 : 1080} height={app.id === 'rimbalzo' ? 926 : 1350} className="h-auto w-full" />
             ))}
           </div>
           <div className="mt-12 grid grid-cols-1 gap-10 sm:grid-cols-2">

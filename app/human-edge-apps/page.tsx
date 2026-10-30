@@ -8,12 +8,12 @@ import { SITE } from '@/lib/content';
 import { absoluteUrl, metadataFor } from '@/lib/routes';
 
 /**
- * /apps/ — the two flagship apps, Quiete and Twin, with links to the store.
- * Prices and facts from the store listings and the Twin user guide (2026-10-29).
+ * /human-edge-apps/ — Quiete, Twin and Rimbalzo, with links to the store.
+ * Rimbalzo facts checked against the live app and its PDF guides (2026-10-30).
  * Never put an activation code on this page.
  */
 const base = metadataFor('/human-edge-apps/');
-const OG = { url: '/media/apps/og-apps.jpg', width: 1200, height: 630, alt: 'Quiete and Twin, two apps by BJ Beyond' };
+const OG = { url: '/media/apps/og-apps.jpg', width: 1200, height: 630, alt: 'Quiete and Twin by BJ Beyond' };
 export const metadata: Metadata = {
   ...base,
   alternates: {
@@ -105,6 +105,38 @@ const APPS: readonly App[] = [
       ['/media/apps/twin-en-dark.jpg', 'Twin: dark mode'],
     ],
   },
+  {
+    id: 'rimbalzo',
+    name: 'Rimbalzo',
+    icon: '/media/apps/icon-rimbalzo.svg',
+    line: 'Your words become a digital gift. A small gesture that can travel on.',
+    price: '€9',
+    priceValue: '9.00',
+    buy: 'https://bjbeyond.studio/products/digital-product',
+    checkout: 'https://bjbeyond.studio/cart/61461163770190:1',
+    buyIt: 'https://bjbeyond.studio/it/products/digital-product',
+    open: 'https://rimbalzo.kimi.pro/',
+    intro:
+      'Write a personal dedication, choose a visual style and share a digital envelope. The recipient opens the seal, reads your message and can pass the gesture on with a new dedication. Your purchase includes PDF starter guides in English and Italian with the app link and instructions. The app runs online in your browser, with no installation or account.',
+    features: [
+      'A personal dedication of up to 600 characters',
+      'Three prompts: admiration, a shared memory or a wish',
+      'Sage, Paper and Sun styles with a live preview',
+      'Share the public envelope link by chat or email',
+      'Download the postcard as a PNG',
+      'Pass the gesture on; app interface in English and Italian',
+    ],
+    privacy: [
+      'Gifts are saved online and can be read by anyone with their public link. Avoid sensitive information.',
+      'Keep the separate management link private: it is needed to delete the gift and cannot be recovered if lost.',
+      'Deleting a gift does not remove PNGs or copies already saved by others. No account is required.',
+    ],
+    shots: [
+      ['https://cdn.shopify.com/s/files/1/1079/7871/9566/files/rimbalzo-01-home-en.jpg?v=1793399999', 'Rimbalzo: a personal digital dedication'],
+      ['https://cdn.shopify.com/s/files/1/1079/7871/9566/files/rimbalzo-03-sage-style-en.jpg?v=1793399999', 'Rimbalzo: choose the Sage, Paper or Sun style'],
+      ['https://cdn.shopify.com/s/files/1/1079/7871/9566/files/rimbalzo-06-how-it-works-en.jpg?v=1793399998', 'Rimbalzo: write, send and pass the gesture on'],
+    ],
+  },
 ];
 
 const schema = {
@@ -114,7 +146,7 @@ const schema = {
       '@type': 'WebPage',
       '@id': absoluteUrl('/human-edge-apps/'),
       url: absoluteUrl('/human-edge-apps/'),
-      name: 'Human Edge Apps — Quiete & Twin',
+      name: 'Human Edge Apps — Quiete, Twin & Rimbalzo',
       inLanguage: 'en',
       isPartOf: { '@type': 'WebSite', url: SITE.url, name: SITE.name },
     },
@@ -122,8 +154,8 @@ const schema = {
       '@type': 'SoftwareApplication',
       name: app.name,
       description: `${app.line} ${app.intro}`,
-      applicationCategory: app.id === 'twin' ? 'LifestyleApplication' : 'HealthApplication',
-      operatingSystem: 'Web browser (PWA)',
+      applicationCategory: app.id === 'quiete' ? 'HealthApplication' : 'LifestyleApplication',
+      operatingSystem: app.id === 'rimbalzo' ? 'Web browser' : 'Web browser (PWA)',
       url: app.open,
       image: absoluteUrl(app.icon),
       author: { '@type': 'Person', name: 'BJ Beyond', url: SITE.url },
@@ -142,8 +174,8 @@ export default function HumanEdgeAppsPage() {
   return (
     <PageShell
       eyebrow="SMALL TOOLS FOR THE INNER LIFE"
-      title={['Human Edge Apps:', 'Quiete & Twin']}
-      standfirst="I write about the human edge: what stays ours when machines do more. These two apps are the same idea, built to be used. Private by design, with AI that runs on your own device."
+      title={['Human Edge Apps:', 'Quiete, Twin & Rimbalzo']}
+      standfirst="I write about the human edge: what stays ours when machines do more. Three apps turn that idea into everyday gestures: find calm with Quiete, keep your memories with Twin, or send a personal thought with Rimbalzo."
       media={MEDIA.backdrop}
       schema={schema}
     >
@@ -153,7 +185,7 @@ export default function HumanEdgeAppsPage() {
             <a className="underline hover:text-amber-400" href="/it/human-edge-apps/" hrefLang="it" lang="it">Leggi questa pagina in italiano</a>
           </p>
         </Reveal>
-        <ul className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
+        <ul className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {APPS.map((app) => (
             <li key={app.id} className="flex flex-col border border-rule p-8">
               <img src={app.icon} alt={`${app.name} app icon`} width={72} height={72} className="h-[72px] w-[72px] rounded-2xl" />
@@ -179,7 +211,7 @@ export default function HumanEdgeAppsPage() {
           </Reveal>
           <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
             {app.shots.map(([src, alt]) => (
-              <img key={src} src={src} alt={alt} loading="lazy" width={1080} height={1350} className="h-auto w-full" />
+              <img key={src} src={src} alt={alt} loading="lazy" width={app.id === 'rimbalzo' ? 1348 : 1080} height={app.id === 'rimbalzo' ? 926 : 1350} className="h-auto w-full" />
             ))}
           </div>
           <div className="mt-12 grid grid-cols-1 gap-10 sm:grid-cols-2">

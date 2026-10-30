@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" role="img" aria-label="Rimbalzo">
+  <rect width="72" height="72" rx="16" fill="#aec3ae"/>
+  <path d="M13 25h46v31H13z" fill="#f7f6ef" stroke="#17281d" stroke-width="1.5"/>
+  <path d="m13 25 23 18 23-18" fill="none" stroke="#17281d" stroke-width="1.5"/>
+  <circle cx="36" cy="43" r="5" fill="#e62d59"/>
+  <path d="M22 14h28v17H22z" fill="#f7f6ef" stroke="#17281d" stroke-width="1.5"/>
+  <path d="M28 20h16m-16 5h11" fill="none" stroke="#17281d" stroke-width="1.5"/>
+</svg>
