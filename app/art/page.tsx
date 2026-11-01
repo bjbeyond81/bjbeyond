@@ -62,6 +62,17 @@ export default function ArtPage() {
         </Reveal>
       </section>
 
+      <section aria-labelledby="kostabi-teaser" className="u-gutter pb-[var(--spacing-section)]">
+        <Reveal className="mx-auto max-w-3xl border-t border-rule pt-10">
+          <p className="u-label text-amber-400">Art &amp; music · Tamago-Zine · English translation · October 18, 2026</p>
+          <h2 id="kostabi-teaser" className="mt-6 text-headline font-extralight text-paper">Use Your Illusion: The Painting, the Title, and the Unverified $75,000</h2>
+          <p className="mt-6 text-body font-light text-mist-200">Mark Kostabi, Axl Rose and the Guns N’ Roses album covers: the documented history, the disputed payment and the rights behind the artwork.</p>
+          <div className="mt-6 flex flex-wrap gap-6">
+            <ArrowLink href="/art/use-your-illusion/">Read the English translation</ArrowLink>
+          </div>
+        </Reveal>
+      </section>
+
       {ART.articles.length > 0 ? (
         <section className="u-gutter pb-[var(--spacing-section)]">
           <RevealGroup>
