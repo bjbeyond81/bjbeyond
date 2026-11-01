@@ -167,6 +167,15 @@ export const ROUTES: readonly SiteRoute[] = [
     changeFrequency: 'monthly',
   },
   {
+    /* English edition of the Tamago-Zine art essay, linked from Art and Writing. */
+    path: '/art/use-your-illusion/',
+    title: 'Use Your Illusion — Mark Kostabi, Axl Rose and the Unverified $75,000',
+    description:
+      'An English edition of the Tamago-Zine investigation into Mark Kostabi, Axl Rose, the Guns N’ Roses album covers and the disputed licensing fee.',
+    priority: 0.7,
+    changeFrequency: 'yearly',
+  },
+  {
     path: '/books/',
     label: 'BOOKS',
     title: 'Books',
