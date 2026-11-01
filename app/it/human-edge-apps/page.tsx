@@ -49,9 +49,9 @@ const APPS: readonly App[] = [
     line: 'Un posto tranquillo per respirare, ritrovare il contatto con il presente e ascoltare come ti senti.',
     price: '€15',
     priceValue: '15.00',
-    buy: 'https://bjbeyond.studio/it/products/quiete-app-supporto-emotivo',
+    buy: 'https://bjbeyond.studio/it/products/emotional-support-app-quiete',
     checkout: 'https://bjbeyond.studio/cart/61443804856654:1',
-    buyIt: 'https://bjbeyond.studio/it/products/quiete-app-supporto-emotivo',
+    buyIt: 'https://bjbeyond.studio/it/products/emotional-support-app-quiete',
     open: 'https://bjbeyond81.github.io/apps/quiete/',
     intro:
       'Quiete è una web app di supporto emotivo e respirazione che puoi installare sul telefono. La versione completa include un codice di attivazione e una guida in PDF.',
@@ -80,9 +80,9 @@ const APPS: readonly App[] = [
     line: 'Un diario privato e cifrato, con un’IA che resta sul tuo dispositivo.',
     price: '€29',
     priceValue: '29.00',
-    buy: 'https://bjbeyond.studio/it/products/twin-private-diary-app',
+    buy: 'https://bjbeyond.studio/it/products/private-diary-app-twin',
     checkout: 'https://bjbeyond.studio/cart/61444088627534:1',
-    buyIt: 'https://bjbeyond.studio/it/products/twin-private-diary-app',
+    buyIt: 'https://bjbeyond.studio/it/products/private-diary-app-twin',
     open: 'https://bjbeyond81.github.io/apps/twin/',
     intro:
       'Twin è un diario per i giorni che vale la pena ricordare. Scrivi o registra la tua giornata, segui umore e sonno, poi fai domande all’IA sui tuoi ricordi. Lo attivi una volta sola con il codice che ricevi con l’acquisto. Non serve nessun account.',
