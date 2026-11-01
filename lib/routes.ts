@@ -198,24 +198,6 @@ export const ROUTES: readonly SiteRoute[] = [
     changeFrequency: 'monthly',
   },
   {
-    path: '/human-edge-apps/',
-    label: 'HUMAN EDGE APPS',
-    title: 'Human Edge Apps — Quiete, Twin & Rimbalzo',
-    description:
-      'Human Edge Apps by BJ Beyond: find calm with Quiete, keep a private diary with Twin, and send a personal digital dedication with Rimbalzo.',
-    priority: 0.85,
-    changeFrequency: 'monthly',
-  },
-  {
-    /* Italian twin of /human-edge-apps/. Unlabelled: linked from the EN page, not the menu. */
-    path: '/it/human-edge-apps/',
-    title: 'Human Edge Apps — Quiete, Twin e Rimbalzo',
-    description:
-      'Le Human Edge Apps di BJ Beyond: ritrova la calma con Quiete, conserva i ricordi con Twin e regala una dedica digitale personale con Rimbalzo.',
-    priority: 0.8,
-    changeFrequency: 'monthly',
-  },
-  {
     path: '/focus/',
     title: 'Focus — Art Market, Data & AI Research',
     description:
