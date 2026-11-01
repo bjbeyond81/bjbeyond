@@ -32,17 +32,18 @@ export const dynamic = 'force-static';
  */
 const SITE_WIDE = '2026-10-07';
 const LASTMOD: Record<string, string> = {
-  '/': '2026-10-30',
+  '/': '2026-11-01',
   '/human-edge/': '2026-10-30',
   '/phoenix-experiment/': SITE_WIDE,
   '/method/': '2026-10-30',
-  '/writing/': '2026-10-30',
+  '/writing/': '2026-11-01',
   '/writing/claude-opus-5-vs-pangram/': '2026-10-30',
   '/writing/what-an-ai-detector-can-prove-and-what-it-cant/': '2026-10-30',
   '/writing/kounellis-italics/': '2026-10-30',
   '/glossary/': '2026-10-30',
   '/about/': '2026-10-30',
-  '/art/': '2026-10-30',
+  '/art/': '2026-11-01',
+  '/art/use-your-illusion/': '2026-11-01',
   '/labs/': '2026-10-30',
   '/labs/apps/': '2026-10-29',
   '/human-edge-apps/': '2026-10-30',
