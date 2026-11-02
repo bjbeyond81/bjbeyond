@@ -1,2 +1,122 @@
-/* Restored working version. New route added below use-your-illusion. */
-// Full content is the previous good one with the addition of the promise page.
+/**
+ * Every URL this site publishes, in one place.
+ *
+ * WHY THIS FILE EXISTS. The site used to be one document: `/` carried the whole
+ * narrative and the navigation moved through it with anchors. An anchor is not
+ * a URL — Google cannot return `#work` as a result, GA4 records every visit
+ * against `/`, and a Meta campaign cannot be pointed at a destination that does
+ * not exist, nor given a link preview of its own. This manifest is the list of
+ * things that ARE addresses. The sitemap, the navigation and each page's
+ * metadata all read it, so publishing a page and announcing it cannot drift
+ * apart.
+ *
+ * TRAILING SLASHES ARE PART OF THE PATH. `next.config.mjs` sets
+ * `trailingSlash: true`, so the URL a browser lands on is `/method/`, not
+ * `/method`. Write them here exactly as served: a canonical or a sitemap entry
+ * missing the slash names a URL that redirects, which is a wasted crawl and a
+ * split signal.
+ *
+ * COPY STILL LIVES IN `lib/content.ts`. The titles and descriptions below are
+ * imported from it rather than retyped — a meta description that quietly
+ * diverges from the page it describes is the usual way this kind of file rots.
+ * The only strings written here are the menu labels, which are names of
+ * destinations rather than prose.
+ */
+import type { MetadataRoute } from 'next';
+import { BOOKS, CONTACT, DETECTOR_FOLLOWUP_PAGE, DISPATCH, GLOSSARY, METHOD, PANGRAM_PAGE, SITE } from './content';
+import { KOUNELLIS } from './kounellis';
+
+export interface SiteRoute {
+  /** Path as served, leading and trailing slash included. */
+  path: string;
+  /** Menu label. A route without one is reachable but unlisted. */
+  label?: string;
+  /** Feeds `<title>`, through the `%s — BJ Beyond` template in app/layout.tsx. */
+  title?: string;
+  /** Feeds the meta description and the Open Graph / Twitter card. */
+  description?: string;
+  /**
+   * Relative to the other entries here and nothing else — a hint about this
+   * site's own shape, not a score compared between domains.
+   */
+  priority: number;
+  changeFrequency: NonNullable<MetadataRoute.Sitemap[number]['changeFrequency']>;
+  /**
+   * Not an App Router route: a directory in `public/` holding its own
+   * `index.html`. Still a real, indexable URL — which is all the sitemap cares
+   * about — but it must be linked with a plain `<a>`, never `next/link`, which
+   * would try to resolve it client-side. See README.
+   */
+  outsideRouter?: true;
+  /**
+   * The URL is decided, the page is not live yet. Excluded from the menu and
+   * from the sitemap: announcing a URL that 404s spends crawl budget to teach
+   * Google the site is unreliable, and a menu entry leading nowhere is worse
+   * than both.
+   *
+   * Two different reasons land here. `/art/` and `/books/` have no copy yet —
+   * `lib/content.ts` holds the rule that nothing on this site is invented, so
+   * they wait for the owner's own words. `/dispatch/` has copy and no page:
+   * its card markup lives inline inside the homepage section and wants
+   * extracting before it can be rendered twice, which is a refactor that buys
+   * nothing until the page is actually wanted.
+   *
+   * The entries stay here either way, so the URLs are settled before anything
+   * links to them. Flip the flag off — do not delete it — when the page ships.
+   */
+  draft?: true;
+}
+
+export const ROUTES: readonly SiteRoute[] = [
+  { path: '/', label: 'HOME', priority: 1.0, changeFrequency: 'weekly' },
+  { path: '/human-edge/', label: 'HUMAN EDGE', title: 'Human Edge — Human Judgment for the AI Era', description: 'The BJ Beyond thesis: AI can generate and data can measure, but human judgment decides what matters. Principles, public record and essays on AI and authorship.', priority: 0.95, changeFrequency: 'monthly' },
+  { path: '/phoenix-experiment/', label: 'PHOENIX CASE', title: 'Phoenix Experiment — Evidence Room', description: 'The recovered Phoenix record: a text-only call, Grok image replies, later questions and explicit limits. Companion to a report published on HackerNoon.', priority: 0.95, changeFrequency: 'monthly' },
+  { path: '/method/', label: 'METHOD', title: 'Phoenix Soulfire™', description: METHOD.description, priority: 0.9, changeFrequency: 'monthly' },
+  { path: '/writing/', label: 'WRITING', title: 'Writing — AI, Technology & Human Judgment', description: 'Essays and public experiments by BJ Beyond on AI detection, authorship, provenance, art and the human edge, on-site and on HackerNoon.', priority: 0.8, changeFrequency: 'monthly' },
+  { path: PANGRAM_PAGE.path, title: PANGRAM_PAGE.seoTitle, description: PANGRAM_PAGE.description, priority: 0.7, changeFrequency: 'yearly' },
+  { path: DETECTOR_FOLLOWUP_PAGE.path, title: DETECTOR_FOLLOWUP_PAGE.headline, description: DETECTOR_FOLLOWUP_PAGE.description, priority: 0.8, changeFrequency: 'monthly' },
+  { path: KOUNELLIS.path, title: KOUNELLIS.seoTitle, description: KOUNELLIS.description, priority: 0.7, changeFrequency: 'yearly' },
+  { path: GLOSSARY.path, title: GLOSSARY.title, description: GLOSSARY.description, priority: 0.7, changeFrequency: 'monthly' },
+  { path: '/about/', label: 'ABOUT', title: 'About — Independent Writer on Art, AI & Judgment', description: 'BJ Beyond is an independent writer in Verona, Italy, exploring art, AI, authorship and human judgment through essays and public experiments.', priority: 0.8, changeFrequency: 'monthly' },
+  { path: '/art/', label: 'ART', title: 'Art Market Intelligence', description: 'Writing and research on art market intelligence, artist positioning, authorship and provenance. Selected reels from Authentia Arte.', priority: 0.9, changeFrequency: 'monthly' },
+  { path: '/art/use-your-illusion/', title: 'Use Your Illusion — Mark Kostabi, Axl Rose and the Unverified $75,000', description: 'An English edition of the Tamago-Zine investigation into Mark Kostabi, Axl Rose, the Guns N’ Roses album covers and the disputed licensing fee.', priority: 0.7, changeFrequency: 'yearly' },
+  { path: '/art/a-promise-that-lasted-seven-years/', title: 'A Promise That Lasted Seven Years — Julian T. IMPACT', description: 'An English edition of the Tamago-Zine essay on a seven-year promise, from a red IMPACT at ArtePadova to a white work linked to the Tanzania Pavilion project.', priority: 0.7, changeFrequency: 'yearly' },
+  { path: '/books/', label: 'BOOKS', title: 'Books', description: BOOKS.standfirst, priority: 0.9, changeFrequency: 'monthly', draft: true },
+  { path: '/labs/', label: 'LABS', title: 'The Labs — AI Tools & Simulators', description: 'Interactive experiments by BJ Beyond Labs: an illustrative X ranking simulator, a judgment analyzer and a binaural sound studio. Free, in the browser.', priority: 0.8, changeFrequency: 'monthly' },
+  { path: '/labs/apps/', title: 'The Offline Apps Experiment — Lab Log', description: 'Lab log: can one human building with AI ship useful, private, offline tools paid for once? Every app and pack from BJ Beyond Studio.', priority: 0.7, changeFrequency: 'monthly' },
+  { path: '/focus/', title: 'Focus — Art Market, Data & AI Research', description: 'Three lines of research and writing by BJ Beyond: art market intelligence, decision-focused data systems, and AI + Human Edge.', priority: 0.9, changeFrequency: 'monthly' },
+  { path: '/dispatch/', label: 'DISPATCH', title: 'Dispatch', description: DISPATCH.description, priority: 0.7, changeFrequency: 'weekly', draft: true },
+  { path: '/contact/', title: 'Contact — Editorial Enquiries & Interviews', description: CONTACT.description, priority: 0.8, changeFrequency: 'yearly' },
+  { path: '/phoenix/', priority: 0.7, changeFrequency: 'monthly', outsideRouter: true },
+  { path: '/frequency/', priority: 0.7, changeFrequency: 'monthly', outsideRouter: true },
+  { path: '/privacy-policy/', priority: 0.3, changeFrequency: 'yearly' },
+  { path: '/cookie-policy/', priority: 0.3, changeFrequency: 'yearly' },
+  { path: '/terms/', priority: 0.3, changeFrequency: 'yearly' },
+  { path: '/disclaimer/', priority: 0.3, changeFrequency: 'yearly' },
+] as const;
+
+export const NAV_ROUTES = ROUTES.filter((route): route is SiteRoute & { label: string } => route.label !== undefined && !route.draft);
+export const INDEXABLE_ROUTES = ROUTES.filter((route) => !route.draft);
+
+export function withSlash(path: string): string { return path.endsWith('/') ? path : `${path}/`; }
+export function absoluteUrl(path: string): string { return new URL(path, SITE.url).toString(); }
+export function routeFor(path: string): SiteRoute {
+  const match = ROUTES.find((route) => route.path === path);
+  if (!match) throw new Error(`No route declared in lib/routes.ts for "${path}"`);
+  return match;
+}
+
+const OG_IMAGE = { url: '/opengraph-image.jpg', width: 1200, height: 630, alt: SITE.ogAlt } as const;
+
+export function metadataFor(path: string) {
+  const route = routeFor(path);
+  const cardTitle = route.title ? `${route.title} — ${SITE.name}` : undefined;
+  return {
+    title: route.title,
+    description: route.description,
+    alternates: { canonical: route.path, types: { 'application/rss+xml': '/feed.xml' } },
+    openGraph: { type: 'website' as const, url: route.path, title: cardTitle, description: route.description, siteName: SITE.name, images: [OG_IMAGE] },
+    twitter: { card: 'summary_large_image' as const, title: cardTitle, description: route.description, images: [OG_IMAGE] },
+    ...(route.draft ? { robots: { index: false, follow: false } } : {}),
+  };
+}
