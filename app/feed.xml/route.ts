@@ -1,5 +1,6 @@
 import { WRITING, SITE } from '@/lib/content';
 import { KOUNELLIS } from '@/lib/kounellis';
+import { ART_EDITIONS } from '@/lib/editions';
 import { absoluteUrl } from '@/lib/routes';
 
 /* Static export: generated once at build time, like sitemap.ts. */
@@ -15,6 +16,7 @@ export function GET() {
   const items = [
     ...WRITING.articles.map((a) => ({ title: a.title, link: a.href, description: a.standfirst, date: a.published })),
     { title: KOUNELLIS.title, link: absoluteUrl(KOUNELLIS.path), description: KOUNELLIS.standfirst, date: KOUNELLIS.published },
+    ...ART_EDITIONS.map((e) => ({ title: e.title, link: absoluteUrl(e.path), description: e.description, date: e.published })),
   ].sort((a, b) => b.date.localeCompare(a.date));
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>

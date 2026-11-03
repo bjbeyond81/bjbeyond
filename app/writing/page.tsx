@@ -7,6 +7,8 @@ import { MEDIA } from '@/lib/media';
 import { metadataFor } from '@/lib/routes';
 import { PHOENIX } from '@/lib/phoenix';
 import { KOUNELLIS } from '@/lib/kounellis';
+import { ART_EDITIONS, THINK_BEYOND_AI } from '@/lib/editions';
+import { absoluteUrl } from '@/lib/routes';
 
 export const metadata: Metadata = metadataFor('/writing/');
 
@@ -18,7 +20,29 @@ const AUTHOR = { '@type': 'Person', name: 'BJ Beyond', url: 'https://bjbeyond.it
  * engines attribute the pieces (and the experiments they report) to BJ Beyond.
  * It mirrors the card data only — no copy is added here.
  */
-function writingSchema(articles: readonly (typeof WRITING.articles)[number][]) {
+type ListedPost = { url: string; headline: string; description: string; datePublished: string; publisher: { name: string; url: string }; keywords?: string; translationOf?: { name: string; url: string } };
+
+const SELF = { name: 'BJ Beyond', url: 'https://bjbeyond.it/' };
+
+/** Every piece the page lists, in on-page order, as one ItemList. */
+function listedPosts(articles: readonly (typeof WRITING.articles)[number][]): ListedPost[] {
+  return [
+    ...articles.map((article) => ({
+      url: article.href,
+      headline: article.title,
+      description: article.standfirst,
+      datePublished: article.published,
+      publisher: article.href.startsWith('https://bjbeyond.it') ? SELF : { name: 'HackerNoon', url: 'https://hackernoon.com/' },
+      keywords: article.topics.join(', '),
+    })),
+    { url: THINK_BEYOND_AI.href, headline: THINK_BEYOND_AI.title, description: THINK_BEYOND_AI.description, datePublished: THINK_BEYOND_AI.published, publisher: THINK_BEYOND_AI.publisher },
+    { url: absoluteUrl(ART_EDITIONS[0].path), headline: ART_EDITIONS[0].title, description: ART_EDITIONS[0].description, datePublished: ART_EDITIONS[0].published, publisher: SELF, translationOf: { name: ART_EDITIONS[0].originalTitle, url: ART_EDITIONS[0].original } },
+    { url: absoluteUrl(KOUNELLIS.path), headline: KOUNELLIS.title, description: KOUNELLIS.description, datePublished: KOUNELLIS.published, publisher: SELF, translationOf: { name: KOUNELLIS.originalTitle, url: KOUNELLIS.original } },
+    { url: absoluteUrl(ART_EDITIONS[1].path), headline: ART_EDITIONS[1].title, description: ART_EDITIONS[1].description, datePublished: ART_EDITIONS[1].published, publisher: SELF, translationOf: { name: ART_EDITIONS[1].originalTitle, url: ART_EDITIONS[1].original } },
+  ];
+}
+
+function writingSchema(posts: ListedPost[]) {
   return {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
@@ -28,23 +52,22 @@ function writingSchema(articles: readonly (typeof WRITING.articles)[number][]) {
     author: AUTHOR,
     mainEntity: {
       '@type': 'ItemList',
-      itemListElement: articles.map((article, i) => ({
+      itemListElement: posts.map((post, i) => ({
         '@type': 'ListItem',
         position: i + 1,
         item: {
           '@type': 'BlogPosting',
-          '@id': article.href,
-          url: article.href,
-          mainEntityOfPage: article.href,
-          headline: article.title,
-          description: article.standfirst,
-          datePublished: article.published,
+          '@id': post.url,
+          url: post.url,
+          mainEntityOfPage: post.url,
+          headline: post.headline,
+          description: post.description,
+          datePublished: post.datePublished,
           author: AUTHOR,
-          publisher: article.href.startsWith('https://bjbeyond.it')
-            ? { '@type': 'Organization', name: 'BJ Beyond', url: 'https://bjbeyond.it/' }
-            : { '@type': 'Organization', name: 'HackerNoon', url: 'https://hackernoon.com/' },
-          keywords: article.topics.join(', '),
+          publisher: { '@type': 'Organization', ...post.publisher },
+          ...(post.keywords ? { keywords: post.keywords } : {}),
           inLanguage: 'en',
+          ...(post.translationOf ? { translationOfWork: { '@type': 'CreativeWork', ...post.translationOf, inLanguage: 'it' } } : {}),
         },
       })),
     },
@@ -63,7 +86,7 @@ export default function WritingPage() {
     >
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(writingSchema(articles)) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(writingSchema(listedPosts(articles))) }}
       />
 
       <section className="u-gutter pb-[var(--spacing-section)]">
