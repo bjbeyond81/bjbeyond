@@ -1,10 +1,12 @@
 import type { Metadata } from 'next';
-import { metadataFor } from '@/lib/routes';
+import { ART_EDITIONS } from '@/lib/editions';
+import { editionMetadata, editionSchema } from '@/lib/edition-schema';
 import { PageShell } from '@/components/chrome/PageShell';
 import { ArrowLink } from '@/components/primitives/ArrowLink';
 import { MEDIA } from '@/lib/media';
 
-export const metadata: Metadata = metadataFor('/art/a-promise-that-lasted-seven-years/');
+const EDITION = ART_EDITIONS[1];
+export const metadata: Metadata = editionMetadata(EDITION);
 
 export default function APromiseThatLastedSevenYearsPage() {
   const sections: [string, string[]][] = [
@@ -45,7 +47,7 @@ export default function APromiseThatLastedSevenYearsPage() {
   ];
 
   return (
-    <PageShell
+    <PageShell schema={editionSchema(EDITION)}
       eyebrow="ART & CULTURE / TAMAGO-ZINE"
       title={["A Promise", "That Lasted", "Seven Years"]}
       standfirst="From a red IMPACT at ArtePadova in 2019 to a white one linked to the Tanzania Pavilion project in 2026: seven years of a shared promise and the gesture that held it."
