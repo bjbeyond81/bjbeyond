@@ -70,9 +70,9 @@ export interface SiteRoute {
 export const ROUTES: readonly SiteRoute[] = [
   { path: '/', label: 'HOME', priority: 1.0, changeFrequency: 'weekly' },
   { path: '/human-edge/', label: 'HUMAN EDGE', title: 'Human Edge — Human Judgment for the AI Era', description: 'The BJ Beyond thesis: AI can generate and data can measure, but human judgment decides what matters. Principles, public record and essays on AI and authorship.', priority: 0.95, changeFrequency: 'monthly' },
-  { path: '/phoenix-experiment/', label: 'PHOENIX CASE', title: 'Phoenix Experiment — Evidence Room', description: 'The recovered Phoenix record: a text-only call, Grok image replies, later questions and explicit limits. Companion to a report published on HackerNoon.', priority: 0.95, changeFrequency: 'monthly' },
+  { path: '/phoenix-experiment/', label: 'PHOENIX CASE', title: 'The Phoenix Experiment — Grok AI Image Replies & Evidence', description: 'Explore BJ Beyond’s recovered X archive of Grok AI Phoenix image replies, the text-only call, reliability tests and the limits of what the evidence proves. Published on HackerNoon.', priority: 0.95, changeFrequency: 'monthly' },
   { path: '/method/', label: 'METHOD', title: 'Phoenix Soulfire™', description: METHOD.description, priority: 0.9, changeFrequency: 'monthly' },
-  { path: '/writing/', label: 'WRITING', title: 'Writing — AI, Technology & Human Judgment', description: 'Essays and public experiments by BJ Beyond on AI detection, authorship, provenance, art and the human edge, on-site and on HackerNoon.', priority: 0.8, changeFrequency: 'monthly' },
+  { path: '/writing/', label: 'WRITING', title: 'BJ Beyond Articles — AI, Authorship & Human Judgment', description: 'Read BJ Beyond’s essays and experiments on AI detection, Pangram, authorship, human judgment and contemporary art, including articles published on HackerNoon.', priority: 0.8, changeFrequency: 'monthly' },
   { path: PANGRAM_PAGE.path, title: PANGRAM_PAGE.seoTitle, description: PANGRAM_PAGE.description, priority: 0.7, changeFrequency: 'yearly' },
   { path: DETECTOR_FOLLOWUP_PAGE.path, title: DETECTOR_FOLLOWUP_PAGE.headline, description: DETECTOR_FOLLOWUP_PAGE.description, priority: 0.8, changeFrequency: 'monthly' },
   { path: KOUNELLIS.path, title: KOUNELLIS.seoTitle, description: KOUNELLIS.description, priority: 0.7, changeFrequency: 'yearly' },
