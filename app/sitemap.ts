@@ -36,18 +36,17 @@ const LASTMOD: Record<string, string> = {
   '/human-edge/': '2026-10-30',
   '/phoenix-experiment/': SITE_WIDE,
   '/method/': '2026-10-30',
-  '/writing/': '2026-11-01',
+  '/writing/': '2026-11-03',
   '/writing/claude-opus-5-vs-pangram/': '2026-10-30',
   '/writing/what-an-ai-detector-can-prove-and-what-it-cant/': '2026-10-30',
   '/writing/kounellis-italics/': '2026-10-30',
   '/glossary/': '2026-10-30',
   '/about/': '2026-10-30',
   '/art/': '2026-11-01',
-  '/art/use-your-illusion/': '2026-11-01',
+  '/art/use-your-illusion/': '2026-11-03',
+  '/art/a-promise-that-lasted-seven-years/': '2026-11-03',
   '/labs/': '2026-10-30',
   '/labs/apps/': '2026-10-29',
-  '/human-edge-apps/': '2026-10-30',
-  '/it/human-edge-apps/': '2026-10-30',
   '/focus/': '2026-10-30',
   '/contact/': '2026-10-30',
   '/phoenix/': SITE_WIDE,
@@ -61,12 +60,7 @@ const LASTMOD: Record<string, string> = {
  */
 const NOINDEX_PATHS = new Set(['/privacy-policy/', '/cookie-policy/', '/terms/', '/disclaimer/']);
 
-/** hreflang pairs: each path lists every language version, itself included. */
-const APPS_LANGS = { en: absoluteUrl('/human-edge-apps/'), it: absoluteUrl('/it/human-edge-apps/'), 'x-default': absoluteUrl('/human-edge-apps/') };
-const ALTERNATES: Record<string, { languages: Record<string, string> }> = {
-  '/human-edge-apps/': { languages: APPS_LANGS },
-  '/it/human-edge-apps/': { languages: APPS_LANGS },
-};
+const ALTERNATES: Record<string, { languages: Record<string, string> }> = {};
 
 const STATIC_URLS: MetadataRoute.Sitemap = [
   {
