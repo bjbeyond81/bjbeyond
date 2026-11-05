@@ -70,7 +70,7 @@ export const METHOD_SCHEMA = {
       "@type": "WebPage",
       "@id": "https://bjbeyond.it/method/#webpage",
       "url": "https://bjbeyond.it/method/",
-      "name": "Phoenix Soulfire™: Five-Test Judgment Layer | BJ Beyond",
+      "name": "Phoenix Soulfire™: A Five-Test Human Judgment Framework for AI Decisions",
       "description": "Phoenix Soulfire™ is the five-test human judgment layer by BJ Beyond (Verona): Soul, Edge, Clarity, Impact, Legacy. Not an art scorecard.",
       "inLanguage": "en",
       "isPartOf": {
@@ -88,7 +88,7 @@ export const METHOD_SCHEMA = {
       "publisher": {
         "@id": "https://bjbeyond.it/#organization"
       },
-      "dateModified": "2026-10-04"
+      "dateModified": "2026-11-05"
     },
     {
       "@type": "BreadcrumbList",

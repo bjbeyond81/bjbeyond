@@ -23,7 +23,7 @@
  * destinations rather than prose.
  */
 import type { MetadataRoute } from 'next';
-import { BOOKS, CONTACT, DETECTOR_FOLLOWUP_PAGE, DISPATCH, GLOSSARY, METHOD, PANGRAM_PAGE, SITE } from './content';
+import { BOOKS, CONTACT, DETECTOR_FOLLOWUP_PAGE, DETECTOR_FOOLED_PAGE, DETECTOR_IT_PAGE, DISPATCH, GLOSSARY, METHOD, PANGRAM_PAGE, SITE } from './content';
 import { KOUNELLIS } from './kounellis';
 
 export interface SiteRoute {
@@ -70,11 +70,13 @@ export interface SiteRoute {
 export const ROUTES: readonly SiteRoute[] = [
   { path: '/', label: 'HOME', priority: 1.0, changeFrequency: 'weekly' },
   { path: '/human-edge/', label: 'HUMAN EDGE', title: 'Human Edge — Human Judgment for the AI Era', description: 'The BJ Beyond thesis: AI can generate and data can measure, but human judgment decides what matters. Principles, public record and essays on AI and authorship.', priority: 0.95, changeFrequency: 'monthly' },
-  { path: '/phoenix-experiment/', label: 'PHOENIX CASE', title: 'The Phoenix Experiment — Grok AI Image Replies & Evidence', description: 'Explore BJ Beyond’s recovered X archive of Grok AI Phoenix image replies, the text-only call, reliability tests and the limits of what the evidence proves. Published on HackerNoon.', priority: 0.95, changeFrequency: 'monthly' },
-  { path: '/method/', label: 'METHOD', title: 'Phoenix Soulfire™', description: METHOD.description, priority: 0.9, changeFrequency: 'monthly' },
+  { path: '/phoenix-experiment/', label: 'PHOENIX CASE', title: 'Grok Replied with Images I Never Asked For: The Phoenix Experiment Record', description: 'Explore BJ Beyond’s recovered X archive of Grok AI Phoenix image replies, the text-only call, reliability tests and the limits of what the evidence proves. Published on HackerNoon.', priority: 0.95, changeFrequency: 'monthly' },
+  { path: '/method/', label: 'METHOD', title: 'Phoenix Soulfire™: A Five-Test Human Judgment Framework for AI Decisions', description: METHOD.description, priority: 0.9, changeFrequency: 'monthly' },
   { path: '/writing/', label: 'WRITING', title: 'BJ Beyond Articles — AI, Authorship & Human Judgment', description: 'Read BJ Beyond’s essays and experiments on AI detection, Pangram, authorship, human judgment and contemporary art, including articles published on HackerNoon.', priority: 0.8, changeFrequency: 'monthly' },
   { path: PANGRAM_PAGE.path, title: PANGRAM_PAGE.seoTitle, description: PANGRAM_PAGE.description, priority: 0.7, changeFrequency: 'yearly' },
   { path: DETECTOR_FOLLOWUP_PAGE.path, title: DETECTOR_FOLLOWUP_PAGE.headline, description: DETECTOR_FOLLOWUP_PAGE.description, priority: 0.8, changeFrequency: 'monthly' },
+  { path: DETECTOR_FOOLED_PAGE.path, title: DETECTOR_FOOLED_PAGE.headline, description: DETECTOR_FOOLED_PAGE.description, priority: 0.8, changeFrequency: 'monthly' },
+  { path: DETECTOR_IT_PAGE.path, title: DETECTOR_IT_PAGE.headline, description: DETECTOR_IT_PAGE.description, priority: 0.7, changeFrequency: 'monthly' },
   { path: KOUNELLIS.path, title: KOUNELLIS.seoTitle, description: KOUNELLIS.description, priority: 0.7, changeFrequency: 'yearly' },
   { path: GLOSSARY.path, title: GLOSSARY.title, description: GLOSSARY.description, priority: 0.7, changeFrequency: 'monthly' },
   { path: '/about/', label: 'ABOUT', title: 'About — Independent Writer on Art, AI & Judgment', description: 'BJ Beyond is an independent writer in Verona, Italy, exploring art, AI, authorship and human judgment through essays and public experiments.', priority: 0.8, changeFrequency: 'monthly' },

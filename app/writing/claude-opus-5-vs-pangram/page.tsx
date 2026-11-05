@@ -62,6 +62,16 @@ const SCHEMA = {
         { '@type': 'ListItem', position: 3, name: P.headline, item: CANONICAL },
       ],
     },
+    {
+      '@type': 'FAQPage',
+      '@id': `${CANONICAL}#faq`,
+      inLanguage: 'en',
+      mainEntity: P.faq.map((item) => ({
+        '@type': 'Question',
+        name: item.q,
+        acceptedAnswer: { '@type': 'Answer', text: item.a },
+      })),
+    },
   ],
 };
 
@@ -116,7 +126,7 @@ export default function PangramPage() {
               <a href="/writing/" className="hover:text-paper">Writing</a>
             </li>
             <li aria-hidden="true">›</li>
-            <li aria-current="page">Claude Opus 5 vs Pangram</li>
+            <li aria-current="page">Claude Opus 5 vs Pangram: An Independent Public Test</li>
           </ol>
         </nav>
       }
@@ -154,6 +164,12 @@ export default function PangramPage() {
               className="inline-flex min-h-12 items-center border border-amber-400 px-6 text-amber-400 transition-colors hover:bg-amber-400 hover:text-ink-950"
             >
               <span className="u-label">{P.hackernoonCta} ↗</span>
+            </a>
+            <a
+              href="/writing/can-ai-detectors-be-fooled-by-claude/"
+              className="inline-flex min-h-12 items-center border border-rule bg-ink-850/60 px-6 text-paper transition-colors hover:border-amber-400 hover:text-amber-400"
+            >
+              <span className="u-label">Short summary: Can AI Detectors Be Fooled by Claude? →</span>
             </a>
             <a
               href="/writing/what-an-ai-detector-can-prove-and-what-it-cant/"
@@ -212,6 +228,23 @@ export default function PangramPage() {
               ))}
             </div>
           </RevealGroup>
+        </section>
+
+
+        <section aria-labelledby="faq" className="mt-20 border-t border-rule pt-14 lg:mt-28">
+          <Reveal>
+            <h2 id="faq" className="text-headline font-extralight text-paper">
+              FAQ
+            </h2>
+          </Reveal>
+          <div className="mt-4 max-w-3xl">
+            {P.faq.map((item) => (
+              <div key={item.q}>
+                <h3 className="mt-10 text-title font-extralight text-paper">{item.q}</h3>
+                <p className="mt-6 text-body font-light text-mist-200">{item.a}</p>
+              </div>
+            ))}
+          </div>
         </section>
 
         <Reveal delay={0.1} className="mt-12 flex flex-wrap gap-x-10 gap-y-6">
