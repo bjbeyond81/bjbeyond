@@ -56,7 +56,7 @@ function recordType(file: string) {
 export default function PhoenixExperimentPage() {
   return (
     <main id="main" className="px pxLibrary">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ ...siteSchema(), '@graph': [...siteSchema()['@graph'], { '@type': 'CollectionPage', '@id': 'https://bjbeyond.it/phoenix-experiment/#page', url: 'https://bjbeyond.it/phoenix-experiment/', name: 'The Phoenix Experiment — Evidence Room', description: PHOENIX.description, author: { '@id': 'https://bjbeyond.it/#person' }, inLanguage: 'en' }] }) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ ...siteSchema(), '@graph': [...siteSchema()['@graph'], { '@type': 'CollectionPage', '@id': 'https://bjbeyond.it/phoenix-experiment/#page', url: 'https://bjbeyond.it/phoenix-experiment/', name: 'Grok Replied with Images I Never Asked For: The Phoenix Experiment Record', description: PHOENIX.description, author: { '@id': 'https://bjbeyond.it/#person' }, inLanguage: 'en' }] }) }} />
       <header className="pxNav pxShell">
         <Link href="/" className="pxBrand">BJ BEYOND™</Link>
         <nav aria-label="Evidence Room"><a href="#timeline">TIMELINE</a><a href="#records">RECORDS</a><a href="#limits">LIMITS</a></nav>
@@ -64,7 +64,7 @@ export default function PhoenixExperimentPage() {
       </header>
       <section className="pxLibraryHero pxShell">
         <p className="pxEyebrow"><span /> THE PHOENIX EXPERIMENT</p>
-        <h1>Evidence <em>Room.</em></h1>
+        <h1>Grok Replied with Images I Never Asked For: <em>The Phoenix Experiment Record</em></h1>
         <p className="pxDeck">A text-only call. Phoenix images. A recovered record.</p>
         <p className="pxLibraryIntro">In August 2026, a text-only reply inside an existing thread was followed by Phoenix image replies across later exchanges. This room follows the earlier creative work, the reliability tests and the later questions about what those replies meant. Read the chronology, inspect the selected records and distinguish the observation from its interpretation.</p>
         <p className="pxStatus">{PHOENIX.status} · <a href={PHOENIX.article} target="_blank" rel="noopener noreferrer">Read the article ↗</a></p>

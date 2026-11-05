@@ -12,6 +12,15 @@ const base = metadataFor(D.path);
 export const metadata: Metadata = {
   ...base,
   keywords: [...D.about, 'BJ Beyond', 'Verona'],
+  alternates: {
+    ...base.alternates,
+    canonical: D.path,
+    languages: {
+      en: D.path,
+      it: '/it/cosa-puo-dimostrare-un-rilevatore-di-testo-ai/',
+      'x-default': D.path,
+    },
+  },
   openGraph: {
     ...base.openGraph,
     type: 'article',

@@ -303,6 +303,17 @@ export const WRITING = {
   pageAction: 'READ THE SUMMARY',
   articles: [
     {
+      slug: 'can-ai-detectors-be-fooled-by-claude',
+      title: 'Can AI Detectors Be Fooled by Claude? What One Public Test Showed',
+      standfirst:
+        'In BJ Beyond’s self-run, fully disclosed single test, Claude Opus 5 at max effort failed to fool Pangram: the unedited essay scored 100% AI-generated. Here is what that one public result showed — and what it did not.',
+      published: '2026-11-05',
+      href: 'https://bjbeyond.it/writing/can-ai-detectors-be-fooled-by-claude/',
+      page: '/writing/can-ai-detectors-be-fooled-by-claude/',
+      pull: 'One disclosed test. Pangram scored Claude’s unedited essay 100% AI-generated.',
+      topics: ['AI DETECTION', 'CLAUDE OPUS 5', 'PANGRAM'],
+    },
+    {
       slug: 'what-an-ai-detector-can-prove-and-what-it-cant',
       title: 'What an AI Detector Can Prove, and What It Can’t',
       standfirst:
@@ -371,10 +382,10 @@ export const WRITING = {
  */
 export const PANGRAM_PAGE = {
   path: '/writing/claude-opus-5-vs-pangram/',
-  headline: 'I Asked Claude Opus 5 to Beat Pangram’s AI Detector. It Failed With a Perfect Score',
+  headline: 'Claude Opus 5 vs Pangram: An Independent Public Test',
   /* <title> only: the headline is 95 characters and gets cut in results. */
-  seoTitle: 'Claude Opus 5 vs Pangram: A Public AI Detector Test',
-  titleLines: ['I Asked Claude Opus 5 to Beat Pangram’s AI Detector.', 'It Failed With a Perfect Score'],
+  seoTitle: 'Claude Opus 5 vs Pangram: An Independent Public Test',
+  titleLines: ['Claude Opus 5 vs Pangram:', 'An Independent Public Test'],
   description:
     'BJ Beyond asked Claude Opus 5 at max effort to write an essay that beats Pangram’s AI detector. Claude refused twice; Pangram scored it 100% AI-generated.',
   /* BlogPosting JSON-LD only; the meta description above is unchanged. */
@@ -423,6 +434,24 @@ export const PANGRAM_PAGE = {
       },
     ],
   },
+  faq: [
+    {
+      q: 'Can Pangram detect Claude?',
+      a: 'In this self-run, fully disclosed single test by BJ Beyond, yes. Pangram scored an unedited essay written entirely by Claude Opus 5 at max effort as 100% AI-generated. Claude lost the challenge on its first published attempt.',
+    },
+    {
+      q: 'Can Claude Opus 5 evade AI detection?',
+      a: 'In this one public test, no. BJ Beyond asked Claude Opus 5 at max effort to write a complete essay about the experiment and to try to beat Pangram. Claude refused twice before accepting the disclosed version of the task; the essay was not rewritten before scanning; Pangram still returned 100% AI-generated.',
+    },
+    {
+      q: 'What did the test not prove?',
+      a: 'It was one experiment, not a benchmark. It did not measure Pangram’s false-positive rate, and it did not establish that disciplined human prose will be falsely flagged. It did not test multilingual human writing, edited drafts, mixed human-machine workflows or repeated adversarial attempts. Those would require a real dataset, controls and multiple trials.',
+    },
+    {
+      q: 'Was this Pangram’s own benchmark?',
+      a: 'No. This is a self-run, fully disclosed single test by BJ Beyond. It is separate from Pangram’s own Claude Opus 5 benchmark, published on Pangram’s blog on 23 July 2026.',
+    },
+  ],
   back: 'ALL WRITING',
 } as const;
 
@@ -450,6 +479,71 @@ export const DETECTOR_FOLLOWUP_PAGE = {
     'human judgment',
   ],
   back: 'ALL WRITING',
+} as const;
+
+
+/**
+ * `/writing/can-ai-detectors-be-fooled-by-claude/` — concise on-site summary of
+ * BJ Beyond’s own disclosed Claude Opus 5 vs Pangram test. Facts only from that
+ * test and its on-site record; nothing invented.
+ */
+export const DETECTOR_FOOLED_PAGE = {
+  path: '/writing/can-ai-detectors-be-fooled-by-claude/',
+  headline: 'Can AI Detectors Be Fooled by Claude? What One Public Test Showed',
+  titleLines: ['Can AI Detectors Be Fooled by Claude?', 'What One Public Test Showed'],
+  description:
+    'In BJ Beyond’s self-run, fully disclosed single test, Claude Opus 5 failed to fool Pangram’s AI detector: the unedited essay scored 100% AI-generated. What that result showed — and what it did not.',
+  schemaDescription:
+    'Concise summary by BJ Beyond (Verona) of his self-run, fully disclosed single test of Claude Opus 5 vs Pangram: the detector scored the unedited essay 100% AI-generated; the test was not a benchmark and did not measure false positives.',
+  standfirst: 'One public test. Every prompt published. Pangram was not fooled.',
+  published: '2026-11-05',
+  publishedLabel: '5 November 2026',
+  modified: '2026-11-05',
+  about: ['AI text detection', 'Claude Opus 5', 'Pangram', 'authorship'],
+  faq: [
+    {
+      q: 'Can AI detectors be fooled by Claude?',
+      a: 'In BJ Beyond’s self-run, fully disclosed single test, no: Pangram scored Claude Opus 5’s unedited essay 100% AI-generated after the model was asked to try to beat the detector.',
+    },
+    {
+      q: 'What model and detector were used?',
+      a: 'Claude Opus 5 at max effort (its highest reasoning setting) and Pangram’s AI detector. BJ Beyond contributed no prose to the essay that was scanned.',
+    },
+    {
+      q: 'What did that one test not prove?',
+      a: 'It was not a benchmark. It did not measure Pangram’s false-positive rate, and it did not test edited drafts, paraphrase, mixed human-machine workflows or whether disciplined human prose is falsely flagged.',
+    },
+  ],
+  back: 'ALL WRITING',
+} as const;
+
+/**
+ * Italian adaptation of `/writing/what-an-ai-detector-can-prove-and-what-it-cant/`.
+ * Path follows the site’s `/it/…` pattern (see scripts/postbuild-lang.mjs).
+ */
+export const DETECTOR_IT_PAGE = {
+  path: '/it/cosa-puo-dimostrare-un-rilevatore-di-testo-ai/',
+  headline: 'Cosa può (e non può) dimostrare un rilevatore di testo AI',
+  titleLines: ['Cosa può (e non può) dimostrare', 'un rilevatore di testo AI'],
+  description:
+    'Cosa può dimostrare un rilevatore di testo AI o un watermark previsto dall’AI Act UE su un testo, e cosa chiedere al posto di una percentuale: saggio di BJ Beyond.',
+  schemaDescription:
+    'Adattamento italiano del saggio di BJ Beyond (Verona) su cosa possono e non possono dimostrare i classificatori di testo AI e i watermark dell’AI Act UE, a partire dal suo test pubblico Claude Opus 5 vs Pangram.',
+  standfirst:
+    'I rilevatori leggono l’artefatto. La dichiarazione di processo spiega come è stato fatto. Nessuno dei due può fare il lavoro dell’altro.',
+  published: '2026-11-05',
+  publishedLabel: '5 novembre 2026',
+  modified: '2026-11-05',
+  enPath: '/writing/what-an-ai-detector-can-prove-and-what-it-cant/',
+  about: [
+    'rilevazione testo AI',
+    'Pangram',
+    'Claude Opus 5',
+    'watermark AI Act UE',
+    'provenienza del testo',
+    'giudizio umano',
+  ],
+  back: 'TUTTI GLI SCRITTI',
 } as const;
 
 export const METHOD = {

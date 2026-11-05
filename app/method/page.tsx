@@ -20,10 +20,10 @@ import { METHOD_SCHEMA } from '@/lib/method-schema';
  * must render exactly as written, without the layout's `%s — BJ Beyond`
  * template, and the social cards carry their own title.
  */
-const PAGE_TITLE = 'Phoenix Soulfire™: Five-Test Judgment Layer | BJ Beyond';
+const PAGE_TITLE = 'Phoenix Soulfire™: A Five-Test Human Judgment Framework for AI Decisions';
 const PAGE_DESCRIPTION =
   'Phoenix Soulfire™ is the five-test human judgment layer by BJ Beyond (Verona): Soul, Edge, Clarity, Impact, Legacy. Not an art scorecard.';
-const CARD_TITLE = 'Phoenix Soulfire™: the judgment layer by BJ Beyond';
+const CARD_TITLE = 'Phoenix Soulfire™: A Five-Test Human Judgment Framework for AI Decisions';
 const OG_IMAGE = {
   url: '/opengraph-image.jpg',
   width: 1200,
@@ -134,7 +134,7 @@ export default function MethodPage() {
   return (
     <PageShell
       eyebrow="Phoenix Soulfire™ Method"
-      title={['Phoenix Soulfire™: the judgment layer by BJ Beyond']}
+      title={['Phoenix Soulfire™: A Five-Test Human Judgment Framework for AI Decisions']}
       standfirst="Judgment layer. Not an art scorecard. Five tests before I trust a text, a work, or a plan."
       media={MEDIA.method[0]}
       schema={METHOD_SCHEMA}

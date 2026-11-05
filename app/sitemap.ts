@@ -34,11 +34,13 @@ const SITE_WIDE = '2026-10-07';
 const LASTMOD: Record<string, string> = {
   '/': '2026-11-01',
   '/human-edge/': '2026-10-30',
-  '/phoenix-experiment/': SITE_WIDE,
-  '/method/': '2026-10-30',
-  '/writing/': '2026-11-03',
-  '/writing/claude-opus-5-vs-pangram/': '2026-10-30',
-  '/writing/what-an-ai-detector-can-prove-and-what-it-cant/': '2026-10-30',
+  '/phoenix-experiment/': '2026-11-05',
+  '/method/': '2026-11-05',
+  '/writing/': '2026-11-05',
+  '/writing/claude-opus-5-vs-pangram/': '2026-11-05',
+  '/writing/what-an-ai-detector-can-prove-and-what-it-cant/': '2026-11-05',
+  '/writing/can-ai-detectors-be-fooled-by-claude/': '2026-11-05',
+  '/it/cosa-puo-dimostrare-un-rilevatore-di-testo-ai/': '2026-11-05',
   '/writing/kounellis-italics/': '2026-10-30',
   '/glossary/': '2026-10-30',
   '/about/': '2026-10-30',
@@ -60,7 +62,20 @@ const LASTMOD: Record<string, string> = {
  */
 const NOINDEX_PATHS = new Set(['/privacy-policy/', '/cookie-policy/', '/terms/', '/disclaimer/']);
 
-const ALTERNATES: Record<string, { languages: Record<string, string> }> = {};
+const ALTERNATES: Record<string, { languages: Record<string, string> }> = {
+  '/writing/what-an-ai-detector-can-prove-and-what-it-cant/': {
+    languages: {
+      en: absoluteUrl('/writing/what-an-ai-detector-can-prove-and-what-it-cant/'),
+      it: absoluteUrl('/it/cosa-puo-dimostrare-un-rilevatore-di-testo-ai/'),
+    },
+  },
+  '/it/cosa-puo-dimostrare-un-rilevatore-di-testo-ai/': {
+    languages: {
+      en: absoluteUrl('/writing/what-an-ai-detector-can-prove-and-what-it-cant/'),
+      it: absoluteUrl('/it/cosa-puo-dimostrare-un-rilevatore-di-testo-ai/'),
+    },
+  },
+};
 
 const STATIC_URLS: MetadataRoute.Sitemap = [
   {
