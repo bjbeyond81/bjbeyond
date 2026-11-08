@@ -303,6 +303,16 @@ export const WRITING = {
   pageAction: 'READ THE SUMMARY',
   articles: [
     {
+      slug: 'pressing-enter-doesnt-make-you-a-creator',
+      title: 'Pressing Enter Doesn’t Make You a Creator',
+      standfirst:
+        'AI can deliver a polished result in seconds. Creativity still depends on the judgment, choices, and responsibility behind it.',
+      published: '2026-11-08',
+      href: 'https://hackernoon.com/pressing-enter-doesnt-make-you-a-creator',
+      pull: 'The biggest lie of the AI era? Believing that anyone who knows how to hit ‘enter’ will become an author, a designer, or a thinker.',
+      topics: ['AI & CREATIVITY', 'AUTHORSHIP', 'HUMAN JUDGMENT'],
+    },
+    {
       slug: 'can-ai-detectors-be-fooled-by-claude',
       title: 'Can AI Detectors Be Fooled by Claude? What One Public Test Showed',
       standfirst:
