@@ -18,7 +18,10 @@ import { metadataFor } from '@/lib/routes';
 export const metadata: Metadata = metadataFor('/labs/apps/');
 
 const STORE = 'https://bjbeyond.studio';
-const product = (handle: string) => `${STORE}/products/${handle}`;
+// 2026-11-08: none of these handles is live on bjbeyond.studio any more (they
+// redirect to /pages/catalogue-update or 404), so every product link points to
+// the live catalogue. Restore per-product URLs when the products are back.
+const product = (_handle: string) => `${STORE}/collections/all`;
 
 interface Artifact {
   id: string;

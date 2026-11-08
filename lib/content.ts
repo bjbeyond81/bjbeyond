@@ -408,7 +408,6 @@ export const PANGRAM_PAGE = {
   hackernoonCta: 'Also published on HackerNoon',
   coverage: {
     label: 'Covered by Digest AI',
-    href: 'https://digestai.news/thread/pangram-detector-flags-claude-opus-5-text-as-100-ai-generated-in-substack-test',
   },
   about: ['Pangram', 'Claude Opus 5', 'AI text detection'],
   summary: [
