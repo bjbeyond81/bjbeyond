@@ -100,7 +100,7 @@ export default function AboutPage() {
                 Alongside my independent writing in Verona, Italy, I research <a href="/art/" className="text-amber-400 underline decoration-amber-400/40 underline-offset-4 hover:decoration-amber-400">art market intelligence</a>, artist positioning, data systems and <a href="/focus/" className="text-amber-400 underline decoration-amber-400/40 underline-offset-4 hover:decoration-amber-400">AI + Human Edge</a> — as subjects to write about, not as services.
               </p>
               <p className="mt-6 text-body font-light text-mist-300">
-                I also build simple offline apps for everyday money and life: <a href="https://bjbeyond.studio" target="_blank" rel="noopener noreferrer" className="text-amber-400 underline decoration-amber-400/40 underline-offset-4 hover:decoration-amber-400">bjbeyond.studio</a>.
+                I also build simple offline apps for everyday money and life, documented in the <a href="/labs/apps/" className="text-amber-400 underline decoration-amber-400/40 underline-offset-4 hover:decoration-amber-400">Offline Apps Experiment</a>.
               </p>
             </Reveal>
           </div>

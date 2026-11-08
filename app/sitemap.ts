@@ -48,7 +48,7 @@ const LASTMOD: Record<string, string> = {
   '/art/use-your-illusion/': '2026-11-03',
   '/art/a-promise-that-lasted-seven-years/': '2026-11-03',
   '/labs/': '2026-10-30',
-  '/labs/apps/': '2026-10-29',
+  '/labs/apps/': '2026-11-08',
   '/focus/': '2026-10-30',
   '/contact/': '2026-10-30',
   '/phoenix/': SITE_WIDE,
