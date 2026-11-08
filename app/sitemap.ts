@@ -34,7 +34,7 @@ const SITE_WIDE = '2026-10-07';
 const LASTMOD: Record<string, string> = {
   '/': '2026-11-01',
   '/human-edge/': '2026-10-30',
-  '/phoenix-experiment/': '2026-11-05',
+  '/phoenix-experiment/': '2026-11-08',
   '/method/': '2026-11-05',
   '/writing/': '2026-11-05',
   '/writing/claude-opus-5-vs-pangram/': '2026-11-05',
