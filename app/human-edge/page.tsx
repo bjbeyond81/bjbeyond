@@ -31,6 +31,7 @@ const records = [
 /* The AI-and-authorship cluster: this page is the pillar, these are the pieces
    that argue it in detail. On-site pages open here; HackerNoon-only pieces open there. */
 const CLUSTER_SLUGS = [
+  'pressing-enter-doesnt-make-you-a-creator',
   'what-an-ai-detector-can-prove-and-what-it-cant',
   'i-asked-claude-opus-5-to-beat-pangrams-ai-detector-it-failed-with-a-perfect-score',
   'system-zero-what-happens-when-ai-does-the-thinking-for-us',
