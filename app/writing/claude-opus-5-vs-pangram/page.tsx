@@ -177,14 +177,9 @@ export default function PangramPage() {
             >
               <span className="u-label">Read the follow-up essay: What an AI Detector Can Prove, and What It Can’t →</span>
             </a>
-            <a
-              href={P.coverage.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="u-label inline-flex min-h-11 items-center text-mist-400 hover:text-paper"
-            >
-              {P.coverage.label} ↗
-            </a>
+            <span className="u-label inline-flex min-h-11 items-center text-mist-400">
+              {P.coverage.label}
+            </span>
           </Reveal>
         </div>
 
