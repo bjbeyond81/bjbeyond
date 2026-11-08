@@ -18,7 +18,6 @@ const sections = [
   ['Third-party services', 'Some tools or links use third-party services such as Anthropic, Groq, HackerNoon, X or Authentia. Their own terms and privacy rules apply when you use those services.'],
   ['Intellectual property', 'Original BJ Beyond text, design, methods and site materials remain protected by applicable intellectual-property law unless a page explicitly states otherwise. Quotation and citation are welcome when attribution and context are preserved.'],
   ['Availability', 'The site may change, move, suspend or remove experimental tools without notice. No uninterrupted availability is promised.'],
-  ['Linked store', 'Apps linked from this site are sold through bjbeyond.studio. Any purchase is made with that store and is governed by its own terms, seller details and policies.'],
   ['Governing law', 'These terms are governed by Italian law. Where a choice of court is permitted, the courts of Verona have jurisdiction. Mandatory consumer-protection rules are not affected.'],
 ] as const;
 
