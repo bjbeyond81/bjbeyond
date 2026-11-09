@@ -76,9 +76,8 @@ export function InMotion() {
             </Reveal>
 
             <Reveal delay={0.2} className="mt-8">
-              {/* Same treatment as DISPATCH's profile link — label, handle,
-                  outward glyph, spoken hint. The two sections make the same
-                  gesture on two platforms, so they make it the same way. */}
+              {/* Label, handle, outward glyph, spoken hint — the same
+                  treatment as WRITING's profile link. */}
               <a
                 href={IN_MOTION.profile}
                 {...EXTERNAL}

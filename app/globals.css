@@ -480,12 +480,12 @@
   }
 
   /*
-    The horizontal shelves — DISPATCH's cards and IN MOTION's phones. Only the
+    The horizontal shelf — IN MOTION's phones. Only the
     two properties Tailwind has no utility for; snapping, gap, padding and
     overflow stay on the elements themselves.
 
-    `scroll-padding-inline` is load-bearing. Both tracks carry the page gutter as
-    their own padding, and without this a snapped card parks with its leading
+    `scroll-padding-inline` is load-bearing. The track carries the page gutter as
+    its own padding, and without this a snapped card parks with its leading
     edge under that padding rather than aligned to the column of type above it.
 
     `overscroll-behavior-x` stops a horizontal swipe or two-finger trackpad

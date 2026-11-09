@@ -4,7 +4,7 @@ Documento di passaggio. Se stai aprendo una nuova sessione su questo repository,
 leggi questo file per primo: contiene ciò che è stato fatto, ciò che resta e le
 trappole già scoperte, così da non doverle ritrovare.
 
-Ultimo aggiornamento: 16 agosto 2026 (§7 — DISPATCH e IN MOTION).
+Ultimo aggiornamento: 9 novembre 2026 (§7 — rimossa DISPATCH, resta IN MOTION).
 
 ---
 
@@ -282,8 +282,9 @@ fondo scuro funziona, ma il bordo si percepisce. Il proprietario ha deciso di
 
 ## 5. Stato del repository
 
-Il lavoro delle fasi 1–4 è committato. DISPATCH e IN MOTION (§7) sono state
-committate il 16 agosto 2026.
+Il lavoro delle fasi 1–4 è committato. IN MOTION (§7) è stata
+committata il 16 agosto 2026. DISPATCH, committata lo stesso giorno, è stata
+rimossa dal codice il 9 novembre 2026.
 
 **Un push su `main` pubblica in produzione**: `.github/workflows/deploy.yml`
 builda e pubblica `out/` su GitHub Pages a ogni push sul ramo. Va fatto solo su
@@ -345,16 +346,15 @@ confermare a occhio, non per pilotare.
 
 ---
 
-## 7. DISPATCH e IN MOTION — le due sezioni da aggiornare a mano
+## 7. IN MOTION — la sezione da aggiornare a mano
 
-Aggiunte il 16 agosto 2026. Sono **volutamente statiche**: nessuna delle due
+Aggiunta il 16 agosto 2026. È **volutamente statica**: non
 chiama una API, monta un widget di terze parti o carica qualcosa a runtime.
-Aggiornarle significa modificare `lib/content.ts` e nient'altro.
+Aggiornarla significa modificare `lib/content.ts` e nient'altro.
 
 ### Perché nessun embed ufficiale
 
-Vale per entrambe, ed è la ragione per cui non vanno "migliorate" con lo script
-di X o l'iframe di Instagram:
+È la ragione per cui non va "migliorata" con l'iframe di Instagram:
 
 - sono script di terze parti che rientrerebbero dal percorso critico appena
   liberato nella fase 4;
@@ -364,113 +364,9 @@ di X o l'iframe di Instagram:
   dichiarare — oggi non lo fa, e non ce n'è bisogno;
 - non mostrano nulla quando un post viene cancellato o l'account passa a privato.
 
-### DISPATCH — la card è ricostruita, non incorporata
-
-La card riproduce l'anatomia del post di X — avatar, nome sopra handle, il
-marchio in alto a destra, il testo, la data, la riga azioni sotto un filo — ma è
-codice del sito. Il widget ufficiale darebbe la stessa card gratis e
-riporterebbe sul percorso critico ~200 KB di JavaScript di terze parti, un
-iframe per post, cookie che la cookie policy dovrebbe dichiarare, un tema che
-atterra su `#000` invece che sul `#050505` della pagina, e un'altezza che si
-assesta dopo il paint. **Verificato: nessun riferimento a `platform.twitter.com`,
-`widgets.js` o `twitter-tweet` in tutta la build.**
-
-Dove si discosta da X, di proposito:
-
-- **le icone azione non portano numeri.** X li mostra; inventare metriche di
-  engagement significa fabbricare un dato pubblico, e quelli veri richiedono
-  l'API. Icone senza cifre è uno stato che X stessa rende, quindi la firma
-  visiva regge;
-- **gli accenti sono ambra, non il `#1d9bf0` di X.** Il blu su questa palette
-  leggerebbe come un widget incollato, cioè l'unica cosa che ricostruire la card
-  serviva a evitare;
-- **il nome non è in grassetto.** Girano solo Inter 200/300/400 e
-  `font-synthesis-weight: none` è attivo, quindi chiedere il 700 renderebbe
-  comunque 400. La gerarchia nome/handle la porta il colore — paper su mist-400.
-
-### DISPATCH — aggiungere o sostituire un post
-
-In `lib/content.ts`, dentro `DISPATCH.posts`:
-
-```ts
-post({
-  id: '1955512345678901234',  // ultimo segmento dell'URL del post
-  text: 'Il post, testuale.\n\nGli a capo si vedono.',
-  createdAt: '2026-08-12',    // ISO
-  lang: 'it',                 // SOLO se il post non è in inglese
-}),
-```
-
-**La forma è quella dell'API di X, campo per campo** — `id`, `text`,
-`created_at`, più un autore con `name` / `username` / `verified`. Oggi la lista è
-scritta a mano e nessuno chiama quell'API, ma modellarla così non costa nulla e
-rende la versione automatica *uno script e zero modifiche ai componenti*.
-
-Il permalink **non si scrive**: lo deriva `postUrl()` da `id`. Con `id: ''` la
-card punta al profilo, così un segnaposto non può dare 404. Verificato in
-entrambi i rami.
-
-La data non passa da `toLocaleDateString`: `postDate()` ha la sua tabella dei
-mesi, perché il formato locale verrebbe risolto contro la macchina che **builda**
-— un runner europeo e uno americano spedirebbero date diverse da sorgenti
-identiche.
-
-**I cinque post in file sono reali e verbatim**, dal profilo del proprietario.
-
-**Le date vanno lette sul post, mai dedotte dal timestamp relativo.** X mostra
-"17h" invece della data assoluta entro le 24 ore, e dedurne il giorno è ambiguo
-a cavallo della mezzanotte: sul primo post la deduzione era sbagliata di un
-giorno (15 invece di 16 agosto). Aprire il post e leggere la riga "1:05 · 16 ago
-2026" costa dieci secondi.
-
-**Il testo si prende dalla pagina, non dall'API.** `x.com` risponde 402 a
-WebFetch e i proxy di lettura 403, ma il browser in-app apre il post da
-sloggato: `navigate` sul permalink e `get_page_text` restituiscono il post
-integrale più data e ora. È così che sono stati trascritti tre dei cinque.
-
-**Il troncamento è misurato, non stimato a occhio.** Righe reali contro rese:
-23→10, 57→10, 31→10, 18→10, 10→10. `isClamped()` in `Dispatch.tsx` è
-un'euristica di caratteri per riga, e su tutti e cinque i post coincide con il
-troncamento vero, incluso il quinto che riempie esattamente dieci righe e
-correttamente NON mostra "Show more".
-
-Hashtag, menzioni e link nel testo vengono resi in ambra, come X li rende in
-blu. Sono `<span>`, mai `<a>`: la card è già un'ancora, e un'ancora dentro
-un'ancora è markup non valido che i browser risolvono chiudendo quella esterna.
-
-`lang: 'it'` non è cosmetico: il documento è `lang="en"`, e senza quell'attributo
-uno screen reader legge l'italiano con i fonemi inglesi.
-
-`DISPATCH_AUTHOR.verified` è `true`, ma solo perché la spunta sull'account è
-stata **confermata**. È rimasto `false` finché non lo era: disegnare un badge non
-concesso significa asserire una credenziale della piattaforma che non è stata
-data — esattamente ciò contro cui questo sito argomenta. Il nome sulla card è
-`Bj™`, cioè quello dell'account su X, non il wordmark del sito.
-
-Il rail non ha un numero massimo di card, ma sotto le tre la barra di scorrimento
-sparisce e i due pulsanti desktop si nascondono da soli (`overflows` in
-`components/primitives/Rail.tsx`).
-
-### Se un giorno si vuole DISPATCH automatico
-
-Valutato ad agosto 2026, **non implementato**. Il muro storico dei 200 $/mese non
-c'è più: da febbraio 2026 X ha chiuso Basic e Pro alle nuove iscrizioni e il
-default è pay-per-use, circa **0,005 $ per post letto senza minimo mensile** —
-dieci post a build sono 5 centesimi, un rebuild al giorno circa 1,50 $/mese.
-(Prezzi da fonti secondarie: il portale developer risponde 402, vanno confermati
-lì prima di attivare qualsiasi cosa.)
-
-Il vincolo vero non è il prezzo, è l'architettura. **Export statico, nessun
-server**, quindi la chiamata può stare solo dentro GitHub Actions a build time —
-mai nel browser, dove il token finirebbe in chiaro nel bundle pubblico e dove
-l'API di X non ammette comunque richieste cross-origin da pagina. "Automatico"
-qui significa *fresco quanto l'ultimo build*, non live.
-
-Serve: account developer, bearer token come secret del repo, un `schedule:` nel
-workflow, uno script che scriva `DISPATCH.posts` su disco, e **un fallback
-all'ultimo JSON buono** — senza, una chiamata fallita pubblica una sezione
-vuota. Nota anche che GitHub disattiva i workflow schedulati sui repo fermi da
-60 giorni.
+DISPATCH (la sezione "From the feed" con i post di X scelti a mano e la
+pagina `/dispatch/` mai pubblicata) è stata **rimossa dal codice il 9 novembre
+2026** su richiesta del proprietario: componente, copy, dati e voce di route.
 
 ### IN MOTION — aggiungere un reel
 
@@ -565,7 +461,6 @@ Sulla build di produzione, e a DOM sul dev server:
 | Chunk GSAP nell'HTML iniziale | **no** — i 111 KB restano non referenziati |
 | JS iniziale | 598 KB → **605 KB** (+7 KB: due sezioni e il rail) |
 | `will-change` nel CSS compilato | 0 |
-| Card DISPATCH | 5 reali, permalink `status/…` corretti, **0 tracce dei segnaposto** nella build |
 | Troncamento | 23→10, 57→10, 31→10, 18→10, 10→10 righe; `Show more` su quattro, correttamente assente sul quinto |
 | Altezza card | 409px identici su tutte e cinque (senza clamp il post da 57 righe le portava tutte a ~1200px) |
 | Script widget X nella build | **nessuno** — né `platform.twitter.com`, né `widgets.js`, né `twitter-tweet` |
