@@ -32,7 +32,7 @@ export const dynamic = 'force-static';
  */
 const SITE_WIDE = '2026-10-07';
 const LASTMOD: Record<string, string> = {
-  '/': '2026-11-08',
+  '/': '2026-11-09',
   '/human-edge/': '2026-11-08',
   '/phoenix-experiment/': '2026-11-08',
   '/method/': '2026-11-05',

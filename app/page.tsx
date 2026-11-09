@@ -5,7 +5,7 @@ import { IntroProvider } from '@/components/chrome/Intro';
 import { Navigation } from '@/components/chrome/Navigation';
 import { Footer } from '@/components/sections/Footer';
 import { SiteSchema } from '@/components/chrome/SiteSchema';
-import { CONTACT, WRITING } from '@/lib/content';
+import { CONTACT, FAQ, WRITING } from '@/lib/content';
 import { metadataFor } from '@/lib/routes';
 import { siteSchema } from '@/lib/schema';
 import { PHOENIX } from '@/lib/phoenix';
@@ -20,15 +20,69 @@ export const metadata: Metadata = {
   openGraph: { ...baseMetadata.openGraph, title, description },
   twitter: { ...baseMetadata.twitter, title, description },
 };
+const KNOWS_ABOUT = ['Human Edge', 'human judgment', 'authorship', 'contemporary art', 'Phoenix Experiment', 'Phoenix Soulfire', 'AI text detection', 'artificial intelligence', 'art market intelligence', 'artist valuation & positioning', 'data systems', 'AI + Human Edge strategy'];
+const articles = [...WRITING.articles].sort((a, b) => b.published.localeCompare(a.published));
+/**
+ * The homepage FAQ, visible on the page AND as FAQPage markup. Answer engines
+ * (Google AI Overviews, ChatGPT search, Perplexity) quote short, self-contained
+ * answers; these are the ones already published in lib/content.ts, nothing new.
+ */
+const HOME_FAQ_QUESTIONS = ['What is BJ Beyond?', 'What does the name BJ Beyond mean?', 'What is Phoenix Soulfire™?', 'Does BJ Beyond offer consulting or services?', 'Where can I read BJ Beyond’s writing?'];
+const homeFaq = FAQ.items.filter((item) => HOME_FAQ_QUESTIONS.includes(item.q));
 const schema = siteSchema();
-const homeSchema = { ...schema, '@graph': schema['@graph'].map(node => {
-  if (node['@type'] === 'Person') return { ...node, jobTitle: 'Independent writer', description };
-  if (node['@type'] === 'WebSite') return { ...node, description };
-  return { ...node, '@type': 'Organization', description, knowsAbout: ['Human Edge', 'human judgment', 'authorship', 'contemporary art', 'Phoenix Experiment', 'artificial intelligence', 'art market intelligence', 'artist valuation & positioning', 'data systems', 'AI + Human Edge strategy'] };
-}) };
+const SITE_URL = 'https://bjbeyond.it/';
+const PERSON_ID = `${SITE_URL}#person`;
+const homeSchema = { ...schema, '@graph': [
+  ...schema['@graph'].map(node => {
+    if (node['@type'] === 'Person') return { ...node, jobTitle: 'Independent writer', description, knowsAbout: KNOWS_ABOUT, sameAs: [...new Set([...(node.sameAs ?? []), 'https://muckrack.com/bj_beyond'])] };
+    if (node['@type'] === 'WebSite') return { ...node, description };
+    return { ...node, '@type': 'Organization', description, knowsAbout: KNOWS_ABOUT };
+  }),
+  /* The page itself: what it is about, and the writing it lists. Each article —
+     including the ones hosted on HackerNoon — is attributed to the same Person
+     @id, so the authority of those pages accrues to the BJ Beyond entity. */
+  {
+    '@type': ['WebPage', 'ProfilePage'],
+    '@id': `${SITE_URL}#webpage`,
+    url: SITE_URL,
+    name: title,
+    description,
+    inLanguage: 'en',
+    isPartOf: { '@id': `${SITE_URL}#website` },
+    about: { '@id': PERSON_ID },
+    mainEntity: { '@id': PERSON_ID },
+    primaryImageOfPage: `${SITE_URL}opengraph-image.jpg`,
+    hasPart: { '@id': `${SITE_URL}#writing` },
+  },
+  {
+    '@type': 'ItemList',
+    '@id': `${SITE_URL}#writing`,
+    name: 'Selected writing by BJ Beyond',
+    itemListElement: articles.map((article, index) => {
+      const internal = 'page' in article && article.href.startsWith('https://bjbeyond.it');
+      return {
+        '@type': 'ListItem',
+        position: index + 1,
+        item: {
+          '@type': 'Article',
+          headline: article.title,
+          url: internal ? new URL(article.page as string, SITE_URL).toString() : article.href,
+          datePublished: article.published,
+          author: { '@id': PERSON_ID },
+          ...(internal ? {} : { publisher: { '@type': 'Organization', name: 'HackerNoon', url: 'https://hackernoon.com/' } }),
+        },
+      };
+    }),
+  },
+  {
+    '@type': 'FAQPage',
+    '@id': `${SITE_URL}#faq`,
+    isPartOf: { '@id': `${SITE_URL}#webpage` },
+    mainEntity: homeFaq.map((item) => ({ '@type': 'Question', name: item.q, acceptedAnswer: { '@type': 'Answer', text: item.a } })),
+  },
+] };
 const quote = 'The biggest lie of the AI era? Believing that anyone who knows how to hit ‘enter’ will become an author, a designer, or a thinker.';
 const tests = ['Soul', 'Edge', 'Clarity', 'Impact', 'Legacy'];
-const articles = [...WRITING.articles].sort((a, b) => b.published.localeCompare(a.published));
 const inquiries = [
   { n: '01', title: 'Human Edge', text: 'Judgment, authorship and responsibility when machines generate the answers.', words: 'THINKING / AI / AUTHORSHIP', href: '/human-edge/' },
   { n: '02', title: 'Phoenix', text: 'A recovered record and a question: what can we verify when AI explains its own response?', words: 'EXPERIMENT / GROK / EVIDENCE', href: '/phoenix-experiment/' },
@@ -42,15 +96,17 @@ export default function HomePage() {
       <img className="edge-hero-image" src="/media/hero-1920.webp" srcSet="/media/hero-768.webp 768w, /media/hero-1280.webp 1280w, /media/hero-1920.webp 1920w, /media/hero-2560.webp 2560w" sizes="100vw" width="3808" height="2144" alt="" fetchPriority="high" />
       <div className="edge-hero-shade" />
       <div className="edge-wrap edge-hero-content">
-        <p className="edge-label edge-hero-label"><span className="edge-dot" /> BJ BEYOND / INDEPENDENT WRITER</p>
-        <h1 id="hero-title">One step beyond.<br /><em>Always human.</em></h1>
+        {/* The entity line is part of the h1, so the page's main heading says who
+            and what (BJ Beyond, writer on art, AI and human judgment) rather than
+            only the slogan. Visually it is still the small label above it. */}
+        <h1 id="hero-title"><span className="edge-label edge-hero-label edge-hero-kicker"><span className="edge-dot" aria-hidden="true" /> BJ BEYOND / INDEPENDENT WRITER ON ART, AI &amp; HUMAN JUDGMENT</span><span className="edge-hero-slogan">One step beyond.<br /><em>Always human.</em></span></h1>
         <div className="edge-hero-bottom"><div><p className="edge-hero-description">Art, AI and authorship.<br />Essays and experiments on<br /><strong>human judgment.</strong></p><a href="/writing/" className="edge-button">Explore the writing <Arrow diagonal /></a></div><a href="#thesis" className="edge-scroll"><span>THE HUMAN EDGE</span><span aria-hidden="true">↓</span></a></div>
       </div>
       <div className="edge-hero-caption edge-label"><span>BJ BEYOND — VERONA, ITALY</span><span>ART × AI × HUMAN JUDGMENT</span></div>
     </section>
     <section id="thesis" className="edge-thesis edge-wrap">
       <p className="edge-label">01 / THE HUMAN EDGE</p>
-      <div className="edge-thesis-grid"><h2>Machines generate.<br />People <em>give meaning.</em></h2><div className="edge-thesis-copy"><p>AI can generate. Data can measure. Judgment decides what matters.</p><p>I’m BJ Beyond, an independent writer based in Verona, Italy. I explore how AI changes the way we think, create and assign value—and what it means to remain responsible for our own judgments.</p><p>Alongside my independent writing, I research <a href="/art/" className="edge-text-link">art market intelligence</a>, artist positioning, data systems and <a href="/focus/" className="edge-text-link">AI + Human Edge</a>.</p><div className="edge-thesis-links"><a href="/human-edge/" className="edge-text-link">Read the Human Edge thesis <Arrow /></a><a href="/about/" className="edge-text-link">Meet BJ Beyond <Arrow /></a><a href="/focus/" className="edge-text-link">Research focus <Arrow /></a></div></div></div>
+      <div className="edge-thesis-grid"><h2>Machines generate.<br />People <em>give meaning.</em></h2><div className="edge-thesis-copy"><p>AI can generate. Data can measure. Judgment decides what matters.</p><p><strong>BJ Beyond is an independent writer based in Verona, Italy</strong>, author of the Human Edge thesis, the Phoenix Experiment case study and the Phoenix Soulfire™ judgment framework. I explore how AI changes the way we think, create and assign value—and what it means to remain responsible for our own judgments.</p><p>Alongside my independent writing, I research <a href="/art/" className="edge-text-link">art market intelligence</a>, artist positioning, data systems and <a href="/focus/" className="edge-text-link">AI + Human Edge</a>.</p><div className="edge-thesis-links"><a href="/human-edge/" className="edge-text-link">Read the Human Edge thesis <Arrow /></a><a href="/about/" className="edge-text-link">Meet BJ Beyond <Arrow /></a><a href="/focus/" className="edge-text-link">Research focus <Arrow /></a></div></div></div>
       <div className="edge-disciplines"><span>Contemporary art & authorship</span><span>Public experiments</span><span>AI & human judgment</span></div>
     </section>
     <section className="edge-manifesto" aria-labelledby="manifesto-label"><div className="edge-wrap edge-manifesto-inner"><p id="manifesto-label" className="edge-label">THE MANIFESTO</p><span className="edge-quote-symbol" aria-hidden="true">“</span><blockquote>{quote}</blockquote><div className="edge-manifesto-sign"><span className="edge-label">BJ BEYOND</span><span className="edge-label">THE HUMAN EDGE, IN ONE SENTENCE.</span></div></div></section>
@@ -94,13 +150,16 @@ export default function HomePage() {
       </div>
     </section>
     <section id="work" className="edge-capabilities edge-wrap"><div className="edge-section-heading"><div><p className="edge-label">05 / LINES OF INQUIRY</p><h2>Questions worth <em>pursuing.</em></h2></div><div className="edge-heading-links"><a href="/focus/" className="edge-text-link">Research focus <Arrow /></a><a href="/about/" className="edge-text-link">About BJ Beyond <Arrow diagonal /></a></div></div><div className="edge-capability-list">{inquiries.map(item=><a href={item.href} className="edge-capability" key={item.n}><span className="edge-label">{item.n}</span><h3>{item.title}</h3><div><p>{item.text}</p><span className="edge-label">{item.words}</span></div><Arrow diagonal /></a>)}</div></section>
+    <section id="faq" className="edge-faq edge-wrap" aria-labelledby="faq-title"><div className="edge-section-heading"><div><p className="edge-label">06 / IN SHORT</p><h2 id="faq-title">BJ Beyond, <em>in five answers.</em></h2></div><div className="edge-heading-links"><a href="/about/" className="edge-text-link">More about BJ Beyond <Arrow /></a><a href="/glossary/" className="edge-text-link">Glossary <Arrow /></a></div></div><div className="edge-faq-list">{homeFaq.map((item) => <div className="edge-faq-item" key={item.q}><h3>{item.q}</h3><p>{item.a}</p></div>)}</div></section>
     <section id="contact" className="edge-contact"><div className="edge-wrap"><p className="edge-label"><span className="edge-dot" /> READ. QUESTION. DISCUSS.</p><div className="edge-contact-row"><h2>Read the work.<br /><em>Join the conversation.</em></h2><a href={`mailto:${CONTACT.emails[0].address}`} className="edge-contact-button" aria-label="Contact BJ Beyond by email"><Arrow diagonal /></a></div><div className="edge-contact-services"><a href="/writing/">READ THE WORK <Arrow /></a><a href="/phoenix-experiment/">EXAMINE THE EVIDENCE <Arrow /></a><a href="https://x.com/Bj_Beyond">JOIN THE CONVERSATION <Arrow /></a></div><div className="edge-contact-bottom"><a href={`mailto:${CONTACT.emails[0].address}`}>{CONTACT.emails[0].address}</a><span className="edge-label">VERONA, ITALY / OPEN TO THE WORLD</span></div></div></section>
     <section id="selected-by-bj-beyond" className="edge-wrap" aria-labelledby="myfo-title" style={{ paddingBlock: '48px' }}>
       <div style={{ border: '1px solid var(--edge-line)', borderRadius: '5px', padding: 'clamp(24px, 4vw, 40px)', background: '#181c18' }}>
         <p className="edge-label" style={{ color: 'var(--edge-accent)', marginBottom: '20px' }}>SELECTED BY BJ BEYOND</p>
         <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '24px 40px' }}>
           <div>
-            <h2 id="myfo-title" style={{ marginBottom: '20px' }}><img src="/media/myfo-logo.png" alt="MYFO" width="400" height="200" loading="lazy" style={{ width: '180px', maxWidth: '100%', height: 'auto', objectFit: 'contain' }} /></h2>
+            {/* Not a heading: a friend's studio is a side note, and an h2 here made it
+                one of the page's main topics in the outline search engines read. */}
+            <p id="myfo-title" style={{ marginBottom: '20px' }}><img src="/media/myfo-logo.png" alt="MYFO" width="400" height="200" loading="lazy" style={{ width: '180px', maxWidth: '100%', height: 'auto', objectFit: 'contain' }} /></p>
             <p style={{ color: 'var(--edge-muted)', fontSize: '15px' }}>Product design &amp; hardware engineering. From idea to production.</p>
             <p style={{ color: 'var(--edge-muted)', fontSize: '15px', maxWidth: '640px', marginTop: '16px' }}>MYFO brings industrial design, engineering and prototyping together to develop new physical products and improve existing ones. The same team follows each project through testing and into production.</p>
             <p style={{ fontSize: '15px', maxWidth: '640px', marginTop: '12px' }}>An approach that connects with the questions explored here: how ideas take shape through human judgment, practical decisions and real-world testing.</p>
