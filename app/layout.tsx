@@ -122,6 +122,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       suppressHydrationWarning
     >
       <head>
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title="BJ Beyond Journal RSS"
+          href="https://bjbeyond81.github.io/studio/feed.xml"
+        />
         {/*
           Stamps `js` on <html> before the first paint.
 
