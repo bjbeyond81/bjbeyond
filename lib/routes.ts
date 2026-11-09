@@ -23,7 +23,7 @@
  * destinations rather than prose.
  */
 import type { MetadataRoute } from 'next';
-import { BOOKS, CONTACT, DETECTOR_FOLLOWUP_PAGE, DETECTOR_FOOLED_PAGE, DETECTOR_IT_PAGE, DISPATCH, GLOSSARY, METHOD, PANGRAM_PAGE, SITE } from './content';
+import { BOOKS, CONTACT, DETECTOR_FOLLOWUP_PAGE, DETECTOR_FOOLED_PAGE, DETECTOR_IT_PAGE, GLOSSARY, METHOD, PANGRAM_PAGE, SITE } from './content';
 import { KOUNELLIS } from './kounellis';
 
 export interface SiteRoute {
@@ -54,12 +54,9 @@ export interface SiteRoute {
    * Google the site is unreliable, and a menu entry leading nowhere is worse
    * than both.
    *
-   * Two different reasons land here. `/art/` and `/books/` have no copy yet —
+   * `/art/` and `/books/` landed here because they had no copy yet —
    * `lib/content.ts` holds the rule that nothing on this site is invented, so
-   * they wait for the owner's own words. `/dispatch/` has copy and no page:
-   * its card markup lives inline inside the homepage section and wants
-   * extracting before it can be rendered twice, which is a refactor that buys
-   * nothing until the page is actually wanted.
+   * they wait for the owner's own words.
    *
    * The entries stay here either way, so the URLs are settled before anything
    * links to them. Flip the flag off — do not delete it — when the page ships.
@@ -87,7 +84,6 @@ export const ROUTES: readonly SiteRoute[] = [
   { path: '/labs/', label: 'LABS', title: 'The Labs — AI Tools & Simulators', description: 'Interactive experiments by BJ Beyond Labs: an illustrative X ranking simulator, a judgment analyzer and a binaural sound studio. Free, in the browser.', priority: 0.8, changeFrequency: 'monthly' },
   { path: '/labs/apps/', title: 'The Offline Apps Experiment — Lab Log', description: 'Lab log: can one human building with AI ship useful, private, offline tools paid for once? How it is built and what is still unknown.', priority: 0.7, changeFrequency: 'monthly' },
   { path: '/focus/', title: 'Focus — Art Market, Data & AI Research', description: 'Three lines of research and writing by BJ Beyond: art market intelligence, decision-focused data systems, and AI + Human Edge.', priority: 0.9, changeFrequency: 'monthly' },
-  { path: '/dispatch/', label: 'DISPATCH', title: 'Dispatch', description: DISPATCH.description, priority: 0.7, changeFrequency: 'weekly', draft: true },
   { path: '/contact/', title: 'Contact — Editorial Enquiries & Interviews', description: CONTACT.description, priority: 0.8, changeFrequency: 'yearly' },
   { path: '/phoenix/', priority: 0.7, changeFrequency: 'monthly', outsideRouter: true },
   { path: '/frequency/', priority: 0.7, changeFrequency: 'monthly', outsideRouter: true },

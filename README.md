@@ -66,7 +66,7 @@ components/
   chrome/       nav, intro, cursor, scroll sync, logo, page shell,
                 consent banner, analytics
   primitives/   reveal, magnetic, arrow link, rail
-  sections/     hero, about, dispatch, method, authentia, in-motion,
+  sections/     hero, about, method, authentia, in-motion,
                 labs, work, intelligence, contact, footer
 lib/
   content.ts    ALL copy — single source of truth
@@ -109,9 +109,8 @@ Two rules that are easy to break:
   served URL is `/method/`. A manifest entry or canonical without the slash
   names a URL that redirects.
 - **`draft: true` keeps a page out of the menu and out of the sitemap, and
-  marks it `noindex`.** `/books/` and `/dispatch/` carry it today — `/books/`
-  because its three entries are placeholders the owner asked for, `/dispatch/`
-  because the page is not built. Announcing a URL that 404s, or letting Google
+  marks it `noindex`.** `/books/` carries it today, because its three entries
+  are placeholders the owner asked for. Announcing a URL that 404s, or letting Google
   index invented book titles under a real author's name, are the two things
   this flag prevents.
 

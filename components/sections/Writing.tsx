@@ -9,12 +9,8 @@ import {
 /**
  * THE LONG READ — pieces published elsewhere, under the owner's own byline.
  *
- * Companion to DISPATCH directly above it, and drawn as its opposite. That
- * section is a rail of small rounded cards because it is reproducing X's card;
- * this is full-width rules and a single column of type, because a three
- * thousand word essay is not a post and should not be dressed as one. The two
- * share only the gesture that leaves the page — label, outward glyph, spoken
- * hint — which is what marks them as the same voice on two platforms.
+ * Full-width rules and a single column of type, because a three thousand word
+ * essay is not a post and should not be dressed as one.
  *
  * No section index: it sits outside the 01–07 numbering, for the reason given
  * on WRITING in lib/content.ts.
@@ -27,8 +23,7 @@ import {
  *
  * THE WHOLE ROW IS THE ANCHOR, which is why the topics below are plain spans
  * and the action is a span too: an anchor inside an anchor is invalid markup
- * that browsers resolve by silently closing the outer one. Same rule the
- * Dispatch cards follow.
+ * that browsers resolve by silently closing the outer one.
  *
  * A server component: nothing holds state or touches the browser.
  */
@@ -73,8 +68,8 @@ export function Writing() {
               </p>
             </Reveal>
 
-            {/* The same treatment DISPATCH and IN MOTION give their profile
-                links: label, outward glyph, spoken hint. */}
+            {/* The same treatment IN MOTION gives its profile link: label,
+                outward glyph, spoken hint. */}
             <Reveal delay={0.2} className="mt-8">
               <a
                 href={WRITING.profile}
@@ -169,7 +164,7 @@ export function Writing() {
 
 /**
  * HackerNoon's own lockup — the pixel mark and the wordmark — drawn where a
- * masthead belongs, the way DISPATCH draws X's mark on its cards.
+ * masthead belongs.
  *
  * COPIED FROM THE PUBLISHER, path for path, at their own viewBox. The geometry
  * is the thing that identifies a mark, so it is not redrawn, re-spaced or

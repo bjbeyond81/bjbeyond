@@ -89,70 +89,10 @@ export const BEYOND = {
 } as const;
 
 /**
- * 02 — DISPATCH
- *
- * A hand-picked shelf of posts from the X profile, sitting directly after the
- * introduction because it is the fastest proof of the voice that section
- * describes.
- *
- * It is deliberately NOT a feed. Nothing is fetched, nothing embeds X's widget
- * script, and the order is the owner's rather than the algorithm's — adding a
- * post means adding an object here and nothing else.
- *
- * WHY NOT THE OFFICIAL EMBED. It arrives as a third-party script that reflows
- * each card after paint, ignores this palette, sets cookies the cookie policy
- * would then have to declare, and renders nothing at all once a post is deleted
- * or the account goes private. Phase 4 in HANDOFF.md was spent taking 111 KB
- * off the critical path; this is where it stays off.
- *
- * TITLE is written for the card. An X post carries no title of its own, and a
- * rail of untitled paragraphs gives the eye nowhere to land — the title is what
- * makes the shelf scannable at a glance.
+ * Dates as printed on the site. Deterministic, and intentionally not `Intl`:
+ * `toLocaleDateString` would render against the BUILD machine's locale, so a
+ * European runner and a US one would ship different dates from identical source.
  */
-/**
- * The shape below is deliberately the X API's own, field for field — `id`,
- * `text`, `created_at`, and an author carrying `name` / `username` / `verified`.
- *
- * Nothing calls that API today; the list is written by hand. But the site is a
- * static export with no server, so if it ever fetches, the fetch can only run at
- * build time in CI and write exactly this structure to disk. Modelling it now
- * costs nothing and means the automatic version is one script and zero
- * component changes. Writing a bespoke shape would have guaranteed a rewrite.
- */
-export interface DispatchPost {
-  /**
-   * The post's own numeric id on X — the last segment of its URL. The permalink
-   * is derived from it, exactly as it is from an API response.
-   *
-   * Empty string while no real post is wired: `postUrl` then falls back to the
-   * profile rather than building a link to a status that does not exist.
-   */
-  id: string;
-  /**
-   * The post, verbatim. Line breaks are preserved when rendered, so paste it as
-   * written. Roughly 280 characters is X's own ceiling and a good one here too:
-   * the rail stretches every card to the tallest, so one long post pays for
-   * itself in dead space under all the others.
-   */
-  text: string;
-  /**
-   * ISO date, as `created_at` arrives from the API. Formatted for display in
-   * `lib/content.ts`'s own table rather than by `toLocaleDateString`, which
-   * would render against the BUILD machine's locale — a European runner and a
-   * US one would ship different dates from identical source.
-   */
-  createdAt: string;
-  /**
-   * Set when the post is not in English. The document is `lang="en"`, so
-   * without this a screen reader pronounces Italian with English phonemes and
-   * the post becomes unintelligible.
-   */
-  lang?: 'it';
-}
-
-const post = (p: DispatchPost): DispatchPost => p;
-
-/** Deterministic, and intentionally not `Intl` — see the note on `createdAt`. */
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'] as const;
 
 /** '2026-08-12' → '12 Aug 2026'. */
@@ -161,108 +101,11 @@ export function postDate(iso: string): string {
   return `${Number(day)} ${MONTHS[Number(month) - 1]} ${year}`;
 }
 
-/** Permalink from the id, the profile when there is not one yet. */
-export function postUrl(entry: DispatchPost): string {
-  return entry.id
-    ? `https://x.com/${DISPATCH_AUTHOR.username}/status/${entry.id}`
-    : DISPATCH.profile;
-}
-
-/**
- * The account every card is attributed to — the API's `includes.users[0]`.
- *
- * `verified` is false and must stay false unless the account actually carries
- * the platform's badge. Drawing a checkmark it has not been granted would be
- * asserting someone else's credential, which is precisely the thing this site
- * exists to argue against.
- */
-export const DISPATCH_AUTHOR = {
-  /* The display name as it stands on X — not 'BJ Beyond', which is the site's
-     wordmark. The card is a reproduction of a post, so it carries the account's
-     own name, trademark glyph included. */
-  name: 'Bj™',
-  username: 'BJ_Beyond',
-  /* Confirmed from the account: the badge is real and granted. It was false
-     until then, because drawing an unearned checkmark asserts a credential the
-     platform did not give. */
-  verified: true,
-  /**
-   * The monogram, on the site's own dark disc. Not the real X profile picture —
-   * that is X's copy, and this is the same mark the header carries. Point it at
-   * another slot in lib/media.ts to change it.
-   */
-  avatar: '/media/logo-128.webp',
-} as const;
-
-export const DISPATCH = {
-  index: '02',
-  label: ['FROM THE', 'FEED'],
-  title: 'DISPATCH',
-  description:
-    'Short notes on the art market, AI, and the space between them. Hand-picked — nothing here streams in on its own.',
-  handle: '@BJ_Beyond',
-  profile: 'https://x.com/BJ_Beyond',
-  cta: 'FOLLOW ON X',
-  /** Per-card action. The whole card is the link; this names the destination. */
-  action: 'READ ON X',
-  /**
-   * Shown at the cut when a post is clamped. X's own wording — change it freely,
-   * it is one string. It is not a second link: the whole card already opens the
-   * post, and nesting an anchor inside an anchor is invalid.
-   */
-  readMore: 'Show more',
-  /** Touch only — the desktop rail has buttons instead. */
-  hint: 'SCROLL FOR MORE',
-  /*
-    Five real posts, newest first. Every `text` is verbatim — line breaks, curly
-    and straight apostrophes, emoji and hashtags as the author typed them — and
-    every `createdAt` was read off the post itself rather than inferred from a
-    relative stamp like "17h", which is ambiguous either side of midnight and was
-    wrong by a day on the first one.
-
-    To add another: paste the post into `text`, set `createdAt`, and set `id` to
-    the last segment of its URL — x.com/BJ_Beyond/status/THIS_PART, dropping the
-    `?s=20` X appends when you copy a link. With `id` empty the card falls back
-    to the profile, so a half-finished entry can never 404.
-  */
-  posts: [
-    post({
-      id: '2088763934513750427',
-      createdAt: '2026-08-16',
-      text: 'The biggest lie of the AI era? Believing that anyone who knows how to hit "enter" will become an author, a designer, or a thinker.\n\nAutomation does not reward those who delegate their thinking to a machine. It rewards those who developed taste, intellectual rigor, and sensitivity long before touching any software.\n\nThe generation box doesn\'t create value out of thin air. It is simply a mirror:\nPut laziness in, and it hands you a flawless cliché.\n\nPut artistic vision and human touch in, and you achieve scale.\n\nStop searching for the magic prompt.\n\nThe only true competitive edge that will never become a commodity is you.',
-    }),
-    post({
-      id: '2088581291796992410',
-      createdAt: '2026-08-15',
-      text: 'X just dropped a major open-source update to its recommendation system (x-algorithm).\n\nHere is what is actually happening under the hood and how it impacts organic reach:\n\n1. Semantic Embeddings over Hashtags\nThe "For You" feed has fully shifted away from static heuristics and hashtags. Discovery is driven by a two-tower transformer architecture (Phoenix) that maps posts directly to semantic interest clusters through NLP and media embeddings.\n\n2. Conversational Depth is King\nThe highest positive multiplier in the heavy ranker is no longer the Like or Retweet, it is author-engaged reply depth. Meaningful back-and-forth discussions where the creator replies multiply out-of-network distribution exponentially.\n\n3. Bookmarks as High-Utility Signals\nBookmarks carry substantially higher weight than standard likes. The ranking engine treats saves as long-term utility signals, pushing posts to broader, adjacent communities.\n\n4. Candidate Isolation\nThe inference pipeline isolates each candidate post during neural scoring. Your content is evaluated solely on the direct user-to-topic graph relationship, preventing batch-level dilution.\n\n5. "Under the Hood" Visibility Audits\nUsers can now extract account-level diagnostics from their data archive. The JSON payload exposes internal metrics such as `reputation_score`, `bot_probability`, and explicit flags in `tweet_level_interventions`.\n\nTakeaway: Stop optimizing for passive likes. Focus on high-retention substance, bookmark-worthy depth, and active discussion in the replies.\n\nHave you requested your account data archive yet to check your internal reputation score?\nWaiting mine for sharing the analysis with you 🚀',
-    }),
-    post({
-      id: '2105527822076747899',
-      createdAt: '2026-10-01',
-      text: 'Want to analyse your website?\nAnd get a score AI based?\n\nDownload my new Chrome extension.\n\nIt\'s free....\n\nlink in the thread',
-    }),
-    post({
-      id: '2086240565893509221',
-      createdAt: '2026-08-09',
-      text: 'This is what I do here.\n\nI’m an ex-finance professional who left the spreadsheets to build at the intersection of:\n\n→ Data & Power BI\n→ Human Edge in the AI era\n→ Art market intelligence\n\nI create real tools, frameworks and systems.\nNot content farms. Not engagement bait.\n\nIf you want polished AI noise, keep scrolling.\nIf you want the parts that still require a human, stay.',
-    }),
-    /* Opens a five-part thread. The card carries only this post, because that is
-       what the permalink addresses and what X's own embed of it would show —
-       the trailing "1/5" is the author's own signal that it continues. */
-    post({
-      id: '2059713633358069996',
-      createdAt: '2026-05-27',
-      text: 'People complain they don’t have enough time, but they spend four hours a day scrolling through stuff they don’t even care about.\n\nThe problem isn’t time. It’s that they can’t stand being alone with their own thoughts anymore.\n\n1/5',
-    }),
-  ],
-} as const;
 
 /**
  * THE LONG READ — writing published elsewhere, under the owner's own byline.
  *
- * Sits directly after DISPATCH and is its counterweight: the shelf above is the
- * voice in 280 characters, this is the same voice given the room to finish the
- * argument. Reading order is the reason it is here rather than on /art/ — the
+ * The voice given the room to finish the argument. Reading order is the reason it is here rather than on /art/ — the
  * pieces are about AI and the platforms, not about art.
  *
  * OUTSIDE THE 01–07 NUMBERING, like Authentia and In Motion. Not for their
@@ -282,11 +125,9 @@ export const DISPATCH = {
  * declared in lib/media.ts. This stays type until one is made for it.
  *
  * THE PUBLISHER'S MASTHEAD IS NOT COPY, so there is no string for it here.
- * The card draws HackerNoon's own lockup as an inline SVG, the way DISPATCH
- * draws X's mark — see HackerNoonMark in components/sections/Writing.tsx.
+ * The card draws HackerNoon's own lockup as an inline SVG — see HackerNoonMark in components/sections/Writing.tsx.
  *
- * NO HANDLE, also deliberately. DISPATCH prints name-over-handle because X's
- * card does; the display name and the handle here are the same word
+ * NO HANDLE, also deliberately. The display name and the handle here are the same word
  * ("BJ Beyond" / `@bj_beyond`), so drawing both would repeat one fact twice.
  * `profile` links to the author page it addresses, which is the part that is
  * actually useful.
@@ -637,8 +478,9 @@ export const AUTHENTIA = {
  * sequence mean anything.
  *
  * Each frame is a cover plate inside a drawn phone; pressing it opens the reel
- * on Instagram. No video is hosted, embedded or autoplayed here — see the note
- * on DISPATCH for why no third-party embed appears anywhere on this site.
+ * on Instagram. No video is hosted, embedded or autoplayed here: a third-party
+ * embed script reflows after paint, ignores this palette and sets cookies the
+ * cookie policy would then have to declare.
  *
  * Three to five frames is the working range: fewer reads as an accident, more
  * overflows the lineup.
@@ -661,9 +503,6 @@ export const IN_MOTION = {
 
     Lowercased in the URL — Instagram resolves either case — while `handle`
     keeps the capitalisation the account is actually written with.
-
-    Same three fields as DISPATCH, on purpose: the two sections carry the same
-    footer treatment because they are the same gesture, one per platform.
   */
   handle: '@Authentia_Arte',
   profile: 'https://www.instagram.com/authentia_arte/',
