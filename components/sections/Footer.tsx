@@ -68,7 +68,27 @@ export function Footer() {
 
         <div className="mt-14 flex flex-col gap-3 border-t border-rule pt-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="u-label text-mist-400">{FOOTER.copyright}</p>
-          <p className="u-label text-mist-400">{SITE.domain}</p>
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+            {/* The Journal's article feed (GitHub Pages), not this site's own /feed.xml. */}
+            <a
+              href="https://bjbeyond81.github.io/studio/feed.xml"
+              type="application/rss+xml"
+              className="u-label inline-flex min-h-11 items-center gap-2 text-mist-400 transition-colors duration-200 hover:text-amber-400"
+            >
+              <svg
+                aria-hidden="true"
+                width="11"
+                height="11"
+                viewBox="0 0 16 16"
+                fill="currentColor"
+              >
+                <circle cx="2.5" cy="13.5" r="2.5" />
+                <path d="M0 6v3a7 7 0 0 1 7 7h3A10 10 0 0 0 0 6zm0-6v3a13 13 0 0 1 13 13h3A16 16 0 0 0 0 0z" />
+              </svg>
+              BJ Beyond Journal RSS
+            </a>
+            <p className="u-label text-mist-400">{SITE.domain}</p>
+          </div>
         </div>
 
         {/* Build credit. The wordmark is used unmodified — no recolouring, no
