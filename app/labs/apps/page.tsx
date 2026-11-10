@@ -8,22 +8,10 @@ import { metadataFor } from '@/lib/routes';
 
 /**
  * /labs/apps/ — the offline-apps experiment, written up as a lab log.
- * No product listing, prices or store links on purpose (owner decision, 2026-11-08).
+ * No product listing, prices or sales links on purpose (owner decisions, 2026-11-08 and 2026-11-10).
  * No sales, users, ratings or quotes are stated, because none are published.
  */
 export const metadata: Metadata = metadataFor('/labs/apps/');
-
-/* The agent network that operates the store. Roles only: no account details. */
-const BOTS = [
-  ['Grok Bot (primary)', 'routes tasks, coordinates the other bots and runs a "Regia" check three times a day.'],
-  ['Traffic Doctor', 'diagnoses why the store gets no traffic and fixes what it finds.'],
-  ['SEO & Organic Funnel', 'blog SEO, Google indexing and lead magnets.'],
-  ['AI Search Visibility', 'checks whether AI assistants and Google recommend the store.'],
-  ['CRO & Bundle Closer', 'conversion, bundles, discounts and product pages.'],
-  ['TikTok & Viral Traffic', 'short-form content for TikTok, Threads and X.'],
-  ['Pino · Social & Pinterest Growth', 'Pinterest and social presence.'],
-  ['Shopify bot', 'day-to-day store operations.'],
-] as const;
 
 const SCHEMA = {
   '@context': 'https://schema.org',
@@ -51,7 +39,6 @@ function A({ href, children, external }: { href: string; children: ReactNode; ex
 }
 
 const H2 = 'mt-20 text-headline font-extralight leading-[1.05] text-paper';
-const H3 = 'mt-14 text-title font-extralight text-paper';
 const P = 'mt-6 text-body font-light text-mist-300';
 const STRONG = 'font-normal text-paper';
 
@@ -128,35 +115,11 @@ export default function AppsExperimentPage() {
             <p className={P}>
               Each app ships as a progressive web app plus a standalone .ZIP/.HTML package, so it opens in a browser and keeps working offline on iPhone, Android, Mac and Windows.
             </p>
-            <h3 className={H3}>The sales-bot network</h3>
-            <p className={P}>
-              Then I hit the second half of the problem: building is not selling. Nobody finds a
-              store by accident. So I extended the experiment to distribution and gave the store to
-              a small network of AI agents, each with one job, coordinated by a primary bot. The
-              network is part of what I am testing.
-            </p>
-            <ol className="mt-6 space-y-4 border-l border-rule pl-6 text-body font-light text-mist-300">
-              {BOTS.map(([name, role]) => (
-                <li key={name}>
-                  <strong className={STRONG}>{name}</strong> — {role}
-                </li>
-              ))}
-            </ol>
-            <p className={P}>
-              <strong className={STRONG}>Human rules in the loop.</strong> Free methods only. No
-              spam. Reversible changes only. Nothing is published automatically without my approval.
-              Legal and fiscal pages are never touched by a bot.
-            </p>
-            <p className={P}>
-              The bots propose and execute; I keep the final word. Whether this network can bring
-              real people to a small store without spam is exactly the question I do not know the
-              answer to yet.
-            </p>
           </section>
 
           <section aria-labelledby="why-offline">
             <h2 id="why-offline" className={H2}>
-              Why offline, why once
+              03 — Why offline, why once
             </h2>
             <p className={P}>
               Money, deadlines and shared bills are private. A tool that handles them should not need a login or send them anywhere. And a tool that helps you cancel forgotten subscriptions should not become one. That became the design rule for everything I build.
@@ -180,7 +143,7 @@ export default function AppsExperimentPage() {
               05 — What happens next
             </h2>
             <p className={P}>
-              I will listen to the people who use the apps, fix what they find, and keep the same three rules for anything new. The bot network keeps working under the same human limits.
+              I will listen to the people who use the apps, fix what they find, and keep the same three rules for anything new.
             </p>
             <p className={P}>
               This log will be updated as the experiment produces evidence, good or bad. If you try one of the tools, <A href="/contact/">tell me what broke</A>.
