@@ -112,7 +112,8 @@ export function metadataFor(path: string) {
   return {
     title: route.title,
     description: route.description,
-    alternates: { canonical: route.path, types: { 'application/rss+xml': '/feed.xml' } },
+    /* RSS <link>s are in app/layout.tsx, so a page cannot drop or duplicate them. */
+    alternates: { canonical: route.path },
     openGraph: { type: 'website' as const, url: route.path, title: cardTitle, description: route.description, siteName: SITE.name, images: [OG_IMAGE] },
     twitter: { card: 'summary_large_image' as const, title: cardTitle, description: route.description, images: [OG_IMAGE] },
     ...(route.draft ? { robots: { index: false, follow: false } } : {}),
