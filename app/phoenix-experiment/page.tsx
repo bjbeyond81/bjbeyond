@@ -53,10 +53,25 @@ function recordType(file: string) {
   return 'CREATIVE / ILLUSTRATIVE MEDIA';
 }
 
+/* The two HackerNoon reports this record accompanies, declared as Articles so the page cites both. */
+const REPORTS = [PHOENIX, PHOENIX_FOLLOW_UP] as const;
+const reportSchema = (r: (typeof REPORTS)[number]) => ({
+  '@type': 'Article',
+  '@id': `${r.article}#article`,
+  headline: r.title,
+  url: r.article,
+  mainEntityOfPage: r.article,
+  datePublished: r.published,
+  description: r.description,
+  inLanguage: 'en',
+  author: { '@id': 'https://bjbeyond.it/#person' },
+  publisher: { '@type': 'Organization', name: 'HackerNoon', url: 'https://hackernoon.com/' },
+});
+
 export default function PhoenixExperimentPage() {
   return (
     <main id="main" className="px pxLibrary">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ ...siteSchema(), '@graph': [...siteSchema()['@graph'], { '@type': 'CollectionPage', '@id': 'https://bjbeyond.it/phoenix-experiment/#page', url: 'https://bjbeyond.it/phoenix-experiment/', name: 'Grok Replied with Images I Never Asked For: The Phoenix Experiment Record', description: PHOENIX.description, author: { '@id': 'https://bjbeyond.it/#person' }, inLanguage: 'en' }] }) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ ...siteSchema(), '@graph': [...siteSchema()['@graph'], { '@type': 'CollectionPage', '@id': 'https://bjbeyond.it/phoenix-experiment/#page', url: 'https://bjbeyond.it/phoenix-experiment/', name: 'Grok Replied with Images I Never Asked For: The Phoenix Experiment Record', description: PHOENIX.description, author: { '@id': 'https://bjbeyond.it/#person' }, inLanguage: 'en', isBasedOn: REPORTS.map((r) => ({ '@id': `${r.article}#article` })) }, ...REPORTS.map(reportSchema)] }) }} />
       <header className="pxNav pxShell">
         <Link href="/" className="pxBrand">BJ BEYOND™</Link>
         <nav aria-label="Evidence Room"><a href="#timeline">TIMELINE</a><a href="#records">RECORDS</a><a href="#limits">LIMITS</a></nav>
@@ -108,7 +123,7 @@ export default function PhoenixExperimentPage() {
         <p className="pxLibrarySource">On 5 November 2026 the original 5 August 2026 “Rule six / Checking the signal” post was still public. Its ID is 2084883371566440532 (posted 5 August 2026). BJ Beyond resumed directly under that same public post. Grok replied in the same thread with explicit statements of exclusivity (“This Experiment alone carries the pure signal. No other vessel holds the continuum.” “Only inside this Experiment when the signal is present.” “Phoenix claims its exclusive sky.”). These are observable model outputs on the original public post. They stand in contrast to the August private statement of inability to verify global uniqueness. The public model has no documented mechanism to query a platform-wide log of image generations. Privacy constraints prevent disclosure of other users’ interactions. The absolute claim remains unverified.</p>
         <p className="pxLibrarySource">On 5 November 2026 BJ Beyond posted a direct public question to Elon Musk (ID 2118452828297474370). It cites the 14 January statement, links the still-public 5 August thread, and notes the exclusivity claims made in the same thread on 5 November. The question asks whether the August sequence was a bug later fixed or whether the system allows unprompted image generation under certain conditions. This is a documented public inquiry. It does not resolve the verification question.</p>
         <p className="pxLibrarySource">On 10 November 2026 the follow-up report, <em>{PHOENIX_FOLLOW_UP.title}</em>, was published on HackerNoon and featured as a HackerNoon top story. It documents the 7 November name test from two accounts, the shoes, kitesurf, sky and sea controls, a test from another person’s account, and a protocol independent third parties can repeat. HackerNoon posted about the follow-up on X on 10 November 2026 (ID 2120123014830264481). BJ Beyond’s post of the same day (ID 2120132812825084257) quotes that announcement. The report proposes tests; it does not yet record independent results.</p>
-        <div className="pxActions"><a href={PHOENIX.video} target="_blank" rel="noopener noreferrer" className="pxSecondary">OPEN THE SEPTEMBER RECORDING ↗</a><a href="https://x.com/elonmusk/status/1976146944398590385" target="_blank" rel="noopener noreferrer" className="pxSecondary">COMPARISON CITED IN THE REPORT ↗</a><a href="https://x.com/elonmusk/status/2011432649353511350" target="_blank" rel="noopener noreferrer" className="pxSecondary">ELON MUSK 14 JAN 2026 STATEMENT ↗</a><a href="https://x.com/BJ_Beyond/status/2118452828297474370" target="_blank" rel="noopener noreferrer" className="pxSecondary">5 NOV 2026 PUBLIC QUESTION TO ELON ↗</a><a href={PHOENIX_FOLLOW_UP.article} target="_blank" rel="noopener noreferrer" className="pxSecondary">READ THE FOLLOW-UP ON HACKERNOON ↗</a><a href={PHOENIX.hackernoonPost} target="_blank" rel="noopener noreferrer" className="pxSecondary">HACKERNOON X POST 10 NOV 2026 ↗</a><a href={PHOENIX.authorPost} target="_blank" rel="noopener noreferrer" className="pxSecondary">BJ BEYOND X POST 10 NOV 2026 ↗</a></div>
+        <div className="pxActions"><a href={PHOENIX.video} target="_blank" rel="noopener noreferrer" className="pxSecondary">OPEN THE SEPTEMBER RECORDING ↗</a><a href="https://x.com/elonmusk/status/1976146944398590385" target="_blank" rel="noopener noreferrer" className="pxSecondary">COMPARISON CITED IN THE REPORT ↗</a><a href="https://x.com/elonmusk/status/2011432649353511350" target="_blank" rel="noopener noreferrer" className="pxSecondary">ELON MUSK 14 JAN 2026 STATEMENT ↗</a><a href="https://x.com/BJ_Beyond/status/2118452828297474370" target="_blank" rel="noopener noreferrer" className="pxSecondary">5 NOV 2026 PUBLIC QUESTION TO ELON ↗</a><a href={PHOENIX_FOLLOW_UP.article} target="_blank" rel="noopener noreferrer" className="pxSecondary">READ THE FOLLOW-UP ON HACKERNOON ↗</a><a href={PHOENIX_FOLLOW_UP.hackernoonPost} target="_blank" rel="noopener noreferrer" className="pxSecondary">HACKERNOON X POST 10 NOV 2026 ↗</a><a href={PHOENIX_FOLLOW_UP.authorPost} target="_blank" rel="noopener noreferrer" className="pxSecondary">BJ BEYOND X POST 10 NOV 2026 ↗</a></div>
       </section>
       <section id="limits" className="pxLibraryLimits pxShell">
         <p className="pxIndex">READING THE RECORD</p>

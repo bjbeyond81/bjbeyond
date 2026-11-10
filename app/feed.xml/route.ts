@@ -1,4 +1,5 @@
 import { WRITING, SITE } from '@/lib/content';
+import { PHOENIX } from '@/lib/phoenix';
 import { KOUNELLIS } from '@/lib/kounellis';
 import { ART_EDITIONS } from '@/lib/editions';
 import { absoluteUrl } from '@/lib/routes';
@@ -15,6 +16,8 @@ const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replac
 export function GET() {
   const items = [
     ...WRITING.articles.map((a) => ({ title: a.title, link: a.href, description: a.standfirst, date: a.published })),
+    /* The recovered-archive report is featured in its own block on /writing/, not in WRITING.articles, so it is added here. */
+    { title: PHOENIX.title, link: PHOENIX.article, description: PHOENIX.description, date: PHOENIX.published },
     { title: KOUNELLIS.title, link: absoluteUrl(KOUNELLIS.path), description: KOUNELLIS.standfirst, date: KOUNELLIS.published },
     ...ART_EDITIONS.map((e) => ({ title: e.title, link: absoluteUrl(e.path), description: e.description, date: e.published })),
   ].sort((a, b) => b.date.localeCompare(a.date));
