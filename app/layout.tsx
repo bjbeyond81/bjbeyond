@@ -81,7 +81,6 @@ export const metadata: Metadata = {
     canonical: '/',
     types: {
       'text/plain': '/llms.txt',
-      'application/rss+xml': '/feed.xml',
     },
   },
   robots: {
@@ -122,6 +121,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       suppressHydrationWarning
     >
       <head>
+        {/*
+          Both feeds, on every page. A page that sets its own `alternates`
+          replaces that metadata object, so the writing feed cannot live only
+          there or those pages would drop it. The Journal is a different
+          publication.
+        */}
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title="BJ Beyond Writing RSS"
+          href={`${SITE.url}/feed.xml`}
+        />
         <link
           rel="alternate"
           type="application/rss+xml"
