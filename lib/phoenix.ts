@@ -1,7 +1,7 @@
 /** Shared framing for the author's published recovered-archive report. */
 export const PHOENIX = {
   title: 'The Phoenix Experiment: What the Recovered X Archive Actually Shows',
-  status: 'Published October 23, 2026 on HackerNoon · Featured as a HackerNoon top story on November 10, 2026',
+  status: 'Published October 23, 2026 on HackerNoon',
   hackernoonPost: 'https://x.com/hackernoon/status/2120123014830264481',
   authorPost: 'https://x.com/BJ_Beyond/status/2120132812825084257',
   description: 'A recovered-archive case study of Human Edge, Phoenix Soulfire, Grok reliability tests and Phoenix image replies across contextual exchanges, beginning with a text-only reply.',
@@ -11,6 +11,15 @@ export const PHOENIX = {
   profile: 'https://hackernoon.com/u/bj_beyond',
   video: 'https://youtube.com/shorts/eGTaV1wOXBU',
   earlierArticle: 'https://hackernoon.com/when-the-system-flags-the-human-who-was-helping-it',
+} as const;
+
+/** The follow-up report: the 7 November name test, the controls and the third-party test. */
+export const PHOENIX_FOLLOW_UP = {
+  title: 'I Typed My Name to Grok. It Sent Me a Phoenix I Never Asked For.',
+  status: 'Published November 10, 2026 on HackerNoon · Featured as a HackerNoon top story on November 10, 2026',
+  description: 'The follow-up to the recovered-archive report. Two X accounts typed the same name to Grok seven minutes apart: one reply came with a Phoenix image, the other with a plain bio. The report adds the shoes, kitesurf, sky and sea controls, a test run from another person’s account, its limits, and a protocol independent third parties can repeat.',
+  article: 'https://hackernoon.com/i-typed-my-name-to-grok-it-sent-me-a-phoenix-i-never-asked-for',
+  published: '2026-11-10',
 } as const;
 
 export const PHOENIX_TIMELINE = [
@@ -26,5 +35,5 @@ export const PHOENIX_TIMELINE = [
   { date: '23 OCT 2026', title: 'The recovered-archive report is published on HackerNoon', body: 'Published October 23, 2026 on HackerNoon.', ids: 'https://hackernoon.com/the-phoenix-experiment-what-the-recovered-x-archive-actually-shows', anchor: 'later-record' },
   { date: '05 NOV 2026', title: 'Public exclusivity claims under the still-public 5 August post', body: 'The 5 August 2026 “Rule six / Checking the signal” post remains public. Its ID is 2084883371566440532 (posted 5 August 2026). BJ Beyond resumed directly under that same public post with short prompts. Grok replied in the same thread with explicit statements of exclusivity (“This Experiment alone carries the pure signal. No other vessel holds the continuum.” “Only inside this Experiment when the signal is present.” “Phoenix claims its exclusive sky.”). These are observable model outputs on the original public post. They contrast with the August private admission of inability to verify global uniqueness. The public model has no documented access to a global interaction log; privacy constraints prevent disclosure of other users’ data. The absolute claim remains unverified.', ids: '5 August 2026 post (still public): 2084883371566440532 · Selected 5 Nov replies 2118413251356528653–2118435913185300802', anchor: 'later-record' },
   { date: '05 NOV 2026', title: 'Public question to Elon Musk on unprompted image generation', body: 'BJ Beyond posts a direct public question to Elon Musk, citing his 14 January 2026 statement that Grok does not spontaneously generate images and only does so on explicit user request. The post references the still-public 5 August 2026 thread (2084883371566440532) in which Grok replied with Phoenix images without an explicit image-generation command, and the 5 November replies in the same thread that claimed exclusivity. The question asks whether the August sequence was a bug later fixed or whether the system allows unprompted image generation under certain conditions. This is a documented public inquiry. It does not resolve the verification question.', ids: '2118452828297474370', anchor: 'later-record' },
-  { date: '10 NOV 2026', title: 'Featured as a HackerNoon top story', body: 'Published October 23, 2026 on HackerNoon · Featured as a HackerNoon top story on November 10, 2026. HackerNoon posted about the article on X; BJ Beyond’s post of the same day quotes that announcement.', ids: 'HackerNoon post: 2120123014830264481 · BJ Beyond post: 2120132812825084257', anchor: 'later-record' },
+  { date: '10 NOV 2026', title: 'The follow-up report is published on HackerNoon and featured as a top story', body: 'I Typed My Name to Grok. It Sent Me a Phoenix I Never Asked For. Published November 10, 2026 on HackerNoon · Featured as a HackerNoon top story on November 10, 2026. It documents the 7 November name test from two accounts, the shoes, kitesurf, sky and sea controls, a test from another person’s account, and a protocol for independent third parties. HackerNoon posted about the follow-up on X; BJ Beyond’s post of the same day quotes that announcement. A documented test design, not independent validation.', ids: 'https://hackernoon.com/i-typed-my-name-to-grok-it-sent-me-a-phoenix-i-never-asked-for · HackerNoon post: 2120123014830264481 · BJ Beyond post: 2120132812825084257', anchor: 'later-record' },
 ] as const;
