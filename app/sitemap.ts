@@ -32,18 +32,18 @@ export const dynamic = 'force-static';
  */
 const SITE_WIDE = '2026-10-07';
 const LASTMOD: Record<string, string> = {
-  '/': '2026-11-09',
+  '/': '2026-11-10',
   '/human-edge/': '2026-11-08',
-  '/phoenix-experiment/': '2026-11-08',
+  '/phoenix-experiment/': '2026-11-10',
   '/method/': '2026-11-05',
-  '/writing/': '2026-11-08',
+  '/writing/': '2026-11-10',
   '/writing/claude-opus-5-vs-pangram/': '2026-11-05',
   '/writing/what-an-ai-detector-can-prove-and-what-it-cant/': '2026-11-05',
   '/writing/can-ai-detectors-be-fooled-by-claude/': '2026-11-05',
   '/it/cosa-puo-dimostrare-un-rilevatore-di-testo-ai/': '2026-11-05',
   '/writing/kounellis-italics/': '2026-10-30',
   '/glossary/': '2026-10-30',
-  '/about/': '2026-10-30',
+  '/about/': '2026-11-10',
   '/art/': '2026-11-01',
   '/art/use-your-illusion/': '2026-11-03',
   '/art/a-promise-that-lasted-seven-years/': '2026-11-03',

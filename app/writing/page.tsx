@@ -93,7 +93,8 @@ export default function WritingPage() {
         <Reveal className="mb-14 border-y border-rule py-10">
           <p className="u-label text-amber-400">RECOVERED-ARCHIVE REPORT / PUBLISHED ON HACKERNOON</p>
           <h2 className="mt-5 max-w-4xl text-headline font-extralight text-paper">{PHOENIX.title}</h2>
-          <p className="mt-6 max-w-3xl text-body font-light text-mist-300">{PHOENIX.description} Published on HackerNoon.</p>
+          <p className="mt-6 max-w-3xl text-body font-light text-mist-300">{PHOENIX.description}</p>
+          <p className="mt-4 max-w-3xl text-body font-light text-mist-300">{PHOENIX.status}.</p>
           <blockquote className="mt-6 max-w-3xl border-l border-amber-400 pl-5 text-body text-paper">{PHOENIX.caveat}</blockquote>
           <div className="mt-8 flex flex-wrap gap-6"><ArrowLink href={PHOENIX.article} external>Read the article on HackerNoon</ArrowLink><ArrowLink href="/phoenix-experiment/">Explore the companion record</ArrowLink></div>
         </Reveal>
