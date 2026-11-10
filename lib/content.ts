@@ -144,6 +144,16 @@ export const WRITING = {
   pageAction: 'READ THE SUMMARY',
   articles: [
     {
+      slug: 'i-typed-my-name-to-grok-it-sent-me-a-phoenix-i-never-asked-for',
+      title: 'I Typed My Name to Grok. It Sent Me a Phoenix I Never Asked For.',
+      standfirst:
+        'The follow-up to the Phoenix Experiment. Two X accounts typed the same name to Grok seven minutes apart: one reply came with a Phoenix image nobody asked for, the other with a plain bio. Controls, a test from another account, the limits, and a protocol for independent third parties.',
+      published: '2026-11-10',
+      href: 'https://hackernoon.com/i-typed-my-name-to-grok-it-sent-me-a-phoenix-i-never-asked-for',
+      pull: 'Featured as a HackerNoon top story on November 10, 2026.',
+      topics: ['PHOENIX EXPERIMENT', 'GROK', 'AI TESTING'],
+    },
+    {
       slug: 'pressing-enter-doesnt-make-you-a-creator',
       title: 'Pressing Enter Doesn’t Make You a Creator',
       standfirst:
