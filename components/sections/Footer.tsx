@@ -5,6 +5,15 @@ import { ConsentToggle } from '@/components/chrome/Consent';
 import { FOOTER, SITE, SOCIAL } from '@/lib/content';
 
 /** A server component: nothing here moves, so nothing here needs JavaScript. */
+function RssIcon() {
+  return (
+    <svg aria-hidden="true" width="11" height="11" viewBox="0 0 16 16" fill="currentColor">
+      <circle cx="2.5" cy="13.5" r="2.5" />
+      <path d="M0 6v3a7 7 0 0 1 7 7h3A10 10 0 0 0 0 6zm0-6v3a13 13 0 0 1 13 13h3A16 16 0 0 0 0 0z" />
+    </svg>
+  );
+}
+
 export function Footer() {
   return (
     <footer className="relative border-t border-rule bg-ink-950">
@@ -69,8 +78,16 @@ export function Footer() {
         <div className="mt-14 flex flex-col gap-3 border-t border-rule pt-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="u-label text-mist-400">{FOOTER.copyright}</p>
           <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
-            {/* The Journal (GitHub Pages) and its article feed, not this site's own /feed.xml. */}
-            <span className="inline-flex items-center gap-3">
+            {/* Two feeds. Writing is this site; the Journal is the other publication. */}
+            <a
+              href="/feed.xml"
+              type="application/rss+xml"
+              className="u-label inline-flex min-h-11 items-center gap-2 text-mist-400 transition-colors duration-200 hover:text-amber-400"
+            >
+              <RssIcon />
+              Writing RSS
+            </a>
+            <span className="inline-flex flex-wrap items-center gap-x-3 gap-y-1">
               <a
                 href="https://bjbeyond81.github.io/studio/"
                 className="u-label inline-flex min-h-11 items-center text-mist-400 transition-colors duration-200 hover:text-amber-400"
@@ -80,20 +97,10 @@ export function Footer() {
               <a
                 href="https://bjbeyond81.github.io/studio/feed.xml"
                 type="application/rss+xml"
-                aria-label="BJ Beyond Journal RSS feed"
-                title="RSS"
-                className="inline-flex min-h-11 min-w-11 items-center justify-center text-mist-400 transition-colors duration-200 hover:text-amber-400"
+                className="u-label inline-flex min-h-11 items-center gap-2 text-mist-400 transition-colors duration-200 hover:text-amber-400"
               >
-                <svg
-                  aria-hidden="true"
-                  width="12"
-                  height="12"
-                  viewBox="0 0 16 16"
-                  fill="currentColor"
-                >
-                  <circle cx="2.5" cy="13.5" r="2.5" />
-                  <path d="M0 6v3a7 7 0 0 1 7 7h3A10 10 0 0 0 0 6zm0-6v3a13 13 0 0 1 13 13h3A16 16 0 0 0 0 0z" />
-                </svg>
+                <RssIcon />
+                Journal RSS
               </a>
             </span>
             <p className="u-label text-mist-400">{SITE.domain}</p>
