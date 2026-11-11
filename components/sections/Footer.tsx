@@ -69,7 +69,7 @@ export function Footer() {
         <div className="mt-14 flex flex-col gap-3 border-t border-rule pt-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="u-label text-mist-400">{FOOTER.copyright}</p>
           <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
-            {/* The Journal (GitHub Pages) and its article feed, not this site's own /feed.xml. */}
+            {/* The Journal page stays on GitHub Pages. The icon is the counted article feed, not this site's own /feed.xml. */}
             <span className="inline-flex items-center gap-3">
               <a
                 href="https://bjbeyond81.github.io/studio/"
@@ -78,7 +78,7 @@ export function Footer() {
                 BJ Beyond Journal
               </a>
               <a
-                href="https://bjbeyond81.github.io/studio/feed.xml"
+                href="https://bjbeyond.it/journal/feed.xml"
                 type="application/rss+xml"
                 aria-label="BJ Beyond Journal RSS feed"
                 title="RSS"
