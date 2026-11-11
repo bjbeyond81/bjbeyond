@@ -20,6 +20,9 @@
  * `lib/analytics.ts` rather than written down beside it: the marketing rows
  * appear if and only if `META_PIXEL_ID` is set. The document cannot drift from
  * the site, because the same constant decides both.
+ *
+ * The privacy notice also records the Journal feed counts on bjbeyond.it:
+ * aggregate volume only, with no cookies and no public stats page.
  */
 
 export type LegalBlock =
@@ -61,7 +64,7 @@ export const PRIVACY: LegalDocument = {
   index: '01',
   eyebrow: 'LEGAL',
   title: ['PRIVACY', 'POLICY'],
-  updated: '4 October 2026',
+  updated: '11 November 2026',
   legacyPath: '/pages/privacy-policy.html',
   intro:
     'BJ Beyond protects your privacy. This notice describes how personal data is collected, used, and protected under Regulation (EU) 2016/679 (GDPR), Legislative Decree 196/2003 (Italian Privacy Code), and the EDPB Guidelines.',
@@ -107,6 +110,11 @@ export const PRIVACY: LegalDocument = {
         {
           kind: 'callout',
           value: 'We do not collect special-category data and we do not sell data to third parties.',
+        },
+        {
+          kind: 'text',
+          value:
+            'Request counts for the Journal feeds on bjbeyond.it are aggregate only: volume, which feed, and a coarse reader family such as Feedly or a browser. No names, IP addresses, or raw User-Agent strings are stored. The Journal remains without tracking cookies. These counts are private, not a public stats page.',
         },
       ],
     },

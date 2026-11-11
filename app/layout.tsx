@@ -122,11 +122,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       suppressHydrationWarning
     >
       <head>
+        {/* Counted Journal article feed. This site's own writing feed stays /feed.xml. */}
         <link
           rel="alternate"
           type="application/rss+xml"
           title="BJ Beyond Journal RSS"
-          href="https://bjbeyond81.github.io/studio/feed.xml"
+          href="https://bjbeyond.it/journal/feed.xml"
         />
         {/*
           Stamps `js` on <html> before the first paint.
