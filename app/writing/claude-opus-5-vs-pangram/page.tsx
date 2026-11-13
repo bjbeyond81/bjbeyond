@@ -6,6 +6,8 @@ import { PANGRAM_PAGE as P, SITE } from '@/lib/content';
 import { MEDIA } from '@/lib/media';
 import { PANGRAM_ARTICLE, type ArticleBlock } from '@/lib/pangram-article';
 import { absoluteUrl, metadataFor } from '@/lib/routes';
+import { HnAudioPlayer } from '@/components/primitives/HnAudioPlayer';
+import { audioBySlug } from '@/lib/hn-audio';
 
 const CANONICAL = absoluteUrl(P.path);
 
@@ -107,6 +109,8 @@ function renderBlock(block: ArticleBlock, i: number) {
   }
 }
 
+const PANGRAM_AUDIO = audioBySlug('i-asked-claude-opus-5-to-beat-pangrams-ai-detector-it-failed-with-a-perfect-score');
+
 export default function PangramPage() {
   return (
     <PageShell
@@ -154,6 +158,7 @@ export default function PangramPage() {
               {P.independence.after}
             </p>
           </Reveal>
+          {PANGRAM_AUDIO ? <HnAudioPlayer item={PANGRAM_AUDIO} compact className="mt-10" /> : null}
           <div className="mt-10">{PANGRAM_ARTICLE.map(renderBlock)}</div>
 
           <Reveal delay={0.1} className="mt-12 flex flex-col items-start gap-4">

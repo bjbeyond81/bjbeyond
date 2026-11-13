@@ -570,3 +570,38 @@
      they are never applied in the first place. The texture itself stays — it
      is not motion. */
 }
+
+
+/* HackerNoon audio players. Native controls, no custom JS. Accent follows the
+   site amber; the control chrome itself is the browser’s. */
+.hn-audio {
+  max-width: 36rem;
+}
+
+.hn-audio-title {
+  margin-bottom: 0.75rem;
+  font-size: var(--text-meta);
+  font-weight: 300;
+  color: var(--color-paper);
+}
+
+.hn-audio-track + .hn-audio-track {
+  margin-top: 1rem;
+}
+
+.hn-audio audio {
+  display: block;
+  width: 100%;
+  margin-top: 0.55rem;
+  accent-color: var(--color-amber-400);
+}
+
+.hn-audio-credit {
+  margin-top: 0.75rem;
+}
+
+.hn-audio-credit a {
+  text-decoration: underline;
+  text-decoration-color: rgb(232 197 71 / 0.35);
+  text-underline-offset: 3px;
+}
