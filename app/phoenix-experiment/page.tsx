@@ -2,6 +2,8 @@ import Link from 'next/link';
 import './phoenix-experiment.css';
 import { PHOENIX, PHOENIX_FOLLOW_UP, PHOENIX_TIMELINE } from '@/lib/phoenix';
 import { metadataFor } from '@/lib/routes';
+import { HnAudioPlayer } from '@/components/primitives/HnAudioPlayer';
+import { audioBySlug } from '@/lib/hn-audio';
 import { siteSchema } from '@/lib/schema';
 
 export const metadata = metadataFor('/phoenix-experiment/');
@@ -68,6 +70,9 @@ const reportSchema = (r: (typeof REPORTS)[number]) => ({
   publisher: { '@type': 'Organization', name: 'HackerNoon', url: 'https://hackernoon.com/' },
 });
 
+const PHOENIX_AUDIO = audioBySlug('the-phoenix-experiment-what-the-recovered-x-archive-actually-shows');
+const PHOENIX_FOLLOW_UP_AUDIO = audioBySlug('i-typed-my-name-to-grok-it-sent-me-a-phoenix-i-never-asked-for');
+
 export default function PhoenixExperimentPage() {
   return (
     <main id="main" className="px pxLibrary">
@@ -84,6 +89,8 @@ export default function PhoenixExperimentPage() {
         <p className="pxLibraryIntro">In August 2026, a text-only reply inside an existing thread was followed by Phoenix image replies across later exchanges. This room follows the earlier creative work, the reliability tests and the later questions about what those replies meant. Read the chronology, inspect the selected records and distinguish the observation from its interpretation.</p>
         <p className="pxStatus">{PHOENIX.status} · <a href={PHOENIX.article} target="_blank" rel="noopener noreferrer">Read the article ↗</a></p>
         <p className="pxStatus">Follow-up: {PHOENIX_FOLLOW_UP.status} · <a href={PHOENIX_FOLLOW_UP.article} target="_blank" rel="noopener noreferrer">Read the follow-up ↗</a></p>
+        {PHOENIX_AUDIO ? <HnAudioPlayer item={PHOENIX_AUDIO} compact showTitle className="pxHnAudio" /> : null}
+        {PHOENIX_FOLLOW_UP_AUDIO ? <HnAudioPlayer item={PHOENIX_FOLLOW_UP_AUDIO} compact showTitle className="pxHnAudio" /> : null}
         <p className="pxLibraryIntro">Companion to <em>{PHOENIX.title}</em>. A reconstruction by BJ Beyond, with selected supporting records below.</p>
         <blockquote className="pxThesis">{PHOENIX.question}</blockquote>
         <div className="pxActions"><a href="#timeline" className="pxPrimary">FOLLOW THE RECORD</a><a href="#questions" className="pxSecondary">THE QUESTION OF RARITY</a></div>

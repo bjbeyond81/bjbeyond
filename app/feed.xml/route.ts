@@ -3,6 +3,7 @@ import { PHOENIX } from '@/lib/phoenix';
 import { KOUNELLIS } from '@/lib/kounellis';
 import { ART_EDITIONS } from '@/lib/editions';
 import { absoluteUrl } from '@/lib/routes';
+import { enclosureForLink } from '@/lib/hn-audio';
 
 /* Static export: generated once at build time, like sitemap.ts. */
 export const dynamic = 'force-static';
@@ -20,7 +21,9 @@ export function GET() {
     { title: PHOENIX.title, link: PHOENIX.article, description: PHOENIX.description, date: PHOENIX.published },
     { title: KOUNELLIS.title, link: absoluteUrl(KOUNELLIS.path), description: KOUNELLIS.standfirst, date: KOUNELLIS.published },
     ...ART_EDITIONS.map((e) => ({ title: e.title, link: absoluteUrl(e.path), description: e.description, date: e.published })),
-  ].sort((a, b) => b.date.localeCompare(a.date));
+  ]
+    .map((item) => ({ ...item, enclosure: enclosureForLink(item.link) }))
+    .sort((a, b) => b.date.localeCompare(a.date));
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
@@ -38,7 +41,11 @@ ${items
 <link>${esc(i.link)}</link>
 <guid isPermaLink="true">${esc(i.link)}</guid>
 <pubDate>${new Date(`${i.date}T00:00:00Z`).toUTCString()}</pubDate>
-<description>${esc(i.description)}</description>
+<description>${esc(i.description)}</description>${
+      i.enclosure
+        ? `\n<enclosure url="${esc(i.enclosure.url)}" length="${i.enclosure.length}" type="${i.enclosure.type}"/>`
+        : ''
+    }
 </item>`,
   )
   .join('\n')}
