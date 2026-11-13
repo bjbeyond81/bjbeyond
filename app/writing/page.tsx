@@ -9,6 +9,8 @@ import { PHOENIX, PHOENIX_FOLLOW_UP } from '@/lib/phoenix';
 import { KOUNELLIS } from '@/lib/kounellis';
 import { ART_EDITIONS, THINK_BEYOND_AI } from '@/lib/editions';
 import { absoluteUrl } from '@/lib/routes';
+import { HnAudioPlayer } from '@/components/primitives/HnAudioPlayer';
+import { audioBySlug } from '@/lib/hn-audio';
 
 export const metadata: Metadata = metadataFor('/writing/');
 
@@ -74,6 +76,12 @@ function writingSchema(posts: ListedPost[]) {
   };
 }
 
+function articleAudio(slug: string) {
+  return audioBySlug(slug);
+}
+
+const PHOENIX_AUDIO = audioBySlug('the-phoenix-experiment-what-the-recovered-x-archive-actually-shows');
+
 export default function WritingPage() {
   const articles = [...WRITING.articles].sort((a, b) => b.published.localeCompare(a.published));
 
@@ -97,12 +105,13 @@ export default function WritingPage() {
           <p className="mt-4 max-w-3xl text-body font-light text-mist-300">{PHOENIX.status}.</p>
           <p className="mt-4 max-w-3xl text-body font-light text-mist-300">Follow-up: <em>{PHOENIX_FOLLOW_UP.title}</em> {PHOENIX_FOLLOW_UP.status}.</p>
           <blockquote className="mt-6 max-w-3xl border-l border-amber-400 pl-5 text-body text-paper">{PHOENIX.caveat}</blockquote>
-          <div className="mt-8 flex flex-wrap gap-6"><ArrowLink href={PHOENIX.article} external>Read the article on HackerNoon</ArrowLink><ArrowLink href={PHOENIX_FOLLOW_UP.article} external>Read the follow-up on HackerNoon</ArrowLink><ArrowLink href="/phoenix-experiment/">Explore the companion record</ArrowLink></div>
+          <div className="mt-8 flex flex-wrap gap-6"><ArrowLink href={PHOENIX.article} external>Read the article on HackerNoon</ArrowLink><ArrowLink href={PHOENIX_FOLLOW_UP.article} external>Read the follow-up on HackerNoon</ArrowLink><ArrowLink href="/phoenix-experiment/">Explore the companion record</ArrowLink><ArrowLink href="/audio/">Audio versions</ArrowLink></div>
+          {PHOENIX_AUDIO ? <HnAudioPlayer item={PHOENIX_AUDIO} compact className="mt-8" /> : null}
         </Reveal>
         <p className="u-label mb-5 text-amber-400">TECHNOLOGY & AI / HACKERNOON</p>
         <RevealGroup>
           <div className="border-t border-rule">
-            {articles.map((article) => (
+            {articles.map((article) => { const audio = articleAudio(article.slug); return (
               <RevealItem key={article.slug} as="article" className="grid grid-cols-1 gap-6 border-b border-rule py-9 lg:grid-cols-12 lg:gap-6">
                 <div className="lg:col-span-2">
                   <p className="u-label text-amber-400">{article.topics[0]}</p>
@@ -117,6 +126,7 @@ export default function WritingPage() {
                   <blockquote className="mt-6 border-l border-amber-400 pl-5 text-meta italic text-mist-200">
                     {article.pull}
                   </blockquote>
+                  {audio ? <HnAudioPlayer item={audio} compact className="mt-8" /> : null}
                 </div>
                 <div className="lg:col-span-3 lg:col-start-10 flex flex-col items-start">
                   {'page' in article && article.href.startsWith('https://bjbeyond.it') ? (
@@ -148,7 +158,7 @@ export default function WritingPage() {
                   )}
                 </div>
               </RevealItem>
-            ))}
+            ); })}
           </div>
         </RevealGroup>
 

@@ -25,6 +25,11 @@ BJ Beyond explores how AI changes thinking, creation and cultural value through 
 - System Zero: What Happens When AI Does the Thinking for Us? (published September 11, 2026 on HackerNoon): https://hackernoon.com/system-zero-what-happens-when-ai-does-the-thinking-for-us
 - When the System Flags the Human Who Was Helping It (published August 27, 2026 on HackerNoon): https://hackernoon.com/when-the-system-flags-the-human-who-was-helping-it
 
+## Audio versions
+- Official HackerNoon synthetic audio of the HackerNoon stories is collected at https://bjbeyond.it/audio/. The files are hosted by HackerNoon; the page links them with the credit “Audio version by HackerNoon”.
+- Podcast feed (enclosures point at HackerNoon’s MP3 URLs): https://bjbeyond.it/podcast.xml
+- The writing RSS at https://bjbeyond.it/feed.xml includes the same enclosures on matching items. This is separate from the Journal feeds at https://bjbeyond.it/journal/feed.xml and https://bjbeyond.it/journal/news.xml.
+
 ## Phoenix chronology
 - March 7 and 14: Human Edge and collaboration.
 - March 24: Phoenix imagery, soul and curation.
