@@ -6,7 +6,7 @@ import { ArrowLink } from '@/components/primitives/ArrowLink';
 import { MEDIA } from '@/lib/media';
 import { metadataFor, absoluteUrl } from '@/lib/routes';
 import { PERSON_ID, WEBSITE_ID } from '@/lib/schema';
-import { PHOENIX, PHOENIX_FOLLOW_UP } from '@/lib/phoenix';
+import { PHOENIX, PHOENIX_FOLLOW_UP, PHOENIX_DATASET } from '@/lib/phoenix';
 
 /* Editorial only: no service vocabulary (valuation, strategy) — BJ Beyond offers no services. */
 const description = 'BJ Beyond is an independent writer in Verona, Italy, exploring art, AI, authorship and human judgment through essays and public experiments.';
@@ -123,7 +123,8 @@ export default function AboutPage() {
             <h2 className="mt-5 text-title font-extralight text-paper">{PHOENIX.title}</h2>
             <p className="mt-6 text-body font-light text-mist-300">{PHOENIX.description} {PHOENIX.status}.</p>
             <p className="mt-4 text-body font-light text-mist-300">Follow-up: <em>{PHOENIX_FOLLOW_UP.title}</em> {PHOENIX_FOLLOW_UP.status}.</p>
-            <div className="mt-8 flex flex-wrap gap-6"><ArrowLink href={PHOENIX.article} external>Read the article on HackerNoon</ArrowLink><ArrowLink href={PHOENIX_FOLLOW_UP.article} external>Read the follow-up on HackerNoon</ArrowLink><ArrowLink href="/phoenix-experiment/">Inspect the companion evidence room</ArrowLink></div>
+            <p className="mt-4 text-body font-light text-mist-300">A citable research dataset of the Grok image interactions is on Zenodo (<a href={PHOENIX_DATASET.doi} target="_blank" rel="noopener noreferrer" className="text-amber-400 underline decoration-amber-400/40 underline-offset-4 hover:decoration-amber-400">doi.org/10.5281/zenodo.24209866</a>).</p>
+            <div className="mt-8 flex flex-wrap gap-6"><ArrowLink href={PHOENIX.article} external>Read the article on HackerNoon</ArrowLink><ArrowLink href={PHOENIX_FOLLOW_UP.article} external>Read the follow-up on HackerNoon</ArrowLink><ArrowLink href="/phoenix-experiment/">Inspect the companion evidence room</ArrowLink><ArrowLink href="/phoenix-experiment/#dataset">Open the dataset record</ArrowLink></div>
           </Reveal>
           <Reveal className="border-t border-rule pt-12 lg:pt-16">
             <p className="text-body text-paper"><strong>BJ is “AI” shifted one letter forward. Beyond is the question that follows: what do we do with what the machine gives us?</strong></p>

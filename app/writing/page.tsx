@@ -5,7 +5,7 @@ import { ArrowLink } from '@/components/primitives/ArrowLink';
 import { WRITING } from '@/lib/content';
 import { MEDIA } from '@/lib/media';
 import { metadataFor } from '@/lib/routes';
-import { PHOENIX, PHOENIX_FOLLOW_UP } from '@/lib/phoenix';
+import { PHOENIX, PHOENIX_FOLLOW_UP, PHOENIX_DATASET } from '@/lib/phoenix';
 import { KOUNELLIS } from '@/lib/kounellis';
 import { ART_EDITIONS, THINK_BEYOND_AI } from '@/lib/editions';
 import { absoluteUrl } from '@/lib/routes';
@@ -97,7 +97,8 @@ export default function WritingPage() {
           <p className="mt-4 max-w-3xl text-body font-light text-mist-300">{PHOENIX.status}.</p>
           <p className="mt-4 max-w-3xl text-body font-light text-mist-300">Follow-up: <em>{PHOENIX_FOLLOW_UP.title}</em> {PHOENIX_FOLLOW_UP.status}.</p>
           <blockquote className="mt-6 max-w-3xl border-l border-amber-400 pl-5 text-body text-paper">{PHOENIX.caveat}</blockquote>
-          <div className="mt-8 flex flex-wrap gap-6"><ArrowLink href={PHOENIX.article} external>Read the article on HackerNoon</ArrowLink><ArrowLink href={PHOENIX_FOLLOW_UP.article} external>Read the follow-up on HackerNoon</ArrowLink><ArrowLink href="/phoenix-experiment/">Explore the companion record</ArrowLink></div>
+          <p className="mt-4 max-w-3xl text-body font-light text-mist-300">A citable research dataset of the Grok image interactions (<em>{PHOENIX_DATASET.title}</em>, {PHOENIX_DATASET.licenseName}) is on Zenodo. It covers {PHOENIX_DATASET.window} and does not include the images themselves, because of rights limits on redistributing X and Grok media.</p>
+          <div className="mt-8 flex flex-wrap gap-6"><ArrowLink href={PHOENIX.article} external>Read the article on HackerNoon</ArrowLink><ArrowLink href={PHOENIX_FOLLOW_UP.article} external>Read the follow-up on HackerNoon</ArrowLink><ArrowLink href="/phoenix-experiment/">Explore the companion record</ArrowLink><ArrowLink href={PHOENIX_DATASET.doi} external>Cite the dataset</ArrowLink><ArrowLink href="/phoenix-experiment/#dataset">Dataset details in the Evidence Room</ArrowLink></div>
         </Reveal>
         <p className="u-label mb-5 text-amber-400">TECHNOLOGY & AI / HACKERNOON</p>
         <RevealGroup>
