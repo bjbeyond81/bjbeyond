@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import './phoenix-experiment.css';
-import { PHOENIX, PHOENIX_FOLLOW_UP, PHOENIX_TIMELINE } from '@/lib/phoenix';
+import { PHOENIX, PHOENIX_FOLLOW_UP, PHOENIX_DATASET, PHOENIX_TIMELINE } from '@/lib/phoenix';
 import { metadataFor } from '@/lib/routes';
 import { siteSchema } from '@/lib/schema';
 
@@ -68,13 +68,33 @@ const reportSchema = (r: (typeof REPORTS)[number]) => ({
   publisher: { '@type': 'Organization', name: 'HackerNoon', url: 'https://hackernoon.com/' },
 });
 
+const datasetSchema = {
+  '@type': 'Dataset',
+  '@id': PHOENIX_DATASET.doi,
+  name: PHOENIX_DATASET.title,
+  description: `Public table of Grok image replies on X in the Phoenix Experiment, covering ${PHOENIX_DATASET.window}. ${PHOENIX_DATASET.rows} rows and ${PHOENIX_DATASET.imageReplies} Grok image replies, ${PHOENIX_DATASET.unrequestedShare} without an explicit image-generation request. Images are not included, because of rights limits on redistributing X and Grok media.`,
+  creator: {
+    '@type': 'Person',
+    name: 'Matteo Zanetti',
+    affiliation: { '@type': 'Organization', name: 'BJ Beyond', url: 'https://bjbeyond.it/' },
+  },
+  identifier: [PHOENIX_DATASET.doi, PHOENIX_DATASET.versionDoi],
+  license: PHOENIX_DATASET.license,
+  url: PHOENIX_DATASET.zenodo,
+  sameAs: [PHOENIX_DATASET.github, PHOENIX_DATASET.essay],
+  isAccessibleForFree: true,
+  temporalCoverage: PHOENIX_DATASET.temporalCoverage,
+  inLanguage: 'en',
+  datePublished: PHOENIX_DATASET.published,
+};
+
 export default function PhoenixExperimentPage() {
   return (
     <main id="main" className="px pxLibrary">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ ...siteSchema(), '@graph': [...siteSchema()['@graph'], { '@type': 'CollectionPage', '@id': 'https://bjbeyond.it/phoenix-experiment/#page', url: 'https://bjbeyond.it/phoenix-experiment/', name: 'Grok Replied with Images I Never Asked For: The Phoenix Experiment Record', description: PHOENIX.description, author: { '@id': 'https://bjbeyond.it/#person' }, inLanguage: 'en', isBasedOn: REPORTS.map((r) => ({ '@id': `${r.article}#article` })) }, ...REPORTS.map(reportSchema)] }) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ ...siteSchema(), '@graph': [...siteSchema()['@graph'], { '@type': 'CollectionPage', '@id': 'https://bjbeyond.it/phoenix-experiment/#page', url: 'https://bjbeyond.it/phoenix-experiment/', name: 'Grok Replied with Images I Never Asked For: The Phoenix Experiment Record', description: PHOENIX.description, author: { '@id': 'https://bjbeyond.it/#person' }, inLanguage: 'en', isBasedOn: REPORTS.map((r) => ({ '@id': `${r.article}#article` })) }, ...REPORTS.map(reportSchema), datasetSchema] }) }} />
       <header className="pxNav pxShell">
         <Link href="/" className="pxBrand">BJ BEYOND™</Link>
-        <nav aria-label="Evidence Room"><a href="#timeline">TIMELINE</a><a href="#records">RECORDS</a><a href="#limits">LIMITS</a></nav>
+        <nav aria-label="Evidence Room"><a href="#timeline">TIMELINE</a><a href="#records">RECORDS</a><a href="#dataset">DATASET</a><a href="#limits">LIMITS</a></nav>
         <Link href="/" className="pxBack">← HOME</Link>
       </header>
       <section className="pxLibraryHero pxShell">
@@ -84,6 +104,7 @@ export default function PhoenixExperimentPage() {
         <p className="pxLibraryIntro">In August 2026, a text-only reply inside an existing thread was followed by Phoenix image replies across later exchanges. This room follows the earlier creative work, the reliability tests and the later questions about what those replies meant. Read the chronology, inspect the selected records and distinguish the observation from its interpretation.</p>
         <p className="pxStatus">{PHOENIX.status} · <a href={PHOENIX.article} target="_blank" rel="noopener noreferrer">Read the article ↗</a></p>
         <p className="pxStatus">Follow-up: {PHOENIX_FOLLOW_UP.status} · <a href={PHOENIX_FOLLOW_UP.article} target="_blank" rel="noopener noreferrer">Read the follow-up ↗</a></p>
+        <p className="pxStatus">Dataset: {PHOENIX_DATASET.title} · <a href="#dataset">Open the dataset ↓</a></p>
         <p className="pxLibraryIntro">Companion to <em>{PHOENIX.title}</em>. A reconstruction by BJ Beyond, with selected supporting records below.</p>
         <blockquote className="pxThesis">{PHOENIX.question}</blockquote>
         <div className="pxActions"><a href="#timeline" className="pxPrimary">FOLLOW THE RECORD</a><a href="#questions" className="pxSecondary">THE QUESTION OF RARITY</a></div>
@@ -124,6 +145,23 @@ export default function PhoenixExperimentPage() {
         <p className="pxLibrarySource">On 5 November 2026 BJ Beyond posted a direct public question to Elon Musk (ID 2118452828297474370). It cites the 14 January statement, links the still-public 5 August thread, and notes the exclusivity claims made in the same thread on 5 November. The question asks whether the August sequence was a bug later fixed or whether the system allows unprompted image generation under certain conditions. This is a documented public inquiry. It does not resolve the verification question.</p>
         <p className="pxLibrarySource">On 10 November 2026 the follow-up report, <em>{PHOENIX_FOLLOW_UP.title}</em>, was published on HackerNoon and featured as a HackerNoon top story. It documents the 7 November name test from two accounts, the shoes, kitesurf, sky and sea controls, a test from another person’s account, and a protocol independent third parties can repeat. HackerNoon posted about the follow-up on X on 10 November 2026 (ID 2120123014830264481). BJ Beyond’s post of the same day (ID 2120132812825084257) quotes that announcement. The report proposes tests; it does not yet record independent results.</p>
         <div className="pxActions"><a href={PHOENIX.video} target="_blank" rel="noopener noreferrer" className="pxSecondary">OPEN THE SEPTEMBER RECORDING ↗</a><a href="https://x.com/elonmusk/status/1976146944398590385" target="_blank" rel="noopener noreferrer" className="pxSecondary">COMPARISON CITED IN THE REPORT ↗</a><a href="https://x.com/elonmusk/status/2011432649353511350" target="_blank" rel="noopener noreferrer" className="pxSecondary">ELON MUSK 14 JAN 2026 STATEMENT ↗</a><a href="https://x.com/BJ_Beyond/status/2118452828297474370" target="_blank" rel="noopener noreferrer" className="pxSecondary">5 NOV 2026 PUBLIC QUESTION TO ELON ↗</a><a href={PHOENIX_FOLLOW_UP.article} target="_blank" rel="noopener noreferrer" className="pxSecondary">READ THE FOLLOW-UP ON HACKERNOON ↗</a><a href={PHOENIX_FOLLOW_UP.hackernoonPost} target="_blank" rel="noopener noreferrer" className="pxSecondary">HACKERNOON X POST 10 NOV 2026 ↗</a><a href={PHOENIX_FOLLOW_UP.authorPost} target="_blank" rel="noopener noreferrer" className="pxSecondary">BJ BEYOND X POST 10 NOV 2026 ↗</a></div>
+      </section>
+      <section id="dataset" className="pxShell pxSummary" aria-labelledby="dataset-heading">
+        <p className="pxIndex">RESEARCH DATASET / 14 NOV 2026</p>
+        <h2 id="dataset-heading">A citable research dataset</h2>
+        <p className="pxLibrarySource"><em>{PHOENIX_DATASET.title}</em> is a public table of Grok image replies on X, covering {PHOENIX_DATASET.window}. The deposit has {PHOENIX_DATASET.rows} rows and {PHOENIX_DATASET.imageReplies} Grok image replies; {PHOENIX_DATASET.unrequestedShare} of those replies had no explicit image-generation request. It is licensed {PHOENIX_DATASET.licenseName}. The images themselves are not included, because of rights limits on redistributing X and Grok media; each row cites the original post by ID and link.</p>
+        <p className="pxLibrarySource">Cite the concept DOI, which always resolves to the latest version: <a href={PHOENIX_DATASET.doi} target="_blank" rel="noopener noreferrer">{PHOENIX_DATASET.doi}</a>. The version published on 14 November 2026 is <a href={PHOENIX_DATASET.versionDoi} target="_blank" rel="noopener noreferrer">{PHOENIX_DATASET.versionDoi}</a>.</p>
+        <div className="pxLibraryLimitGrid">
+          <div><h3>ROWS</h3><p>{PHOENIX_DATASET.rows} documented interactions in the public table.</p></div>
+          <div><h3>GROK IMAGE REPLIES</h3><p>{PHOENIX_DATASET.imageReplies} image replies, {PHOENIX_DATASET.unrequestedShare} without an explicit request.</p></div>
+          <div><h3>LICENCE AND SCOPE</h3><p>{PHOENIX_DATASET.licenseName}. Window: {PHOENIX_DATASET.window}. Images are not part of the deposit.</p></div>
+        </div>
+        <div className="pxActions">
+          <a href={PHOENIX_DATASET.doi} target="_blank" rel="noopener noreferrer" className="pxPrimary">CITE THE DATASET ↗</a>
+          <a href={PHOENIX_DATASET.zenodo} target="_blank" rel="noopener noreferrer" className="pxSecondary">ZENODO RECORD ↗</a>
+          <a href={PHOENIX_DATASET.github} target="_blank" rel="noopener noreferrer" className="pxSecondary">GITHUB REPOSITORY ↗</a>
+          <a href={PHOENIX_DATASET.essay} target="_blank" rel="noopener noreferrer" className="pxSecondary">READ THE ESSAY “THE LOOP IS THE SIGNAL” ↗</a>
+        </div>
       </section>
       <section id="limits" className="pxLibraryLimits pxShell">
         <p className="pxIndex">READING THE RECORD</p>
