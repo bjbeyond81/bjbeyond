@@ -68,11 +68,6 @@ export function Method() {
                 className="mt-12 text-title font-light tracking-[0.02em] text-paper lg:mt-16"
               >
                 {METHOD.title}
-                {/* Inline superscript, so the mark never wraps to its own line
-                    or inherits the headline tracking. */}
-                <span className="align-super text-[0.45em] text-mist-400">
-                  {METHOD.trademark}
-                </span>
               </h2>
             </Reveal>
 

@@ -9,7 +9,7 @@ import { absoluteUrl, metadataFor } from '@/lib/routes';
 export const metadata: Metadata = metadataFor(G.path);
 
 const CANONICAL = absoluteUrl(G.path);
-const slug = (term: string) => term.toLowerCase().replace(/™/g, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+const slug = (term: string) => term.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 
 /* DefinedTermSet: the same vocabulary the method page already declares,
    extended to the thesis and the authorship terms. Mirrors the visible copy. */
@@ -48,7 +48,7 @@ const SCHEMA = {
 
 export default function GlossaryPage() {
   return (
-    <PageShell eyebrow="GLOSSARY" title={['Glossary:', 'Human Edge, Phoenix Soulfire™', 'and AI authorship']} standfirst={G.standfirst} media={MEDIA.method[3]} schema={SCHEMA}>
+    <PageShell eyebrow="GLOSSARY" title={['Glossary:', 'Human Edge, Phoenix Soulfire', 'and AI authorship']} standfirst={G.standfirst} media={MEDIA.method[3]} schema={SCHEMA}>
       <div className="u-gutter pb-[var(--spacing-section)]">
         {G.groups.map((group) => (
           <section key={group.id} aria-labelledby={`g-${group.id}`} className="mt-16 max-w-4xl border-t border-rule pt-10 first:mt-0">
@@ -68,7 +68,7 @@ export default function GlossaryPage() {
         ))}
         <Reveal className="mt-14 flex flex-wrap gap-x-10 gap-y-6">
           <ArrowLink href="/human-edge/">The Human Edge thesis</ArrowLink>
-          <ArrowLink href="/method/">The Phoenix Soulfire™ method</ArrowLink>
+          <ArrowLink href="/method/">The Phoenix Soulfire method</ArrowLink>
           <ArrowLink href="/writing/">All writing</ArrowLink>
         </Reveal>
       </div>

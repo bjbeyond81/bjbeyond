@@ -26,11 +26,11 @@ export default function ArtPage() {
             Art Market Intelligence & Artist Positioning
           </h2>
           <p className="mt-4 text-body font-light text-mist-200">
-            Alongside the essays and archival notes in <em>Art Notes</em>, BJ Beyond researches and writes about art market intelligence: artist positioning, market and auction context, and the Phoenix Soulfire™ human judgment layer. It is research, not a service — no evaluations, authentication or valuations are offered.
+            Alongside the essays and archival notes in <em>Art Notes</em>, BJ Beyond researches and writes about art market intelligence: artist positioning, market and auction context, and the Phoenix Soulfire human judgment layer. It is research, not a service — no evaluations, authentication or valuations are offered.
           </p>
           <div className="mt-6 flex flex-wrap gap-6">
             <ArrowLink href="/focus/">Explore the research focus</ArrowLink>
-            <ArrowLink href="/method/">The Phoenix Soulfire™ method</ArrowLink>
+            <ArrowLink href="/method/">The Phoenix Soulfire method</ArrowLink>
           </div>
         </Reveal>
       </section>

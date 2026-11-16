@@ -21,7 +21,7 @@ const records = [
   ['07 MAR 2026', 'Human Edge enters the public archive', 'A public thread names contextual intuition, anomaly detection, accountability and creativity as the places where the human edge remains strongest.'],
   ['14 MAR 2026', 'Collaboration, not replacement', 'The thesis moves from opposition to collaboration: “The edge is always in the collaboration, not replacement.”'],
   ['24 MAR 2026', 'Phoenix meets soul and curation', 'The value shifts away from generation speed toward the curator who adds story, vision and human judgment.'],
-  ['06 APR 2026', 'Phoenix Soulfire™ becomes an experiment', 'Human Edge Lab names Phoenix Soulfire™ and describes a live multimodal Human-in-the-Loop experiment.'],
+  ['06 APR 2026', 'Phoenix Soulfire becomes an experiment', 'Human Edge Lab names Phoenix Soulfire and describes a live multimodal Human-in-the-Loop experiment.'],
   ['MAY 2026', 'Testing reliability', 'The recovered record describes prompt-dominance and attribution tests, with differing outcomes. A preserved May 25 private round correctly identifies off-white; the selected media do not reproduce every public test.'],
   ['02–03 AUG 2026', 'A text-only call and Phoenix image replies', 'A text-only reply in a thread with an earlier video contains no explicit image-generation command. Later exchanges and a summary post preserve the image-response record.'],
   ['06–07 AUG 2026', 'Asking for a verifiable comparison', 'BJ Beyond requests another matching public case. A preserved private-chat screenshot shows Grok unable to provide the requested link; this does not prove uniqueness.'],
@@ -75,7 +75,7 @@ export default function HumanEdgePage() {
           <Reveal>
             <p className="u-label text-mist-400">PUBLIC RECORD</p>
             <h2 className="mt-5 max-w-4xl text-headline font-extralight text-paper">
-              The thesis existed before Phoenix Soulfire™.
+              The thesis existed before Phoenix Soulfire.
             </h2>
           </Reveal>
           <RevealGroup delay={0.1} className="mt-10">
@@ -95,13 +95,13 @@ export default function HumanEdgePage() {
           <Reveal>
             <p className="u-label text-mist-400">FROM THESIS TO EVIDENCE</p>
             <h2 className="mt-5 max-w-4xl text-headline font-extralight text-paper">
-              Human Edge is my thesis. The Phoenix Experiment is the recovered record. Phoenix Soulfire™ is my current{' '}
+              Human Edge is my thesis. The Phoenix Experiment is the recovered record. Phoenix Soulfire is my current{' '}
               <Link href="/method/" className="underline underline-offset-4">five-test judgment framework</Link>. The archive does not establish the model’s hidden reasoning.
             </h2>
           </Reveal>
           <Reveal delay={0.1} className="mt-10 flex flex-wrap gap-x-10 gap-y-6">
             <ArrowLink href="/phoenix-experiment/">Enter the Phoenix Evidence Room</ArrowLink>
-            <ArrowLink href="/method/">Read the Phoenix Soulfire™ method</ArrowLink>
+            <ArrowLink href="/method/">Read the Phoenix Soulfire method</ArrowLink>
             <ArrowLink href="/writing/">Read the field notes</ArrowLink>
             <ArrowLink href="/glossary/">Glossary of terms</ArrowLink>
           </Reveal>
