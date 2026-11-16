@@ -26,7 +26,7 @@ export function editionSchema(e: ArtEdition) {
         publisher: { '@type': 'Organization', name: SITE.name, url: 'https://bjbeyond.it/' },
         image: absoluteUrl('/opengraph-image.jpg'),
         inLanguage: 'en',
-        translationOfWork: { '@type': 'CreativeWork', name: e.originalTitle, url: e.original, inLanguage: 'it' },
+        translationOfWork: { '@type': 'CreativeWork', name: e.originalTitle, inLanguage: 'it' },
         about: e.about.map((name) => ({ '@type': 'Thing', name })),
         breadcrumb: { '@id': `${url}#breadcrumb` },
       },

@@ -75,7 +75,7 @@ const datasetSchema = {
   description: `Public table of Grok image replies on X in the Phoenix Experiment, covering ${PHOENIX_DATASET.window}. ${PHOENIX_DATASET.rows} rows and ${PHOENIX_DATASET.imageReplies} Grok image replies, ${PHOENIX_DATASET.unrequestedShare} without an explicit image-generation request. Images are not included, because of rights limits on redistributing X and Grok media.`,
   creator: {
     '@type': 'Person',
-    name: 'Matteo Zanetti',
+    name: 'BJ Beyond',
     affiliation: { '@type': 'Organization', name: 'BJ Beyond', url: 'https://bjbeyond.it/' },
   },
   identifier: [PHOENIX_DATASET.doi, PHOENIX_DATASET.versionDoi],

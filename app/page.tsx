@@ -141,7 +141,6 @@ export default function HomePage() {
             <h3 id="kounellis-preview-title">{KOUNELLIS.title}</h3>
             <p>{KOUNELLIS.standfirst}</p>
             <div className="edge-article-link flex-wrap gap-x-6 gap-y-3">
-              <a href={KOUNELLIS.original} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center gap-3">Read the Italian original <Arrow diagonal /></a>
               <a href={KOUNELLIS.href} className="inline-flex min-h-11 items-center gap-3">English translation <Arrow /></a>
             </div>
           </div>
