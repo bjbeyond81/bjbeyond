@@ -14,7 +14,7 @@ export function Footer() {
             <Logo className="w-9 text-paper" title={SITE.name} />
             <p className="u-label mt-6 text-paper">
               {SITE.wordmark}
-              <span className="align-super text-[0.6em] text-mist-400">™</span>
+              <span className="align-super text-[0.6em] text-mist-400"></span>
             </p>
             <p className="u-label mt-3 max-w-[24ch] text-mist-400">
               {FOOTER.statement}

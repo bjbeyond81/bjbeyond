@@ -20,7 +20,7 @@ const AUTHOR = { '@type': 'Person', name: 'BJ Beyond', url: 'https://bjbeyond.it
  * engines attribute the pieces (and the experiments they report) to BJ Beyond.
  * It mirrors the card data only — no copy is added here.
  */
-type ListedPost = { url: string; headline: string; description: string; datePublished: string; publisher: { name: string; url: string }; keywords?: string; translationOf?: { name: string; url: string } };
+type ListedPost = { url: string; headline: string; description: string; datePublished: string; publisher: { name: string; url: string }; keywords?: string; translationOf?: { name: string } };
 
 const SELF = { name: 'BJ Beyond', url: 'https://bjbeyond.it/' };
 
@@ -36,9 +36,9 @@ function listedPosts(articles: readonly (typeof WRITING.articles)[number][]): Li
       keywords: article.topics.join(', '),
     })),
     { url: THINK_BEYOND_AI.href, headline: THINK_BEYOND_AI.title, description: THINK_BEYOND_AI.description, datePublished: THINK_BEYOND_AI.published, publisher: THINK_BEYOND_AI.publisher },
-    { url: absoluteUrl(ART_EDITIONS[0].path), headline: ART_EDITIONS[0].title, description: ART_EDITIONS[0].description, datePublished: ART_EDITIONS[0].published, publisher: SELF, translationOf: { name: ART_EDITIONS[0].originalTitle, url: ART_EDITIONS[0].original } },
-    { url: absoluteUrl(KOUNELLIS.path), headline: KOUNELLIS.title, description: KOUNELLIS.description, datePublished: KOUNELLIS.published, publisher: SELF, translationOf: { name: KOUNELLIS.originalTitle, url: KOUNELLIS.original } },
-    { url: absoluteUrl(ART_EDITIONS[1].path), headline: ART_EDITIONS[1].title, description: ART_EDITIONS[1].description, datePublished: ART_EDITIONS[1].published, publisher: SELF, translationOf: { name: ART_EDITIONS[1].originalTitle, url: ART_EDITIONS[1].original } },
+    { url: absoluteUrl(ART_EDITIONS[0].path), headline: ART_EDITIONS[0].title, description: ART_EDITIONS[0].description, datePublished: ART_EDITIONS[0].published, publisher: SELF, translationOf: { name: ART_EDITIONS[0].originalTitle } },
+    { url: absoluteUrl(KOUNELLIS.path), headline: KOUNELLIS.title, description: KOUNELLIS.description, datePublished: KOUNELLIS.published, publisher: SELF, translationOf: { name: KOUNELLIS.originalTitle } },
+    { url: absoluteUrl(ART_EDITIONS[1].path), headline: ART_EDITIONS[1].title, description: ART_EDITIONS[1].description, datePublished: ART_EDITIONS[1].published, publisher: SELF, translationOf: { name: ART_EDITIONS[1].originalTitle } },
   ];
 }
 
@@ -166,25 +166,25 @@ export default function WritingPage() {
         <Reveal className="mt-14 border-y border-rule py-10">
           <p className="u-label text-amber-400">ART & CULTURE / TAMAGO-ZINE</p>
           <h2 className="mt-5 text-headline font-extralight text-paper">Art & Culture — Tamago-Zine</h2>
-          <p className="mt-4 max-w-3xl text-body text-mist-300">English editions of essays originally published in Italian by Matteo Zanetti. Separate from the HackerNoon collection above.</p>
+          <p className="mt-4 max-w-3xl text-body text-mist-300">English editions of essays originally published in Italian on Tamago-Zine. Separate from the HackerNoon collection above.</p>
           <div className="mt-8 grid gap-10 md:grid-cols-2 lg:grid-cols-3">
             <article>
               <p className="u-label text-mist-500">18 OCTOBER 2026 · ART & MUSIC</p>
               <h3 className="mt-3 text-title font-extralight text-paper">Use Your Illusion: The Painting, the Title, and the Unverified $75,000</h3>
               <p className="mt-3 text-body text-mist-300">How Mark Kostabi’s painting became the face of two Guns N’ Roses albums — and why the often-repeated payment figure remains unproven.</p>
-              <div className="mt-5 flex flex-wrap gap-5"><ArrowLink href="/art/use-your-illusion/">Read English edition</ArrowLink><ArrowLink href="https://tamagozine.org/2026/10/18/use-your-illusioin-il-dipinto-il-titolo-e-i-75-000-dollari-che-nessuno-ha-mai-verificato/" external>Italian original</ArrowLink></div>
+              <div className="mt-5 flex flex-wrap gap-5"><ArrowLink href="/art/use-your-illusion/">Read English edition</ArrowLink></div>
             </article>
             <article>
               <p className="u-label text-mist-500">ART & HISTORY</p>
               <h3 className="mt-3 text-title font-extralight text-paper">{KOUNELLIS.title}</h3>
               <p className="mt-3 text-body text-mist-300">{KOUNELLIS.standfirst}</p>
-              <div className="mt-5 flex flex-wrap gap-5"><ArrowLink href={KOUNELLIS.href}>Read English edition</ArrowLink><ArrowLink href={KOUNELLIS.original} external>Italian original</ArrowLink></div>
+              <div className="mt-5 flex flex-wrap gap-5"><ArrowLink href={KOUNELLIS.href}>Read English edition</ArrowLink></div>
             </article>
             <article>
               <p className="u-label text-mist-500">2 NOVEMBER 2026 · ART & COLLECTING</p>
               <h3 className="mt-3 text-title font-extralight text-paper">A Promise That Lasted Seven Years</h3>
               <p className="mt-3 text-body text-mist-300">From a red IMPACT at ArtePadova in 2019 to a white one linked to the Tanzania Pavilion project in 2026: seven years of a shared promise and the gesture that held it.</p>
-              <div className="mt-5 flex flex-wrap gap-5"><ArrowLink href="/art/a-promise-that-lasted-seven-years/">Read English edition</ArrowLink><ArrowLink href="https://tamagozine.org/2026/11/02/una-promessa-durata-sette-anni/" external>Italian original</ArrowLink></div>
+              <div className="mt-5 flex flex-wrap gap-5"><ArrowLink href="/art/a-promise-that-lasted-seven-years/">Read English edition</ArrowLink></div>
             </article>
           </div>
         </Reveal>

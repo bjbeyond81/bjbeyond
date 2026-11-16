@@ -177,7 +177,7 @@ export function Hero() {
         <div className="u-gutter flex items-center gap-6 py-4">
           <span className="u-label shrink-0 text-paper">
             {SITE.wordmark}
-            <span className="align-super text-[0.6em] text-mist-400">™</span>
+            <span className="align-super text-[0.6em] text-mist-400"></span>
           </span>
 
           <span className="hidden h-px flex-1 bg-rule sm:block" />

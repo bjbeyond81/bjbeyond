@@ -1,7 +1,5 @@
 import { KOUNELLIS as A } from '@/lib/kounellis';
 
-const linkClass = 'inline-flex min-h-11 items-center text-amber-400 underline decoration-amber-400/40 underline-offset-4 hover:decoration-amber-400';
-
 /**
  * `standalone` is the dedicated page (/writing/kounellis-italics/), where the
  * PageShell masthead already carries the title as the h1: the inline title is
@@ -29,9 +27,6 @@ export function KounellisArticle({ standalone = false }: { standalone?: boolean 
             By {A.author} · Originally published by {A.publisher} on{' '}
             <time dateTime={A.published}>{A.publishedLabel}</time>
           </p>
-          <a href={A.original} target="_blank" rel="noopener noreferrer" className={`${linkClass} mt-3 text-meta`}>
-            Read the original Italian article on Tamagozine ↗
-          </a>
         </header>
 
         <aside aria-labelledby={`${A.id}-note`} className="mt-8 border-l-2 border-amber-400 bg-ink-850 p-5 sm:p-6">
@@ -76,9 +71,6 @@ export function KounellisArticle({ standalone = false }: { standalone?: boolean 
               <span className="text-meta text-mist-300">ISBN {A.catalogue.isbn}.</span>
             </p>
           </div>
-          <a href={A.original} target="_blank" rel="noopener noreferrer" className={`${linkClass} mt-6 text-meta`}>
-            Original publication: Tamagozine ↗
-          </a>
         </footer>
       </div>
     </article>

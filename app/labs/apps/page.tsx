@@ -104,7 +104,7 @@ export default function AppsExperimentPage() {
               02 — How I build: the machine drafts, I decide
             </h2>
             <p className={P}>
-              I use the same split as <A href="/method/">Phoenix Soulfire™</A>. The machine pass comes first, the human pass second.
+              I use the same split as <A href="/method/">Phoenix Soulfire</A>. The machine pass comes first, the human pass second.
             </p>
             <p className={P}>
               AI drafts: code, interface variants, translations into English, Italian and German, first versions of product copy. It is fast, fluent and, left alone, interchangeable.

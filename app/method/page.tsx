@@ -9,7 +9,7 @@ import { MEDIA } from '@/lib/media';
 import { METHOD_SCHEMA } from '@/lib/method-schema';
 
 /**
- * /method/ — the official page of Phoenix Soulfire™.
+ * /method/ — the official page of Phoenix Soulfire.
  *
  * THE COPY IS THE OWNER'S, WORD FOR WORD. It is long on purpose: it is written
  * to be read and quoted by search engines and AI assistants. Do not summarise,
@@ -20,10 +20,10 @@ import { METHOD_SCHEMA } from '@/lib/method-schema';
  * must render exactly as written, without the layout's `%s — BJ Beyond`
  * template, and the social cards carry their own title.
  */
-const PAGE_TITLE = 'Phoenix Soulfire™: A Five-Test Human Judgment Framework for AI Decisions';
+const PAGE_TITLE = 'Phoenix Soulfire: A Five-Test Human Judgment Framework for AI Decisions';
 const PAGE_DESCRIPTION =
-  'Phoenix Soulfire™ is the five-test human judgment layer by BJ Beyond (Verona): Soul, Edge, Clarity, Impact, Legacy. Not an art scorecard.';
-const CARD_TITLE = 'Phoenix Soulfire™: A Five-Test Human Judgment Framework for AI Decisions';
+  'Phoenix Soulfire is the five-test human judgment layer by BJ Beyond (Verona): Soul, Edge, Clarity, Impact, Legacy. Not an art scorecard.';
+const CARD_TITLE = 'Phoenix Soulfire: A Five-Test Human Judgment Framework for AI Decisions';
 const OG_IMAGE = {
   url: '/opengraph-image.jpg',
   width: 1200,
@@ -133,8 +133,8 @@ const STRONG = 'font-normal text-paper';
 export default function MethodPage() {
   return (
     <PageShell
-      eyebrow="Phoenix Soulfire™ Method"
-      title={['Phoenix Soulfire™: A Five-Test Human Judgment Framework for AI Decisions']}
+      eyebrow="Phoenix Soulfire Method"
+      title={['Phoenix Soulfire: A Five-Test Human Judgment Framework for AI Decisions']}
       standfirst="Judgment layer. Not an art scorecard. Five tests before I trust a text, a work, or a plan."
       media={MEDIA.method[0]}
       schema={METHOD_SCHEMA}
@@ -147,7 +147,7 @@ export default function MethodPage() {
               </a>
             </li>
             <li aria-hidden="true">›</li>
-            <li aria-current="page">Phoenix Soulfire™ Method</li>
+            <li aria-current="page">Phoenix Soulfire Method</li>
           </ol>
         </nav>
       }
@@ -157,7 +157,7 @@ export default function MethodPage() {
           <Reveal>
             <p className="text-lede font-light text-mist-200">
               <strong className={STRONG}>
-                Phoenix Soulfire™ is the five-test human judgment layer created by BJ Beyond
+                Phoenix Soulfire is the five-test human judgment layer created by BJ Beyond
                 (Verona, Italy) to check whether a text, a work or a plan holds up beyond what
                 AI can generate.
               </strong>{' '}
@@ -165,7 +165,7 @@ export default function MethodPage() {
               each with a clear fail signal. Soul, Edge, Clarity, Impact, Legacy.
             </p>
             <p className={P}>
-              This is the official page of the method. Phoenix Soulfire™ is not affiliated with
+              This is the official page of the method. Phoenix Soulfire is not affiliated with
               phoenixsoulfire.com or with other projects with similar names.
             </p>
           </Reveal>
@@ -207,7 +207,7 @@ export default function MethodPage() {
               Generating content has become cheap. Judgment has not. Fluent is not the same as
               owned, true or lasting. For BJ Beyond, &ldquo;Beyond&rdquo; is what comes after
               artificial intelligence: judgment, lived experience, the part a model cannot fake.
-              Phoenix Soulfire™ turns that idea into five tests.
+              Phoenix Soulfire turns that idea into five tests.
             </p>
           </section>
 
@@ -296,16 +296,16 @@ export default function MethodPage() {
             </h2>
             <div className="mt-4">
               <h3 className="mt-10 text-title font-extralight text-paper">
-                What is Phoenix Soulfire™?
+                What is Phoenix Soulfire?
               </h3>
               <p className={P}>
-                Phoenix Soulfire™ is the five-test human judgment layer created by BJ Beyond
+                Phoenix Soulfire is the five-test human judgment layer created by BJ Beyond
                 (Verona, Italy) to check whether a text, a work or a plan holds up beyond what AI
                 can generate. The five tests are Soul, Edge, Clarity, Impact and Legacy.
               </p>
 
               <h3 className="mt-10 text-title font-extralight text-paper">
-                Who created Phoenix Soulfire™?
+                Who created Phoenix Soulfire?
               </h3>
               <p className={P}>
                 BJ Beyond, an independent writer in Verona, Italy, exploring contemporary art,
@@ -314,10 +314,10 @@ export default function MethodPage() {
               </p>
 
               <h3 className="mt-10 text-title font-extralight text-paper">
-                Is Phoenix Soulfire™ an art scorecard?
+                Is Phoenix Soulfire an art scorecard?
               </h3>
               <p className={P}>
-                No. Phoenix Soulfire™ is a judgment layer, not an art scorecard and not a numeric
+                No. Phoenix Soulfire is a judgment layer, not an art scorecard and not a numeric
                 rating. Each test ends in a human judgment with a clear fail signal. It does not authenticate an artwork or establish a market valuation.
               </p>
 
@@ -328,11 +328,11 @@ export default function MethodPage() {
                 A free public tool by BJ Beyond at{' '}
                 <A href="https://phoenixsoulfire.bjbeyond.it/">phoenixsoulfire.bjbeyond.it</A> that
                 shows how machine-like a pasted text feels. It is the machine pass that tests the
-                surface; the five Phoenix Soulfire™ tests are the human pass after it.
+                surface; the five Phoenix Soulfire tests are the human pass after it.
               </p>
 
               <h3 className="mt-10 text-title font-extralight text-paper">
-                Can Phoenix Soulfire™ be applied to artworks?
+                Can Phoenix Soulfire be applied to artworks?
               </h3>
               <p className={P}>
                 Yes. The tests apply to a text, a work or a plan, and an artwork is a work. Soul
@@ -341,22 +341,22 @@ export default function MethodPage() {
               </p>
 
               <h3 className="mt-10 text-title font-extralight text-paper">
-                Is Phoenix Soulfire™ related to phoenixsoulfire.com?
+                Is Phoenix Soulfire related to phoenixsoulfire.com?
               </h3>
               <p className={P}>
                 No. phoenixsoulfire.com is an unrelated website with a similar name. Phoenix
-                Soulfire™ belongs to BJ Beyond, and its official page is{' '}
+                Soulfire belongs to BJ Beyond, and its official page is{' '}
                 <A href="https://bjbeyond.it/method/">bjbeyond.it/method/</A>.
               </p>
 
               <h3 className="mt-10 text-title font-extralight text-paper">
-                Is Phoenix Soulfire™ the Phoenix Simulator?
+                Is Phoenix Soulfire the Phoenix Simulator?
               </h3>
               <p className={P}>
                 No. The Phoenix Simulator at{' '}
                 <A href="https://bjbeyond.it/phoenix/">bjbeyond.it/phoenix/</A> is a separate BJ
                 Beyond Labs tool that simulates X&rsquo;s For You algorithm. It is not the Phoenix
-                Soulfire™ method.
+                Soulfire method.
               </p>
 
               <h3 className="mt-10 text-title font-extralight text-paper">Where can I discuss the framework?</h3>

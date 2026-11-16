@@ -81,7 +81,7 @@ export const BEYOND = {
     ['CULTURE &', 'IMPACT STRATEGY'],
   ],
   stats: [
-    { value: '5', label: 'Phoenix Soulfire™ Tests' },
+    { value: '5', label: 'Phoenix Soulfire Tests' },
     { value: 'AI+', label: 'Human-Edge Strategy' },
     { value: '1:1', label: 'Bespoke Approach' },
   ],
@@ -410,14 +410,13 @@ export const METHOD = {
   index: '03',
   label: ['MY', 'METHOD'],
   title: 'PHOENIX SOULFIRE',
-  trademark: '™',
   description:
-    'Phoenix Soulfire™ is the five-test judgment layer: five tests before a text, a work, or a plan is trusted. The analyzer at /judgment/ is a separate tool.',
+    'Phoenix Soulfire is the five-test judgment layer: five tests before a text, a work, or a plan is trusted. The analyzer at /judgment/ is a separate tool.',
   cta: 'READ THE FIVE TESTS',
   /* The public tool lives on the subdomain. Same shape as AUTHENTIA.primary. */
   primary: { label: 'TRY THE ANALYZER', href: 'https://bjbeyond.it/judgment/' },
   statement:
-    'This page is the Phoenix Soulfire™ method. Phoenix Simulator, Judgment Analyzer, and Frequency Studio are tools. They are not the method.',
+    'This page is the Phoenix Soulfire method. Phoenix Simulator, Judgment Analyzer, and Frequency Studio are tools. They are not the method.',
   closer:
     'The five tests are the method. A tool can flag a surface. It cannot make the pass. Never outsource your judgment.',
   scrollCue: ['SCROLL TO', 'EXPLORE'],
@@ -577,7 +576,7 @@ export const WORK = {
       points: [
         'Positioning and valuation as research questions',
         'Comparables and market context',
-        'Phoenix Soulfire™ as a lens on works, statements and projects',
+        'Phoenix Soulfire as a lens on works, statements and projects',
         'Clear limits: no authentication, no market certification, no numeric scoring',
       ],
     },
@@ -600,10 +599,10 @@ export const WORK = {
         'Human-in-the-loop as a design principle',
         'Ownership and accountability in human–AI collaboration',
         'Adopting AI without giving up judgment',
-        'Method: Phoenix Soulfire™ five-test judgment layer',
+        'Method: Phoenix Soulfire five-test judgment layer',
       ],
       link: {
-        label: 'Method: Phoenix Soulfire™, the five-test judgment layer →',
+        label: 'Method: Phoenix Soulfire, the five-test judgment layer →',
         href: '/method/',
       },
     },
@@ -810,8 +809,8 @@ export const FAQ = {
       a: 'No. BJ Beyond is an independent writing and research project and does not offer consulting, evaluations or other professional services. Its research areas — art market intelligence, data systems and AI + Human Edge — are described at bjbeyond.it/focus/.',
     },
     {
-      q: 'What is Phoenix Soulfire™?',
-      a: 'Phoenix Soulfire™ is the five-test human judgment layer created by BJ Beyond to check whether a text, a work or a plan holds up beyond what AI can generate: Soul, Edge, Clarity, Impact, Legacy. The free Judgment Layer tool at phoenixsoulfire.bjbeyond.it is the machine pass; the five tests are the human pass after it. The method page is bjbeyond.it/method/. The Phoenix Simulator at /phoenix/ is a separate tool and is not the method.',
+      q: 'What is Phoenix Soulfire?',
+      a: 'Phoenix Soulfire is the five-test human judgment layer created by BJ Beyond to check whether a text, a work or a plan holds up beyond what AI can generate: Soul, Edge, Clarity, Impact, Legacy. The free Judgment Layer tool at phoenixsoulfire.bjbeyond.it is the machine pass; the five tests are the human pass after it. The method page is bjbeyond.it/method/. The Phoenix Simulator at /phoenix/ is a separate tool and is not the method.',
     },
     {
       q: 'Where is BJ Beyond based?',
@@ -869,9 +868,9 @@ export const FOOTER = {
  */
 export const GLOSSARY = {
   path: '/glossary/',
-  title: 'Glossary — Human Edge & Phoenix Soulfire™',
+  title: 'Glossary — Human Edge & Phoenix Soulfire',
   description:
-    'The BJ Beyond glossary: Human Edge, Phoenix Soulfire™ and its five tests, the Phoenix Experiment, Claudefishing, and detection versus disclosure.',
+    'The BJ Beyond glossary: Human Edge, Phoenix Soulfire and its five tests, the Phoenix Experiment, Claudefishing, and detection versus disclosure.',
   standfirst: 'The working vocabulary of the site, defined in the words already used on it.',
   groups: [
     {
@@ -897,7 +896,7 @@ export const GLOSSARY = {
       label: 'The method',
       terms: [
         {
-          term: 'Phoenix Soulfire™',
+          term: 'Phoenix Soulfire',
           definition:
             'The five-test human judgment layer created by BJ Beyond to check whether a text, a work or a plan holds up beyond what AI can generate. It is a judgment layer, not an art scorecard and not a numeric rating; it does not authenticate an artwork or establish a market valuation.',
           source: '/method/',
@@ -910,7 +909,7 @@ export const GLOSSARY = {
         {
           term: 'Phoenix Simulator',
           definition:
-            'An illustrative BJ Beyond Labs simulator exploring possible distribution signals on X. It is not X’s actual algorithm, and it is not the Phoenix Soulfire™ method.',
+            'An illustrative BJ Beyond Labs simulator exploring possible distribution signals on X. It is not X’s actual algorithm, and it is not the Phoenix Soulfire method.',
           source: '/phoenix/',
         },
       ],

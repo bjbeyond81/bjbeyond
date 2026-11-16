@@ -16,9 +16,9 @@ const groups = [
     ['04_phoenix_march24_original.jpg', 'Phoenix — March 24 image'],
     ['05_phoenix_march24_text.jpg', 'Phoenix — March 24 text'],
   ] },
-  { id: 'april', title: 'Phoenix Soulfire™ / public reports', date: '06–08 APR 2026', reference: 'Tweet IDs: 2041129633865773476 · 2041240386832629772 · 2041585506031378691 · 2041972930955894895', files: [
+  { id: 'april', title: 'Phoenix Soulfire / public reports', date: '06–08 APR 2026', reference: 'Tweet IDs: 2041129633865773476 · 2041240386832629772 · 2041585506031378691 · 2041972930955894895', files: [
     ['06_phoenix_soulfire_ep3_frame.jpg', 'Episode 3 frame'],
-    ['07_phoenix_soulfire_apr6_text.jpg', 'Phoenix Soulfire™ — April 6 text'],
+    ['07_phoenix_soulfire_apr6_text.jpg', 'Phoenix Soulfire — April 6 text'],
     ['08_human_in_loop_original.jpg', 'Early views graphic — metrics not validated'],
     ['09_human_in_loop_text.jpg', 'Human-in-the-Loop text'],
     ['10_final_report_apr8.jpg', 'Early report graphic — metrics not validated'],
@@ -75,7 +75,7 @@ const datasetSchema = {
   description: `Public table of Grok image replies on X in the Phoenix Experiment, covering ${PHOENIX_DATASET.window}. ${PHOENIX_DATASET.rows} rows and ${PHOENIX_DATASET.imageReplies} Grok image replies, ${PHOENIX_DATASET.unrequestedShare} without an explicit image-generation request. Images are not included, because of rights limits on redistributing X and Grok media.`,
   creator: {
     '@type': 'Person',
-    name: 'Matteo Zanetti',
+    name: 'BJ Beyond',
     affiliation: { '@type': 'Organization', name: 'BJ Beyond', url: 'https://bjbeyond.it/' },
   },
   identifier: [PHOENIX_DATASET.doi, PHOENIX_DATASET.versionDoi],
@@ -93,7 +93,7 @@ export default function PhoenixExperimentPage() {
     <main id="main" className="px pxLibrary">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ ...siteSchema(), '@graph': [...siteSchema()['@graph'], { '@type': 'CollectionPage', '@id': 'https://bjbeyond.it/phoenix-experiment/#page', url: 'https://bjbeyond.it/phoenix-experiment/', name: 'Grok Replied with Images I Never Asked For: The Phoenix Experiment Record', description: PHOENIX.description, author: { '@id': 'https://bjbeyond.it/#person' }, inLanguage: 'en', isBasedOn: REPORTS.map((r) => ({ '@id': `${r.article}#article` })) }, ...REPORTS.map(reportSchema), datasetSchema] }) }} />
       <header className="pxNav pxShell">
-        <Link href="/" className="pxBrand">BJ BEYOND™</Link>
+        <Link href="/" className="pxBrand">BJ BEYOND</Link>
         <nav aria-label="Evidence Room"><a href="#timeline">TIMELINE</a><a href="#records">RECORDS</a><a href="#dataset">DATASET</a><a href="#limits">LIMITS</a></nav>
         <Link href="/" className="pxBack">← HOME</Link>
       </header>
@@ -182,7 +182,7 @@ export default function PhoenixExperimentPage() {
         <p className="pxLibrarySource">Human Edge is the author’s thesis. The Phoenix Experiment is the case study and recovered record. Phoenix Soulfire was named as a creative series in April; its present <Link href="/method/">five-test judgment framework</Link> is a separate current formulation, not a benchmark validated by these screenshots.</p>
         <div className="pxActions"><Link href="/#phoenix" className="pxPrimary">BACK TO THE PROJECT</Link><a href="https://hackernoon.com/u/bj_beyond" target="_blank" rel="noopener noreferrer" className="pxSecondary">BJ BEYOND ON HACKERNOON ↗</a></div>
       </section>
-      <footer className="pxFooter pxShell"><span>BJ BEYOND™</span><span>PHOENIX EXPERIMENT / EVIDENCE ROOM</span></footer>
+      <footer className="pxFooter pxShell"><span>BJ BEYOND</span><span>PHOENIX EXPERIMENT / EVIDENCE ROOM</span></footer>
     </main>
   );
 }

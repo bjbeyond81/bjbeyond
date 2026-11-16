@@ -55,12 +55,9 @@ export default function APromiseThatLastedSevenYearsPage() {
     >
       <section className="u-gutter pb-[var(--spacing-section)]">
         <p className="text-meta text-mist-300">
-          English edition · Originally published by Matteo Zanetti in Tamago-Zine on 2 November 2026.
+          English edition · Originally published in Tamago-Zine on 2 November 2026.
         </p>
         <div className="mt-5 flex flex-wrap gap-6">
-          <ArrowLink href="https://tamagozine.org/2026/11/02/una-promessa-durata-sette-anni/" external>
-            Read the Italian original
-          </ArrowLink>
           <ArrowLink href="/writing/">All writing</ArrowLink>
         </div>
         <div className="mt-12 max-w-3xl space-y-12">

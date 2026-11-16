@@ -45,7 +45,7 @@ export const PERSON_ID = `${SITE.url}/#person`;
  * only in structured data; the visible meta description stays `SITE.description`.
  */
 const ENTITY_DESCRIPTION =
-  'BJ Beyond is an independent writer based in Verona, Italy, exploring contemporary art, AI, authorship and human judgment, with research on art market intelligence, artist positioning, data systems and AI + Human Edge. Human Edge is the author’s thesis; the Phoenix Experiment is a recovered-archive case study. Phoenix Soulfire™ is the current five-test judgment framework.';
+  'BJ Beyond is an independent writer based in Verona, Italy, exploring contemporary art, AI, authorship and human judgment, with research on art market intelligence, artist positioning, data systems and AI + Human Edge. Human Edge is the author’s thesis; the Phoenix Experiment is a recovered-archive case study. Phoenix Soulfire is the current five-test judgment framework.';
 
 /** The Journal, served from GitHub Pages and canonical to itself. */
 const JOURNAL_URL = 'https://bjbeyond81.github.io/studio/';
@@ -95,7 +95,7 @@ export function siteSchema() {
           'human judgment',
           'authorship',
           'Phoenix Experiment',
-          'Phoenix Soulfire™',
+          'Phoenix Soulfire',
           'art authentication',
           'data systems',
           'AI + Human Edge strategy',

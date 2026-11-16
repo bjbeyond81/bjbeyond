@@ -34,7 +34,7 @@ const SCHEMA = {
       publisher: { '@type': 'Organization', name: SITE.name, url: 'https://bjbeyond.it/' },
       image: absoluteUrl('/opengraph-image.jpg'),
       inLanguage: 'en',
-      translationOfWork: { '@type': 'CreativeWork', name: A.originalTitle, url: A.original, inLanguage: 'it' },
+      translationOfWork: { '@type': 'CreativeWork', name: A.originalTitle, inLanguage: 'it' },
       about: ['Jannis Kounellis', 'Italics (Palazzo Grassi)', 'Arte Povera', 'Pietro Annigoni'].map((name) => ({ '@type': 'Thing', name })),
       breadcrumb: { '@id': `${CANONICAL}#breadcrumb` },
     },

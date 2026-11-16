@@ -27,7 +27,7 @@ export const METHOD_SCHEMA = {
         "art market intelligence",
         "artist valuation & positioning",
         "AI + Human Edge strategy",
-        "Phoenix Soulfire™",
+        "Phoenix Soulfire",
         "art authentication",
         "data systems"
       ],
@@ -70,8 +70,8 @@ export const METHOD_SCHEMA = {
       "@type": "WebPage",
       "@id": "https://bjbeyond.it/method/#webpage",
       "url": "https://bjbeyond.it/method/",
-      "name": "Phoenix Soulfire™: A Five-Test Human Judgment Framework for AI Decisions",
-      "description": "Phoenix Soulfire™ is the five-test human judgment layer by BJ Beyond (Verona): Soul, Edge, Clarity, Impact, Legacy. Not an art scorecard.",
+      "name": "Phoenix Soulfire: A Five-Test Human Judgment Framework for AI Decisions",
+      "description": "Phoenix Soulfire is the five-test human judgment layer by BJ Beyond (Verona): Soul, Edge, Clarity, Impact, Legacy. Not an art scorecard.",
       "inLanguage": "en",
       "isPartOf": {
         "@id": "https://bjbeyond.it/#website"
@@ -103,7 +103,7 @@ export const METHOD_SCHEMA = {
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "Phoenix Soulfire™ Method",
+          "name": "Phoenix Soulfire Method",
           "item": "https://bjbeyond.it/method/"
         }
       ]
@@ -111,13 +111,13 @@ export const METHOD_SCHEMA = {
     {
       "@type": "DefinedTermSet",
       "@id": "https://bjbeyond.it/method/#phoenix-soulfire",
-      "name": "Phoenix Soulfire™",
+      "name": "Phoenix Soulfire",
       "alternateName": [
         "Phoenix Soulfire",
         "Phoenix Soulfire method",
         "Phoenix Soulfire judgment layer"
       ],
-      "description": "Phoenix Soulfire™ is the five-test human judgment layer created by BJ Beyond (Verona, Italy) to check whether a text, a work or a plan holds up beyond what AI can generate.",
+      "description": "Phoenix Soulfire is the five-test human judgment layer created by BJ Beyond (Verona, Italy) to check whether a text, a work or a plan holds up beyond what AI can generate.",
       "url": "https://bjbeyond.it/method/",
       "inLanguage": "en",
       "creator": {
@@ -204,15 +204,15 @@ export const METHOD_SCHEMA = {
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "What is Phoenix Soulfire™?",
+          "name": "What is Phoenix Soulfire?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Phoenix Soulfire™ is the five-test human judgment layer created by BJ Beyond (Verona, Italy) to check whether a text, a work or a plan holds up beyond what AI can generate. The five tests are Soul, Edge, Clarity, Impact and Legacy."
+            "text": "Phoenix Soulfire is the five-test human judgment layer created by BJ Beyond (Verona, Italy) to check whether a text, a work or a plan holds up beyond what AI can generate. The five tests are Soul, Edge, Clarity, Impact and Legacy."
           }
         },
         {
           "@type": "Question",
-          "name": "Who created Phoenix Soulfire™?",
+          "name": "Who created Phoenix Soulfire?",
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "BJ Beyond, an independent writer in Verona, Italy, exploring art, AI, authorship and human judgment. The official page of the method is bjbeyond.it/method/."
@@ -220,10 +220,10 @@ export const METHOD_SCHEMA = {
         },
         {
           "@type": "Question",
-          "name": "Is Phoenix Soulfire™ an art scorecard?",
+          "name": "Is Phoenix Soulfire an art scorecard?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. Phoenix Soulfire™ is a judgment layer, not an art scorecard and not a numeric rating. Each test ends in a human judgment with a clear fail signal. It does not authenticate an artwork or establish a market valuation."
+            "text": "No. Phoenix Soulfire is a judgment layer, not an art scorecard and not a numeric rating. Each test ends in a human judgment with a clear fail signal. It does not authenticate an artwork or establish a market valuation."
           }
         },
         {
@@ -231,12 +231,12 @@ export const METHOD_SCHEMA = {
           "name": "What is the PhoenixSoulfire Judgment Layer?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "A free public tool by BJ Beyond at phoenixsoulfire.bjbeyond.it that shows how machine-like a pasted text feels. It is the machine pass that tests the surface; the five Phoenix Soulfire™ tests are the human pass after it."
+            "text": "A free public tool by BJ Beyond at phoenixsoulfire.bjbeyond.it that shows how machine-like a pasted text feels. It is the machine pass that tests the surface; the five Phoenix Soulfire tests are the human pass after it."
           }
         },
         {
           "@type": "Question",
-          "name": "Can Phoenix Soulfire™ be applied to artworks?",
+          "name": "Can Phoenix Soulfire be applied to artworks?",
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Yes. The tests apply to a text, a work or a plan, and an artwork is a work. Soul asks whether it could be anyone's; Legacy asks what remains after the feed moves. It is a human judgment, not a valuation or an authentication."
@@ -244,18 +244,18 @@ export const METHOD_SCHEMA = {
         },
         {
           "@type": "Question",
-          "name": "Is Phoenix Soulfire™ related to phoenixsoulfire.com?",
+          "name": "Is Phoenix Soulfire related to phoenixsoulfire.com?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. phoenixsoulfire.com is an unrelated website with a similar name. Phoenix Soulfire™ belongs to BJ Beyond, and its official page is bjbeyond.it/method/."
+            "text": "No. phoenixsoulfire.com is an unrelated website with a similar name. Phoenix Soulfire belongs to BJ Beyond, and its official page is bjbeyond.it/method/."
           }
         },
         {
           "@type": "Question",
-          "name": "Is Phoenix Soulfire™ the Phoenix Simulator?",
+          "name": "Is Phoenix Soulfire the Phoenix Simulator?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. The Phoenix Simulator at bjbeyond.it/phoenix/ is a separate BJ Beyond Labs tool that simulates X's For You algorithm. It is not the Phoenix Soulfire™ method."
+            "text": "No. The Phoenix Simulator at bjbeyond.it/phoenix/ is a separate BJ Beyond Labs tool that simulates X's For You algorithm. It is not the Phoenix Soulfire method."
           }
         },
         {

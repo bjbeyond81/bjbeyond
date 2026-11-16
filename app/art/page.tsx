@@ -26,11 +26,11 @@ export default function ArtPage() {
             Art Market Intelligence & Artist Positioning
           </h2>
           <p className="mt-4 text-body font-light text-mist-200">
-            Alongside the essays and archival notes in <em>Art Notes</em>, BJ Beyond researches and writes about art market intelligence: artist positioning, market and auction context, and the Phoenix Soulfire™ human judgment layer. It is research, not a service — no evaluations, authentication or valuations are offered.
+            Alongside the essays and archival notes in <em>Art Notes</em>, BJ Beyond researches and writes about art market intelligence: artist positioning, market and auction context, and the Phoenix Soulfire human judgment layer. It is research, not a service — no evaluations, authentication or valuations are offered.
           </p>
           <div className="mt-6 flex flex-wrap gap-6">
             <ArrowLink href="/focus/">Explore the research focus</ArrowLink>
-            <ArrowLink href="/method/">The Phoenix Soulfire™ method</ArrowLink>
+            <ArrowLink href="/method/">The Phoenix Soulfire method</ArrowLink>
           </div>
         </Reveal>
       </section>
@@ -42,7 +42,6 @@ export default function ArtPage() {
           <p className="mt-6 text-body font-light text-mist-200">{KOUNELLIS.standfirst}</p>
           <div className="mt-6 flex flex-wrap gap-6">
             <ArrowLink href={KOUNELLIS.href}>Read the English translation</ArrowLink>
-            <ArrowLink href={KOUNELLIS.original} external>Read the Italian original</ArrowLink>
           </div>
         </Reveal>
       </section>
@@ -65,7 +64,6 @@ export default function ArtPage() {
           <p className="mt-6 text-body font-light text-mist-200">From a red IMPACT at ArtePadova in 2019 to a white one linked to the Tanzania Pavilion project in 2026: seven years of a shared promise and the gesture that held it.</p>
           <div className="mt-6 flex flex-wrap gap-6">
             <ArrowLink href="/art/a-promise-that-lasted-seven-years/">Read the English translation</ArrowLink>
-            <ArrowLink href="https://tamagozine.org/2026/11/02/una-promessa-durata-sette-anni/" external>Read the Italian original</ArrowLink>
           </div>
         </Reveal>
       </section>
