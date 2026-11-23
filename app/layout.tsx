@@ -3,6 +3,7 @@ import { Inter, Playfair_Display, JetBrains_Mono } from 'next/font/google';
 import { SITE } from '@/lib/content';
 import { CONSENT_SIGNALS } from '@/lib/analytics';
 import { ConsentProvider } from '@/components/chrome/Consent';
+import { BookNotice } from '@/components/chrome/BookNotice';
 import { Analytics } from '@/components/chrome/Analytics';
 import './globals.css';
 
@@ -202,6 +203,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         */}
         <ConsentProvider>
           {children}
+          <BookNotice />
           <Analytics />
         </ConsentProvider>
       </body>

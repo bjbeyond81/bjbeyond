@@ -90,6 +90,8 @@
   --z-menu-control: 71;
   --z-cursor: 90;
   --z-preloader: 100;
+  /* The book notice. Above the cursor, under the skip link. */
+  --z-notice: 105;
   /* Above the opening curtain too — the skip link must always be reachable. */
   --z-skip: 110;
 }

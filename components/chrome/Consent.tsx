@@ -33,6 +33,8 @@ import { CONSENT_KEY, type ConsentStatus } from '@/lib/analytics';
 
 interface ConsentValue {
   status: ConsentStatus;
+  /** True while the cookie banner is on screen. */
+  asking: boolean;
   grant: () => void;
   deny: () => void;
   /** Reopens the banner so a decision can be changed. Wired to the footer. */
@@ -41,6 +43,7 @@ interface ConsentValue {
 
 const ConsentContext = createContext<ConsentValue>({
   status: 'unknown',
+  asking: false,
   grant: () => {},
   deny: () => {},
   reconsider: () => {},
@@ -88,14 +91,15 @@ export function ConsentProvider({ children }: { children: ReactNode }) {
   const value = useMemo<ConsentValue>(
     () => ({
       status,
+      asking: hydrated && (status === 'unknown' || reopened),
       grant: () => record('granted'),
       deny: () => record('denied'),
       reconsider: () => setReopened(true),
     }),
-    [status, record],
+    [status, hydrated, reopened, record],
   );
 
-  const visible = hydrated && (status === 'unknown' || reopened);
+  const visible = value.asking;
 
   return (
     <ConsentContext.Provider value={value}>
