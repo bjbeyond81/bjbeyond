@@ -9,7 +9,7 @@ import { PERSON_ID, WEBSITE_ID } from '@/lib/schema';
 import { PHOENIX, PHOENIX_FOLLOW_UP, PHOENIX_DATASET } from '@/lib/phoenix';
 
 /* Editorial only: no service vocabulary (valuation, strategy) — BJ Beyond offers no services. */
-const description = 'BJ Beyond is an independent writer in Verona, Italy, exploring art, AI, authorship and human judgment through essays and public experiments.';
+const description = 'BJ Beyond is an independent writer in Verona, Italy, exploring art, AI, authorship and human judgment through essays, the Phoenix Experiment and the book 22.';
 const baseMetadata = metadataFor('/about/');
 export const metadata: Metadata = {
   ...baseMetadata,
@@ -63,7 +63,7 @@ export default function AboutPage() {
             '@type': 'Person', '@id': PERSON_ID, name: 'BJ Beyond',
             url, description, jobTitle: 'Independent writer',
             homeLocation: { '@type': 'Place', name: 'Verona, Italy' },
-            knowsAbout: ['art market intelligence', 'artist valuation & positioning', 'data systems', 'AI + Human Edge strategy', 'contemporary art', 'human judgment'],
+            knowsAbout: ['art market intelligence', 'artist positioning and provenance', 'data systems', 'AI sycophancy and Human Edge', 'contemporary art', 'human judgment'],
             sameAs: ['https://x.com/Bj_Beyond', 'https://hackernoon.com/u/bj_beyond', 'https://bjbeyond.substack.com'],
           },
           {
@@ -132,6 +132,7 @@ export default function AboutPage() {
             <p className="mt-6 text-body font-light text-mist-300">Explore the writing. Examine the experiments. Join the conversation.</p>
             <div className="mt-10 flex flex-wrap items-center gap-x-10 gap-y-6">
               <ArrowLink href="/writing/">Explore the writing</ArrowLink>
+              <ArrowLink href="https://22.bjbeyond.it/" external>22 — the book</ArrowLink>
               <ArrowLink href="/writing/claude-opus-5-vs-pangram/">Claude Opus 5 vs Pangram: my public test</ArrowLink>
               <ArrowLink href="/focus/">Research focus</ArrowLink>
               <ArrowLink href="/phoenix-experiment/">Examine the experiments</ArrowLink>
