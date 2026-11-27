@@ -91,14 +91,14 @@ export function siteSchema() {
         knowsAbout: [
           'contemporary art',
           'art market intelligence',
-          'artist valuation & positioning',
+          'artist positioning and provenance',
           'human judgment',
           'authorship',
           'Phoenix Experiment',
           'Phoenix Soulfire',
           'art authentication',
           'data systems',
-          'AI + Human Edge strategy',
+          'AI sycophancy and Human Edge',
         ],
         /*
           The only address. A former collaborator address is not a contact
