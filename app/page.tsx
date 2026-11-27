@@ -16,11 +16,11 @@ const title = 'BJ Beyond — Independent Writer | Art, AI & Human Judgment';
 const baseMetadata = metadataFor('/');
 export const metadata: Metadata = {
   ...baseMetadata, title: { absolute: title }, description,
-  keywords: ['BJ Beyond', 'Human Edge', 'Phoenix Experiment', 'human judgment', 'authorship', 'contemporary art', 'artificial intelligence', 'art market intelligence', 'artist valuation & positioning', 'data systems', 'AI + Human Edge strategy', 'Verona', 'Italy'],
+  keywords: ['BJ Beyond', 'Human Edge', 'Phoenix Experiment', 'human judgment', 'authorship', 'contemporary art', 'artificial intelligence', 'art market intelligence', 'artist positioning and provenance', 'data systems', 'AI sycophancy and Human Edge', 'Verona', 'Italy'],
   openGraph: { ...baseMetadata.openGraph, title, description },
   twitter: { ...baseMetadata.twitter, title, description },
 };
-const KNOWS_ABOUT = ['Human Edge', 'human judgment', 'authorship', 'contemporary art', 'Phoenix Experiment', 'Phoenix Soulfire', 'AI text detection', 'artificial intelligence', 'art market intelligence', 'artist valuation & positioning', 'data systems', 'AI + Human Edge strategy'];
+const KNOWS_ABOUT = ['Human Edge', 'human judgment', 'authorship', 'contemporary art', 'Phoenix Experiment', 'Phoenix Soulfire', 'AI text detection', 'artificial intelligence', 'art market intelligence', 'artist positioning and provenance', 'data systems', 'AI sycophancy and Human Edge'];
 const articles = [...WRITING.articles].sort((a, b) => b.published.localeCompare(a.published));
 /**
  * The homepage FAQ, visible on the page AND as FAQPage markup. Answer engines
